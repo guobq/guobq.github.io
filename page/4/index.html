@@ -1,0 +1,700 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords"><meta name="author" content="bq,undefined"><meta name="copyright" content="bq"><title>【bq's notes】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"8ICB0LL54F","apiKey":"b6e01221a0e1bdb34d69e088b9bd39d8","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {"appId":"8xUuEcUoXahLwm69LVK1eumF-gzGzoHsz","appKey":"NDF5dcJsxuEHHBOLlda7Y07b"},
+}</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="bq's notes" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="author-info"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">bq</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/guobq" target="_blank">GitHub<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="mailto:2278220079@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color8"></i></a><a class="links-button button-hover" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2278220079&amp;site=qq&amp;menu=yes" target="_blank">QQ<i class="icon-dot bg-color0"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">73</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">73</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">25</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">bq's notes</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><div id="recent-posts"><!-- each post in page.posts.sort('date', -1).limit(10).toArray()--><!-- config中配置按照什么排序--><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/bfa86649.html">Linux三剑客</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-02-04</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Linux/">Linux</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Linux/Shell/">Shell</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/grep/">grep</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/sed/">sed</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/awk/">awk</a></div></div><div class="post-content"><div class="main-content content"><h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">点赞人数统计</span></span><br><span class="line">a=$(curl -s https://testerhome.com/topics|grep -o &#x27;href=&quot;/topics/[0-9]*&quot;&#x27;|awk -F &#x27;/|&quot;&#x27; &#x27;&#123;print $4&#125;&#x27;);for id in $a;do url=&#x27;https://testerhome.com/topics/&#x27;$id;zan=$(curl -s $url|grep -o -m1 &#x27;&lt;span&gt;[0-9]*&#x27;|awk -F &#x27;&gt;&#x27; &#x27;&#123;print $2&#125;&#x27;);if [ -n &quot;$zan&quot; ];then echo $url &#x27;点赞人数&#x27; $zan;else echo $url &#x27;点赞人数&#x27; 0;fi;done|awk -F &#x27;/&#x27; &#x27;&#123;print $NF&#125;&#x27;</span><br><span class="line"></span><br><span class="line">echo -e &quot;1|2|3\n4|5|6\n7|8|9&quot;|awk -F &#x27;|&#x27; &#x27;BEGIN&#123;a=0&#125;&#123;a=a+$2&#125;END&#123;print a&#125;&#x27;</span><br><span class="line"></span><br><span class="line">curl -s https://www.baidu.com/ |grep href |grep -o &quot;http[^&gt;]*&quot; | while read line;do curl -s -I $line | grep 200 &amp;&gt;/dev/null &amp;&amp; echo 200 $line || echo ERR $line;done</span><br><span class="line"></span><br><span class="line">curl https://testerhome.com/api/v3/topics.json 2&gt;/dev/null | sed &#x27;s/&quot;title&quot;:&quot;[^&quot;]*/title&quot;:&quot;xxxxxx&quot;/g&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">统计nginx日志访问量最高</span></span><br><span class="line">awk &#123;&#x27;print $7&#x27;&#125; nginx.log |awk -F &#x27;?&#x27; &#x27;&#123;print $1&#125;&#x27; |sort |uniq -c |sort -n |tail -1 |awk &#x27;&#123;print $2&#125;&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash">平均耗时</span></span><br><span class="line">awk &#123;&#x27;print $7,$(NF-1)&#x27;&#125; nginx.log | grep &#x27;^/api/[a-z0-9_]*&#x27; |awk &#x27;&#123;s+=$2&#125; END&#123;print s/NR&#125;&#x27;</span><br><span class="line"></span><br><span class="line">awk &#x27;$7~/api\/[a-z]+$/&#123;sum+=$(NF-1)&#125;END&#123;print sum/NR&#125;&#x27; nginx.log</span><br><span class="line"></span><br><span class="line">seq 10|awk &#x27;/[5-9]/&#x27;</span><br><span class="line">seq 10|awk &#x27;/5/,/9/&#x27;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">分割</span></span><br><span class="line">echo &#x27;1|2#3_4&#x27; | awk -F &#x27;#_|_|\\|&#x27; &#x27;&#123;print $1&#125;&#x27; </span><br><span class="line">echo &#x27;1|2#3_4&#x27; | awk &#x27;BEGIN&#123;FS=&quot;#|_|\\|&quot;&#125;&#123;print $1&#125;&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash">分割加分割符</span></span><br><span class="line">echo &#x27;1|2#3_4&#x27; | awk &#x27;BEGIN&#123;FS=&quot;#|_|\\|&quot;;OFS=&quot;_&quot;&#125;&#123;print $1,$2,$3,$4&#125;&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash">分成多行</span></span><br><span class="line">echo &#x27;1|2#3_4&#x27; | awk &#x27;BEGIN&#123;RS=&quot;#|_|\\|&quot;&#125;&#123;print $1&#125;&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash">分成多行拼成一行</span></span><br><span class="line">echo &#x27;1|2#3_4&#x27; | awk &#x27;BEGIN&#123;RS=&quot;#|_|\\|&quot;;ORS=&quot;_&quot;&#125;&#123;print $1&#125;&#x27;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">awk格式化输出</span></span><br><span class="line">awk &#x27;BEGIN&#123;printf &quot;%.1f\n&quot;,1/3&#125;&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash">求和</span></span><br><span class="line">seq 10 2 20| awk &#x27;&#123;sum+=$1&#125;&#123;print sum&#125;&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash">求平均</span></span><br><span class="line">seq 10 2 20| awk &#x27;&#123;sum+=$1&#125;&#123;print sum/NR&#125;&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash">输出大于14的</span></span><br><span class="line">seq 10 2 20| awk &#x27;$1&gt;14&#123;data[NR]=$1&#125;END&#123;for(k in data)print data[k]&#125;&#x27;</span><br><span class="line"><span class="meta">#</span><span class="bash">多点编辑(取出后两位)</span></span><br><span class="line">seq 125 137|sed -E &#x27;s#.(.)(.)#\1+\2#g&#x27;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">根据pid查看20秒内程序cpu，mem使用信息</span></span><br><span class="line">for i in $(seq 1 20);do time=$(date +%H:%M:%S);cpu=$(ps -o %cpu -o %mem pid| tail -1);echo $time $cpu;sleep 1;done</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">并发</span></span><br><span class="line">while true; do count=$(jobs -l |grep Running | wc -l);[ $count -le 2 ] &amp;&amp; &#123; time curl https://www.baidu.com &amp;&gt;/dev/null &amp; &#125; || echo $count waiting;done   </span><br><span class="line"></span><br><span class="line">ps -o uname,pid,ppid,thcount,ni,pri,psr,pcpu,pmem,rss,vsz,sz,start_time,time,comm,command -e </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">20秒内存平均</span></span><br><span class="line">timeall=0; for i in $(seq 1 20);do time=$(date +%H:%M:%S);MEM=$(ps -o uname,pid,ppid,thcount,ni,pri,psr,pcpu,pmem,rss,vsz,sz,start_time,time,comm,command -p 9446 | awk -F &#x27; *&#x27; &#x27;&#123;print $9&#125;&#x27; | tail -1);echo $time %MEM=$MEM ;timeall=$(awk &#x27;BEGIN&#123;print &#x27;$timeall&#x27;+&#x27;$MEM&#x27;&#125;&#x27;); awk &#x27;BEGIN&#123;print &#x27;$timeall&#x27;/&#x27;$i&#x27;&#125;&#x27; ;sleep 1;done</span><br><span class="line"></span><br><span class="line">for i in $(seq 1 20);do time=$(date +%H:%M:%S);MEM=$(ps -o uname,pid,ppid,thcount,ni,pri,psr,pcpu,pmem,rss,vsz,sz,start_time,time,comm,command -p 9446 | awk -F &#x27; *&#x27; &#x27;&#123;print $9&#125;&#x27; | tail -1);echo $time %MEM= $MEM ;sleep 1;done | awk &#x27;&#123;print $0,t+=$3;print t/NR&#125;&#x27;</span><br><span class="line"></span><br><span class="line">for i in $(seq 1 20);do time=$(date +%H:%M:%S);MEM=$(ps -o uname,pid,ppid,thcount,ni,pri,psr,pcpu,pmem,rss,vsz,sz,start_time,time,comm,command -p 9446 | awk -F &#x27; *&#x27; &#x27;&#123;print $9&#125;&#x27; | tail -1);echo $time %MEM= $MEM ;sleep 1;done | awk &#x27;&#123;print $0;print (t+=$3)/NR&#125;&#x27; </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">打印cpu 内存</span></span><br><span class="line">top -b -d 1 -n 20 -p 9446|grep --line-buffered 9446 | awk &#x27;&#123;cpu+=$9;mem+=$10&#125;&#123;print $9,$10,cpu/NR,mem/NR&#125;&#x27;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">图形化cpu mem</span></span><br><span class="line">top -b -d 1 -n 20 -p 9446|grep --line-buffered 9446 | awk &#x27;&#123;cpu+=$9;mem+=$10&#125;&#123;print $9,$10,cpu/NR,mem/NR&#125;&#x27;|gnuplot -e &quot;set terminal dumb;plot &#x27;&lt;cat&#x27; using 1 with line&quot;</span><br></pre></td></tr></table></figure>
+
+</div></div><a class="button-hover more" href="/bq/bfa86649.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/ae82201a.html">pytest使用及相关插件</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-25</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/">Test</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/automation/">automation</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/python/">python</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/pytest/">pytest</a></div></div><div class="post-content"><div class="main-content content"><h3 id="编写规范："><a href="#编写规范：" class="headerlink" title="编写规范："></a>编写规范：</h3><p>• 测试⽂件以 test_ 开头（以 <em>test 结尾也可以）<br>• 测试类以 Test 开头，并且不能带有 <strong>init</strong> 方法!<br>• 测试函数以 test</em> 开</p>
+<p>模块级（setup_module/teardown_module）模块始末，全局的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">开始于模块始末，全局的</span></span><br><span class="line"><span class="string">setup_module</span></span><br><span class="line"><span class="string">teardown_module</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setup_module</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;setup_module():在模块最之前执行\n&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">teardown_module</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;teardown_module：在模块之后执行&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setup_function</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;setup_function():每个方法之前执行&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">teardown_function</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;teardown_function():每个方法之后执行\n&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_01</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;正在执行test1&quot;</span></span><br><span class="line">    x = <span class="string">&quot;this&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> <span class="string">&#x27;h&#x27;</span> <span class="keyword">in</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">a,b</span>):</span></span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_add</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;正在执行test_add()&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> add(<span class="number">3</span>,<span class="number">4</span>) == <span class="number">7</span></span><br><span class="line"><span class="comment">#运行结果：setup_module --&gt; setup_function --&gt; test_01--&gt; teardown_function --&gt; setup_function --&gt; test_add()--&gt; teardown_function --&gt; teardown_module</span></span><br></pre></td></tr></table></figure>
+
+<p>函数级（setup_function/teardown_function）只对函数用例生效，而且不在类中使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">setup_function</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;setup_function():每个方法之前执行&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">teardown_function</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;teardown_function():每个方法之后执行&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_01</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;正在执行test1&quot;</span></span><br><span class="line">    x = <span class="string">&quot;this&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> <span class="string">&#x27;h&#x27;</span> <span class="keyword">in</span> x</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_02</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;正在执行test2&quot;</span></span><br><span class="line">    x = <span class="string">&quot;hello&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> hasattr(x,<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">a,b</span>):</span></span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_add</span>():</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;正在执行test_add()&quot;</span></span><br><span class="line">    <span class="keyword">assert</span> add(<span class="number">3</span>,<span class="number">4</span>) == <span class="number">7</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__==<span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    pytest.main([<span class="string">&quot;-s&quot;</span>,<span class="string">&quot;test_function.py&quot;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#运行结果为：（-s为了显示用例的打印信息   -q只显示结果不显示过程）</span></span><br><span class="line"><span class="comment">#可以看出执行的结果是：</span></span><br><span class="line"><span class="comment">#setup_function--》 test_01 --》teardown_function</span></span><br><span class="line"><span class="comment">#setup_function--》 test_02 --》teardown_function</span></span><br><span class="line"><span class="comment">#setup_function--》 test_add  --》teardown_function</span></span><br></pre></td></tr></table></figure>
+
+<p>类级（setup_class/teardown_class）在类中使用，类执行之前运行一次，类执行之后运行一次</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestClass</span>(<span class="params">object</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setup_class</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;setup_class(self)：每个类之前执行一次&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">teardown_class</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;teardown_class(self)：每个类之后执行一次&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self,a,b</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;这是加法运算&quot;</span></span><br><span class="line">        <span class="keyword">return</span> a+b</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_01</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;正在执行test1&quot;</span></span><br><span class="line">        x = <span class="string">&quot;this&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> <span class="string">&#x27;h&#x27;</span> <span class="keyword">in</span> x</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_add</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;正在执行test_add()&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> self.add(<span class="number">3</span>, <span class="number">4</span>) == <span class="number">7</span></span><br><span class="line">        </span><br><span class="line"><span class="comment">#执行顺序    setup_class --》 test1 --》test_add（）--》teardown_class</span></span><br></pre></td></tr></table></figure>
+
+<p>⽅法级（setup_method/teardown_methond）运⾏在类中⽅法始末</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestMethod</span>(<span class="params">object</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setup_class</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;setup_class(self)：每个类之前执行一次\n&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">teardown_class</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;teardown_class(self)：每个类之后执行一次&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setup_method</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;setup_method(self):在每个方法之前执行&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">teardown_method</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;teardown_method(self):在每个方法之后执行\n&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self,a,b</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;这是加法运算&quot;</span></span><br><span class="line">        <span class="keyword">return</span> a+b</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_01</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;正在执行test1&quot;</span></span><br><span class="line">        x = <span class="string">&quot;this&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> <span class="string">&#x27;h&#x27;</span> <span class="keyword">in</span> x</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_add</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">&quot;正在执行test_add()&quot;</span></span><br><span class="line">        <span class="keyword">assert</span> self.add(<span class="number">3</span>, <span class="number">4</span>) == <span class="number">7</span></span><br><span class="line"><span class="comment">#执行结果： setup_class --》 setup_method --&gt;test1 --&gt;teardown_method --》setup_method --&gt; test_add（）--》teardown_method --&gt; teardown_class</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><p>pytest/py.test（终端，命令⾏，pycharm都⾏，可配置pycharm使⽤pytest⽅式执⾏）<br>pytest –v (最⾼级别信息—verbose)<br>pytest -v -s ⽂件名 （s是带控制台输出结果，也是输出详细)<br>pytest将在当前⽬录及其⼦⽬录中运⾏test _ * .py或* <em>test.py形式的所有⽂件。</em><br>以test_开头的函数，以Test开头的类，以test_开头的⽅法。所有包package都要有<strong>init</strong>.py⽂件。<br>Pytest可以执⾏unittest框架写的⽤例和⽅法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行一个module</span></span><br><span class="line">pytest -v src/testcases/api/test_autouse.py</span><br><span class="line"><span class="comment"># 执⾏⼀个类，一个方法</span></span><br><span class="line">pytest -v src/testcases/api/test_autouse.py::TestSample</span><br><span class="line">pytest -v src/testcases/api/</span><br><span class="line">test_autouse.py::TestSample::test_answer</span><br><span class="line"><span class="comment"># 执⾏⼀个目录或者package</span></span><br><span class="line">pytest -v src/testcases/api!</span><br><span class="line"><span class="comment"># 通过标签来运行测试用例</span></span><br><span class="line">pytest -m P0 src/testcases/api/</span><br><span class="line"><span class="comment"># 通过pytest.main来执行，所有的参数和pytest命令行方式一样</span></span><br><span class="line">pytest.main([<span class="string">&#x27;-v&#x27;</span>, <span class="string">&#x27;--instafail&#x27;</span>, <span class="string">&#x27;testcases/api/test_example.py&#x27;</span>, <span class="string">&#x27;-m=P2&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> pytest执⾏⽤例出错时停⽌</span></span><br><span class="line">pytest -x -v -s test.py --maxfail=2</span><br><span class="line"><span class="meta">#</span><span class="bash"> pytest通过⽂件名类名⽅法及组合调⽤部分⽤例执</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 直接输⼊⽂件名，类名</span></span><br><span class="line">pytest test_class_01.py</span><br><span class="line">pytest -v -s test_class_01.py</span><br><span class="line">pytest -v test_class_01.py::TestClass</span><br><span class="line">pytest -v test_class_01.py::TestClass::test_one</span><br><span class="line"><span class="meta">#</span><span class="bash"> 使⽤-k TestClass是类名，and是运算符,还可以是and not…,test_one是⽅法名中含有的信息</span></span><br><span class="line">pytest -k &quot;TestClass and test_one&quot;</span><br><span class="line">pytest -k &quot;TestClass or test_one&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"> mark标记执⾏</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在测试⽤例⽅法上加@pytest.mark.webtest，-s参数： 输出所有测试⽤的<span class="built_in">print</span>信息 -m：执⾏⾃定义标记的相关⽤例</span></span><br><span class="line">pytest -s test.py -m=webtest</span><br></pre></td></tr></table></figure>
+
+<h3 id="log"><a href="#log" class="headerlink" title="log"></a>log</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">建立这个文件Pytest.ini</span><br><span class="line">[pytest]</span><br><span class="line">log_cli = <span class="number">1</span></span><br><span class="line">log_cli_level = info</span><br><span class="line">log_cli_format = %(asctime)s [%(levelname)<span class="number">8</span>s] %(message)s (%(filename)s:%(lineno)s)</span><br><span class="line">log_cli_date_format=%Y-%m-%d %H:%M:%S</span><br><span class="line">写测试用例————log.info()</span><br><span class="line">用: pytest pytest_testlog.py -o log.cli=true -o log._cli_level=INFO</span><br><span class="line">-o是覆盖配置的内容</span><br></pre></td></tr></table></figure>
+
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> pytest-html ⽣成可视化报告,--self-contained-html(把css样式合并到html)</span></span><br><span class="line">pytest -v -s --html=report.html --self-contained-html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> pytest-assume 多条断⾔有失败也都运⾏</span></span><br><span class="line">pytest.assume(1==4)</span><br><span class="line">pytest.assume(2==4)</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> pytest-rerunfailures 失败重跑 —reruns n, n是重复次数</span></span><br><span class="line">pytest --reruns 5  test_sort_demo.py</span><br><span class="line"></span><br><span class="line">pytest-allure #⾼⼤上精美报告</span><br><span class="line"></span><br><span class="line">pytest-xdist #并⾏运⾏多个测试 pytest -n 2 在2个cpu上运⾏测试 —looponfail标志，它将⾃动重新运⾏你的失败测试</span><br><span class="line">pytest -n 3</span><br><span class="line"></span><br><span class="line">Pytest-sugar # 改变pytest的默认外观，增加进度条，安装后即可</span><br><span class="line"></span><br><span class="line">Pytest-picked # 运⾏基于你已修改但尚未提交给git的代码的测试。</span><br><span class="line"></span><br><span class="line">Pytest-instafail # 修改默认⾏为，以⽴即显⽰失败和错误，⽽不是等到pytest完成每个测试运⾏。</span><br><span class="line"></span><br><span class="line">Pytest-tldr # 简化man指令帮助文档</span><br><span class="line"></span><br><span class="line">Pytest-django # 开发web</span><br><span class="line"></span><br><span class="line">Pytest-selenium # pytest 提供运⾏⽀持selenium为基础</span><br><span class="line"></span><br><span class="line">pytest-ordering # 顺序编排</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fixtures:为了测试⽤例的执行，⽽初始化⼀些数据和方法</span></span><br><span class="line"><span class="comment"># 名字调用,yield 之前相当于setup;yield 之后相当于tearDown</span></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="meta">@pytest.fixture()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loginandlogout</span>():</span></span><br><span class="line">	print(<span class="string">&#x27;do login action\n&#x27;</span>)</span><br><span class="line">	<span class="keyword">yield</span></span><br><span class="line">	print(<span class="string">&quot;do logout action&quot;</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestSample</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">test_answer</span>(<span class="params">self,loginandlogout</span>):</span></span><br><span class="line">		...</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">test_answer2</span>(<span class="params">self,loginandlogout</span>):</span></span><br><span class="line">    	...</span><br><span class="line"><span class="comment"># decorator调用</span></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="meta">@pytest.fixture()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loginandlogout</span>():</span></span><br><span class="line">	print(<span class="string">&#x27;do login action\n&#x27;</span>)</span><br><span class="line">	<span class="keyword">yield</span></span><br><span class="line">	print(<span class="string">&quot;do logout action&quot;</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestSample</span>:</span></span><br><span class="line"><span class="meta">	@pytest.mark.usefixtures(&#x27;loginandlogout&#x27;)</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">test_answer</span>(<span class="params">self</span>):</span></span><br><span class="line">		...</span><br><span class="line"><span class="comment"># autouse,Fixture scope(module,session,class,package)</span></span><br><span class="line"><span class="meta">@pytest.fixture(scope=&#x27;module&#x27;,autouse=True)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loginandlogout</span>():</span></span><br><span class="line">	print(<span class="string">&#x27;do login action\n&#x27;</span>)</span><br><span class="line">	<span class="keyword">yield</span></span><br><span class="line">	print(<span class="string">&quot;do logout action\n&quot;</span>)</span><br><span class="line"><span class="meta">@pytest.fixture(scope=&#x27;class&#x27;,autouse=True)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">clickhome</span>():</span></span><br><span class="line">	print(<span class="string">&#x27;click home button\n&#x27;</span>)</span><br><span class="line">	<span class="keyword">yield</span></span><br><span class="line">	print(<span class="string">&quot;end click home link\n&quot;</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestSample</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">test_answer</span>(<span class="params">self</span>):</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">test_answer2</span>(<span class="params">self</span>):</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestSampleTwo</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">test_two_answer</span>(<span class="params">self</span>):</span></span><br><span class="line"><span class="comment"># 带参数传递</span></span><br><span class="line"><span class="meta">@pytest.fixture(params=[1, 2, 3, &#x27;bq&#x27;])</span></span><br><span class="line"><span class="comment"># mark.parametrize参数化</span></span><br><span class="line"><span class="meta">@pytest.mark.parametrize()</span></span><br><span class="line"><span class="comment"># 参数化和数据驱动</span></span><br><span class="line"><span class="meta">@pytest.mark.parametrize(“login_r”,test_user_data, indirect=True) indeirect=True是把login_r当作函数去执⾏</span></span><br><span class="line"><span class="comment"># mark中的skip与xfail</span></span><br><span class="line"><span class="comment"># 跳过这个测试⽤例，可以加条件skipif，在满⾜某些条件下才希望通过，否则跳过这个测试。</span></span><br><span class="line"><span class="meta">@pytest.mark.skip</span></span><br><span class="line"><span class="comment"># 测试通过时尽管预计会失败（标记为pytest.mark.xfail）,它是⼀个xpass,将在测试摘要中报告。</span></span><br><span class="line"><span class="meta">@pytest.mark.xfail</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Conftest.py:定义共享的fixture,一般放在testcases目录下，每个子目录下的conftest.py中的fixture优先</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="钩子函数"><a href="#钩子函数" class="headerlink" title="钩子函数"></a>钩子函数</h3><h4 id="获取用例执行结果处理用例依赖"><a href="#获取用例执行结果处理用例依赖" class="headerlink" title="获取用例执行结果处理用例依赖"></a>获取用例执行结果处理用例依赖</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># conftest.py</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 定义一个类，来存储用例执行失败的结果</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Falied</span>:</span></span><br><span class="line">    skip = <span class="literal">False</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="meta">@pytest.hookimpl(hookwrapper=True, tryfirst=True)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pytest_runtest_makereport</span>():</span></span><br><span class="line">    result = <span class="keyword">yield</span></span><br><span class="line">    report = result.get_result()</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 当前用例名</span></span><br><span class="line">    case_name = report.nodeid.split(<span class="string">&#x27;::&#x27;</span>)[<span class="number">-1</span>]</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 当某个用例失败时(setup失败也算)或被跳过时，将这个用例的执行结果存储在 Failed 类中</span></span><br><span class="line">    <span class="keyword">if</span> report.when <span class="keyword">in</span> (<span class="string">&#x27;setup&#x27;</span>, <span class="string">&#x27;call&#x27;</span>) <span class="keyword">and</span> report.outcome <span class="keyword">in</span> (<span class="string">&#x27;failed&#x27;</span>, <span class="string">&#x27;skipped&#x27;</span>):</span><br><span class="line">        setattr(Falied, case_name, <span class="literal">True</span>)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    pytest.main([<span class="string">&#x27;-s&#x27;</span>, <span class="string">&#x27;-q&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="keyword">from</span> .conftest <span class="keyword">import</span> Falied</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestDemoA</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_A_001</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># 断言失败</span></span><br><span class="line">        <span class="keyword">assert</span> <span class="number">0</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_A_002</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># 从 Failed 获取 test_A_001 的执行结果</span></span><br><span class="line">        <span class="keyword">if</span> getattr(Falied, <span class="string">&#x27;test_A_001&#x27;</span>, <span class="literal">False</span>):</span><br><span class="line">            pytest.skip(<span class="string">&#x27;test_A_001 执行失败或被跳过，此用例跳过！&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_A_003</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="report"><a href="#report" class="headerlink" title="report"></a>report</h3><p>生成 JunitXML 格式的测试报告，命令 : –junitxml= path<br>生成 ResultLog 格式的测试报告，命令: –resultlog=report/log.txt<br>生成 Html 格式的测试报告，命令: –html=OutPuts/reports/report.html (相对路径)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest --html=report/html/report.html  testcase/test_new_outfit.py::TestNewOutfit::test_newoutfit_normal</span><br></pre></td></tr></table></figure>
+
+</div></div><a class="button-hover more" href="/bq/ae82201a.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/9df1423d.html">CentOS7根目录磁盘扩容</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-06-03</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Linux/">Linux</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Linux/%E9%85%8D%E7%BD%AE/">配置</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Linux/">Linux</a></div></div><div class="post-content"><div class="main-content content"><h3 id="CentOS7根目录磁盘扩容"><a href="#CentOS7根目录磁盘扩容" class="headerlink" title="CentOS7根目录磁盘扩容"></a>CentOS7根目录磁盘扩容</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">[root@xycvt99 ~]# df -h</span><br><span class="line">Filesystem               Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root   17G   17G   12M 100% /</span><br><span class="line">devtmpfs                 8.0G     0  8.0G   0% /dev</span><br><span class="line">tmpfs                     16G  1.4G   15G   9% /dev/shm</span><br><span class="line">tmpfs                    8.1G  106M  7.9G   2% /run</span><br><span class="line">tmpfs                    8.1G     0  8.1G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sdb1                197G   52G  135G  28% /opt</span><br><span class="line">/dev/sda1               1014M  145M  870M  15% /boot</span><br><span class="line">tmpfs                    1.7G     0  1.7G   0% /run/user/0</span><br><span class="line">tmpfs                    1.7G     0  1.7G   0% /run/user/1009</span><br><span class="line">[root@xycvt99 ~]# sudo fuser -km /opt</span><br><span class="line">/opt:                 3261ce  3590ce  3863ce  4628ce  9801ce  9829  9835ce 11643ce 11695ce 12835 14394ce 14396ce 14399ce 14401ce 14406ce 14408ce 14412ce 14415ce 14417ce 14420ce 14422ce 14424ce 14426ce 14428ce 14430ce 14432ce 14436ce 14438ce 14441ce 14443ce 14445ce 14447ce 14464ce 14466ce 14468ce 14470ce 14474ce 14476ce 14478ce 14480ce 14482ce 14817ce 14819ce 14822ce 14824ce 14826ce 14829ce 14831ce 15012ce 15026ce 15040ce 15465ce 15846ce 15848ce 15854ce 15856ce 15858ce 15860ce 15862ce 15864ce 15866ce 15868ce 15870ce 15872ce 15878ce 15890ce 15940ce 16429 16435 16437 16439 16442 16444 16446 16448 16563 16587ce 16959ce 16964ce 16981ce 16996 17002 17004 17006 17008 17010 17012 17014 17029ce 17048ce 17065ce 17092ce 17095 17100ce 17106ce 17111ce 17115ce 17935ce 30058 30308ce 30345</span><br><span class="line">[root@xycvt99 ~]# umount /opt</span><br><span class="line">[root@xycvt99 ~]# df -h</span><br><span class="line">Filesystem               Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root   17G   17G  5.9M 100% /</span><br><span class="line">devtmpfs                 8.0G     0  8.0G   0% /dev</span><br><span class="line">tmpfs                     16G   52K   16G   1% /dev/shm</span><br><span class="line">tmpfs                    8.1G  106M  7.9G   2% /run</span><br><span class="line">tmpfs                    8.1G     0  8.1G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               1014M  145M  870M  15% /boot</span><br><span class="line">tmpfs                    1.7G     0  1.7G   0% /run/user/0</span><br><span class="line">tmpfs                    1.7G     0  1.7G   0% /run/user/1009</span><br><span class="line"></span><br><span class="line">[root@xycvt99 ~]# fdisk -l</span><br><span class="line"></span><br><span class="line">Disk /dev/sdb: 214.7 GB, 214748364800 bytes, 419430400 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label type: dos</span><br><span class="line">Disk identifier: 0x2294ea50</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sdb1            2048   419430399   209714176   83  Linux</span><br><span class="line"></span><br><span class="line">Disk /dev/sda: 21.5 GB, 21474836480 bytes, 41943040 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label type: dos</span><br><span class="line">Disk identifier: 0x000c339c</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sda1   *        2048     2099199     1048576   83  Linux</span><br><span class="line">/dev/sda2         2099200    41943039    19921920   8e  Linux LVM</span><br><span class="line"></span><br><span class="line">Disk /dev/mapper/centos-root: 18.2 GB, 18249416704 bytes, 35643392 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Disk /dev/mapper/centos-swap: 2147 MB, 2147483648 bytes, 4194304 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line"></span><br><span class="line">[root@xycvt99 ~]# lvextend -L +200G /dev/mapper/centos-root</span><br><span class="line">  Insufficient free space: 51200 extents needed, but only 0 available</span><br><span class="line">[root@xycvt99 ~]# vgs</span><br><span class="line">  VG     #PV #LV #SN Attr   VSize   VFree</span><br><span class="line">  centos   1   2   0 wz--n- &lt;19.00g    0 </span><br><span class="line">[root@xycvt99 ~]# vgextend centos /dev/sdb       </span><br><span class="line">  Device /dev/sdb excluded by a filter.</span><br><span class="line">[root@xycvt99 ~]# vgs</span><br><span class="line">  VG     #PV #LV #SN Attr   VSize   VFree</span><br><span class="line">  centos   1   2   0 wz--n- &lt;19.00g    0 </span><br><span class="line">[root@xycvt99 ~]# vgextend centos /dev/sdb1</span><br><span class="line">WARNING: ext4 signature detected on /dev/sdb1 at offset 1080. Wipe it? [y/n]: y</span><br><span class="line">  Wiping ext4 signature on /dev/sdb1.</span><br><span class="line">  Physical volume &quot;/dev/sdb1&quot; successfully created.</span><br><span class="line">  Volume group &quot;centos&quot; successfully extended</span><br><span class="line">[root@xycvt99 ~]# vgs</span><br><span class="line">  VG     #PV #LV #SN Attr   VSize   VFree   </span><br><span class="line">  centos   2   2   0 wz--n- 218.99g &lt;200.00g</span><br><span class="line">[root@xycvt99 ~]# lvextend -L +200G /dev/mapper/centos-root</span><br><span class="line">  Insufficient free space: 51200 extents needed, but only 51199 available</span><br><span class="line">[root@xycvt99 ~]# lvextend -L +199G /dev/mapper/centos-root   </span><br><span class="line">  Size of logical volume centos/root changed from &lt;17.00 GiB (4351 extents) to &lt;216.00 GiB (55295 extents).</span><br><span class="line">  Logical volume centos/root successfully resized.</span><br><span class="line">[root@xycvt99 ~]# df -h      </span><br><span class="line">Filesystem               Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root   17G   17G  6.6M 100% /</span><br><span class="line">devtmpfs                 8.0G     0  8.0G   0% /dev</span><br><span class="line">tmpfs                     16G   52K   16G   1% /dev/shm</span><br><span class="line">tmpfs                    8.1G  106M  7.9G   2% /run</span><br><span class="line">tmpfs                    8.1G     0  8.1G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               1014M  145M  870M  15% /boot</span><br><span class="line">tmpfs                    1.7G     0  1.7G   0% /run/user/0</span><br><span class="line">tmpfs                    1.7G     0  1.7G   0% /run/user/1009</span><br><span class="line">[root@xycvt99 ~]# xfs_growfs /dev/mapper/centos-root</span><br><span class="line">meta-data=/dev/mapper/centos-root isize=512    agcount=4, agsize=1113856 blks</span><br><span class="line">         =                       sectsz=512   attr=2, projid32bit=1</span><br><span class="line">         =                       crc=1        finobt=0 spinodes=0</span><br><span class="line">data     =                       bsize=4096   blocks=4455424, imaxpct=25</span><br><span class="line">         =                       sunit=0      swidth=0 blks</span><br><span class="line">naming   =version 2              bsize=4096   ascii-ci=0 ftype=1</span><br><span class="line">log      =internal               bsize=4096   blocks=2560, version=2</span><br><span class="line">         =                       sectsz=512   sunit=0 blks, lazy-count=1</span><br><span class="line">realtime =none                   extsz=4096   blocks=0, rtextents=0</span><br><span class="line">data blocks changed from 4455424 to 56622080</span><br><span class="line">[root@xycvt99 ~]# df -h</span><br><span class="line">Filesystem               Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/centos-root  216G   17G  200G   8% /</span><br><span class="line">devtmpfs                 8.0G     0  8.0G   0% /dev</span><br><span class="line">tmpfs                     16G   52K   16G   1% /dev/shm</span><br><span class="line">tmpfs                    8.1G  106M  7.9G   2% /run</span><br><span class="line">tmpfs                    8.1G     0  8.1G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1               1014M  145M  870M  15% /boot</span><br><span class="line">tmpfs                    1.7G     0  1.7G   0% /run/user/0</span><br><span class="line">tmpfs                    1.7G     0  1.7G   0% /run/user/1009</span><br></pre></td></tr></table></figure>
+
+</div></div><a class="button-hover more" href="/bq/9df1423d.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/efb6976f.html">Unittest使用</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-02-04</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/">Test</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/automation/">automation</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/python/">python</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Unittest/">Unittest</a></div></div><div class="post-content"><div class="main-content content"><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><p>test cases、test suites、test fixtures、test runner</p>
+<h3 id="编写规范"><a href="#编写规范" class="headerlink" title="编写规范"></a>编写规范</h3><p>• 测试模块首先 import unittest<br>• 测试类必须继承 unittest.TestCase<br>• 测试⽅方法必须以“test_”开头!<br>• 模块名字，类名没有要求</p>
+<h3 id="执行规则"><a href="#执行规则" class="headerlink" title="执行规则"></a>执行规则</h3><p>基于测试⽅法级别的setUp, tearDown<br>• 执⾏每个测试方法的时候都会执行一次setUp 和tearDown<br>• 基于类级别的 setUpClass, tearDownClass<br>• 执⾏这个类里⾯的所有测试⽅法只有一次执行setup, tearDown<br>• 基于模块级别的 setUpModule，tearDownModule<br>• 执⾏此模块里的所有类⾥的测试⽅方法，只执行⼀次setup和teardown</p>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">封装测试套件运行某个目录下所有用例并出html报告</span><br><span class="line">importmport os,time</span><br><span class="line">case path = os.path.join(os.path.dirname(_ file_ ), <span class="string">&#x27;demo_unittest&#x27;</span>)</span><br><span class="line">report path = os.path.join(os.path,dirnane(_ file__ )， <span class="string">&#x27;report&#x27;</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">create</span> <span class="title">suite</span>( ):</span></span><br><span class="line">    suite = unittest.TestSuite( )</span><br><span class="line">    discover = unittestdefaultTestLoader.discover(casepath,pattern=<span class="string">&#x27;test*.py&#x27;</span>,top_level_dir=<span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">print</span> (discover )</span><br><span class="line">    <span class="keyword">for</span> test suite <span class="keyword">in</span> discover:</span><br><span class="line">		<span class="keyword">for</span> test case <span class="keyword">in</span> test_suite :</span><br><span class="line">			suite.addTests (test_case )</span><br><span class="line">	<span class="keyword">return</span> suite</span><br><span class="line">now = time.strftime(<span class="string">&quot;%Y-%m-%d %H_%M_%S&quot;</span>, time.localtime())</span><br><span class="line">filename = report_path+<span class="string">&quot;/”+now+&quot;</span>_result.html<span class="string">&quot;</span></span><br><span class="line"><span class="string">with open(filename, &#x27;wb&#x27;) as fp:</span></span><br><span class="line"><span class="string">	runner = HTMLTestRunner(</span></span><br><span class="line"><span class="string">        stream=fp,</span></span><br><span class="line"><span class="string">        title=&#x27;接口测试报告&#x27;,</span></span><br><span class="line"><span class="string">        description=&#x27;搜索用例执行情况:&#x27;)</span></span><br><span class="line"><span class="string">    runner.run(create_suite())</span></span><br><span class="line"><span class="string">fp.close()</span></span><br></pre></td></tr></table></figure>
+
+</div></div><a class="button-hover more" href="/bq/efb6976f.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/717c4b1d.html">requests测试http(s)接口</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/">Test</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/automation/">automation</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/http/">http</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/requests/">requests</a></div></div><div class="post-content"><div class="main-content content"><h3 id="httpbin服务"><a href="#httpbin服务" class="headerlink" title="httpbin服务"></a><strong>httpbin服务</strong></h3><p><a target="_blank" rel="noopener" href="http://www.httpbin.org/">http://www.httpbin.org/</a></p>
+<p>一个使用 Python + Flask 编写的 HTTP HTTP Request &amp; Response Service。该服务主要用于测试 HTTP 库。你可以向他发送请求，然后他会按照指定的规则将你的请求返回。<br>httpbin支持HTTP/HTTPS，支持所有的HTTP动词，能模拟302跳转乃至302跳转的次数，还可以返回一个HTML文件或一个XML文件或一个图片文件（还支持指定返回图片的格式）。</p>
+<h4 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull kennethreitz/httpbin</span><br><span class="line">docker run -p 8880:80 kennethreitz/httpbin</span><br></pre></td></tr></table></figure>
+
+<h3 id="questions"><a href="#questions" class="headerlink" title="questions:"></a>questions:</h3><p>抓包数据认证问题：设置参数verify:false</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response = requests.get(url, params=params, headers=headers, verify=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+
+</div></div><a class="button-hover more" href="/bq/717c4b1d.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/4409411c.html">命令行交互方式来访问HTTP服务(curl&amp;httpie)</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/">Test</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/tool/">tool</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/curl/">curl</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/httpie/">httpie</a></div></div><div class="post-content"><div class="main-content content"><h3 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h3><p>用于命令行和脚本进行传输数据到服务器或者从服务器传输数据的工具</p>
+<ul>
+<li><p>支持广泛的协议，如：ftp、http、https、pop3、scp、sftp、telent等</p>
+</li>
+<li><p>支持SSL证书，HTTP中各方法、cookies、head、authentication</p>
+</li>
+<li><p>免费开源软件</p>
+<p>使用场景：</p>
+</li>
+<li><p>请求、验证、测试链接</p>
+</li>
+<li><p>支持连接超时、保活时间设置，支持下载上传速率的配置，支持重试机制等</p>
+</li>
+<li><p>测试restful接口</p>
+</li>
+<li><p>上传、下载文件</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>curl [options] [URL…]</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-V</td>
+<td align="left">显示当前的curl版本</td>
+</tr>
+<tr>
+<td>-#</td>
+<td align="left">对发送和接收进行简单的进度bar展示</td>
+</tr>
+<tr>
+<td>-0</td>
+<td align="left">强制使用HTTP 1.0协议</td>
+</tr>
+<tr>
+<td>-1</td>
+<td align="left">强制使用TLS version 1.x</td>
+</tr>
+<tr>
+<td>-4</td>
+<td align="left">解析域名为ipv4地址(域名有多个ip时)</td>
+</tr>
+<tr>
+<td>-a</td>
+<td align="left">FTP/SFTP上传文件时，curl将追加到目标文件，而非覆盖</td>
+</tr>
+<tr>
+<td>-A</td>
+<td align="left">设置用户代理</td>
+</tr>
+<tr>
+<td>-b</td>
+<td align="left">设置cookies</td>
+</tr>
+<tr>
+<td>–basic</td>
+<td align="left">使用HTTP Basic authentication</td>
+</tr>
+<tr>
+<td>–compressed</td>
+<td align="left">使用curl支持的压缩算法请求压缩的响应， 如果请求的响应不是压缩的，curl抛出异常</td>
+</tr>
+<tr>
+<td>–connect-timeout</td>
+<td align="left">设置连接超时时间</td>
+</tr>
+<tr>
+<td>-d</td>
+<td align="left">用于post请求时表单提交数据， 请求类型将被设置为：application/x-www-form-urlencoded</td>
+</tr>
+<tr>
+<td>-e</td>
+<td align="left">发送”Referer Page”到服务器</td>
+</tr>
+<tr>
+<td>-F</td>
+<td align="left">form表单提交</td>
+</tr>
+<tr>
+<td>-G</td>
+<td align="left">使用get请求发送 -d参数指定的数据</td>
+</tr>
+<tr>
+<td>-H</td>
+<td align="left">增加Head头</td>
+</tr>
+<tr>
+<td>-i</td>
+<td align="left">在输出Head头（响应）</td>
+</tr>
+<tr>
+<td>-I</td>
+<td align="left">只输出Head头（响应）</td>
+</tr>
+<tr>
+<td>–interface</td>
+<td align="left">指定使用的网络接口</td>
+</tr>
+<tr>
+<td>-k</td>
+<td align="left">允许curl使用非安全的ssl连接并且传输数据（证书不受信）</td>
+</tr>
+<tr>
+<td>-K</td>
+<td align="left">后接参数文件，参数文件中可以定义HTTP请求的相关的内容（URL、HEAD、DATA）</td>
+</tr>
+<tr>
+<td>–keepalive-time</td>
+<td align="left">设置连接的保活时间</td>
+</tr>
+<tr>
+<td>-L</td>
+<td align="left">curl自动重定向（3xx）</td>
+</tr>
+<tr>
+<td>–limit-rate</td>
+<td align="left">特指最大的传输速率</td>
+</tr>
+<tr>
+<td>-m</td>
+<td align="left">设置整个操作的允许消耗的最大时间，对于在延时网络下的批量操作有利</td>
+</tr>
+<tr>
+<td>–max-filesize</td>
+<td align="left">允许下载文件的最大大小</td>
+</tr>
+<tr>
+<td>-N</td>
+<td align="left">禁用输出流缓冲区</td>
+</tr>
+<tr>
+<td>–no-keepalive</td>
+<td align="left">连接不保活</td>
+</tr>
+<tr>
+<td>-o</td>
+<td align="left">将响应数据输出到指定文件，后接文件参数</td>
+</tr>
+<tr>
+<td>–retry</td>
+<td align="left">发生瞬时错误时，curl将重试执行数据传输</td>
+</tr>
+<tr>
+<td>–retry-delay</td>
+<td align="left">延迟重试</td>
+</tr>
+<tr>
+<td>–trace</td>
+<td align="left">dump出输入输出数据至文件</td>
+</tr>
+<tr>
+<td>-v</td>
+<td align="left">获取更多输入输出相关的内容，对于debug非常有用</td>
+</tr>
+<tr>
+<td>-y或者–speed-time</td>
+<td align="left">如果在speed-time期间，下载比speed-limit这个更慢，则下载废止</td>
+</tr>
+<tr>
+<td>-Y或者–speed-limit</td>
+<td align="left">如果在speed-time期间，下载比speed-limit这个更慢，则下载废止</td>
+</tr>
+</tbody></table>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -i表示显示返回消息的头部</span></span><br><span class="line">curl -X METHOD -H HEADER -i </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -d后面表示请求消息体，如果消息体在文件中，那么使用@符号作为前缀对文件进行读取</span></span><br><span class="line">curl -i -X POST -H &quot;Content-Type: application/json&quot; -d @auth.json http://host:port/v3/auth/tokens</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 不带有任何参数时，curl 就是发出 GET 请求。</span></span><br><span class="line">curl https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash">上面命令向www.example.com发出 GET 请求，服务器返回的内容会在命令行输出。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -A参数指定客户端的用户代理标头，即User-Agent。curl 的默认用户代理字符串是curl/[version]。</span></span><br><span class="line">curl -A &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将User-Agent改成 Chrome 浏览器。</span></span><br><span class="line">curl -A &#x27;&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令会移除User-Agent标头。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 也可以通过-H参数直接指定标头，更改User-Agent。</span></span><br><span class="line">curl -H &#x27;User-Agent: php/1.0&#x27; https://google.com </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -b参数用来向服务器发送 Cookie。</span></span><br><span class="line">curl -b &#x27;foo=bar&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令会生成一个标头Cookie: foo=bar，向服务器发送一个名为foo、值为bar的 Cookie。</span></span><br><span class="line">curl -b &#x27;foo1=bar&#x27; -b &#x27;foo2=baz&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令发送两个 Cookie。</span></span><br><span class="line">curl -b cookies.txt https://www.google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令读取本地文件cookies.txt，里面是服务器设置的 Cookie（参见-c参数），将其发送到服务器。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -c参数将服务器设置的 Cookie 写入一个文件。</span></span><br><span class="line">curl -c cookies.txt https://www.google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将服务器的 HTTP 回应所设置 Cookie 写入文本文件cookies.txt。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -C switch是恢复我们文件传输的设备，但还要注意，它后面紧跟一个破折号（-）。这告诉cURL继续文件传输，但是实现这一步，首先要查看已经下载的部分，找到下载的最后一个字节才可以确定从何处可以恢复。</span></span><br><span class="line">curl -C - example.com/some-file.zip --output MyFile.zip</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -d参数用于发送 POST 请求的数据体。</span></span><br><span class="line">curl -d&#x27;login=emma＆password=123&#x27;-X POST https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">curl -d &#x27;login=emma&#x27; -d &#x27;password=123&#x27; -X POST  https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用-d参数以后，HTTP 请求会自动加上标头Content-Type : application/x-www-form-urlencoded。并且会自动将请求转为 POST 方法，因此可以省略-X POST。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -d参数可以读取本地文本文件的数据，向服务器发送。</span></span><br><span class="line">curl -d &#x27;@data.txt&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令读取data.txt文件的内容，作为数据体向服务器发送。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> --data-urlencode参数等同于-d，发送 POST 请求的数据体，区别在于会自动将发送的数据进行 URL 编码。</span></span><br><span class="line">curl --data-urlencode &#x27;comment=hello world&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面代码中，发送的数据hello world之间有一个空格，需要进行 URL 编码。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -e参数用来设置 HTTP 的标头Referer，表示请求的来源。</span></span><br><span class="line">curl -e &#x27;https://google.com?q=example&#x27; https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将Referer标头设为https://google.com?q=example。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -H参数可以通过直接添加标头Referer，达到同样效果。</span></span><br><span class="line">curl -H &#x27;Referer: https://google.com?q=example&#x27; https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -F参数用来向服务器上传二进制文件。</span></span><br><span class="line">curl -F &#x27;file=@photo.png&#x27; https://google.com/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令会给 HTTP 请求加上标头Content-Type: multipart/form-data，然后将文件photo.png作为file字段上传。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -F参数可以指定 MIME 类型。</span></span><br><span class="line">curl -F &#x27;file=@photo.png;type=image/png&#x27; https://google.com/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令指定 MIME 类型为image/png，否则 curl 会把 MIME 类型设为application/octet-stream。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -F参数也可以指定文件名。</span></span><br><span class="line">curl -F &#x27;file=@photo.png;filename=me.png&#x27; https://google.com/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令中，原始文件名为photo.png，但是服务器接收到的文件名为me.png。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -G参数用来构造 URL 的查询字符串。</span></span><br><span class="line">curl -G -d &#x27;q=kitties&#x27; -d &#x27;count=20&#x27; https://google.com/search</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令会发出一个 GET 请求，实际请求的 URL 为https://google.com/search?q=kitties&amp;count=20。如果省略--G，会发出一个 POST 请求。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果数据需要 URL 编码，可以结合--data--urlencode参数。</span></span><br><span class="line">curl -G --data-urlencode &#x27;comment=hello world&#x27; https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -H参数添加 HTTP 请求的标头。</span></span><br><span class="line">curl -H &#x27;Accept-Language: en-US&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令添加 HTTP 标头Accept-Language: en-US。</span></span><br><span class="line">curl -H &#x27;Accept-Language: en-US&#x27; -H &#x27;Secret-Message: xyzzy&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令添加两个 HTTP 标头。</span></span><br><span class="line">curl -d &#x27;&#123;&quot;login&quot;: &quot;emma&quot;, &quot;pass&quot;: &quot;123&quot;&#125;&#x27; -H &#x27;Content-Type: application/json&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令添加 HTTP 请求的标头是Content-Type: application/json，然后用-d参数发送 JSON 数据。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -i参数打印出服务器回应的 HTTP 标头。</span></span><br><span class="line">curl -i https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令收到服务器回应后，先输出服务器回应的标头，然后空一行，再输出网页的源码。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -I参数向服务器发出 HEAD 请求，然会将服务器返回的 HTTP 标头打印出来。</span></span><br><span class="line">curl -I https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令输出服务器对 HEAD 请求的回应。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> --head参数等同于-I。</span></span><br><span class="line">curl --head https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -k参数指定跳过 SSL 检测。</span></span><br><span class="line">curl -k https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令不会检查服务器的 SSL 证书是否正确。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -L参数会让 HTTP 请求跟随服务器的重定向。curl 默认不跟随重定向。</span></span><br><span class="line">curl -L -d &#x27;tweet=hi&#x27; https://api.twitter.com/tweet</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> --limit-rate用来限制 HTTP 请求和回应的带宽，模拟慢网速的环境。</span></span><br><span class="line">curl --limit-rate 200k https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将带宽限制在每秒 200K 字节。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -m switch指定执行命令所需的最长时间。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 经过指定的时间后，cURL将退出正在执行的操作，即使它正在下载或上传文件。cURL会以秒为单位指定您想要的最长时间。因此，要在一分钟后超时，该命令将如下所示：</span></span><br><span class="line">curl -m 60 example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 您可以使用cURL指定的另一种超时类型是用于链接的时间量。这有助于确保cURL不会花费过多的时间来尝试连接处于脱机状态或无法访问的主机。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 它也接受秒作为参数。该选项被写为–connect-timeout。</span></span><br><span class="line">curl --connect-timeout 60 example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -o,  --output</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -o参数将服务器的回应保存成文件，等同于wget命令。</span></span><br><span class="line">curl -o example.html https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将www.example.com保存成example.html。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -O参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。</span></span><br><span class="line">curl -O https://www.example.com/foo/bar.html</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将服务器回应保存成文件，文件名为bar.html。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -s参数将不输出错误和进度信息。</span></span><br><span class="line">curl -s https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令一旦发生错误，不会显示错误信息。不发生错误的话，会正常显示运行结果。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果想让 curl 不产生任何输出，可以使用下面的命令。</span></span><br><span class="line">curl -s -o /dev/null https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> -S参数指定只输出错误信息，通常与-o一起使用。</span></span><br><span class="line">curl -s -o /dev/null https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令没有任何输出，除非发生错误。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -u参数用来设置服务器认证的用户名和密码。</span></span><br><span class="line">curl -u &#x27;bob:12345&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令设置用户名为bob，密码为12345，然后将其转为 HTTP 标头Authorization: Basic Ym9iOjEyMzQ1。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> curl 能够识别 URL 里面的用户名和密码。</span></span><br><span class="line">curl https://bob:12345@google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令能够识别 URL 里面的用户名和密码，将其转为上个例子里面的 HTTP 标头。</span></span><br><span class="line">curl -u &#x27;bob&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令只设置了用户名，执行后，curl 会提示用户输入密码。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -v参数输出通信的整个过程，用于调试。</span></span><br><span class="line">curl -v https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> --trace参数也可以用于调试，还会输出原始的二进制数据。</span></span><br><span class="line">curl --trace - https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -x参数指定 HTTP 请求的代理。</span></span><br><span class="line">curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令指定 HTTP 请求通过myproxy.com:8080的 socks5 代理发出。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没有指定代理协议，默认为 HTTP。</span></span><br><span class="line">curl -x james:cats@myproxy.com:8080 https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令中，请求的代理使用 HTTP 协议。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -X参数指定 HTTP 请求的方法。</span></span><br><span class="line">curl -X POST https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令对https://www.example.com发出 POST 请求。</span></span><br></pre></td></tr></table></figure>
+
+<p>ex：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">curl -k -x &#x27;http://127.0.0.1:8888&#x27; &#x27;https://www.jianshu.com/shakespeare/notes/31762521/user_notes&#x27; \</span><br><span class="line">  -H &#x27;Connection: keep-alive&#x27; \</span><br><span class="line">  -H &#x27;Accept: application/json&#x27; \</span><br><span class="line">  -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36&#x27; \</span><br><span class="line">  -H &#x27;Sec-Fetch-Site: same-origin&#x27; \</span><br><span class="line">  -H &#x27;Sec-Fetch-Mode: cors&#x27; \</span><br><span class="line">  -H &#x27;Sec-Fetch-Dest: empty&#x27; \</span><br><span class="line">  -H &#x27;Referer: https://www.jianshu.com/p/9f9c5cba36e8&#x27; \</span><br><span class="line">  -H &#x27;Accept-Language: zh-CN,zh;q=0.9&#x27; \</span><br><span class="line">  -H &#x27;Cookie: __yadk_uid=Ein4n8jn6l5P6GObqMAXjgWVHPQddHrg; _ga=GA1.2.1043383107.1597137593; _gid=GA1.2.1914484739.1597137593; web_login_version=MTU5NzQ4MzUwMw%3D%3D--5dbb5619f4070e31714c813c4eccafb00f0ed003; remember_user_token=W1sxNTAzNjgyMl0sIiQyYSQxMSQzbHZDZTBQLnFZVWpvak00SzFydlNPIiwiMTU5ODQ1MzAxMS44MjQ3NjQiXQ%3D%3D--0d91c3663c7ac2048e7f7cbc941b9f66ca3f3a88; _m7e_session_core=7b490b8cfcf97f08559f60d68f9a0258; read_mode=day; default_font=font2; locale=zh-CN; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22173dcd19edbafb-00bf4f7297fa3c-4353760-1327104-173dcd19edc8bc%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22httpbin%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Fs%22%2C%22%24latest_utm_source%22%3A%22recommendation%22%2C%22%24latest_utm_medium%22%3A%22seo_notes%22%2C%22%24latest_utm_campaign%22%3A%22maleskine%22%2C%22%24latest_utm_content%22%3A%22note%22%7D%2C%22%24device_id%22%3A%22173dcd19edbafb-00bf4f7297fa3c-4353760-1327104-173dcd19edc8bc%22%7D; _gat=1; Hm_lvt_0c0e9d9b1e7d617b3e6842e85b9fb068=1598408433,1598413603,1598453016,1598460218; Hm_lpvt_0c0e9d9b1e7d617b3e6842e85b9fb068=1598460218&#x27; \</span><br><span class="line">  -H &#x27;If-None-Match: W/&quot;b97803d19320e20eed0659fcda4b0957&quot;&#x27; \</span><br><span class="line">  --compressed</span><br></pre></td></tr></table></figure>
+
+<h3 id="CURL状态码列表"><a href="#CURL状态码列表" class="headerlink" title="CURL状态码列表"></a><strong>CURL状态码列表</strong></h3><table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>状态原因</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>正常访问</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>错误的协议</td>
+<td>未支持的协议。此版cURL 不支持这一协议。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>初始化代码失败</td>
+<td>初始化失败。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>URL格式不正确</td>
+<td>URL 格式错误。语法不正确。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>请求协议错误</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>无法解析代理</td>
+<td>无法解析代理。无法解析给定代理主机。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>无法解析主机地址</td>
+<td>无法解析主机。无法解析给定的远程主机。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>无法连接到主机</td>
+<td>无法连接到主机。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>远程服务器不可用</td>
+<td>FTP 非正常的服务器应答。cURL 无法解析服务器发送的数据。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>访问资源错误</td>
+<td>FTP 访问被拒绝。服务器拒绝登入或无法获取您想要的特定资源或目录。最有可 能的是您试图进入一个在此服务器上不存在的目录。</td>
+</tr>
+<tr>
+<td>11</td>
+<td>FTP密码错误</td>
+<td>FTP 非正常的PASS 回复。cURL 无法解析发送到PASS 请求的应答。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>结果错误</td>
+<td>FTP 非正常的的PASV 应答，cURL 无法解析发送到PASV 请求的应答。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>FTP回应PASV命令</td>
+<td>FTP 非正常的227格式。cURL 无法解析服务器发送的227行。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>内部故障</td>
+<td>FTP 无法连接到主机。无法解析在227行中获取的主机IP。</td>
+</tr>
+<tr>
+<td>17</td>
+<td>设置传输模式为二进制</td>
+<td>FTP 无法设定为二进制传输。无法改变传输方式到二进制。</td>
+</tr>
+<tr>
+<td>18</td>
+<td>文件传输短或大于预期</td>
+<td>部分文件。只有部分文件被传输。</td>
+</tr>
+<tr>
+<td>19</td>
+<td>RETR命令传输完成</td>
+<td>FTP 不能下载/访问给定的文件， RETR (或类似)命令失败。</td>
+</tr>
+<tr>
+<td>21</td>
+<td>命令成功完成</td>
+<td>FTP quote 错误。quote 命令从服务器返回错误。</td>
+</tr>
+<tr>
+<td>22</td>
+<td>返回正常</td>
+<td>HTTP 找不到网页。找不到所请求的URL 或返回另一个HTTP 400或以上错误。 此返回代码只出现在使用了-f/–fail 选项以后。</td>
+</tr>
+<tr>
+<td>23</td>
+<td>数据写入失败</td>
+<td>写入错误。cURL 无法向本地文件系统或类似目的写入数据。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>无法启动上传</td>
+<td>FTP 无法STOR 文件。服务器拒绝了用于FTP 上传的STOR 操作。</td>
+</tr>
+<tr>
+<td>26</td>
+<td>回调错误</td>
+<td>读错误。各类读取问题。</td>
+</tr>
+<tr>
+<td>27</td>
+<td>内存分配请求失败</td>
+<td>内存不足。内存分配请求失败。</td>
+</tr>
+<tr>
+<td>28</td>
+<td>访问超时</td>
+<td>操作超时。到达指定的超时期限条件。</td>
+</tr>
+<tr>
+<td>30</td>
+<td>FTP端口错误</td>
+<td>FTP PORT 失败。PORT 命令失败。并非所有的FTP 服务器支持PORT 命令，请 尝试使用被动(PASV)传输代替！</td>
+</tr>
+<tr>
+<td>31</td>
+<td>FTP错误</td>
+<td>FTP 无法使用REST 命令。REST 命令失败。此命令用来恢复的FTP 传输。</td>
+</tr>
+<tr>
+<td>33</td>
+<td>不支持请求</td>
+<td>HTTP range 错误。range “命令”不起作用。</td>
+</tr>
+<tr>
+<td>34</td>
+<td>内部发生错误</td>
+<td>HTTP POST 错误。内部POST 请求产生错误。</td>
+</tr>
+<tr>
+<td>35</td>
+<td>SSL/TLS握手失败</td>
+<td>SSL 连接错误。SSL 握手失败。</td>
+</tr>
+<tr>
+<td>36</td>
+<td>下载无法恢复</td>
+<td>FTP 续传损坏。不能继续早些时候被中止的下载。</td>
+</tr>
+<tr>
+<td>37</td>
+<td>文件权限错误</td>
+<td>文件无法读取。无法打开文件。权限问题？</td>
+</tr>
+<tr>
+<td>38</td>
+<td>LDAP可没有约束力</td>
+<td>LDAP 无法绑定。LDAP 绑定(bind)操作失败。</td>
+</tr>
+<tr>
+<td>39</td>
+<td>LDAP搜索失败</td>
+<td>LDAP 搜索失败。</td>
+</tr>
+<tr>
+<td>41</td>
+<td>函数没有找到</td>
+<td>功能无法找到。无法找到必要的LDAP 功能。</td>
+</tr>
+<tr>
+<td>42</td>
+<td>中止的回调</td>
+<td>由回调终止。应用程序告知cURL 终止运作。</td>
+</tr>
+<tr>
+<td>43</td>
+<td>内部错误</td>
+<td>内部错误。由一个不正确参数调用了功能。</td>
+</tr>
+<tr>
+<td>45</td>
+<td>接口错误</td>
+<td>接口错误。指定的外发接口无法使用。</td>
+</tr>
+<tr>
+<td>47</td>
+<td>过多的重定向</td>
+<td>过多的重定向。cURL 达到了跟随重定向设定的最大限额跟</td>
+</tr>
+<tr>
+<td>48</td>
+<td>无法识别选项</td>
+<td>指定了未知TELNET 选项。</td>
+</tr>
+<tr>
+<td>49</td>
+<td>TELNET格式错误</td>
+<td>不合式的telnet 选项。</td>
+</tr>
+<tr>
+<td>51</td>
+<td>远程服务器的SSL证书</td>
+<td>peer 的SSL 证书或SSH 的MD5指纹没有确定。</td>
+</tr>
+<tr>
+<td>52</td>
+<td>服务器无返回内容</td>
+<td>服务器无任何应答，该情况在此处被认为是一个错误。</td>
+</tr>
+<tr>
+<td>53</td>
+<td>加密引擎未找到</td>
+<td>找不到SSL 加密引擎。</td>
+</tr>
+<tr>
+<td>54</td>
+<td>设定默认SSL加密失败</td>
+<td>无法将SSL 加密引擎设置为默认。</td>
+</tr>
+<tr>
+<td>55</td>
+<td>无法发送网络数据</td>
+<td>发送网络数据失败。</td>
+</tr>
+<tr>
+<td>56</td>
+<td>衰竭接收网络数据</td>
+<td>在接收网络数据时失败。</td>
+</tr>
+<tr>
+<td>57</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>本地客户端证书</td>
+<td>本地证书有问题。</td>
+</tr>
+<tr>
+<td>59</td>
+<td>无法使用密码</td>
+<td>无法使用指定的SSL 密码。</td>
+</tr>
+<tr>
+<td>60</td>
+<td>凭证无法验证</td>
+<td>peer 证书无法被已知的CA 证书验证。</td>
+</tr>
+<tr>
+<td>61</td>
+<td>无法识别的传输编码</td>
+<td>无法辨识的传输编码。</td>
+</tr>
+<tr>
+<td>62</td>
+<td>无效的LDAP URL</td>
+<td>无效的LDAP URL。</td>
+</tr>
+<tr>
+<td>63</td>
+<td>文件超过最大大小</td>
+<td>超过最大文件尺寸。</td>
+</tr>
+<tr>
+<td>64</td>
+<td>FTP失败</td>
+<td>要求的FTP 的SSL 水平失败。</td>
+</tr>
+<tr>
+<td>65</td>
+<td>倒带操作失败</td>
+<td>发送此数据需要的回卷(rewind)失败。</td>
+</tr>
+<tr>
+<td>66</td>
+<td>SSL引擎失败</td>
+<td>初始化SSL 引擎失败。</td>
+</tr>
+<tr>
+<td>67</td>
+<td>服务器拒绝登录</td>
+<td>用户名、密码或类似的信息未被接受，cURL 登录失败。</td>
+</tr>
+<tr>
+<td>68</td>
+<td>未找到文件</td>
+<td>在TFTP 服务器上找不到文件。</td>
+</tr>
+<tr>
+<td>69</td>
+<td>无权限</td>
+<td>TFTP 服务器权限有问题。</td>
+</tr>
+<tr>
+<td>70</td>
+<td>超出服务器磁盘空间</td>
+<td>TFTP 服务器磁盘空间不足。</td>
+</tr>
+<tr>
+<td>71</td>
+<td>非法TFTP操作</td>
+<td>非法的TFTP 操作。</td>
+</tr>
+<tr>
+<td>72</td>
+<td>未知TFTP传输的ID</td>
+<td>未知TFTP 传输编号(ID)。</td>
+</tr>
+<tr>
+<td>73</td>
+<td>文件已经存在</td>
+<td>文件已存在(TFTP) 。</td>
+</tr>
+<tr>
+<td>74</td>
+<td>错误TFTP服务器</td>
+<td>无此用户(TFTP) 。</td>
+</tr>
+<tr>
+<td>75</td>
+<td>字符转换失败</td>
+<td>字符转换失败。</td>
+</tr>
+<tr>
+<td>76</td>
+<td>必须记录回调</td>
+<td>需要字符转换功能。</td>
+</tr>
+<tr>
+<td>77</td>
+<td>CA证书权限</td>
+<td>读SSL 证书出现问题(路径？访问权限？ ) 。</td>
+</tr>
+<tr>
+<td>78</td>
+<td>URL中引用资源不存在</td>
+<td>URL 中引用的资源不存在。</td>
+</tr>
+<tr>
+<td>79</td>
+<td>错误发生在SSH会话</td>
+<td>SSH 会话期间发生一个未知错误。</td>
+</tr>
+<tr>
+<td>80</td>
+<td>无法关闭SSL连接</td>
+<td>未能关闭SSL 连接。</td>
+</tr>
+<tr>
+<td>81</td>
+<td>服务未准备</td>
+<td></td>
+</tr>
+<tr>
+<td>82</td>
+<td>无法载入CRL文件</td>
+<td>无法加载CRL 文件，丢失或格式不正确(在7.19.0版中增加) 。</td>
+</tr>
+<tr>
+<td>83</td>
+<td>发行人检查失败</td>
+<td>签发检查失败(在7.19.0版中增加) 。</td>
+</tr>
+</tbody></table>
+<h3 id="HTTPie"><a href="#HTTPie" class="headerlink" title="HTTPie"></a>HTTPie</h3><p><a target="_blank" rel="noopener" href="https://github.com/httpie/httpie">https://github.com/httpie/httpie</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install httpie</span><br></pre></td></tr></table></figure>
+
+<p>HTTPie基于python编写，内部使用了Requests和Pygments库</p>
+<p>HTTPie比cURL直观，默认输入和输出都是json格式 (而cURL必须要指定<code>-H &quot;Content-Type: application/json&quot;</code>)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http POST http://host:port/v3/auth/tokens @auth.json</span><br><span class="line">http GET http://host:port/v2/xx/servers X-Auth-Token:xxx</span><br></pre></td></tr></table></figure>
+
+</div></div><a class="button-hover more" href="/bq/4409411c.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/77d2dea0.html">Linux创建swap</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-06-03</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Linux/">Linux</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Linux/%E9%85%8D%E7%BD%AE/">配置</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Linux/">Linux</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/swap/">swap</a></div></div><div class="post-content"><div class="main-content content"><h3 id="Linux创建swap"><a href="#Linux创建swap" class="headerlink" title="Linux创建swap"></a>Linux创建swap</h3><p>查看内存的情况（此时swap行为0）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -m</span><br></pre></td></tr></table></figure>
+
+<p>初始时Swap 相关数据都是0。</p>
+<h4 id="创建swap文件（本文创建了2G），并使之生效"><a href="#创建swap文件（本文创建了2G），并使之生效" class="headerlink" title="创建swap文件（本文创建了2G），并使之生效"></a>创建swap文件（本文创建了2G），并使之生效</h4><p>a.创建用于交换分区的文件:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/zero of=/swapfile bs=1M count=2048</span><br><span class="line"><span class="meta">#</span><span class="bash"> 注：block_size、number_of_block 大小可以自定义，比如 bs=1M count=1024 代表设置 1G 大小 SWAP 分区。</span></span><br></pre></td></tr></table></figure>
+
+<p>b.设置交换分区文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkswap /swapfile</span><br></pre></td></tr></table></figure>
+
+<p>c.立即启用交换分区文件:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">swapon /swapfile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 这个命令可能会提示“swapon: /swapfile: insecure permissions 0644, 0600 suggested.”，意思是建议把swap设置成644或600权限。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 这时运行free -m会发现swap一列已经有数字了,就是上面第一次执行free -m 后的结果。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 注：如果在 /etc/rc.local 中有 swapoff -a 需要修改为 swapon -a</span></span><br></pre></td></tr></table></figure>
+
+
+<p>在 /etc/fstab 中添加如下一行，使之永久生效（自动挂载）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/swapfile swap swap defaults 0 0</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改-swpapiness-参数"><a href="#修改-swpapiness-参数" class="headerlink" title="修改 swpapiness 参数"></a>修改 swpapiness 参数</h4><p>在 Linux 系统中，可以通过查看 /proc/sys/vm/swappiness 内容的值来确定系统对 SWAP 分区的使用原则。当 swappiness 内容的值为 0 时，表示最大限度地使用物理内存，物理内存使用完毕后，才会使用 SWAP 分区。当 swappiness 内容的值为 100 时，表示积极地使用 SWAP 分区，并且把内存中的数据及时地置换到 SWAP 分区。<br>查看修改前为 0，需要在物理内存使用完毕后才会使用 SWAP 分区。<br>可以使用下述方法临时修改此参数，假设我们配置为空闲内存少于 10% 时才使用 SWAP 分区：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 10 &gt;/proc/sys/vm/swappiness</span><br></pre></td></tr></table></figure>
+
+<p>若需要永久修改此配置，在系统重启之后也生效的话，可以修改 /etc/sysctl.conf 文件，并增加以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.swappiness=10</span><br></pre></td></tr></table></figure>
+
+<h4 id="关闭-SWAP"><a href="#关闭-SWAP" class="headerlink" title="关闭 SWAP"></a>关闭 SWAP</h4><p>当系统出现内存不足时，开启 SWAP 可能会因频繁换页操作，导致 IO 性能下降。如果要关闭 SWAP，可以采用如下方法。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1、查询 SWAP 分区设置：</span></span><br><span class="line">free -m </span><br><span class="line"><span class="meta">#</span><span class="bash"> 2、使用命令swapoff 关闭 SWAP，比如：</span></span><br><span class="line">swapoff /mnt/swap</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3、修改 /etc/fstab 文件，删除或注释相关配置，取消 SWAP 的自动挂载：</span></span><br><span class="line">vim /etc/fstab</span><br><span class="line"><span class="meta">#</span><span class="bash">/swapfile swap swap defaults 0 0</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 4、 通过 free -m 确认 SWAP 已经关闭。</span></span><br><span class="line">free -m</span><br><span class="line"><span class="meta">#</span><span class="bash"> 5、 swappiness 参数调整：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 可以使用下述方法临时修改此参数，这里配置为 0%：</span></span><br><span class="line">echo 0 &gt;/proc/sys/vm/swappiness</span><br><span class="line"><span class="meta">#</span><span class="bash"> 若需要永久修改此配置，在系统重启之后也生效的话，可以修改 /etc/sysctl.conf文件，并增加以下内容：</span></span><br><span class="line">vm.swappiness=0</span><br></pre></td></tr></table></figure>
+
+</div></div><a class="button-hover more" href="/bq/77d2dea0.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/1b437b47.html">抓包&amp;协议分析</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/">Test</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/tool/">tool</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/http/">http</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/%E6%8A%93%E5%8C%85/">抓包</a></div></div><div class="post-content"><div class="main-content content"><p>工具：charles, firebug, wireshark, burpsuite</p>
+<h3 id="fiddler"><a href="#fiddler" class="headerlink" title="fiddler"></a>fiddler</h3><h4 id="https-www-telerik-com-download-fiddler"><a href="#https-www-telerik-com-download-fiddler" class="headerlink" title="https://www.telerik.com/download/fiddler"></a><a target="_blank" rel="noopener" href="https://www.telerik.com/download/fiddler">https://www.telerik.com/download/fiddler</a></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置Fiddler Options (配置完后记得要重启Fiddler)</span></span><br><span class="line">Capture HTTPS CONNECTS # 截获HTTPS</span><br><span class="line">Allow remote computers to connect # 是允许别的机器把HTTP/HTTPS请求发送到Fiddler上来，移动端</span><br><span class="line"><span class="meta">#</span><span class="bash"> 过滤</span></span><br><span class="line">Filters tab</span><br><span class="line"><span class="meta">#</span><span class="bash"> 各种解码与加解密</span></span><br><span class="line">decode  TextWizard</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重发请求</span></span><br><span class="line">composer</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置断点修改请求request</span></span><br><span class="line">1. 用浏览器打开登录界面  </span><br><span class="line">2. 打开Fiddler, 在命令行中输入bpu URL（rules-auto breakpoint-before breakpoint）https://xueqiu.com/snowman/login</span><br><span class="line">3. 输入错误的用户名和密码点击登录</span><br><span class="line">4. Fiddler 能中断这次会话，选择被中断的会话，点击Inspectors tab下的WebForms tab 修改用户名密码，然后点击Run to Completion 如下图所示。</span><br><span class="line">5. 结果是正确地登录了</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置断点修改Response</span></span><br><span class="line">第一种：</span><br><span class="line">打开Fiddler 点击Rules-&gt; Automatic Breakpoint  -&gt;After Response  (这种方法会中断所有的会话)</span><br><span class="line">消除:点击Rules-&gt; Automatic Breakpoint  -&gt;Disabled</span><br><span class="line">第二种:</span><br><span class="line">在命令行中输入命令:  bpafter www.xueqiu.com   (这种方法只会中断www.xueqiu.com)</span><br><span class="line">消除:在命令行中输入命令 bpafter,</span><br><span class="line"><span class="meta">#</span><span class="bash"> AutoResponder tab（修改会话拖到AutoResponder tab下）</span></span><br><span class="line">1. 打开首页，把的图片保存到本地，并且对图片做些修改。</span><br><span class="line">2. 打开Fiddler 找到一个图片的会话拖到AutoResponer Tab下</span><br><span class="line">3. 选择Enable automatic reaponses 和Unmatched requests passthrough</span><br><span class="line">4. 在下面的Rule Editor 下面选择 Find a file... 选择本地保存的图片.  最后点击Save 保存下。</span><br><span class="line">5. 再首页清除缓存, 你会看到首页的图片用的是本地的</span><br><span class="line"><span class="meta">#</span><span class="bash"> 弱网</span></span><br><span class="line">Rules → Performances → Simulate Modem Speeds</span><br><span class="line"><span class="meta">#</span><span class="bash"> 证书</span></span><br><span class="line">浏览器打开代理地址 FiddlerRoot certificate</span><br></pre></td></tr></table></figure>
+
+<p>操作可参考:<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA==&amp;mid=2454040445&amp;idx=1&amp;sn=d89068f8364fb20a42aed499255138cb&amp;chksm=872bbac4b05c33d226c4c76fd9e803c44c507e77cf4e60816ae40178f172fd5de0a96d73445c&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;sharer_sharetime=1582602447184&amp;sharer_shareid=9f552d705e74f07c1d8c9ac2eea73bc9&amp;key=0a2ec05589e15d483f615813291876556a0940749b209e06b13f3ba0ecf1cd6b1497d7399626902e039223df48ac2ca1bcb4460155711cd07890482f71ba7b512907ffc5219d5ab081010d771814dd9c&amp;ascene=1&amp;uin=Mjg1MzY3NzIyMA==&amp;devicetype=Windows+10&amp;version=62080079&amp;lang=zh_CN&amp;exportkey=ATpRN0jDHMGmvtTm0OANNLk=&amp;pass_ticket=ZBoOawavfdCpscbTzY2mOurA9YuvdXXtCl52c5+ABJ2uG1VA3pHleAw7QL9XVJsz">https://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA==&amp;mid=2454040445&amp;idx=1&amp;sn=d89068f8364fb20a42aed499255138cb&amp;chksm=872bbac4b05c33d226c4c76fd9e803c44c507e77cf4e60816ae40178f172fd5de0a96d73445c&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;sharer_sharetime=1582602447184&amp;sharer_shareid=9f552d705e74f07c1d8c9ac2eea73bc9&amp;key=0a2ec05589e15d483f615813291876556a0940749b209e06b13f3ba0ecf1cd6b1497d7399626902e039223df48ac2ca1bcb4460155711cd07890482f71ba7b512907ffc5219d5ab081010d771814dd9c&amp;ascene=1&amp;uin=Mjg1MzY3NzIyMA%3D%3D&amp;devicetype=Windows+10&amp;version=62080079&amp;lang=zh_CN&amp;exportkey=ATpRN0jDHMGmvtTm0OANNLk%3D&amp;pass_ticket=ZBoOawavfdCpscbTzY2mOurA9YuvdXXtCl52c5%2BABJ2uG1VA3pHleAw7QL9XVJsz</a></p>
+<h3 id="Charles"><a href="#Charles" class="headerlink" title="Charles"></a>Charles</h3><h4 id="特性-："><a href="#特性-：" class="headerlink" title="特性 ："></a>特性 ：</h4><p>代理,限速,重写请求和响应,⿊⽩名单,组建请求,重复请求</p>
+<h4 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h4><p>下载：<a target="_blank" rel="noopener" href="https://www.charlesproxy.com/download/">https://www.charlesproxy.com/download/</a></p>
+<p>补丁：<a target="_blank" rel="noopener" href="https://www.zzzmode.com/mytools/charles/">https://www.zzzmode.com/mytools/charles/</a></p>
+<p>默认替换路径：</p>
+<p>macOS:/Applications/Charles.app/Contents/Java/charles.jar<br>Windows: C:\Program Files\Charles\lib\charles.jar</p>
+<p>抓取Http请求包:<a target="_blank" rel="noopener" href="https://blog.csdn.net/abc6368765/article/details/81101976">https://blog.csdn.net/abc6368765/article/details/81101976</a></p>
+<p>抓取Https请求包:<a target="_blank" rel="noopener" href="https://blog.csdn.net/abc6368765/article/details/81103002">https://blog.csdn.net/abc6368765/article/details/81103002</a></p>
+<h3 id="question"><a href="#question" class="headerlink" title="question"></a>question</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.Charles 打不开 HTTPS ，显示您的连接不是私密连接</span><br><span class="line">将Charles的SSL Certificates添加到受信任根证书列表中，需要将证书添加到受信任根证书列表中</span><br><span class="line">重启电脑</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="⽹络模型与常见协议"><a href="#⽹络模型与常见协议" class="headerlink" title="⽹络模型与常见协议"></a>⽹络模型与常见协议</h5><p><img src="https://raw.githubusercontent.com/guobq/mysource/master/PictureBed/image-%E2%BD%B9%E7%BB%9C%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%B8%B8%E8%A7%81%E5%8D%8F%E8%AE%AE.png" alt="image-20200917000053060"></p>
+<h4 id="http"><a href="#http" class="headerlink" title="http"></a>http</h4><p>target<br>url: protocol host port<br>request<br>request method:<br>get post put head<br>resource path<br>protocol version<br>header: host cookie user-agent<br>get query<br>post body：json xml form</p>
+<h4 id="get-amp-post"><a href="#get-amp-post" class="headerlink" title="get&amp;post"></a>get&amp;post</h4><p>http的method字段<br>post可以附加body<br>通⽤server nginx apache默认不记录post body数据</p>
+<h4 id="cookie-amp-session"><a href="#cookie-amp-session" class="headerlink" title="cookie&amp;session"></a>cookie&amp;session</h4><p>server -&gt; set-cookie -&gt; cookie -&gt; request with cookie<br>server -&gt;token -&gt; set-cookie token / query -&gt; request</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ⽹络嗅探</span></span><br><span class="line">TcpDump + WireShark</span><br><span class="line"><span class="meta">#</span><span class="bash"> Proxy</span></span><br><span class="line">fiddler 、AnyProxy 、mitmproxy、charles、burpsuite </span><br><span class="line"><span class="meta">#</span><span class="bash"> 分析⼯具与协议客户端⼯具:</span></span><br><span class="line">curl 最常使⽤的http请求⼯具</span><br><span class="line">postman 调试⼯具</span><br><span class="line">Chrome DevTool</span><br><span class="line">nc 接近于编程⽅式</span><br><span class="line">burpsuite http操纵的⿊客级别⼯具</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ⽹络嗅探</span></span><br><span class="line">TcpDump + WireShark</span><br><span class="line"><span class="meta">#</span><span class="bash"> Proxy</span></span><br><span class="line">fiddler 、AnyProxy 、mitmproxy、charles、burpsuite </span><br><span class="line"><span class="meta">#</span><span class="bash"> 分析⼯具与协议客户端⼯具:</span></span><br><span class="line">curl</span><br><span class="line">postman</span><br><span class="line">Chrome DevTool</span><br></pre></td></tr></table></figure>
+
+<h3 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcpdump port 443 -v -w tcp.lg</span><br></pre></td></tr></table></figure>
+
+<h3 id="移动端代理抓包"><a href="#移动端代理抓包" class="headerlink" title="移动端代理抓包"></a>移动端代理抓包</h3><p>开启代理端口<br>设置⼿机代理:Android 6.0以上需要修改包属性<a target="_blank" rel="noopener" href="https://developer.android.com/training/articles/securityconfig.html">https://developer.android.com/training/articles/securityconfig.html</a><br>安装证书<br>（从Android Nougat（7.0）开始，应⽤程序默认不会信任⽤户证书，开发⼈员可以通过配置应⽤程序AndroidManifest.xml⽂件的networkSecurityConfig属性来选择接受⽤户证书）</p>
+<h3 id="数据拦截修改"><a href="#数据拦截修改" class="headerlink" title="数据拦截修改"></a>数据拦截修改</h3><p>修改请求，修改响应，断点，重写</p>
+<h3 id="⾃定义代理解析特殊协议"><a href="#⾃定义代理解析特殊协议" class="headerlink" title="⾃定义代理解析特殊协议"></a>⾃定义代理解析特殊协议</h3><p>流量转发<br>协议解包<br>协议封包<br>原理是tcp proxy或者http proxy<br>参考⼯具 em-proxy nc</p>
+</div></div><a class="button-hover more" href="/bq/1b437b47.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/c41a1599.html">redis搭建</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-06-03</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E9%80%9A%E7%94%A8/">通用</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E9%80%9A%E7%94%A8/%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">服务搭建</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/redis/">redis</a></div></div><div class="post-content"><div class="main-content content"><h3 id="单机"><a href="#单机" class="headerlink" title="单机"></a>单机</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 解压</span></span><br><span class="line">tar zxf  redis-5.0.8.tar.gz</span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译</span></span><br><span class="line">cd redis-5.0.8</span><br><span class="line">make</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装编译后的redis代码到指定目录,一般存放于/usr/<span class="built_in">local</span>下的redis目录,指令如下</span></span><br><span class="line">make install PREFIX=/usr/local/redis</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动</span></span><br><span class="line">./redis-server --port 6380&amp;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或</span></span><br><span class="line">./redis-server redis.conf</span><br><span class="line"><span class="meta">#</span><span class="bash"> redis默认只允许本地访问，要使redis可以远程访问可以修改redis.conf，注释掉<span class="built_in">bind</span> 127.0.0.1可以使所有的ip访问redis</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 连接</span></span><br><span class="line">./redis-cli -h 192.168.25.153 -p 6379</span><br></pre></td></tr></table></figure>
+
+<h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 集群</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改redis的配置文件：修改端口号，打开cluster-enable前面的注释，修改cluster-config-file nodes.conf文件名</span></span><br><span class="line">./src/redis-server ../redis6.conf &amp; </span><br><span class="line">./src/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建6个redis实例（6个节点）并启动：</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在usr/<span class="built_in">local</span>目录下新建redis-cluster目录，用于存放集群节点</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 把redis目录下的bin目录下的所有文件复制到/usr/<span class="built_in">local</span>/redis-cluster/redis01目录下</span></span><br><span class="line">cp -r redis/bin/ redis-cluster/redis01</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除redis01目录下的快照文件dump.rdb，并且修改该目录下的redis.cnf文件，修改端口号，打开cluster-enable前面的注释</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将redis-cluster/redis01文件复制5份到redis-cluster目录下（redis02-redis06），创建6个redis实例，模拟Redis集群的6个节点。然后将其余5个文件下的redis.conf里面的端口号分别修改</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动所有redis节点</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 要搭建集群的话，需要使用一个工具（脚本文件），这个工具在redis解压文件的源代码里。因为这个工具是一个ruby脚本文件，所以这个工具的运行需要ruby的运行环境</span></span><br><span class="line">yum install ruby</span><br><span class="line"><span class="meta">#</span><span class="bash"> 然后需要把ruby相关的包安装到服务器：redis的版本和ruby包的版本最好保持一致</span></span><br><span class="line">gem install redis-XXX.gem</span><br><span class="line"><span class="meta">#</span><span class="bash"> ruby脚本工具在redis解压文件的源代码里，即redis/src目录下的redis-trib.rb文件，复制到usr/<span class="built_in">local</span>/redis-cluster目录下。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 搭建集群</span></span><br><span class="line">./redis-trib.rb  create --replicas  1 10.10.100.56:16449 10.10.100.56:16459 10.10.100.56:16469 10.10.100.56:16479 10.10.100.56:16489 10.10.100.56:16499 </span><br><span class="line"><span class="meta">#</span><span class="bash"> 连接集群节点，连接任意一个即可，存储的数据（key-value）是均匀分配到不同的节点的：</span></span><br><span class="line">redis01/redis-cli -p 端口号 -c</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看当前集群信息</span></span><br><span class="line">cluster info</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看集群里有多少个节点</span></span><br><span class="line">cluster nodes</span><br></pre></td></tr></table></figure>
+</div></div><a class="button-hover more" href="/bq/c41a1599.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/ca7c7e35.html">Java启动参数设置</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-06-03</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Language/">Language</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Language/java/">java</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/jvm/">jvm</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/java/">java</a></div></div><div class="post-content"><div class="main-content content"><h3 id="Java启动参数设置"><a href="#Java启动参数设置" class="headerlink" title="Java启动参数设置"></a>Java启动参数设置</h3><p>Java启动参数共分为三类；<br>其一是标准参数（-），所有的JVM实现都必须实现这些参数的功能，而且向后兼容；<br>其二是非标准参数（-X），默认jvm实现这些参数的功能，但是并不保证所有jvm实现都满足，且不保证向后兼容；<br>其三是非Stable参数（-XX），此类参数各个jvm实现会有所不同，将来可能会随时取消，需要慎重使用；</p>
+<h4 id="内存参数"><a href="#内存参数" class="headerlink" title="内存参数"></a>内存参数</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Java 默认/缺省 内存大小，如果没有 -Xms -Xmx</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输出默认值命令</span></span><br><span class="line">java -XX:+PrintCommandLineFlags -version</span><br><span class="line">-XX:InitialHeapSize=16336768 -XX:MaxHeapSize=522776576 -XX:+PrintCommandLineFlags</span><br><span class="line"><span class="meta">#</span><span class="bash"> -Xms and -Xmx (or: -XX:InitialHeapSize and -XX:MaxHeapSize)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -Xms和-Xmx可以说是最流行的JVM参数，它们可以允许我们指定JVM的初始和最大堆内存大小。一般来说，这两个参数的数值单位是Byte，但同时它们也支持使用速记符号，比如“k”或者“K”代表“kilo”，“m”或者“M”代表“mega”，“g”或者“G”代表“giga”。举个例子，下面的命令启动了一个初始化堆内存为128M，最大堆内存为2G，名叫“MyApp”的Java应用程序。</span></span><br><span class="line">java -Xms128m -Xmx2g MyApp</span><br><span class="line"><span class="meta">#</span><span class="bash"> example</span></span><br><span class="line">java -Xms32m -Xmx96m -jar $&#123;JARNAME&#125;*RELEASE.jar --spring.profiles.active=test&amp;</span><br></pre></td></tr></table></figure>
+
+<p>jar包启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar ai-registration-20170101.1.0.0.jar --server.port=9999 --spring.profiles.active=uat</span><br></pre></td></tr></table></figure>
+
+<p>输出日志不挂断地运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup java -jar /home/mobiletest/workspace/iboss-ei-boss.jar --spring.profiles.active=uat&gt;ei.log&amp;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+</div></div><a class="button-hover more" href="/bq/ca7c7e35.html#more">阅读全文</a></div></div><div id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/">&lt;i class&#x3D;&quot;fas fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">&lt;i class&#x3D;&quot;fas fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></div></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i></span><span id="busuanzi_value_site_uv"></span><span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i></span><span id="busuanzi_value_site_pv"></span><span></span></div><div class="copyright">&copy;2020 ～ 2021 By bq</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>

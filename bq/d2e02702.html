@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="FFMPEG安装使用"><meta name="keywords" content="FFmpeg"><meta name="author" content="bq,undefined"><meta name="copyright" content="bq"><title>FFMPEG安装使用【bq's notes】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"8ICB0LL54F","apiKey":"b6e01221a0e1bdb34d69e088b9bd39d8","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {"appId":"8xUuEcUoXahLwm69LVK1eumF-gzGzoHsz","appKey":"NDF5dcJsxuEHHBOLlda7Y07b"},
+}</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="bq's notes" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">Windows环境安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">Linux环境安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FFmpeg%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">FFmpeg的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E8%BD%AC%E6%8D%A2%E6%A0%BC%E5%BC%8F%E2%80%94-%E5%B0%86test-avi%E6%A0%BC%E5%BC%8F%E7%9A%84%E8%BD%AF%E4%BB%B6%E8%BD%AC%E6%8D%A2%E4%B8%BAtest-mp4"><span class="toc-number">3.1.</span> <span class="toc-text">视频转换格式—-将test.avi格式的软件转换为test.mp4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E6%88%AA%E5%9B%BE%E4%BF%9D%E5%AD%98%E4%B8%BA%E5%9B%BE%E7%89%87"><span class="toc-number">3.2.</span> <span class="toc-text">视频截图保存为图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%AA%E5%8F%96%E4%B8%8E%E5%90%88%E5%B9%B6%E8%A7%86%E9%A2%91"><span class="toc-number">3.3.</span> <span class="toc-text">截取与合并视频</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99%E8%A7%86%E9%A2%91%E6%B7%BB%E5%8A%A0%E6%B0%B4%E5%8D%B0"><span class="toc-number">3.4.</span> <span class="toc-text">给视频添加水印</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">bq</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/guobq" target="_blank">GitHub<i class="icon-dot bg-color7"></i></a><a class="links-button button-hover" href="mailto:2278220079@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color0"></i></a><a class="links-button button-hover" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2278220079&amp;site=qq&amp;menu=yes" target="_blank">QQ<i class="icon-dot bg-color2"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">73</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">73</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">25</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">bq's notes</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">FFMPEG安装使用</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2020-07-09 | 更新于 2021-06-03</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E9%80%9A%E7%94%A8/">通用</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E9%80%9A%E7%94%A8/%E5%B7%A5%E5%85%B7%E4%B8%8E%E9%85%8D%E7%BD%AE/">工具与配置</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/FFmpeg/">FFmpeg</a></div></div></div><div class="main-content"><h3 id="Windows环境安装"><a href="#Windows环境安装" class="headerlink" title="Windows环境安装"></a>Windows环境安装</h3><p>FFmpeg是一套用来记录、转换数字音频、视频的计算机开源程序。提供录制、转换以及流化音视频的完整解决方案。包含音频/视频编码解码库libavodec</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/FFmpeg/FFmpeg">https://github.com/FFmpeg/FFmpeg</a></p>
+<p>下载：<a target="_blank" rel="noopener" href="https://ffmpeg.zeranoe.com/builds/">https://ffmpeg.zeranoe.com/builds/</a></p>
+<p>解压-&gt;d:/ffmpeg</p>
+<p>添加环境变量：d:/ffmpeg/bin</p>
+<p>查看版本:ffmpeg -version</p>
+<h3 id="Linux环境安装"><a href="#Linux环境安装" class="headerlink" title="Linux环境安装"></a>Linux环境安装</h3><p>下载:<a target="_blank" rel="noopener" href="http://ffmpeg.org/releases/">http://ffmpeg.org/releases/</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">tar -jxvf ffmpeg-3.4.1.tar.bz2</span><br><span class="line">cd ffmpeg-3.4.1</span><br><span class="line"></span><br><span class="line">yum install yasm</span><br><span class="line"></span><br><span class="line">./configure --enabled-shared --prefix=/usr/local/ffmpeg</span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">vim /etc/ld.so.conf </span><br><span class="line">/usr/local/ffmpeg/lib.</span><br><span class="line"></span><br><span class="line">ldconfig</span><br><span class="line"></span><br><span class="line">vim /etc/profile</span><br><span class="line">export FFMPEG_HOME=/usr/local/ffmpeg</span><br><span class="line">export PATH=$FFMPEG_HOME/bin:$PATH</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<h3 id="FFmpeg的使用"><a href="#FFmpeg的使用" class="headerlink" title="FFmpeg的使用"></a>FFmpeg的使用</h3><h4 id="视频转换格式—-将test-avi格式的软件转换为test-mp4"><a href="#视频转换格式—-将test-avi格式的软件转换为test-mp4" class="headerlink" title="视频转换格式—-将test.avi格式的软件转换为test.mp4"></a>视频转换格式—-将test.avi格式的软件转换为test.mp4</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i test.avi test.mp4</span><br></pre></td></tr></table></figure>
+
+<h4 id="视频截图保存为图片"><a href="#视频截图保存为图片" class="headerlink" title="视频截图保存为图片"></a>视频截图保存为图片</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i inputfile.avi -r 1 -q:v 2 -f image2 image-%05d.jpg</span><br></pre></td></tr></table></figure>
+
+<p>  -r:指定抽取的帧  即从视频中每秒抽取图片的数量 1代表每秒抽取一帧</p>
+<p>  -f:保存图片使用的格式  可省略</p>
+<p>  Image-%05d.jpg:指定文件的输出名字</p>
+<h4 id="截取与合并视频"><a href="#截取与合并视频" class="headerlink" title="截取与合并视频"></a>截取与合并视频</h4><p>截取：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg  -i 0005.mp4 -vcodec copy -acodec copy -ss 00:00:00 -to 00:00:100 d:/cutout1.mp4 -y  </span><br></pre></td></tr></table></figure>
+
+<p>  -ss:指定从什么时候开始</p>
+<p>  -t:指定需要截取多长时间</p>
+<p>  -i:指定输入文件  </p>
+<p>截取视频如果出现时间点不对，出现这种情况的原因是因为截取到的地方不是关键帧，如果项目中对时间要求比较精确的话，需要先将视频将所有的帧提前转换关键帧—-将所有的帧编码方式转变为帧内编码</p>
+<p>老版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input -samep -intra output</span><br></pre></td></tr></table></figure>
+
+<p>​       -i：输入视频文件</p>
+<p>​       -sameq ：保持同样的视频质量</p>
+<p>​       -intra :帧内编码</p>
+<p>​       output：输出文件名</p>
+<p> 新版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i inputfile -strict -2 -qscale 0 -intra output.mp4</span><br></pre></td></tr></table></figure>
+
+<p>合成：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -ss 00:00:00 -t 00:00:20 -i input.mp4 -vcodec copy output.mp4</span><br><span class="line"></span><br><span class="line">ffmpeg -f concat -i list.txt -c copy concat.mp4</span><br></pre></td></tr></table></figure>
+
+<p>list.txt文件中的书写方式：</p>
+<p> file video1.mp4</p>
+<p> file video2.mp4  </p>
+<h4 id="给视频添加水印"><a href="#给视频添加水印" class="headerlink" title="给视频添加水印"></a>给视频添加水印</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i xiaozheng.mp4 -i mark.png -filter_complex overlay test1.mp4  </span><br></pre></td></tr></table></figure>
+
+<p>给视频添加文字水印：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i xiaozheng.mp4 -vf &quot;drawtext=fontfile=simsunb.ttf: text=&#x27;zhengqijia&#x27;:x=100:y=10:fontsize=24:fontcolor=yellow:shadowy=2&quot; drawtext.mp4</span><br></pre></td></tr></table></figure>
+
+<p>文字水印filter是drawtext simsunb.ttf:text=’zhengqijia’</p>
+<p>x:y是显示位置</p>
+<p>fontsize:文字大小</p>
+<p>fontcolor:文字颜色</p>
+<p>给视频添加图片水印：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 -vf &quot;movie=mark.png[watermark];[in][watermark] overlay=10:10[out]&quot; output.mp4</span><br></pre></td></tr></table></figure>
+
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">bq</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://guobq.github.io/bq/d2e02702.html">https://guobq.github.io/bq/d2e02702.html</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://guobq.github.io">bq's notes</a>！</span></div></div><div class="post-copyright valine" id="comments-container"><script src="//unpkg.com/valine@1.4.14/dist/Valine.min.js"></script><script>let arr = location.href.split('/#more')[0].split('/');
+let title = arr[arr.length - 1];
+if (title === '') {
+    title = arr[arr.length - 2];
+}
+var flag = false;
+var gitFun = function () {
+    try {
+        var valineObj = window.GLOBAL_CONFIG.valine;
+        new Valine({
+            el: "#comments-container",
+            ...valineObj
+        });
+        flag = true;
+    } catch (e) {
+        flag = false;
+    }
+}
+var setIn = setInterval(() => {
+    if (!flag) {
+        gitFun();
+    } else {
+        clearInterval(setIn);
+    }
+}, 200);</script></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/96648031.html"><i class="fas fa-angle-left">&nbsp;</i><span>专项测试</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/4b99d29a.html"><span>appium之webdriver与webview</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2020 ～ 2021 By bq</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>

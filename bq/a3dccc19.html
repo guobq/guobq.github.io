@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="测试方案，策略，计划，用例"><meta name="keywords" content="Test"><meta name="author" content="bq,undefined"><meta name="copyright" content="bq"><title>测试方案，策略，计划，用例【bq's notes】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"8ICB0LL54F","apiKey":"b6e01221a0e1bdb34d69e088b9bd39d8","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {"appId":"8xUuEcUoXahLwm69LVK1eumF-gzGzoHsz","appKey":"NDF5dcJsxuEHHBOLlda7Y07b"},
+}</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="bq's notes" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%A1%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">测试计划</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">测试方案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E5%AE%B9-1"><span class="toc-number">2.1.</span> <span class="toc-text">内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5"><span class="toc-number">3.</span> <span class="toc-text">测试策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="toc-number">4.</span> <span class="toc-text">测试用例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%8E%9F%E5%88%99"><span class="toc-number">4.1.</span> <span class="toc-text">测试用例设计的原则</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">bq</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/guobq" target="_blank">GitHub<i class="icon-dot bg-color10"></i></a><a class="links-button button-hover" href="mailto:2278220079@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2278220079&amp;site=qq&amp;menu=yes" target="_blank">QQ<i class="icon-dot bg-color6"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">73</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">73</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">25</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">bq's notes</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">测试方案，策略，计划，用例</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-02-27 | 更新于 2021-04-11</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/">Test</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/%E7%90%86%E8%AE%BA/">理论</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Test/">Test</a></div></div></div><div class="main-content"><blockquote>
+<p><em>测试计划提出“做什么”，测试方案明确“如何做”，测试方案需要在测试计划的指导下进行。</em></p>
+</blockquote>
+<h3 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h3><p>是对测试全过程的组织、资源、原则等进行规定和约束，并制定测试全过程各个阶段的任务以及时间进度安排，并提出对各项任务的评估、风险分析和管理需求。简言之，测试计划是从<strong>管理角度</strong>对整个测试活动进行规划和控制。</p>
+<h4 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h4><p>背景、项目简介、目的、测试范围、测试策略、人员分工、资源要求、进度计划、参考文档、常用术语、提交文档、风险分析</p>
+<p>1.概述<br>项目背景、测试范围（所需测试的特性）、参考文档（需求文档、会议记录、同类项目的参考说明）<br>2.组织形式<br>测试涉及人员及其职责的划分<br>3.测试范围<br>确定被测特性有哪些，然后按照功能性、非功能性的分类，对系统模块&amp;子模块进行划分，重要级别的设置<br>4.测试通过与否的标准<br>根据对测试系统的预判，与项目经理协商并由其确认来定义项目通过&amp;不通过的准则（如：测试覆盖率、缺陷修复率…）<br>5.测试挂起&amp;恢复条件<br>1）测试挂起：考虑测试过程中发生一些内外部问题致使测试受阻，用例无法执行的情形，由项目经理确认<br>2）测试恢复：导致阻塞的问题确认已被修复后，由项目经理确认恢复测试<br>6.测试进度人力分布计划<br>计划编制原则：<br>1）尽量准确预估整个测试活动所需的人力和持续时间<br>2）讲一个阶段分成若干个能进行有效监控的小阶段<br>3）计划结构和进度须清晰明了，便于阅览、检查<br>4）结构包括：任务、负责人、检查人、时间进度条</p>
+<p>制定项目测试过程中的测试重点，各个阶段的任务分配以及时间进度安排，并提出对各项任务的评估，风险分析，可以包括测试策略。</p>
+<h3 id="测试方案"><a href="#测试方案" class="headerlink" title="测试方案"></a>测试方案</h3><p>是描述被测对象需要测试的特性、测试的方法、测试环境的规划、测试工具的设计和选择、测试用例的设计方法、测试代码的设计方案。简言之，测试方案是从<strong>技术角度</strong>对整个测试活动进行规划和控制。</p>
+<h4 id="内容-1"><a href="#内容-1" class="headerlink" title="内容"></a>内容</h4><p><strong>1.概述</strong><br> 描述软件项目的背景（如：项目名称、项目时间、项目目的）、测试范围、参考文档<br> <strong>2.测试环境</strong><br> 1）软硬件环境<br> 硬件设备：电脑配置、无线路由器、手机…<br> 软件设备：应用服务器、数据库服务器-型号&amp;版本<br> 2）网络构成<br> 测试环境的网络结构、拓扑图<br> 3）环境搭建<br> 测试所需的环境搭建步骤、要求、注意事项<br> 4）测试工具<br> 所需的测试工具，如：LR、Jmeter、Postman、AppScan、AWVS…<br> <strong>3.测试策略</strong><br> 说明此项目将要采取哪些测试手段与方法<br> 结构包括：功能性/非功能性-系统模块&amp;子模块、测试要点、测试要点说明、测试数据描述、优先级、测试方法、用例设计方法<br> <strong>4.测试风险评估与预防</strong><br> 评估项目测试过程中可能存在的风险，设置不同的风险等级，并提前分析相应的预防措施<br> 结构包括：风险描述、风险等级、风险来源、产生阶段、预防措施、对策责任人</p>
+<p>侧重测试的方法，测试环境的规划，测试工具的设计和选择，测试用例的设计方法，测试代码的设计方案。</p>
+<h3 id="测试策略"><a href="#测试策略" class="headerlink" title="测试策略"></a>测试策略</h3><p>如何用尽量少的资源来尽量好的完成测试，给测试活动提供技术上的明确指导，以便测试活动的实施者能够很快的开展自己的工作。</p>
+<p>侧重需求分析，评估风险，定义测试范围，确定测试方法，制定测试启动、停止、完成标准和条件。</p>
+<blockquote>
+<p>宏观角度:在不同的项目背景下，根据产品需求和指标，分析产品的功能项和业务逻辑，并判断测试的重点和方向，在当前有限的条件下，统筹各方资源、采取合理有效的方法来推动项目的测试活动开展，以最少的软硬件、人力资源投入得到最佳的测试效果，达到符合当前环境的最优决策。</p>
+</blockquote>
+<blockquote>
+<p>微观角度:可以归属到测试方案中的一个重要组成项，通过采用有效的测试手段与方法，对产品模块&amp;子模块进行划分，明确测试要点，然后按照功能性与非功能性（易用性、兼容性、性能、安全性…）的分类，明确所采用的测试方法（黑盒/白盒/单元/集成/系统/回归/验收…）、用例设计方法（等价类、边界值、流程分析法、），并设置不同的测试优先级，从而指导后面编写测试用例等工作的开展。</p>
+</blockquote>
+<h3 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h3><p>根据测试计划，制定完成测试任务的具体测试步骤。</p>
+<h4 id="测试用例设计的原则"><a href="#测试用例设计的原则" class="headerlink" title="测试用例设计的原则"></a>测试用例设计的原则</h4><blockquote>
+<p>代表性：能够代表并覆盖各种合理的和不合理、合法的和非法的、边界的和越界的、以及极限的输入数据、操作和环境设置等.</p>
+<p>可判定性：即测试执行结果的正确性是可判定的，每一个测试用例都应有相应的期望结果.</p>
+<p>可再现性：即对同样的测试用例，系统的执行结果应当是相同的。</p>
+</blockquote>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">bq</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://guobq.github.io/bq/a3dccc19.html">https://guobq.github.io/bq/a3dccc19.html</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://guobq.github.io">bq's notes</a>！</span></div></div><div class="post-copyright valine" id="comments-container"><script src="//unpkg.com/valine@1.4.14/dist/Valine.min.js"></script><script>let arr = location.href.split('/#more')[0].split('/');
+let title = arr[arr.length - 1];
+if (title === '') {
+    title = arr[arr.length - 2];
+}
+var flag = false;
+var gitFun = function () {
+    try {
+        var valineObj = window.GLOBAL_CONFIG.valine;
+        new Valine({
+            el: "#comments-container",
+            ...valineObj
+        });
+        flag = true;
+    } catch (e) {
+        flag = false;
+    }
+}
+var setIn = setInterval(() => {
+    if (!flag) {
+        gitFun();
+    } else {
+        clearInterval(setIn);
+    }
+}, 200);</script></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/62fbab7e.html"><i class="fas fa-angle-left">&nbsp;</i><span>cmmi过程域概述</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/926a2b5e.html"><span>cmmi需求相关</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2020 ～ 2021 By bq</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>

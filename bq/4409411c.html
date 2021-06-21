@@ -1,0 +1,603 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="命令行交互方式来访问HTTP服务(curl&amp;httpie)"><meta name="keywords" content="curl,httpie"><meta name="author" content="bq,undefined"><meta name="copyright" content="bq"><title>命令行交互方式来访问HTTP服务(curl&amp;httpie)【bq's notes】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"8ICB0LL54F","apiKey":"b6e01221a0e1bdb34d69e088b9bd39d8","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {"appId":"8xUuEcUoXahLwm69LVK1eumF-gzGzoHsz","appKey":"NDF5dcJsxuEHHBOLlda7Y07b"},
+}</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="bq's notes" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#curl"><span class="toc-number">1.</span> <span class="toc-text">curl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#example"><span class="toc-number">3.</span> <span class="toc-text">example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CURL%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%97%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">CURL状态码列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPie"><span class="toc-number">5.</span> <span class="toc-text">HTTPie</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">bq</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/guobq" target="_blank">GitHub<i class="icon-dot bg-color9"></i></a><a class="links-button button-hover" href="mailto:2278220079@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2278220079&amp;site=qq&amp;menu=yes" target="_blank">QQ<i class="icon-dot bg-color3"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">73</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">73</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">25</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">bq's notes</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">命令行交互方式来访问HTTP服务(curl&amp;httpie)</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2020-04-17 | 更新于 2021-04-11</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/">Test</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/Test/tool/">tool</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/curl/">curl</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/httpie/">httpie</a></div></div></div><div class="main-content"><h3 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h3><p>用于命令行和脚本进行传输数据到服务器或者从服务器传输数据的工具</p>
+<ul>
+<li><p>支持广泛的协议，如：ftp、http、https、pop3、scp、sftp、telent等</p>
+</li>
+<li><p>支持SSL证书，HTTP中各方法、cookies、head、authentication</p>
+</li>
+<li><p>免费开源软件</p>
+<p>使用场景：</p>
+</li>
+<li><p>请求、验证、测试链接</p>
+</li>
+<li><p>支持连接超时、保活时间设置，支持下载上传速率的配置，支持重试机制等</p>
+</li>
+<li><p>测试restful接口</p>
+</li>
+<li><p>上传、下载文件</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>curl [options] [URL…]</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-V</td>
+<td align="left">显示当前的curl版本</td>
+</tr>
+<tr>
+<td>-#</td>
+<td align="left">对发送和接收进行简单的进度bar展示</td>
+</tr>
+<tr>
+<td>-0</td>
+<td align="left">强制使用HTTP 1.0协议</td>
+</tr>
+<tr>
+<td>-1</td>
+<td align="left">强制使用TLS version 1.x</td>
+</tr>
+<tr>
+<td>-4</td>
+<td align="left">解析域名为ipv4地址(域名有多个ip时)</td>
+</tr>
+<tr>
+<td>-a</td>
+<td align="left">FTP/SFTP上传文件时，curl将追加到目标文件，而非覆盖</td>
+</tr>
+<tr>
+<td>-A</td>
+<td align="left">设置用户代理</td>
+</tr>
+<tr>
+<td>-b</td>
+<td align="left">设置cookies</td>
+</tr>
+<tr>
+<td>–basic</td>
+<td align="left">使用HTTP Basic authentication</td>
+</tr>
+<tr>
+<td>–compressed</td>
+<td align="left">使用curl支持的压缩算法请求压缩的响应， 如果请求的响应不是压缩的，curl抛出异常</td>
+</tr>
+<tr>
+<td>–connect-timeout</td>
+<td align="left">设置连接超时时间</td>
+</tr>
+<tr>
+<td>-d</td>
+<td align="left">用于post请求时表单提交数据， 请求类型将被设置为：application/x-www-form-urlencoded</td>
+</tr>
+<tr>
+<td>-e</td>
+<td align="left">发送”Referer Page”到服务器</td>
+</tr>
+<tr>
+<td>-F</td>
+<td align="left">form表单提交</td>
+</tr>
+<tr>
+<td>-G</td>
+<td align="left">使用get请求发送 -d参数指定的数据</td>
+</tr>
+<tr>
+<td>-H</td>
+<td align="left">增加Head头</td>
+</tr>
+<tr>
+<td>-i</td>
+<td align="left">在输出Head头（响应）</td>
+</tr>
+<tr>
+<td>-I</td>
+<td align="left">只输出Head头（响应）</td>
+</tr>
+<tr>
+<td>–interface</td>
+<td align="left">指定使用的网络接口</td>
+</tr>
+<tr>
+<td>-k</td>
+<td align="left">允许curl使用非安全的ssl连接并且传输数据（证书不受信）</td>
+</tr>
+<tr>
+<td>-K</td>
+<td align="left">后接参数文件，参数文件中可以定义HTTP请求的相关的内容（URL、HEAD、DATA）</td>
+</tr>
+<tr>
+<td>–keepalive-time</td>
+<td align="left">设置连接的保活时间</td>
+</tr>
+<tr>
+<td>-L</td>
+<td align="left">curl自动重定向（3xx）</td>
+</tr>
+<tr>
+<td>–limit-rate</td>
+<td align="left">特指最大的传输速率</td>
+</tr>
+<tr>
+<td>-m</td>
+<td align="left">设置整个操作的允许消耗的最大时间，对于在延时网络下的批量操作有利</td>
+</tr>
+<tr>
+<td>–max-filesize</td>
+<td align="left">允许下载文件的最大大小</td>
+</tr>
+<tr>
+<td>-N</td>
+<td align="left">禁用输出流缓冲区</td>
+</tr>
+<tr>
+<td>–no-keepalive</td>
+<td align="left">连接不保活</td>
+</tr>
+<tr>
+<td>-o</td>
+<td align="left">将响应数据输出到指定文件，后接文件参数</td>
+</tr>
+<tr>
+<td>–retry</td>
+<td align="left">发生瞬时错误时，curl将重试执行数据传输</td>
+</tr>
+<tr>
+<td>–retry-delay</td>
+<td align="left">延迟重试</td>
+</tr>
+<tr>
+<td>–trace</td>
+<td align="left">dump出输入输出数据至文件</td>
+</tr>
+<tr>
+<td>-v</td>
+<td align="left">获取更多输入输出相关的内容，对于debug非常有用</td>
+</tr>
+<tr>
+<td>-y或者–speed-time</td>
+<td align="left">如果在speed-time期间，下载比speed-limit这个更慢，则下载废止</td>
+</tr>
+<tr>
+<td>-Y或者–speed-limit</td>
+<td align="left">如果在speed-time期间，下载比speed-limit这个更慢，则下载废止</td>
+</tr>
+</tbody></table>
+<h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -i表示显示返回消息的头部</span></span><br><span class="line">curl -X METHOD -H HEADER -i </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> -d后面表示请求消息体，如果消息体在文件中，那么使用@符号作为前缀对文件进行读取</span></span><br><span class="line">curl -i -X POST -H &quot;Content-Type: application/json&quot; -d @auth.json http://host:port/v3/auth/tokens</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 不带有任何参数时，curl 就是发出 GET 请求。</span></span><br><span class="line">curl https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash">上面命令向www.example.com发出 GET 请求，服务器返回的内容会在命令行输出。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -A参数指定客户端的用户代理标头，即User-Agent。curl 的默认用户代理字符串是curl/[version]。</span></span><br><span class="line">curl -A &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将User-Agent改成 Chrome 浏览器。</span></span><br><span class="line">curl -A &#x27;&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令会移除User-Agent标头。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 也可以通过-H参数直接指定标头，更改User-Agent。</span></span><br><span class="line">curl -H &#x27;User-Agent: php/1.0&#x27; https://google.com </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -b参数用来向服务器发送 Cookie。</span></span><br><span class="line">curl -b &#x27;foo=bar&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令会生成一个标头Cookie: foo=bar，向服务器发送一个名为foo、值为bar的 Cookie。</span></span><br><span class="line">curl -b &#x27;foo1=bar&#x27; -b &#x27;foo2=baz&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令发送两个 Cookie。</span></span><br><span class="line">curl -b cookies.txt https://www.google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令读取本地文件cookies.txt，里面是服务器设置的 Cookie（参见-c参数），将其发送到服务器。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -c参数将服务器设置的 Cookie 写入一个文件。</span></span><br><span class="line">curl -c cookies.txt https://www.google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将服务器的 HTTP 回应所设置 Cookie 写入文本文件cookies.txt。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -C switch是恢复我们文件传输的设备，但还要注意，它后面紧跟一个破折号（-）。这告诉cURL继续文件传输，但是实现这一步，首先要查看已经下载的部分，找到下载的最后一个字节才可以确定从何处可以恢复。</span></span><br><span class="line">curl -C - example.com/some-file.zip --output MyFile.zip</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -d参数用于发送 POST 请求的数据体。</span></span><br><span class="line">curl -d&#x27;login=emma＆password=123&#x27;-X POST https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">curl -d &#x27;login=emma&#x27; -d &#x27;password=123&#x27; -X POST  https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用-d参数以后，HTTP 请求会自动加上标头Content-Type : application/x-www-form-urlencoded。并且会自动将请求转为 POST 方法，因此可以省略-X POST。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -d参数可以读取本地文本文件的数据，向服务器发送。</span></span><br><span class="line">curl -d &#x27;@data.txt&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令读取data.txt文件的内容，作为数据体向服务器发送。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> --data-urlencode参数等同于-d，发送 POST 请求的数据体，区别在于会自动将发送的数据进行 URL 编码。</span></span><br><span class="line">curl --data-urlencode &#x27;comment=hello world&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面代码中，发送的数据hello world之间有一个空格，需要进行 URL 编码。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -e参数用来设置 HTTP 的标头Referer，表示请求的来源。</span></span><br><span class="line">curl -e &#x27;https://google.com?q=example&#x27; https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将Referer标头设为https://google.com?q=example。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -H参数可以通过直接添加标头Referer，达到同样效果。</span></span><br><span class="line">curl -H &#x27;Referer: https://google.com?q=example&#x27; https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -F参数用来向服务器上传二进制文件。</span></span><br><span class="line">curl -F &#x27;file=@photo.png&#x27; https://google.com/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令会给 HTTP 请求加上标头Content-Type: multipart/form-data，然后将文件photo.png作为file字段上传。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -F参数可以指定 MIME 类型。</span></span><br><span class="line">curl -F &#x27;file=@photo.png;type=image/png&#x27; https://google.com/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令指定 MIME 类型为image/png，否则 curl 会把 MIME 类型设为application/octet-stream。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -F参数也可以指定文件名。</span></span><br><span class="line">curl -F &#x27;file=@photo.png;filename=me.png&#x27; https://google.com/profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令中，原始文件名为photo.png，但是服务器接收到的文件名为me.png。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -G参数用来构造 URL 的查询字符串。</span></span><br><span class="line">curl -G -d &#x27;q=kitties&#x27; -d &#x27;count=20&#x27; https://google.com/search</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令会发出一个 GET 请求，实际请求的 URL 为https://google.com/search?q=kitties&amp;count=20。如果省略--G，会发出一个 POST 请求。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果数据需要 URL 编码，可以结合--data--urlencode参数。</span></span><br><span class="line">curl -G --data-urlencode &#x27;comment=hello world&#x27; https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -H参数添加 HTTP 请求的标头。</span></span><br><span class="line">curl -H &#x27;Accept-Language: en-US&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令添加 HTTP 标头Accept-Language: en-US。</span></span><br><span class="line">curl -H &#x27;Accept-Language: en-US&#x27; -H &#x27;Secret-Message: xyzzy&#x27; https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令添加两个 HTTP 标头。</span></span><br><span class="line">curl -d &#x27;&#123;&quot;login&quot;: &quot;emma&quot;, &quot;pass&quot;: &quot;123&quot;&#125;&#x27; -H &#x27;Content-Type: application/json&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令添加 HTTP 请求的标头是Content-Type: application/json，然后用-d参数发送 JSON 数据。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -i参数打印出服务器回应的 HTTP 标头。</span></span><br><span class="line">curl -i https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令收到服务器回应后，先输出服务器回应的标头，然后空一行，再输出网页的源码。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -I参数向服务器发出 HEAD 请求，然会将服务器返回的 HTTP 标头打印出来。</span></span><br><span class="line">curl -I https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令输出服务器对 HEAD 请求的回应。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> --head参数等同于-I。</span></span><br><span class="line">curl --head https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -k参数指定跳过 SSL 检测。</span></span><br><span class="line">curl -k https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令不会检查服务器的 SSL 证书是否正确。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -L参数会让 HTTP 请求跟随服务器的重定向。curl 默认不跟随重定向。</span></span><br><span class="line">curl -L -d &#x27;tweet=hi&#x27; https://api.twitter.com/tweet</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> --limit-rate用来限制 HTTP 请求和回应的带宽，模拟慢网速的环境。</span></span><br><span class="line">curl --limit-rate 200k https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将带宽限制在每秒 200K 字节。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -m switch指定执行命令所需的最长时间。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 经过指定的时间后，cURL将退出正在执行的操作，即使它正在下载或上传文件。cURL会以秒为单位指定您想要的最长时间。因此，要在一分钟后超时，该命令将如下所示：</span></span><br><span class="line">curl -m 60 example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 您可以使用cURL指定的另一种超时类型是用于链接的时间量。这有助于确保cURL不会花费过多的时间来尝试连接处于脱机状态或无法访问的主机。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 它也接受秒作为参数。该选项被写为–connect-timeout。</span></span><br><span class="line">curl --connect-timeout 60 example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -o,  --output</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -o参数将服务器的回应保存成文件，等同于wget命令。</span></span><br><span class="line">curl -o example.html https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将www.example.com保存成example.html。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -O参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。</span></span><br><span class="line">curl -O https://www.example.com/foo/bar.html</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令将服务器回应保存成文件，文件名为bar.html。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -s参数将不输出错误和进度信息。</span></span><br><span class="line">curl -s https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令一旦发生错误，不会显示错误信息。不发生错误的话，会正常显示运行结果。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果想让 curl 不产生任何输出，可以使用下面的命令。</span></span><br><span class="line">curl -s -o /dev/null https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> -S参数指定只输出错误信息，通常与-o一起使用。</span></span><br><span class="line">curl -s -o /dev/null https://google.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令没有任何输出，除非发生错误。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -u参数用来设置服务器认证的用户名和密码。</span></span><br><span class="line">curl -u &#x27;bob:12345&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令设置用户名为bob，密码为12345，然后将其转为 HTTP 标头Authorization: Basic Ym9iOjEyMzQ1。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> curl 能够识别 URL 里面的用户名和密码。</span></span><br><span class="line">curl https://bob:12345@google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令能够识别 URL 里面的用户名和密码，将其转为上个例子里面的 HTTP 标头。</span></span><br><span class="line">curl -u &#x27;bob&#x27; https://google.com/login</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令只设置了用户名，执行后，curl 会提示用户输入密码。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -v参数输出通信的整个过程，用于调试。</span></span><br><span class="line">curl -v https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> --trace参数也可以用于调试，还会输出原始的二进制数据。</span></span><br><span class="line">curl --trace - https://www.example.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -x参数指定 HTTP 请求的代理。</span></span><br><span class="line">curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令指定 HTTP 请求通过myproxy.com:8080的 socks5 代理发出。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 如果没有指定代理协议，默认为 HTTP。</span></span><br><span class="line">curl -x james:cats@myproxy.com:8080 https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令中，请求的代理使用 HTTP 协议。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> -X参数指定 HTTP 请求的方法。</span></span><br><span class="line">curl -X POST https://www.example.com</span><br><span class="line"><span class="meta">#</span><span class="bash"> 上面命令对https://www.example.com发出 POST 请求。</span></span><br></pre></td></tr></table></figure>
+
+<p>ex：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">curl -k -x &#x27;http://127.0.0.1:8888&#x27; &#x27;https://www.jianshu.com/shakespeare/notes/31762521/user_notes&#x27; \</span><br><span class="line">  -H &#x27;Connection: keep-alive&#x27; \</span><br><span class="line">  -H &#x27;Accept: application/json&#x27; \</span><br><span class="line">  -H &#x27;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36&#x27; \</span><br><span class="line">  -H &#x27;Sec-Fetch-Site: same-origin&#x27; \</span><br><span class="line">  -H &#x27;Sec-Fetch-Mode: cors&#x27; \</span><br><span class="line">  -H &#x27;Sec-Fetch-Dest: empty&#x27; \</span><br><span class="line">  -H &#x27;Referer: https://www.jianshu.com/p/9f9c5cba36e8&#x27; \</span><br><span class="line">  -H &#x27;Accept-Language: zh-CN,zh;q=0.9&#x27; \</span><br><span class="line">  -H &#x27;Cookie: __yadk_uid=Ein4n8jn6l5P6GObqMAXjgWVHPQddHrg; _ga=GA1.2.1043383107.1597137593; _gid=GA1.2.1914484739.1597137593; web_login_version=MTU5NzQ4MzUwMw%3D%3D--5dbb5619f4070e31714c813c4eccafb00f0ed003; remember_user_token=W1sxNTAzNjgyMl0sIiQyYSQxMSQzbHZDZTBQLnFZVWpvak00SzFydlNPIiwiMTU5ODQ1MzAxMS44MjQ3NjQiXQ%3D%3D--0d91c3663c7ac2048e7f7cbc941b9f66ca3f3a88; _m7e_session_core=7b490b8cfcf97f08559f60d68f9a0258; read_mode=day; default_font=font2; locale=zh-CN; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%22173dcd19edbafb-00bf4f7297fa3c-4353760-1327104-173dcd19edc8bc%22%2C%22first_id%22%3A%22%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_search_keyword%22%3A%22httpbin%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Fs%22%2C%22%24latest_utm_source%22%3A%22recommendation%22%2C%22%24latest_utm_medium%22%3A%22seo_notes%22%2C%22%24latest_utm_campaign%22%3A%22maleskine%22%2C%22%24latest_utm_content%22%3A%22note%22%7D%2C%22%24device_id%22%3A%22173dcd19edbafb-00bf4f7297fa3c-4353760-1327104-173dcd19edc8bc%22%7D; _gat=1; Hm_lvt_0c0e9d9b1e7d617b3e6842e85b9fb068=1598408433,1598413603,1598453016,1598460218; Hm_lpvt_0c0e9d9b1e7d617b3e6842e85b9fb068=1598460218&#x27; \</span><br><span class="line">  -H &#x27;If-None-Match: W/&quot;b97803d19320e20eed0659fcda4b0957&quot;&#x27; \</span><br><span class="line">  --compressed</span><br></pre></td></tr></table></figure>
+
+<h3 id="CURL状态码列表"><a href="#CURL状态码列表" class="headerlink" title="CURL状态码列表"></a><strong>CURL状态码列表</strong></h3><table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>状态原因</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>正常访问</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>错误的协议</td>
+<td>未支持的协议。此版cURL 不支持这一协议。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>初始化代码失败</td>
+<td>初始化失败。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>URL格式不正确</td>
+<td>URL 格式错误。语法不正确。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>请求协议错误</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>无法解析代理</td>
+<td>无法解析代理。无法解析给定代理主机。</td>
+</tr>
+<tr>
+<td>6</td>
+<td>无法解析主机地址</td>
+<td>无法解析主机。无法解析给定的远程主机。</td>
+</tr>
+<tr>
+<td>7</td>
+<td>无法连接到主机</td>
+<td>无法连接到主机。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>远程服务器不可用</td>
+<td>FTP 非正常的服务器应答。cURL 无法解析服务器发送的数据。</td>
+</tr>
+<tr>
+<td>9</td>
+<td>访问资源错误</td>
+<td>FTP 访问被拒绝。服务器拒绝登入或无法获取您想要的特定资源或目录。最有可 能的是您试图进入一个在此服务器上不存在的目录。</td>
+</tr>
+<tr>
+<td>11</td>
+<td>FTP密码错误</td>
+<td>FTP 非正常的PASS 回复。cURL 无法解析发送到PASS 请求的应答。</td>
+</tr>
+<tr>
+<td>13</td>
+<td>结果错误</td>
+<td>FTP 非正常的的PASV 应答，cURL 无法解析发送到PASV 请求的应答。</td>
+</tr>
+<tr>
+<td>14</td>
+<td>FTP回应PASV命令</td>
+<td>FTP 非正常的227格式。cURL 无法解析服务器发送的227行。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>内部故障</td>
+<td>FTP 无法连接到主机。无法解析在227行中获取的主机IP。</td>
+</tr>
+<tr>
+<td>17</td>
+<td>设置传输模式为二进制</td>
+<td>FTP 无法设定为二进制传输。无法改变传输方式到二进制。</td>
+</tr>
+<tr>
+<td>18</td>
+<td>文件传输短或大于预期</td>
+<td>部分文件。只有部分文件被传输。</td>
+</tr>
+<tr>
+<td>19</td>
+<td>RETR命令传输完成</td>
+<td>FTP 不能下载/访问给定的文件， RETR (或类似)命令失败。</td>
+</tr>
+<tr>
+<td>21</td>
+<td>命令成功完成</td>
+<td>FTP quote 错误。quote 命令从服务器返回错误。</td>
+</tr>
+<tr>
+<td>22</td>
+<td>返回正常</td>
+<td>HTTP 找不到网页。找不到所请求的URL 或返回另一个HTTP 400或以上错误。 此返回代码只出现在使用了-f/–fail 选项以后。</td>
+</tr>
+<tr>
+<td>23</td>
+<td>数据写入失败</td>
+<td>写入错误。cURL 无法向本地文件系统或类似目的写入数据。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>无法启动上传</td>
+<td>FTP 无法STOR 文件。服务器拒绝了用于FTP 上传的STOR 操作。</td>
+</tr>
+<tr>
+<td>26</td>
+<td>回调错误</td>
+<td>读错误。各类读取问题。</td>
+</tr>
+<tr>
+<td>27</td>
+<td>内存分配请求失败</td>
+<td>内存不足。内存分配请求失败。</td>
+</tr>
+<tr>
+<td>28</td>
+<td>访问超时</td>
+<td>操作超时。到达指定的超时期限条件。</td>
+</tr>
+<tr>
+<td>30</td>
+<td>FTP端口错误</td>
+<td>FTP PORT 失败。PORT 命令失败。并非所有的FTP 服务器支持PORT 命令，请 尝试使用被动(PASV)传输代替！</td>
+</tr>
+<tr>
+<td>31</td>
+<td>FTP错误</td>
+<td>FTP 无法使用REST 命令。REST 命令失败。此命令用来恢复的FTP 传输。</td>
+</tr>
+<tr>
+<td>33</td>
+<td>不支持请求</td>
+<td>HTTP range 错误。range “命令”不起作用。</td>
+</tr>
+<tr>
+<td>34</td>
+<td>内部发生错误</td>
+<td>HTTP POST 错误。内部POST 请求产生错误。</td>
+</tr>
+<tr>
+<td>35</td>
+<td>SSL/TLS握手失败</td>
+<td>SSL 连接错误。SSL 握手失败。</td>
+</tr>
+<tr>
+<td>36</td>
+<td>下载无法恢复</td>
+<td>FTP 续传损坏。不能继续早些时候被中止的下载。</td>
+</tr>
+<tr>
+<td>37</td>
+<td>文件权限错误</td>
+<td>文件无法读取。无法打开文件。权限问题？</td>
+</tr>
+<tr>
+<td>38</td>
+<td>LDAP可没有约束力</td>
+<td>LDAP 无法绑定。LDAP 绑定(bind)操作失败。</td>
+</tr>
+<tr>
+<td>39</td>
+<td>LDAP搜索失败</td>
+<td>LDAP 搜索失败。</td>
+</tr>
+<tr>
+<td>41</td>
+<td>函数没有找到</td>
+<td>功能无法找到。无法找到必要的LDAP 功能。</td>
+</tr>
+<tr>
+<td>42</td>
+<td>中止的回调</td>
+<td>由回调终止。应用程序告知cURL 终止运作。</td>
+</tr>
+<tr>
+<td>43</td>
+<td>内部错误</td>
+<td>内部错误。由一个不正确参数调用了功能。</td>
+</tr>
+<tr>
+<td>45</td>
+<td>接口错误</td>
+<td>接口错误。指定的外发接口无法使用。</td>
+</tr>
+<tr>
+<td>47</td>
+<td>过多的重定向</td>
+<td>过多的重定向。cURL 达到了跟随重定向设定的最大限额跟</td>
+</tr>
+<tr>
+<td>48</td>
+<td>无法识别选项</td>
+<td>指定了未知TELNET 选项。</td>
+</tr>
+<tr>
+<td>49</td>
+<td>TELNET格式错误</td>
+<td>不合式的telnet 选项。</td>
+</tr>
+<tr>
+<td>51</td>
+<td>远程服务器的SSL证书</td>
+<td>peer 的SSL 证书或SSH 的MD5指纹没有确定。</td>
+</tr>
+<tr>
+<td>52</td>
+<td>服务器无返回内容</td>
+<td>服务器无任何应答，该情况在此处被认为是一个错误。</td>
+</tr>
+<tr>
+<td>53</td>
+<td>加密引擎未找到</td>
+<td>找不到SSL 加密引擎。</td>
+</tr>
+<tr>
+<td>54</td>
+<td>设定默认SSL加密失败</td>
+<td>无法将SSL 加密引擎设置为默认。</td>
+</tr>
+<tr>
+<td>55</td>
+<td>无法发送网络数据</td>
+<td>发送网络数据失败。</td>
+</tr>
+<tr>
+<td>56</td>
+<td>衰竭接收网络数据</td>
+<td>在接收网络数据时失败。</td>
+</tr>
+<tr>
+<td>57</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>58</td>
+<td>本地客户端证书</td>
+<td>本地证书有问题。</td>
+</tr>
+<tr>
+<td>59</td>
+<td>无法使用密码</td>
+<td>无法使用指定的SSL 密码。</td>
+</tr>
+<tr>
+<td>60</td>
+<td>凭证无法验证</td>
+<td>peer 证书无法被已知的CA 证书验证。</td>
+</tr>
+<tr>
+<td>61</td>
+<td>无法识别的传输编码</td>
+<td>无法辨识的传输编码。</td>
+</tr>
+<tr>
+<td>62</td>
+<td>无效的LDAP URL</td>
+<td>无效的LDAP URL。</td>
+</tr>
+<tr>
+<td>63</td>
+<td>文件超过最大大小</td>
+<td>超过最大文件尺寸。</td>
+</tr>
+<tr>
+<td>64</td>
+<td>FTP失败</td>
+<td>要求的FTP 的SSL 水平失败。</td>
+</tr>
+<tr>
+<td>65</td>
+<td>倒带操作失败</td>
+<td>发送此数据需要的回卷(rewind)失败。</td>
+</tr>
+<tr>
+<td>66</td>
+<td>SSL引擎失败</td>
+<td>初始化SSL 引擎失败。</td>
+</tr>
+<tr>
+<td>67</td>
+<td>服务器拒绝登录</td>
+<td>用户名、密码或类似的信息未被接受，cURL 登录失败。</td>
+</tr>
+<tr>
+<td>68</td>
+<td>未找到文件</td>
+<td>在TFTP 服务器上找不到文件。</td>
+</tr>
+<tr>
+<td>69</td>
+<td>无权限</td>
+<td>TFTP 服务器权限有问题。</td>
+</tr>
+<tr>
+<td>70</td>
+<td>超出服务器磁盘空间</td>
+<td>TFTP 服务器磁盘空间不足。</td>
+</tr>
+<tr>
+<td>71</td>
+<td>非法TFTP操作</td>
+<td>非法的TFTP 操作。</td>
+</tr>
+<tr>
+<td>72</td>
+<td>未知TFTP传输的ID</td>
+<td>未知TFTP 传输编号(ID)。</td>
+</tr>
+<tr>
+<td>73</td>
+<td>文件已经存在</td>
+<td>文件已存在(TFTP) 。</td>
+</tr>
+<tr>
+<td>74</td>
+<td>错误TFTP服务器</td>
+<td>无此用户(TFTP) 。</td>
+</tr>
+<tr>
+<td>75</td>
+<td>字符转换失败</td>
+<td>字符转换失败。</td>
+</tr>
+<tr>
+<td>76</td>
+<td>必须记录回调</td>
+<td>需要字符转换功能。</td>
+</tr>
+<tr>
+<td>77</td>
+<td>CA证书权限</td>
+<td>读SSL 证书出现问题(路径？访问权限？ ) 。</td>
+</tr>
+<tr>
+<td>78</td>
+<td>URL中引用资源不存在</td>
+<td>URL 中引用的资源不存在。</td>
+</tr>
+<tr>
+<td>79</td>
+<td>错误发生在SSH会话</td>
+<td>SSH 会话期间发生一个未知错误。</td>
+</tr>
+<tr>
+<td>80</td>
+<td>无法关闭SSL连接</td>
+<td>未能关闭SSL 连接。</td>
+</tr>
+<tr>
+<td>81</td>
+<td>服务未准备</td>
+<td></td>
+</tr>
+<tr>
+<td>82</td>
+<td>无法载入CRL文件</td>
+<td>无法加载CRL 文件，丢失或格式不正确(在7.19.0版中增加) 。</td>
+</tr>
+<tr>
+<td>83</td>
+<td>发行人检查失败</td>
+<td>签发检查失败(在7.19.0版中增加) 。</td>
+</tr>
+</tbody></table>
+<h3 id="HTTPie"><a href="#HTTPie" class="headerlink" title="HTTPie"></a>HTTPie</h3><p><a target="_blank" rel="noopener" href="https://github.com/httpie/httpie">https://github.com/httpie/httpie</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install httpie</span><br></pre></td></tr></table></figure>
+
+<p>HTTPie基于python编写，内部使用了Requests和Pygments库</p>
+<p>HTTPie比cURL直观，默认输入和输出都是json格式 (而cURL必须要指定<code>-H &quot;Content-Type: application/json&quot;</code>)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http POST http://host:port/v3/auth/tokens @auth.json</span><br><span class="line">http GET http://host:port/v2/xx/servers X-Auth-Token:xxx</span><br></pre></td></tr></table></figure>
+
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">bq</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://guobq.github.io/bq/4409411c.html">https://guobq.github.io/bq/4409411c.html</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://guobq.github.io">bq's notes</a>！</span></div></div><div class="post-copyright valine" id="comments-container"><script src="//unpkg.com/valine@1.4.14/dist/Valine.min.js"></script><script>let arr = location.href.split('/#more')[0].split('/');
+let title = arr[arr.length - 1];
+if (title === '') {
+    title = arr[arr.length - 2];
+}
+var flag = false;
+var gitFun = function () {
+    try {
+        var valineObj = window.GLOBAL_CONFIG.valine;
+        new Valine({
+            el: "#comments-container",
+            ...valineObj
+        });
+        flag = true;
+    } catch (e) {
+        flag = false;
+    }
+}
+var setIn = setInterval(() => {
+    if (!flag) {
+        gitFun();
+    } else {
+        clearInterval(setIn);
+    }
+}, 200);</script></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/717c4b1d.html"><i class="fas fa-angle-left">&nbsp;</i><span>requests测试http(s)接口</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/77d2dea0.html"><span>Linux创建swap</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2020 ～ 2021 By bq</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>

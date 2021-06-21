@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="windows包管理"><meta name="keywords" content="scoop,Chocolatey,Winget"><meta name="author" content="bq,undefined"><meta name="copyright" content="bq"><title>windows包管理【bq's notes】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"8ICB0LL54F","apiKey":"b6e01221a0e1bdb34d69e088b9bd39d8","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {"appId":"8xUuEcUoXahLwm69LVK1eumF-gzGzoHsz","appKey":"NDF5dcJsxuEHHBOLlda7Y07b"},
+}</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="bq's notes" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#scoop"><span class="toc-number">1.</span> <span class="toc-text">scoop</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82"><span class="toc-number">1.1.</span> <span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85scoop"><span class="toc-number">1.2.</span> <span class="toc-text">安装scoop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">基础使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8"><span class="toc-number">1.4.</span> <span class="toc-text">进阶使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0-bucket"><span class="toc-number">1.4.1.</span> <span class="toc-text">添加 bucket</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9-bucket"><span class="toc-number">1.4.2.</span> <span class="toc-text">第三方 bucket</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B8%85%E7%90%86%E5%AE%89%E8%A3%85%E5%8C%85%E7%BC%93%E5%AD%98"><span class="toc-number">1.4.3.</span> <span class="toc-text">清理安装包缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%97%A7%E7%89%88%E6%9C%AC%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.4.4.</span> <span class="toc-text">删除旧版本软件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%AE%89%E8%A3%85"><span class="toc-number">1.4.5.</span> <span class="toc-text">全局安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.4.6.</span> <span class="toc-text">代理设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E5%90%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.4.7.</span> <span class="toc-text">开启多线程下载</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%80%BB%E7%BB%93"><span class="toc-number">1.5.</span> <span class="toc-text">常用命令总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chocolatey"><span class="toc-number">2.</span> <span class="toc-text">Chocolatey</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%89%E8%A3%85%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.1.1.</span> <span class="toc-text">自定义安装位置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E5%88%97%E8%A1%A8"><span class="toc-number">2.2.</span> <span class="toc-text">包列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Winget"><span class="toc-number">3.</span> <span class="toc-text">Winget</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-1"><span class="toc-number">3.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-1"><span class="toc-number">3.2.</span> <span class="toc-text">使用</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">bq</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/guobq" target="_blank">GitHub<i class="icon-dot bg-color0"></i></a><a class="links-button button-hover" href="mailto:2278220079@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color5"></i></a><a class="links-button button-hover" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2278220079&amp;site=qq&amp;menu=yes" target="_blank">QQ<i class="icon-dot bg-color2"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">73</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">73</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">25</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">bq's notes</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">windows包管理</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2020-05-22 | 更新于 2021-06-03</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E5%B7%A5%E5%85%B7/%E5%8C%85%E7%AE%A1%E7%90%86/">包管理</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/scoop/">scoop</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Chocolatey/">Chocolatey</a><span>&nbsp;|&nbsp;</span><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/Winget/">Winget</a></div></div></div><div class="main-content"><h2 id="scoop"><a href="#scoop" class="headerlink" title="scoop"></a>scoop</h2><p>Scoop是一个 Win­dows 包管理工具，类似于 De­bian 的 <code>apt</code>、ma­cOS 的 <code>homebrew</code>。它由开源社区驱动，体验可能是是目前所有 Win­dows 包管理工具中最好的。对开发者来说，包管理器能非常方便的部署开发环境，比如 Python 、Node.js 。而对于像博主这样的普通的计算机使用者来说，可以方便的安装一些常用软件，尤其是开源软件，免去了手动去官网下载的繁琐步骤，而且后续对软件进行升级只需要输入一行命令，非常便捷。</p>
+<p>官网:<a target="_blank" rel="noopener" href="https://scoop.sh/">https://scoop.sh/</a></p>
+<p>参考:</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lukesampson/scoop/wiki">https://github.com/lukesampson/scoop/wiki</a></p>
+<p><a target="_blank" rel="noopener" href="https://sspai.com/post/52496">https://sspai.com/post/52496</a></p>
+<p><a target="_blank" rel="noopener" href="https://chawyehsu.com/blog/talk-about-scoop-the-package-manager-for-windows-again">https://chawyehsu.com/blog/talk-about-scoop-the-package-manager-for-windows-again</a></p>
+<h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Windows 7 SP1 + / Windows Server 2008+</span><br><span class="line">PowerShell 5(或更高版本，包括 PowerShell Core)和 .NET Framework 4.5（或更高版本）</span><br><span class="line">Windows 用户名为英文（Windows 用户环境变量中路径值不支持中文字符）</span><br><span class="line">正常、快速的访问 GitHub 并下载资源</span><br></pre></td></tr></table></figure>
+
+<p>安装 Scoop 若Powershell或.NET Franmework版本过旧，更新后重启即可。若不清楚版本号，可<code>Win+R</code>运行powershell，输入以下命令获取版本号。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$PSVersionTable</span>.PSVersion.Major   <span class="comment">#查看Powershell版本</span></span><br><span class="line"><span class="variable">$PSVersionTable</span>.CLRVersion.Major  <span class="comment">#查看.NET Framework版本</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装scoop"><a href="#安装scoop" class="headerlink" title="安装scoop"></a>安装scoop</h3><p>Scoop 默认使用普通用户权限，其本体和安装的软件默认会放在 <code>%USERPROFILE%\scoop</code>(即 <code>C:\Users\用户名\scoop</code>)，使用管理员权限进行全局安装 (<code>-g</code>) 的软件在 <code>C:\ProgramData\scoop</code>。如果有自定安装路径的需求，那么要提前设置好环境变量，否则后续再改不是一件容易的事情。</p>
+<ul>
+<li>打开 PowerShell</li>
+<li>设置用户安装路径</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">env:SCOOP=<span class="string">&#x27;D:\Scoop&#x27;</span></span></span><br><span class="line">[Environment]::SetEnvironmentVariable(&#x27;SCOOP&#x27;, $env:SCOOP, &#x27;User&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置全局安装路径（需要管理员权限）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">env:SCOOP_GLOBAL=<span class="string">&#x27;D:\Scoop_Global&#x27;</span></span></span><br><span class="line">[Environment]::SetEnvironmentVariable(&#x27;SCOOP_GLOBAL&#x27;, $env:SCOOP_GLOBAL, &#x27;Machine&#x27;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置允许 PowerShell 执行本地脚本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>没安装过 Git 则需要安装。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install git</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>安装 Scoop</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iwr -useb get.scoop.sh | iex</span><br></pre></td></tr></table></figure>
+
+<p>如果下载scoop的过程中断，那么必须先删除<code>(C:\Users\&lt;user&gt;\scoop)</code>文件夹，再执行以上命令安装。<br>下载完成后，输入<code>scoop</code>出现如下帮助即安装成功。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">Usage: scoop &lt;command&gt; [&lt;args&gt;]</span><br><span class="line"></span><br><span class="line">Some useful commands are:</span><br><span class="line"></span><br><span class="line">alias       Manage scoop aliases</span><br><span class="line">bucket      Manage Scoop buckets</span><br><span class="line">cache       Show or clear the download cache</span><br><span class="line">checkup     Check for potential problems</span><br><span class="line">cleanup     Cleanup apps by removing old versions</span><br><span class="line">config      Get or set configuration values</span><br><span class="line">create      Create a custom app manifest</span><br><span class="line">depends     List dependencies for an app</span><br><span class="line">export      Exports (an importable) list of installed apps</span><br><span class="line">help        Show help for a command</span><br><span class="line">hold        Hold an app to disable updates</span><br><span class="line">home        Opens the app homepage</span><br><span class="line">info        Display information about an app</span><br><span class="line">install     Install apps</span><br><span class="line">list        List installed apps</span><br><span class="line">prefix      Returns the path to the specified app</span><br><span class="line">reset       Reset an app to resolve conflicts</span><br><span class="line">search      Search available apps</span><br><span class="line">status      Show status and check for new app versions</span><br><span class="line">unhold      Unhold an app to enable updates</span><br><span class="line">uninstall   Uninstall an app</span><br><span class="line">update      Update apps, or Scoop itself</span><br><span class="line">virustotal  Look for app&#x27;s hash on virustotal.com</span><br><span class="line">which       Locate a shim/executable (similar to &#x27;which&#x27; on Linux)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Type &#x27;scoop help &lt;command&gt;&#x27; to get help for a specific command.</span><br></pre></td></tr></table></figure>
+
+<h3 id="基础使用"><a href="#基础使用" class="headerlink" title="基础使用"></a>基础使用</h3><ul>
+<li>命令列表</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">scoop search &lt;app&gt; # 搜索软件</span><br><span class="line">scoop install &lt;app&gt; # 安装软件</span><br><span class="line">scoop info &lt;app&gt; # 查看软件详细信息</span><br><span class="line">scoop list # 查看已安装软件</span><br><span class="line">scoop uninstall &lt;app&gt; # 卸载软件，`-p`删除配置文件。</span><br><span class="line">scoop update # 更新 scoop 本体和软件列表</span><br><span class="line">scoop update &lt;app&gt; # 更新指定软件</span><br><span class="line">scoop update * # 更新所有已安装的软件</span><br><span class="line">scoop checkup # 检查 scoop 的问题并给出解决问题的建议</span><br><span class="line">scoop help # 查看命令列表</span><br><span class="line">scoop help &lt;command&gt; # 查看命令帮助说明</span><br></pre></td></tr></table></figure>
+
+<h3 id="进阶使用"><a href="#进阶使用" class="headerlink" title="进阶使用"></a>进阶使用</h3><h4 id="添加-bucket"><a href="#添加-bucket" class="headerlink" title="添加 bucket"></a>添加 bucket</h4><p>所有的包管理器都会有相应的软件仓库 ，而 bucket 就是 Scoop 中的软件仓库。细心的你可能会发现 <code>scoop</code> 翻译为中文是 “舀”，而 <code>bucket</code> 是 “水桶”，所以安装软件可以理解为从水桶里舀水。</p>
+<p>Scoop 默认软件仓库（main bucket）软件数量是有限的，但是可以进行额外的添加。通过 <code>scoop bucket known</code> 命令可以查看官方认可的 bucket：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> scoop bucket known</span></span><br><span class="line">main</span><br><span class="line">extras</span><br><span class="line">versions</span><br><span class="line">nightlies</span><br><span class="line">nirsoft</span><br><span class="line">php</span><br><span class="line">nerd-fonts</span><br><span class="line">nonportable</span><br><span class="line">java</span><br><span class="line">games</span><br><span class="line">jetbrains</span><br></pre></td></tr></table></figure>
+
+<p>以上官方认可的 bucket 可以通过下面这个命令直接添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add &lt;bucketname&gt;</span><br></pre></td></tr></table></figure>
+
+<p>extras涵盖了大部分因为种种原因不能被收录进主仓库的常用软件，这个是强推荐添加的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add extras</span><br></pre></td></tr></table></figure>
+
+<p>比如写盘工具 Ru­fus 就在 <code>extras</code> 这个仓库中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install rufus</span><br></pre></td></tr></table></figure>
+
+<p>nerd-fonts包含了美化终端时会用到的 Pow­er­line 字体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add nerd-fonts</span><br></pre></td></tr></table></figure>
+
+<p>当添加 <code>nerd-fonts</code> 仓库后可以通过以下命令搜索到所有的字体：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop search &quot;-NF&quot;</span><br></pre></td></tr></table></figure>
+
+<p>安装字体需要使用管理员权限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo scoop install FiraCode-NF</span><br></pre></td></tr></table></figure>
+
+<h4 id="第三方-bucket"><a href="#第三方-bucket" class="headerlink" title="第三方 bucket"></a>第三方 bucket</h4><p>添加第三方 bucket</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop bucket add &lt;bucketname&gt; https:&#x2F;&#x2F;github.com&#x2F;xxx&#x2F;xxx</span><br></pre></td></tr></table></figure>
+
+<p>从第三方 bucket 中安装软件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install &lt;bucketname&gt;&#x2F;&lt;app&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="清理安装包缓存"><a href="#清理安装包缓存" class="headerlink" title="清理安装包缓存"></a>清理安装包缓存</h4><p>Scoop 会保留下载的安装包，对于卸载后又想再安装的情况，不需要重复下载。但长期累积会占用大量的磁盘空间，如果用不到就成了垃圾。这时可以使用 <code>scoop cache</code> 命令来清理。</p>
+<ul>
+<li><code>scoop cache show</code> - 显示安装包缓存</li>
+<li><code>scoop cache rm &lt;app&gt;</code> - 删除指定应用的安装包缓存</li>
+<li><code>scoop cache rm *</code> - 删除所有的安装包缓存</li>
+</ul>
+<p>如果你不希望安装和更新软件时保留安装包缓存，可以加上 <code>-k</code> 或 <code>--no-cache</code> 选项来禁用缓存：</p>
+<ul>
+<li><code>scoop install -k &lt;app&gt;</code></li>
+<li><code>scoop update -k *</code></li>
+</ul>
+<h4 id="删除旧版本软件"><a href="#删除旧版本软件" class="headerlink" title="删除旧版本软件"></a>删除旧版本软件</h4><p>当软件被更新后 Scoop 还会保留软件的旧版本，更新软件后可以通过 <code>scoop cleanup</code> 命令进行删除。</p>
+<ul>
+<li><code>scoop cleanup &lt;app&gt;</code> - 删除指定软件的旧版本</li>
+<li><code>scoop cleanup *</code> - 删除所有软件的旧版本</li>
+</ul>
+<p>与安装软件一样，删除旧版本软件的同时也可以清理安装包缓存，同样是加上 <code>-k</code> 选项。</p>
+<ul>
+<li><code>scoop cleanup -k &lt;app&gt;</code> - 删除指定软件的旧版本并清除安装包缓存</li>
+<li><code>scoop cleanup -k *</code> - 删除所有软件的旧版本并清除安装包缓存</li>
+</ul>
+<h4 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h4><p>全局安装就是给系统中的所有用户都安装，且环境变量是系统变量，对于需要设置系统变量的一些软件就需要全局安装，比如 Node.js、Python ，否则某些情况会出现无法找到命令的问题。</p>
+<p>使用 <code>scoop install &lt;app&gt;</code> 命令加上 <code>-g</code> 或 <code>--global</code> 选项可对软件进行全局安装，全局安装需要管理员权限，所以需要提前以管理员权限运行的 Pow­er­Shell 。更简单的方式是先安装 <code>sudo</code>，然后用 <code>sudo</code> 命令来提权执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scoop install sudo</span><br><span class="line">sudo scoop install -g &lt;app&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>达成在 Win­dows 上使用<code>sudo</code>的成就</p>
+</blockquote>
+<p>使用 <code>scoop list</code> 命令查看已装软件时，全局安装的软件末尾会有 <code>*global*</code> 标志。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> scoop list</span></span><br><span class="line">Installed apps:</span><br><span class="line"></span><br><span class="line">  7zip 19.00</span><br><span class="line">  ffmpeg 4.2.3</span><br><span class="line">  git 2.26.2.windows.1 *global*</span><br><span class="line">  nodejs-lts 12.17.0 *global*</span><br><span class="line">  python 3.8.3 *global*</span><br><span class="line">  screentogif 2.24.2 [extras]</span><br><span class="line">  sudo 0.2020.01.26</span><br></pre></td></tr></table></figure>
+
+<p>此外对于全局软件的更新和卸载等其它操作，都需要加上 <code>-g</code> 选项：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo scoop update -g * # 更新所有软件（且包含全局软件）</span><br><span class="line">sudo scoop uninstall -g &lt;app&gt; # 卸载全局软件</span><br><span class="line">sudo scoop uninstall -gp &lt;app&gt; # 卸载全局软件（并删除配置文件）</span><br><span class="line">sudo scoop cleanup -g * # 删除所有全局软件的旧版本</span><br><span class="line">sudo scoop cleanup -gk * # 删除所有全局软件的旧版本（并清除安装包包缓存）</span><br></pre></td></tr></table></figure>
+
+<h4 id="代理设置"><a href="#代理设置" class="headerlink" title="代理设置"></a>代理设置</h4><p>Scoop 默认使用的是系统代理，如果你想手动指定代理，可以输入下面的命令。需要注意的是只支持 http 协议。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop config proxy localhost:1080</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>设置完可以通过<code>scoop config proxy</code>查看。</p>
+</blockquote>
+<p>如果你想取消代理，那么输入下面的命令，这将会恢复使用系统代理。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop config rm proxy</span><br></pre></td></tr></table></figure>
+
+<h4 id="开启多线程下载"><a href="#开启多线程下载" class="headerlink" title="开启多线程下载"></a>开启多线程下载</h4><p>使用 Scoop 安装 Aria2 后，Scoop 会自动调用 Aria2 进行多线程加速下载。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install aria2</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>scoop config</code> 命令可以对 Aria2 进行设置，比如 <code>scoop config aria2-enabled false</code> 可以禁止调用 Aria2 下载。以下是与 Aria2 有关的设置选项：</p>
+<ul>
+<li><code>aria2-enabled</code>: 开启 Aria2 下载，默认<code>true</code></li>
+<li><code>aria2-retry-wait</code>: 重试等待秒数，默认<code>2</code></li>
+<li><code>aria2-split</code>: 单任务最大连接数，默认<code>5</code></li>
+<li><code>aria2-max-connection-per-server</code>: 单服务器最大连接数，默认<code>5</code> ，最大<code>16</code></li>
+<li><code>aria2-min-split-size</code>: 最小文件分片大小，默认<code>5M</code></li>
+</ul>
+<p>这里推荐以下优化设置，单任务最大连接数设置为 <code>32</code>，单服务器最大连接数设置为 <code>16</code>，最小文件分片大小设置为 <code>1M</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scoop config aria2-split 32</span><br><span class="line">scoop config aria2-max-connection-per-server 16</span><br><span class="line">scoop config aria2-min-split-size 1M</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用命令总结"><a href="#常用命令总结" class="headerlink" title="常用命令总结"></a>常用命令总结</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 更新 scoop 及软件包列表</span></span><br><span class="line">scoop update</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 安装软件 ##</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 非全局安装（并禁止安装包缓存）</span></span><br><span class="line">scoop install -k &lt;app&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 全局安装（并禁止安装包缓存）</span></span><br><span class="line">sudo scoop install -gk &lt;app&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 卸载软件 ##</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 卸载非全局软件（并删除配置文件）</span></span><br><span class="line">scoop uninstall -p &lt;app&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 卸载全局软件（并删除配置文件）</span></span><br><span class="line">sudo scoop uninstall -gp &lt;app&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 更新软件 ##</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新所有非全局软件（并禁止安装包缓存）</span></span><br><span class="line">scoop update -k *</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新所有软件（并禁止安装包缓存）</span></span><br><span class="line">sudo scoop update -gk *</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 垃圾清理 ##</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除所有旧版本非全局软件（并删除软件包缓存）</span></span><br><span class="line">scoop cleanup -k *</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除所有旧版本软件（并删除软件包缓存）</span></span><br><span class="line">sudo scoop cleanup -gk *</span><br><span class="line"><span class="meta">#</span><span class="bash"> 清除软件包缓存</span></span><br><span class="line">scoop cache rm *</span><br></pre></td></tr></table></figure>
+
+<h2 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="Chocolatey"></a>Chocolatey</h2><p>Chocolatey是一款专为Windows系统开发的、基于NuGet的包管理器工具，类似于Node.js的npm，MacOS的 brew，Ubuntu的 apt-get，简称为 choco。<br>Chocolatey的设计目标是成为一个去中心化的框架，便于开发者按需快速安装应用程序和工具。</p>
+<p>Chocolatey 官网： <a target="_blank" rel="noopener" href="https://chocolatey.org/">https://chocolatey.org/</a></p>
+<p>软件源:<a target="_blank" rel="noopener" href="https://community.chocolatey.org/packages">https://community.chocolatey.org/packages</a></p>
+<p>github:<a target="_blank" rel="noopener" href="https://github.com/chocolatey/choco">https://github.com/chocolatey/choco</a></p>
+<p>参考:</p>
+<p><a target="_blank" rel="noopener" href="https://guangchuangyu.github.io/cn/2018/06/chocolatey/">https://guangchuangyu.github.io/cn/2018/06/chocolatey/</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用以管理员权限打开PowerShell</p>
+<p>运行 <code>Get-ExecutionPolicy</code>，如果结果是 <code>Restricted</code>，则运行 <code>Set-ExecutionPolicy AllSigned</code> 或者 <code>Set-ExecutionPolicy Bypass -Scope Process</code></p>
+<p>输入并执行如下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span>; <span class="built_in">iex</span> ((<span class="built_in">New-Object</span> System.Net.WebClient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">iex</span> ((<span class="built_in">new-object</span> net.webclient).DownloadString(<span class="string">&#x27;https://chocolatey.org/install.ps1&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>Chocolatey的作者创建了一个短网址，包含了Chocolatey的安装脚本。嫌上面的太长的话，可以用这个：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">iwr</span> https://cin.st | <span class="built_in">iex</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="自定义安装位置"><a href="#自定义安装位置" class="headerlink" title="自定义安装位置"></a>自定义安装位置</h4><p>以上都是安装到了默认位置<code>C:\ProgramData\Chocolatey</code>，如果现在其他地方安装Chocolatey的话，需要新建一个环境变量<code>ChocolateyInstall</code>，值是你希望安装到的文件夹。然后手动创建这个文件夹。然后再运行上面的命令。如果已经安装了，可以再次运行安装命令，这样可以重新安装到你指定的位置。</p>
+<h3 id="包列表"><a href="#包列表" class="headerlink" title="包列表"></a>包列表</h3><p>通过官网 <a target="_blank" rel="noopener" href="https://chocolatey.org/packages">https://chocolatey.org/packages</a> 可以图形界面浏览各软件包，以及安装命令</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>search - 搜索包 <code>choco search something</code></li>
+<li>list - 列出包 <code>choco list -lo</code></li>
+<li>install - 安装 <code>choco install baretail</code></li>
+<li>pin - 固定包的版本，防止包被升级 <code>choco pin windirstat</code></li>
+<li>upgrade - 安装包的升级 <code>choco upgrade baretail</code></li>
+<li>uninstall - 安装包的卸载 <code>choco uninstall baretail</code></li>
+</ul>
+<p>更多命令可以通过 <code>choco -help</code> 查看</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">choco install autohotkey.portable    <span class="comment">#安装 AutoHotkey (Portable)</span></span><br><span class="line">choco install nodejs.install  <span class="comment">#安装 node</span></span><br><span class="line">choco install git.install     <span class="comment">#安装 git</span></span><br><span class="line">choco install python          <span class="comment">#安装 python</span></span><br><span class="line">choco install ruby            <span class="comment">#安装 ruby</span></span><br><span class="line">choco install jdk8            <span class="comment">#安装 JDK8</span></span><br><span class="line">choco install googlechrome    <span class="comment">#安装 Chrome</span></span><br><span class="line">choco install google<span class="literal">-chrome</span><span class="literal">-x64</span> <span class="comment">#Google Chrome (64-bit only)</span></span><br><span class="line">choco install firefox         <span class="comment">#安装 firefox</span></span><br><span class="line">choco install notepadplusplus.install <span class="comment">#安装 notepad++</span></span><br><span class="line">choco install Atom                    <span class="comment">#安装 Atom</span></span><br><span class="line">choco install SublimeText3            <span class="comment">#安装 SublimeText3</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Winget"><a href="#Winget" class="headerlink" title="Winget"></a>Winget</h2><p>官方文档:<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/">https://docs.microsoft.com/zh-cn/windows/package-manager/winget/</a></p>
+<p>github:<a target="_blank" rel="noopener" href="https://github.com/microsoft/winget-cli">https://github.com/microsoft/winget-cli</a></p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><ul>
+<li><p>法1：提交 WinGet 的预览体验申请，Win10 商店下载</p>
+</li>
+<li><p>法2：申请加入 Windows Insider，Win10 商店下载</p>
+</li>
+<li><p>法3：GitHub下载安装包直接安装</p>
+</li>
+</ul>
+<p>推荐法3，简单直接， 在 GitHub 搜索 WinGet，microsoft/winget-cli 就是该项目。在 releases 页面下载名为 Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.appxbundle 的软件安装包。</p>
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>安装 应用安装程序 后，可以通过在命令提示符下键入 “winget” 来运行 WinGet 。最常见的使用场景之一是搜索并安装你最喜欢的工具。若要搜索某个工具，请键入 <code>winget search \&lt;appname&gt;</code></p>
+<p>确认你需要的工具可用后，可以通过键入 <code>winget install \&lt;appname&gt;</code> 来安装该工具。 WinGet 工具会启动安装程序，将应用程序安装在你的电脑上。</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/hash">hash</a></td>
+<td align="left">为安装程序生成 SHA256 哈希。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/help">help</a></td>
+<td align="left">显示 <strong>winget</strong> 工具命令的帮助信息。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/install">install</a></td>
+<td align="left">安装指定的应用程序。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/search">search</a></td>
+<td align="left">搜索某个应用程序。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/show">show</a></td>
+<td align="left">显示指定应用程序的详细信息。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/source">source</a></td>
+<td align="left">添加、删除和更新 <strong>winget</strong> 工具访问的 Windows 程序包管理器存储库。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/validate">validate</a></td>
+<td align="left">验证要提交到 Windows 程序包管理器存储库的清单文件。</td>
+</tr>
+</tbody></table>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">bq</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://guobq.github.io/bq/a5683da5.html">https://guobq.github.io/bq/a5683da5.html</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://guobq.github.io">bq's notes</a>！</span></div></div><div class="post-copyright valine" id="comments-container"><script src="//unpkg.com/valine@1.4.14/dist/Valine.min.js"></script><script>let arr = location.href.split('/#more')[0].split('/');
+let title = arr[arr.length - 1];
+if (title === '') {
+    title = arr[arr.length - 2];
+}
+var flag = false;
+var gitFun = function () {
+    try {
+        var valineObj = window.GLOBAL_CONFIG.valine;
+        new Valine({
+            el: "#comments-container",
+            ...valineObj
+        });
+        flag = true;
+    } catch (e) {
+        flag = false;
+    }
+}
+var setIn = setInterval(() => {
+    if (!flag) {
+        gitFun();
+    } else {
+        clearInterval(setIn);
+    }
+}, 200);</script></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/e331da33.html"><i class="fas fa-angle-left">&nbsp;</i><span>android常用</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/cde9291a.html"><span>自动化测试相关工具简介</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2020 ～ 2021 By bq</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>

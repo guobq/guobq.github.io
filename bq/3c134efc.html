@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="cmmi度量指标"><meta name="keywords" content="cmmi"><meta name="author" content="bq,undefined"><meta name="copyright" content="bq"><title>cmmi度量指标【bq's notes】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"8ICB0LL54F","apiKey":"b6e01221a0e1bdb34d69e088b9bd39d8","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {"appId":"8xUuEcUoXahLwm69LVK1eumF-gzGzoHsz","appKey":"NDF5dcJsxuEHHBOLlda7Y07b"},
+}</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="bq's notes" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BF%9B%E5%BA%A6%E6%96%B9%E9%9D%A2"><span class="toc-number">1.</span> <span class="toc-text">1.进度方面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%B7%A5%E4%BD%9C%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">2.工作量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%88%90%E6%9C%AC"><span class="toc-number">3.</span> <span class="toc-text">3.成本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81"><span class="toc-number">4.</span> <span class="toc-text">4.软件质量保证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Review%E7%9A%84%E7%BB%93%E6%9E%9C"><span class="toc-number">5.</span> <span class="toc-text">5.Review的结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E9%97%AE%E9%A2%98%E6%8A%A5%E5%91%8A"><span class="toc-number">6.</span> <span class="toc-text">6.问题报告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%90%8C%E8%A1%8C%E8%AF%84%E5%AE%A1%E5%92%8C%E7%BC%BA%E9%99%B7"><span class="toc-number">7.</span> <span class="toc-text">7.同行评审和缺陷</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E9%9C%80%E6%B1%82%E7%9A%84%E5%BA%A6%E9%87%8F"><span class="toc-number">8.</span> <span class="toc-text">8.需求的度量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E5%9F%B9%E8%AE%AD"><span class="toc-number">9.</span> <span class="toc-text">9.培训</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B"><span class="toc-number">10.</span> <span class="toc-text">10.测试过程</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">bq</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/guobq" target="_blank">GitHub<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="mailto:2278220079@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color6"></i></a><a class="links-button button-hover" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2278220079&amp;site=qq&amp;menu=yes" target="_blank">QQ<i class="icon-dot bg-color2"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">73</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">73</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">25</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">bq's notes</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">cmmi度量指标</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-03-19 | 更新于 2021-04-11</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/">过程质量</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/cmmi/">cmmi</a></div></div></div><div class="main-content"><h4 id="1-进度方面"><a href="#1-进度方面" class="headerlink" title="1.进度方面"></a>1.进度方面</h4><p>实际进度的计划进度的偏差情况，Gantt图和Pert图。<br>返工时间占项目总时间的比例情况<br>项目能够容忍的最大的处理变更的时间<br>三级强调了偏差的范围，四级强调严格的上下限控制(控制图)</p>
+<h4 id="2-工作量"><a href="#2-工作量" class="headerlink" title="2.工作量"></a>2.工作量</h4><p>实际工作量和计划工作量的偏差<br>三级增加对好质量成本和坏质量成本相关工作量的度量(COGQ,COPQ)<br>对项目返工，评审，测试和处理变更工作量的分别度量</p>
+<h4 id="3-成本"><a href="#3-成本" class="headerlink" title="3.成本"></a>3.成本</h4><p>计划成本和实际成本的偏差<br>三级强调了成本和进度的性能指示器(挣值分析)<br>三级强调了偏差的范围，四级强调严格的上下限控制(控制图)<br>五级强调了会提供可选择的过程改进和缺陷预防策略供选择，而这个是在对项目的成本和效益做了比较和平衡后得出的。</p>
+<h4 id="4-软件质量保证"><a href="#4-软件质量保证" class="headerlink" title="4.软件质量保证"></a>4.软件质量保证</h4><p>不合格项的信息<br>SQA具体的审核信息</p>
+<h4 id="5-Review的结果"><a href="#5-Review的结果" class="headerlink" title="5.Review的结果"></a>5.Review的结果</h4><p>Review的活动项的状态</p>
+<h4 id="6-问题报告"><a href="#6-问题报告" class="headerlink" title="6.问题报告"></a>6.问题报告</h4><p>问题项的具体状态(打开,处理,关闭)<br>问题的原因的分析，对问题的分类的统计<br>问题的平均处理周期度量</p>
+<h4 id="7-同行评审和缺陷"><a href="#7-同行评审和缺陷" class="headerlink" title="7.同行评审和缺陷"></a>7.同行评审和缺陷</h4><p>同行评审的缺陷的打开和关闭的情况统计<br>缺陷密度<br>缺陷移除率和缺陷泄漏率<br>同行评审的效率，评审速率的度量<br>同行评审的覆盖率<br>四级强调对缺陷分类后的帕累托分析<br>四级强调对同行评审的关键特征项的控制图分析</p>
+<h4 id="8-需求的度量"><a href="#8-需求的度量" class="headerlink" title="8.需求的度量"></a>8.需求的度量</h4><p>需求的规模的情况<br>需求的稳定度或需求的变更率<br>需求变更的不同类型的分布情况<br>需求变更处理的效率和周期度量</p>
+<h4 id="9-培训"><a href="#9-培训" class="headerlink" title="9.培训"></a>9.培训</h4><p>实际安排课程和计划课程的对比<br>实际参与人员和计划参与人员的对比<br>对培训的成本和花费的度量<br>对培训取得的效果的度量</p>
+<h4 id="10-测试过程"><a href="#10-测试过程" class="headerlink" title="10.测试过程"></a>10.测试过程</h4><p>测试的生产率的度量<br>测试规模的度量<br>对测试BUG的分类后的帕累托分析<br>生命周期不同阶段发现缺陷的数量分布，泄漏情况<br>测试BUG的密度</p>
+<p>基础度量：</p>
+<p><em>•</em> 工作产品规模大小的估计及实际度量*(<em>例如：页数</em>)*</p>
+<p><em>•</em> 人力与成本的估计及实际度量*(<em>例如：人时</em>)*</p>
+<p><em>•</em> 质量度量*(<em>例如：缺陷数、依严重程度区分的缺陷数</em>)*</p>
+<p>衍生度量：</p>
+<p><em>•</em>  挣值*(Earned Value)*</p>
+<p><em>•</em>  进度绩效指标*(SPI)*</p>
+<p><em>•</em>   缺陷密度</p>
+<p><em>•</em>   同行评审涵盖度</p>
+<p><em>•</em>   测试或验证涵盖度</p>
+<p><em>•</em>  可靠度度量*(<em>例如</em>:<em>平均失败时间</em>)*</p>
+<p><em>•</em>  质量度量*(<em>例如：依严重程度区分的缺陷数</em>/<em>总缺陷数</em>)</p>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">bq</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://guobq.github.io/bq/3c134efc.html">https://guobq.github.io/bq/3c134efc.html</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://guobq.github.io">bq's notes</a>！</span></div></div><div class="post-copyright valine" id="comments-container"><script src="//unpkg.com/valine@1.4.14/dist/Valine.min.js"></script><script>let arr = location.href.split('/#more')[0].split('/');
+let title = arr[arr.length - 1];
+if (title === '') {
+    title = arr[arr.length - 2];
+}
+var flag = false;
+var gitFun = function () {
+    try {
+        var valineObj = window.GLOBAL_CONFIG.valine;
+        new Valine({
+            el: "#comments-container",
+            ...valineObj
+        });
+        flag = true;
+    } catch (e) {
+        flag = false;
+    }
+}
+var setIn = setInterval(() => {
+    if (!flag) {
+        gitFun();
+    } else {
+        clearInterval(setIn);
+    }
+}, 200);</script></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/ee0012d1.html"><i class="fas fa-angle-left">&nbsp;</i><span>cmmi开发相关</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/46c6a437.html"><span>cmmi度量相关</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2020 ～ 2021 By bq</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>

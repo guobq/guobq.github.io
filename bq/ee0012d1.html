@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="cmmi开发相关"><meta name="keywords" content="cmmi"><meta name="author" content="bq,undefined"><meta name="copyright" content="bq"><title>cmmi开发相关【bq's notes】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"8ICB0LL54F","apiKey":"b6e01221a0e1bdb34d69e088b9bd39d8","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {"appId":"8xUuEcUoXahLwm69LVK1eumF-gzGzoHsz","appKey":"NDF5dcJsxuEHHBOLlda7Y07b"},
+}</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="bq's notes" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5"><span class="toc-number">1.</span> <span class="toc-text">开发阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%EF%BC%88-Technical-Solution-%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">技术方案（ Technical Solution ）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SG1-%E4%BB%8E%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88%E4%B8%AD%E9%80%89%E6%8B%A9%E4%BA%A7%E5%93%81%E6%88%96%E8%80%85%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">2.1.</span> <span class="toc-text">SG1: 从候选方案中选择产品或者产品组件的解决方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP1-1-%E5%BC%80%E5%8F%91%E8%AF%A6%E7%BB%86%E7%9A%84%E5%80%99%E9%80%89%E6%96%B9%E6%A1%88%E5%8F%8A%E9%80%89%E6%8B%A9%E7%9A%84%E6%A0%87%E5%87%86"><span class="toc-number">2.2.</span> <span class="toc-text">SP1.1 开发详细的候选方案及选择的标准</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP1-2-%E9%92%88%E5%AF%B9%E6%AF%8F%E4%B8%AA%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E6%8F%8F%E8%BF%B0%E6%93%8D%E4%BD%9C%E6%A6%82%E5%BF%B5%E3%80%81%E5%9C%BA%E6%99%AF%E3%80%81%E7%8E%AF%E5%A2%83%E3%80%81%E6%93%8D%E4%BD%9C%E6%A8%A1%E5%BC%8F%E5%92%8C%E6%93%8D%E4%BD%9C%E7%8A%B6%E6%80%81%E7%AD%89"><span class="toc-number">2.3.</span> <span class="toc-text">SP1.2 针对每个产品组件描述操作概念、场景、环境、操作模式和操作状态等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP-1-3-%E9%80%89%E6%8B%A9%E6%9C%80%E7%AC%A6%E5%90%88%E8%A6%81%E6%B1%82%E7%9A%84%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88"><span class="toc-number">2.4.</span> <span class="toc-text">SP 1.3 选择最符合要求的产品组件设计方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SG2-%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81%E6%88%96%E8%80%85%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.5.</span> <span class="toc-text">SG2: 开发产品或者产品组件设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP2-1-%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81%E6%88%96%E8%80%85%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.6.</span> <span class="toc-text">SP2.1 开发产品或者产品组件的设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP2-2-%E5%BB%BA%E7%AB%8B%E5%92%8C%E7%BB%B4%E6%8A%A4%E6%8A%80%E6%9C%AF%E6%95%B0%E6%8D%AE%E5%8C%85"><span class="toc-number">2.7.</span> <span class="toc-text">SP2.2 建立和维护技术数据包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP2-3-%E6%A0%B9%E6%8D%AE%E6%89%80%E5%BB%BA%E7%AB%8B%E5%92%8C%E7%BB%B4%E6%8A%A4%E7%9A%84%E6%A0%87%E5%87%86%EF%BC%8C%E8%AE%BE%E8%AE%A1%E5%90%88%E9%80%82%E7%9A%84%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E6%8E%A5%E5%8F%A3"><span class="toc-number">2.8.</span> <span class="toc-text">SP2.3 根据所建立和维护的标准，设计合适的产品组件接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP2-4-%E6%A0%B9%E6%8D%AE%E5%88%B6%E5%AE%9A%E7%9A%84%E6%A0%87%E5%87%86%E8%AF%84%E4%BC%B0%E5%93%AA%E4%BA%9B%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E9%9C%80%E8%A6%81%E5%BC%80%E5%8F%91%E3%80%81%E8%B4%AD%E4%B9%B0%E6%88%96%E8%80%85%E9%87%8D%E7%94%A8"><span class="toc-number">2.9.</span> <span class="toc-text">SP2.4 根据制定的标准评估哪些产品组件需要开发、购买或者重用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SG3-%E5%AE%9E%E6%96%BD%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1%E5%B9%B6%E5%BC%80%E5%8F%91%E7%9B%B8%E5%BA%94%E7%9A%84%E6%94%AF%E6%8C%81%E6%96%87%E6%A1%A3"><span class="toc-number">2.10.</span> <span class="toc-text">SG3: 实施产品设计并开发相应的支持文档</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP3-1-%E5%AE%9E%E6%96%BD%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.11.</span> <span class="toc-text">SP3.1 实施产品组件的设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP3-2-%E5%BC%80%E5%8F%91%E5%92%8C%E7%BB%B4%E6%8A%A4%E6%9C%80%E7%BB%88%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3"><span class="toc-number">2.12.</span> <span class="toc-text">SP3.2 开发和维护最终用户文档</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E5%93%81%E9%9B%86%E6%88%90%EF%BC%88-PI-%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">产品集成（ PI ）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SG1-%E5%AE%8C%E6%88%90%E4%BA%A7%E5%93%81%E9%9B%86%E6%88%90%E7%9A%84%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">3.1.</span> <span class="toc-text">SG1 完成产品集成的准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP1-1-%E7%A1%AE%E5%AE%9A%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E7%9A%84%E9%9B%86%E6%88%90%E9%A1%BA%E5%BA%8F"><span class="toc-number">3.2.</span> <span class="toc-text">SP1.1 确定产品组件的集成顺序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP-1-2-%E5%BB%BA%E7%AB%8B%E5%92%8C%E7%BB%B4%E6%8A%A4%E7%94%A8%E4%BA%8E%E6%94%AF%E6%8C%81%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E9%9B%86%E6%88%90%E7%9A%84%E7%8E%AF%E5%A2%83"><span class="toc-number">3.3.</span> <span class="toc-text">SP 1.2 建立和维护用于支持产品组件集成的环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP-1-3-%E5%BB%BA%E7%AB%8B%E5%92%8C%E7%BB%B4%E6%8A%A4%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E9%9B%86%E6%88%90%E7%9A%84%E8%BF%87%E7%A8%8B%E5%8F%8A%E6%A0%87%E5%87%86"><span class="toc-number">3.4.</span> <span class="toc-text">SP 1.3 建立和维护产品组件集成的过程及标准</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SG2-%E7%A1%AE%E4%BF%9D%E4%BA%A7%E5%93%81%E5%86%85%E9%83%A8%E4%B8%8E%E5%A4%96%E9%83%A8%E7%9A%84%E6%8E%A5%E5%8F%A3%E6%98%AF%E5%85%BC%E5%AE%B9%E7%9A%84"><span class="toc-number">3.5.</span> <span class="toc-text">SG2 确保产品内部与外部的接口是兼容的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP2-1-%E6%A3%80%E6%9F%A5%E6%8E%A5%E5%8F%A3%E6%8F%8F%E8%BF%B0%EF%BC%8C%E4%BF%9D%E8%AF%81%E8%A6%86%E7%9B%96%E6%80%A7%E5%92%8C%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="toc-number">3.6.</span> <span class="toc-text">SP2.1 检查接口描述，保证覆盖性和完整性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP2-2-%E7%AE%A1%E7%90%86%E4%BA%A7%E5%93%81%E5%92%8C%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E7%9A%84%E5%86%85%E9%83%A8%E5%92%8C%E5%A4%96%E9%83%A8%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E8%AE%BE%E8%AE%A1%E5%8F%8A%E5%8F%98%E6%9B%B4"><span class="toc-number">3.7.</span> <span class="toc-text">SP2.2 管理产品和产品组件的内部和外部接口的定义、设计及变更</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SG3-%E7%BB%84%E5%90%88%E5%B7%B2%E9%9B%86%E6%88%90%E7%9A%84%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%B9%B6%E4%BA%A4%E4%BB%98%E5%B7%B2%E9%9B%86%E6%88%90%E3%80%81%E5%B7%B2%E9%AA%8C%E8%AF%81%E3%80%81%E5%B7%B2%E7%A1%AE%E8%AE%A4%E7%9A%84%E4%BA%A7%E5%93%81"><span class="toc-number">3.8.</span> <span class="toc-text">SG3 组合已集成的产品组件，并交付已集成、已验证、已确认的产品</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP3-1-%E5%9C%A8%E4%BA%A7%E5%93%81%E9%9B%86%E6%88%90%E5%89%8D%EF%BC%8C%E7%A1%AE%E5%AE%9A%E8%A6%81%E9%9B%86%E6%88%90%E7%9A%84%E4%BA%A7%E5%93%81%E7%9A%84%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E5%B7%B2%E8%A2%AB%E7%A1%AE%E8%AE%A4%E3%80%81%E5%B9%B6%E4%BE%9D%E6%8D%AE%E5%85%B6%E8%AF%B4%E6%98%8E%E6%89%A7%E8%A1%8C%EF%BC%8C%E5%B9%B6%E4%B8%94%E7%A1%AE%E5%AE%9A%E4%BA%A7%E5%93%81%E9%9B%86%E6%88%90%E6%8E%A5%E5%8F%A3%E7%AC%A6%E5%90%88%E6%8E%A5%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="toc-number">3.9.</span> <span class="toc-text">SP3.1 在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP3-2-%E6%A0%B9%E6%8D%AE%E4%BA%A7%E5%93%81%E9%9B%86%E6%88%90%E9%A1%BA%E5%BA%8F%E5%92%8C%E7%9B%B8%E5%85%B3%E8%BF%87%E7%A8%8B%E9%9B%86%E6%88%90%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6"><span class="toc-number">3.10.</span> <span class="toc-text">SP3.2 根据产品集成顺序和相关过程集成产品组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP3-3-%E8%AF%84%E4%BC%B0%E4%BA%A7%E5%93%81%E7%BB%84%E4%BB%B6%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-number">3.11.</span> <span class="toc-text">SP3.3 评估产品组件的接口兼容性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP3-4-%E6%89%93%E5%8C%85%E7%BB%84%E8%A3%85%E5%B7%B2%E9%9B%86%E6%88%90%E7%9A%84%E4%BA%A7%E5%93%81%E6%88%96%E7%BB%84%E4%BB%B6%EF%BC%8C%E5%B9%B6%E4%BA%A4%E4%BB%98%E7%BB%99%E9%80%82%E5%BD%93%E7%9A%84%E5%AE%A2%E6%88%B7"><span class="toc-number">3.12.</span> <span class="toc-text">SP3.4 打包组装已集成的产品或组件，并交付给适当的客户</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">bq</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/guobq" target="_blank">GitHub<i class="icon-dot bg-color7"></i></a><a class="links-button button-hover" href="mailto:2278220079@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color6"></i></a><a class="links-button button-hover" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2278220079&amp;site=qq&amp;menu=yes" target="_blank">QQ<i class="icon-dot bg-color0"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">73</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">73</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">25</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">bq's notes</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">cmmi开发相关</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-03-25 | 更新于 2021-04-11</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/">过程质量</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/cmmi/">cmmi</a></div></div></div><div class="main-content"><h3 id="开发阶段"><a href="#开发阶段" class="headerlink" title="开发阶段"></a>开发阶段</h3><h3 id="技术方案（-Technical-Solution-）"><a href="#技术方案（-Technical-Solution-）" class="headerlink" title="技术方案（ Technical Solution ）"></a>技术方案（ Technical Solution ）</h3><p>​      SG1 选择产品构建解决方案</p>
+<p>​        SP1.1 开发详细候选解决方案和选择准则  SP1.2 开发操作概念和场景  SP1.3 选择产品构件解决方案</p>
+<p>​      SG2 设计</p>
+<p>​        SP2.1 运用有效的设计方法  SP2.2 建立完备的技术数据包  SP2.3 设计综合性接口  SP2.4 进行制作、购买或复用分析</p>
+<p>​      SG3 实现产品设计</p>
+<p>​        SP3.1 实现设计  SP3.2 编制产品支持文档</p>
+<p>为设计、开发及实现需求的解决方案。解决方案、设计结果及实现成品包括产品、产品组件，以及与产品相关生命周期的单一过程或适当组合的过程。</p>
+<p>提示：产品架构、系统、子系统、性能、组件的解决方案，容易出现没有记录和文档问题；</p>
+<p>对于瀑布模型开发来说，系统或产品分解后，架构不能经常变；对于迭代模型开发来说，前一两个迭代，系统或产品的架构要确定；至于设计，对新的产品或系统，考虑如何设计，对于旧的产品，考虑如何优化设计；</p>
+<p>概要设计和详细设计的设计准则和标准要描述和规范（基于提高复用性，可扩展性；提高效率，质量，考虑复用提高生产率。）设计准则和标准选择理由加以记录；选择的评估会议可以是非正式如周例会；</p>
+<p>设计过程：分解到组件后，是自己做还是采购，考虑增加复用和可扩展性；提高效率和质量，考虑复用提高生产率。</p>
+<p>项目工期紧，常常成为很多事情的理由。因为赶时间，拿到需求后，不考虑哪种设计方案更合适，想到什么办法就用什么办法来做，甚至是没有设计可言，直接编码，写设计文档变成了浪费时间的一个事情。不少人进行设计的时候，眼光都放得不够开，不知道可以从很多途径找到可重用的代码，直接自己编码实现数据操作、日志处理、权限认证等事情，结果浪费了时间，而且还不能保证自己的代码是没有问题的。不少可重用的代码都是经过严格测试的，设计架构良好的，可直接使用或者稍加修改则可以为自己所用。</p>
+<p>设计方面常见问题：<br>1)无设计文档<br>2)有设计文档，但形同虚设<br>3)设计时没有考虑可以重用以前项目或者第三方的代码或组件<br>4)没有用需求来驱动设计<br>5)设计没有考虑多过一个的方案<br>6)没有考虑清楚设计的原则和标准<br>7)设计的弹性不够、架构落后？<br>8)代码与设计脱节？<br>9)到处都是面条式代码</p>
+<p>技术解决方案主要讲述的是设计、开发、实施方面的问题。</p>
+<h4 id="SG1-从候选方案中选择产品或者产品组件的解决方案"><a href="#SG1-从候选方案中选择产品或者产品组件的解决方案" class="headerlink" title="SG1: 从候选方案中选择产品或者产品组件的解决方案"></a>SG1: 从候选方案中选择产品或者产品组件的解决方案</h4><p>Product or product-component solutions are selected from alternative solutions.<br>制定选择的标准，设计候选方案，针对产规格依据选择标准，从候选方案中选出合适的方案。</p>
+<p>这个目标的主要内容就是制定选择的标准（一般涉及成本、进度、效益、风险、技术性能等），设计候选方案，针对产品规格，依据选择标准从候选方案中选出合适的产品或产品组件解决方案。解决方案(有时称为“设计方案”、“设计概念”或“初步设计”)；初步设计或设计方案可能与产品需求和产品组件需求开发同步进行并互动（在开发或获取客户需求之后）。</p>
+<p>很多开发人员，做编码之前都不太喜欢认真思考设计方案，迫于时间压力，不仔细考虑设计方案是否合适，就直接开展工作，这样做的风险是非常大的。</p>
+<p>提示：产品架构、系统、子系统、性能、组件的解决方案，容易出现没有记录和文档问题；</p>
+<h4 id="SP1-1-开发详细的候选方案及选择的标准"><a href="#SP1-1-开发详细的候选方案及选择的标准" class="headerlink" title="SP1.1 开发详细的候选方案及选择的标准"></a>SP1.1 开发详细的候选方案及选择的标准</h4><p>Develop detailed alternative solutions and selection criteria.</p>
+<p>先考虑好我们设计方案的选择标准，并找出可能的候选方案</p>
+<p>典型的工作产品</p>
+<p>   1.备选解决方案筛选准则</p>
+<ol start="2">
+<li><p>新技术的评估报告</p>
+</li>
+<li><p>备选解决方案</p>
+</li>
+<li><p>最终选择的评选准则</p>
+</li>
+<li><p>对市场现有成品的评估报告</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li>界定筛选准则，以作为选择备选解决方案的考虑因素</li>
+</ol>
+<p>​    2.界定现有技术与具竞争优势的新产品技术</p>
+<p>​    3.界定能满足需求的备选现成品:供方</p>
+<ol start="4">
+<li><p>产生备选方案</p>
+</li>
+<li><p>取得每一备选解决方案的完整需求配置。</p>
+</li>
+<li><p>开发选择最佳备选解决方案的准则</p>
+</li>
+</ol>
+<h4 id="SP1-2-针对每个产品组件描述操作概念、场景、环境、操作模式和操作状态等"><a href="#SP1-2-针对每个产品组件描述操作概念、场景、环境、操作模式和操作状态等" class="headerlink" title="SP1.2 针对每个产品组件描述操作概念、场景、环境、操作模式和操作状态等"></a>SP1.2 针对每个产品组件描述操作概念、场景、环境、操作模式和操作状态等</h4><p>Evolve the operational concept,scenarios,and environments to describe the conditions,operating modes,and operating states specific to each product component.</p>
+<p>要求对产品的规格进行详细的表述，因为我们的方案是要满足这些规格的，也只有这样，我们才能更好地找出合适的解决方案</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>产品组件选择决策及理由</p>
+</li>
+<li><p>需求及产品组件间相关性的记录</p>
+</li>
+<li><p>解决方案、评估及选择理由的记录</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>依据操作概念、操作方式及操作状态所建立的评选准则，评估各备选解决方案/解决方案组。针对每一个备选解决方案，开发产品操作及使用者互动的时序场景。</p>
+</li>
+<li><p>依据备选解决方案的评估，评?评选准则之适用性，必要时，更新准则。</p>
+</li>
+<li><p>界定并解决与备选技术方案及需求有关的问题。</p>
+</li>
+<li><p>选择能满足已建立之评选准则的最佳解决方案。</p>
+</li>
+<li><p>建立与所选择之备选方案关联的需求，此即为该产品组件的配置需求。</p>
+</li>
+<li><p>界定将再用（重用）或取得的产品组件解决方案。</p>
+</li>
+<li><p>建立并维护解决方案、评估及选择理由的文件。维护选择理由对后续决策十分重要，可以使后续干系人免于返工，也可在某些适用的应用环境下，提供对技术应用的深入见解。</p>
+</li>
+</ol>
+<h4 id="SP-1-3-选择最符合要求的产品组件设计方案"><a href="#SP-1-3-选择最符合要求的产品组件设计方案" class="headerlink" title="SP 1.3 选择最符合要求的产品组件设计方案"></a>SP 1.3 选择最符合要求的产品组件设计方案</h4><p>Select the product-component solutions that best satisfy the criteria established.</p>
+<p>根据选择标准选出最佳方案</p>
+<p>有人可能有这样的疑问，有些项目很简单，或者设计方案很明确，没有必要搞什么候选方案和选择标准，直接设计就可以了。设计方案除了针对整个项目的大的设计方案，还包括组成产品的各个组件的设计方案，绝大部分情况下，一个项目肯定会有部分地方技术不太明确需要仔细分析的。另外，不管怎样，都应该根据项目的实际情况，定出这个项目的设计标准，就算只有一个方案，也需要用该设计标准来检验该方案。大部分情况下，认为不需要考虑多个设计方案、不考虑设计标准，都是“懒惰”思想作怪，不做这样的考虑，项目的风险是比较大的。</p>
+<h4 id="SG2-开发产品或者产品组件设计"><a href="#SG2-开发产品或者产品组件设计" class="headerlink" title="SG2: 开发产品或者产品组件设计"></a>SG2: 开发产品或者产品组件设计</h4><p>Product or product-components designs are developed.</p>
+<p>最佳候选方案确定后，就可以开展具体的设计工作了。设计不仅是为了实现，也是为了产品生命周期阶段如修正、重新采购、维护、及安装等。设计文件提供给相关的干系人，以方便对设计的相互了解提供参考，并在产品的开发与后续的生命周期阶段设计上的改变。完整的设计描述，记录与技术数据包内。</p>
+<h4 id="SP2-1-开发产品或者产品组件的设计"><a href="#SP2-1-开发产品或者产品组件的设计" class="headerlink" title="SP2.1 开发产品或者产品组件的设计"></a>SP2.1 开发产品或者产品组件的设计</h4><p>Develop a design for the product or product components.</p>
+<p>产品设计一般包含两个阶段，在执行上可能相互重叠：概要设计与详细设计。</p>
+<p>概要设计建立产品功能和框架，包含产品组成区块、产品组件界定、系统状态与模式、主要的内外部接口和界面设计。常见的概要设计说明书问题有（功能模块设计、数据库设计包括逻辑设计和物理设计及安全性能设计、模块接口和界面设计）：软件性能描述不具体；性能的解决方案没有记录和文档；数据库设计包括逻辑设计和物理设计及安全性能设计不具体等；</p>
+<p>详细设计：完整定义产品组件的结构和功能。详细设计说明书是为编码人员所写，要详细描述实现方法、算法；如是面向结构或数据流方法，数据结构和处理流程（输入、转换、输出数据流）；如是面向对象方法，设计类的函数和成员变量，并明确对象之间的相互关系。常见问题是详细设计说明书过于简单，和概要设计一样，接口（内部和外部）设计不具体；</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>产品架构</p>
+</li>
+<li><p>产品组件设计</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>建立并维护准则，以评估设计。</p>
+</li>
+<li><p>界定、开发或取得适合于产品的设计方法。选择适合的方法并在一定的工具支持下对设计提供很大的帮助，一般常用的技术和方法：原型法、面向结构化设计方法、面向对象设计方法、E-R模型、设计复用、设计模式等；</p>
+</li>
+<li><p>确保设计遵循所应用的设计标准与准则。</p>
+</li>
+<li><p>确保设计遵循已配置的需求。</p>
+</li>
+<li><p>记录设计。</p>
+</li>
+</ol>
+<h4 id="SP2-2-建立和维护技术数据包"><a href="#SP2-2-建立和维护技术数据包" class="headerlink" title="SP2.2 建立和维护技术数据包"></a>SP2.2 建立和维护技术数据包</h4><p>Establish and maintain a technical data package.</p>
+<p>这个Practice的字面意思比较难理解，其实意思很简单，就是要建立和维护一套管理所有设计文档、数据的方法或者体制，对设计过程的数据、文档进行有效的管理。技术数据包是给开发人员的做的（主要是需求、设计资料等），设计人员不想做，开发人员非常需要。完备的技术数据包为开发者提供了开发产品或组件的综合性描述，还提供了有关产品类型的以下信息：产品架构描述、分配需求、产品组件的描述、产品相关生命周期过程描述、关键产品特性、必需的物理特征和约束、接口需求、用于确保实现需求的验证准则等。</p>
+<h4 id="SP2-3-根据所建立和维护的标准，设计合适的产品组件接口"><a href="#SP2-3-根据所建立和维护的标准，设计合适的产品组件接口" class="headerlink" title="SP2.3 根据所建立和维护的标准，设计合适的产品组件接口"></a>SP2.3 根据所建立和维护的标准，设计合适的产品组件接口</h4><p>Design comprehensive product-component interfaces in terms of established and maintained criteria.</p>
+<p>考虑外部接口和内部接口；与原来系统的关系；</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>接口设计规格说明</p>
+</li>
+<li><p>接口控制文件</p>
+</li>
+<li><p>接口规格准则</p>
+</li>
+<li><p>所选之接口设计的理由</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>定义接口准则。一般是组织过程资产的一部分</p>
+</li>
+<li><p>界定与其它产品组件相关的接口。</p>
+</li>
+<li><p>界定与外部相关的接口。</p>
+</li>
+<li><p>界定介于产品组件与产品相关生命周期过程的介面。</p>
+</li>
+<li><p>应用准则于接口设计的备选方案。</p>
+</li>
+<li><p>记录已选取的接口设计与理由。</p>
+</li>
+</ol>
+<h4 id="SP2-4-根据制定的标准评估哪些产品组件需要开发、购买或者重用"><a href="#SP2-4-根据制定的标准评估哪些产品组件需要开发、购买或者重用" class="headerlink" title="SP2.4 根据制定的标准评估哪些产品组件需要开发、购买或者重用"></a>SP2.4 根据制定的标准评估哪些产品组件需要开发、购买或者重用</h4><p>Evaluate whether the product components should be developed,purchased,or resued based on established criteria.</p>
+<p>技术状况是对开发或采购产品组件作出选择的重要理由；在开发工作很复杂时，可能以采购现有组件为佳，而拥有先进工具及充足人员情况下则支持自己开发。毕竟有时购买现有的组件，可能不够完备或不能完全满足系统的需要。一旦作出采购现有组件（或外包开发）的决定，就要在供应商协议中进行落实。</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>设计与产品组件再用的准则</p>
+</li>
+<li><p>自制或采购分析</p>
+</li>
+<li><p>选择现有成品组件的指引</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>开发产品组件设计再用的准则。</p>
+</li>
+<li><p>分析设计以决定产品组件要自行开发、再用或采购。</p>
+</li>
+<li><p>当采购或选择非开发的(现成品、政府的成品及再用)时，分析维护所隐藏的代价</p>
+</li>
+</ol>
+<h4 id="SG3-实施产品设计并开发相应的支持文档"><a href="#SG3-实施产品设计并开发相应的支持文档" class="headerlink" title="SG3: 实施产品设计并开发相应的支持文档"></a>SG3: 实施产品设计并开发相应的支持文档</h4><p>Product components,and associated support documentation,are implemented from their designs.</p>
+<h4 id="SP3-1-实施产品组件的设计"><a href="#SP3-1-实施产品组件的设计" class="headerlink" title="SP3.1 实施产品组件的设计"></a>SP3.1 实施产品组件的设计</h4><p>Implement the designs of the product components.</p>
+<p>简单地说就是依据设计进行编码活动了</p>
+<p>典型的工作产品</p>
+<ol>
+<li>已实现的设计</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>使用有效的方法实现产品组件。比如结构化编程、面向对象编程、自动代码生成、软件代码复用、应用合适的设计模式等。</p>
+</li>
+<li><p>遵循适当的标准与准则。比如编码规范、过程及质量标准、编码时遵循模块化、明确、简单、可靠、安全、可维护等准则；编码规范描述内容（如编码模块的复杂度和内聚性等）</p>
+</li>
+<li><p>对选定的产品组件，执行同行审查。可以通过代码走查、测试等多种方式来实现；单元测试是验证是否实现设计；单元测试要提到接口测试；</p>
+</li>
+<li><p>适当时对产品组件执行单元测试。 这里单元测试不局限于软件，涵盖个别硬件、软件单元或先前已整合的相关组合；</p>
+</li>
+<li><p>必要时修订产品组件。在实现阶段发生了未能与设计阶段预见的问题，就是修订产品组件时机的范例之一。</p>
+</li>
+</ol>
+<h4 id="SP3-2-开发和维护最终用户文档"><a href="#SP3-2-开发和维护最终用户文档" class="headerlink" title="SP3.2 开发和维护最终用户文档"></a>SP3.2 开发和维护最终用户文档</h4><p>Develop and maintain the end-use documentation.</p>
+<p>开发和维护用于产品安装、操作及维护的相关文档，如用户手册、安装手册、管理员手册、在线帮助等。</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>终端使用者培训教材</p>
+</li>
+<li><p>使用者手册</p>
+</li>
+<li><p>操作手册</p>
+</li>
+<li><p>维护手册</p>
+</li>
+<li><p>在线求助</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>审查需求、设计、产品及测试结果，以确保影响安装、操作及维护等项文件的相关议题已被界定并解决。</p>
+</li>
+<li><p>使用有效的方法，制作安装、操作及维护的文件。</p>
+</li>
+<li><p>遵循适当的文件制作标准。如《技术文档编制规范》</p>
+</li>
+<li><p>在生命周期的初期阶段就制作安装、操作及维护等文件的初始版本，以供相关的干系人审查。</p>
+</li>
+<li><p>执行安装、操作及维护等文件的同行审查。</p>
+</li>
+<li><p>必要时修订安装、操作及维护文件。一般为需求、产品、设计、产品实现变更时 。</p>
+</li>
+</ol>
+<h3 id="产品集成（-PI-）"><a href="#产品集成（-PI-）" class="headerlink" title="产品集成（ PI ）"></a>产品集成（ PI ）</h3><p>​      SG1 准备产品集成</p>
+<p>​        SP1.1 建立产品集成战略  SP1.2 建立产品集成环境  SP1.3 规定详细的产品集成规程</p>
+<p>​      SG2 确保接口兼容性</p>
+<p>​        SP2.1 审查接口描述的完备性  SP2.2 管理接口</p>
+<p>​      SG3 组装产品构件和交付产品</p>
+<p>​        SP3.1 确认集成用的产品构件已经准备就绪  SP3.2 组装产品构件  SP3.3 核查组装的产品构件  SP3.4 打包和交付产品或产品构件</p>
+<p>把组成产品的所有软件组件组装起来，使之运行在目标环境上，产品集成包括软件组件之间的集成、软件与硬件的集成、软件基础数据的录入、调试等。系统越复杂，集成就显得越发重要。</p>
+<p>基本道理就是随时保证组成最终产品接口一致，能顺畅运行，能随时拿得出可运行的版本。(持续集成)</p>
+<h4 id="SG1-完成产品集成的准备工作"><a href="#SG1-完成产品集成的准备工作" class="headerlink" title="SG1 完成产品集成的准备工作"></a>SG1 完成产品集成的准备工作</h4><p>Preparation for product integration is conducted.</p>
+<p>准备产品、组件集成，包含建立并维护集成的活动和活动顺序、搭建集成环境、执行集成程序。</p>
+<h4 id="SP1-1-确定产品组件的集成顺序"><a href="#SP1-1-确定产品组件的集成顺序" class="headerlink" title="SP1.1 确定产品组件的集成顺序"></a>SP1.1 确定产品组件的集成顺序</h4><p>Determine the product-component integration sequence.</p>
+<p>需要集成的产品组件包括：交付产品的一部分、测试设备、测试程序、以及其他配件等的一个综合体。</p>
+<p>产品的集成顺序与确定技术解决方案是一致的，对于复杂的产品而言，集成应该是渐进式的，并且运用“集成-一评价-一集成”的迭代过程。集成支持产品组件渐进式组装和评价，为进一步纳入其他可用产品组件奠定良好的基础，或者是为高风险产品组件的原型设计奠定良好的基础。</p>
+<p>具体步骤：</p>
+<p>1、确定待集成产品组件。<br>这个需要注意的是，产品组件还要考虑数据库部分的集成。由于数据库设计与其他功能组件的设计不同，所以往往有专门的数据库人员来设计和维护，所以在产品集成时数据库的集成多数将成为忽略点或是难点。数据库的构架建设最好能自动化执行，因为有时数据库持续集成时可能删除原来数据库，重新自动创建数据库也许是最快捷的方法。<br>2、利用产品组件接口间的定义，对待集成组件进行验证和确定。<br>3、确定组件集成的顺序(可以为多种集成顺序方案)。还应包含明确在这些集成的顺序中的一些测试设备、测试软件、支撑产品等<br>4、确定最佳集成顺序。<br>5、定期检查集成顺序，必要时进行修改。因为在随着变更，集成顺序也会变更。另外，在集成时还要评估集成、测试环境和实际运行环境的差距，不断调整集成环境，有时集成顺序会变更。<br>6、记录制订产品集成方案(包括一些被否决的原因)<br>产品集成方案可以包含的(但不局限)内容有：<br>*待集成的组件<br>*产品集成顺序<br>*要做的活动<br>*每项活动的责任和所要求的资源<br>*应予满足的进度<br>*应予遵循的规程<br>*所需要的工具<br>等<br>注：这里所说的待集成的组件可能还包括数据库，数据库集成有时也是产品集成的一部分重要内容。</p>
+<h4 id="SP-1-2-建立和维护用于支持产品组件集成的环境"><a href="#SP-1-2-建立和维护用于支持产品组件集成的环境" class="headerlink" title="SP 1.2 建立和维护用于支持产品组件集成的环境"></a>SP 1.2 建立和维护用于支持产品组件集成的环境</h4><p>Establish and maintain the environment needed to support the integration of the product components.。</p>
+<p>这些环境包括硬件环境、网络环境、数据环境等。</p>
+<p>产品集成环境可以采用外部采购、复用或是自行开发。为了建立集成环境必需开发设备、软件以及其他资源的自主开发或是采购的需求。这些需求应该在前期需求开发阶段就要进行开发。是外购还是自研、重用是在制定技术解决方案阶段就应该确定的。</p>
+<p>产品集成环境可包括：集成设备/程序、测试设备/程序、模拟器(比如一些桩程序)、记录工具等。<br>具体步骤：<br>1、确定产品集成的需求。也包括产品集成都需要什么内容?<br>2、确定产品整合环境的验证标准和程序。这个验证程序可以是自动化的软件程序，也可以是手工的测试流程和用例。<br>3、确定产品集成自研或是采购所需的产品集成环境。<br>4、如果无法采购所需集成环境，则进行集成环境的自研工作。<br>对于无前例、复杂的项目而言，产品集成环境的自研工作将是一项重要的开发工作。它本身就像一个小的项目，也应该包括项目计划、需求开发、技术解决方案、验证、确认以及风险管理等环节。<br>5、在整个项目执行过程中，进行维护产品集成环境。<br>如果产品整合环境不再使用时，应进行处理。比如：根据情况分析是否可以复用，如不可再次复用就要进行资源的释放。</p>
+<h4 id="SP-1-3-建立和维护产品组件集成的过程及标准"><a href="#SP-1-3-建立和维护产品组件集成的过程及标准" class="headerlink" title="SP 1.3 建立和维护产品组件集成的过程及标准"></a>SP 1.3 建立和维护产品组件集成的过程及标准</h4><p>Establish and maintain procedures and criteria for integration of the product components.<br>这里提到了过程，与SP1.1似乎有点重复，SP1.1只强调考虑集成的现有顺序，而SP1.3要需要考虑具体的集成过程，除了集成顺序，还需要考虑每一步的验证办法、成功标准等。</p>
+<p>　　产品集成流程可包括：每次增量迭代进行集成的组件和集成编号、每个集成迭代进行测试和评价的内容和验证标准等。<br>　　产品集成标准：实际上是产品集成阶段的准入、准出的标准。它可以定义如何验证产品组件期望值的功能，并定义如何验证交付最终已集成的产品。<br>　　<strong>产品集成流程和标准的内容，可以有如下内容：</strong><br>　　*已建立组件的测试内容<br>　　<em>接口的验证<br>　　*性能偏差的可接受程度<br>　　*产品组合与外部接口的衍生需求<br>　　*经验证的可替代元件<br>　　*测试环境的参数<br>　　*测试成本的限制问题和风险<br>　　*产品集成时，质量与成本的平衡点<br>　　*正常执行的可接受几率<br>　　*需求交付率的可接受程度<br>　　*订货到交货的时间及供货周期(需重复提供时需要)<br>　　*人员的可用性<br>　　*集成设备、生产线和环境的可用性<br>　　*</em>具体步骤：**<br>　　1、建立并维护产品组件的产品集成流程<br>　　2、建立并维护产品组件集成与评估标准<br>　　3、建立并维护产品组件的确认与交付标准</p>
+<h4 id="SG2-确保产品内部与外部的接口是兼容的"><a href="#SG2-确保产品内部与外部的接口是兼容的" class="headerlink" title="SG2 确保产品内部与外部的接口是兼容的"></a>SG2 确保产品内部与外部的接口是兼容的</h4><p>The product-component interfaces,both internal and external,are compatible.</p>
+<p>SG1的SP的工作产品一般会是集成计划、接口说明、集成标准等文档，SG1的主要任务是完成这些文档，而SG2的主要任务就是检查接口是否一致，并在发生接口变化的时候，管理接口的变化，使之保持一致。</p>
+<p>许多产品集成的问题往往是由于产品内部接口之间或是与其相连接的外部系统的接口不兼容导致的。所以有效管理产品组件内、外部接口的需求、规格设计，可以确保接口的完整性与兼容性。</p>
+<h4 id="SP2-1-检查接口描述，保证覆盖性和完整性"><a href="#SP2-1-检查接口描述，保证覆盖性和完整性" class="headerlink" title="SP2.1 检查接口描述，保证覆盖性和完整性"></a>SP2.1 检查接口描述，保证覆盖性和完整性</h4><p>Review interface description for coverage and completeness.<br>通常我们通过评审接口说明的办法来检查接口的完整性、覆盖性。除审查产品组件接口外，接口应包括产品集成所有环境的接口。<br>　　具体步骤：<br>　　1、审查接口文件的完整性，确保已涵盖所有的接口。<br>　　这个要借助在技术解决方案时编制的接口文档，明确各接口之间的相互关系。对于软件产品而言，接口文件至少应包括如下信息：<br>　　*接口用途<br>　　*接口中的参数类型说明<br>　　*接口参数的来源<br>　　*接口输出参数用途<br>　　*协议与数据特性<br>　　*影响该接口的因素<br>　　等<br>　　2、确保产品组件与接口已标识好标记，确保产品组件可以正确、容易地连接。<br>　　3、定期审查产品接口说明的充分性。<br>　　定期审查现有产品接口说明与正在开发、生产、购买等中的产品没有偏差。有时这种审查要与供应商或生产商共同审查，如有偏差应及时处理有可能涉及到的库存、生产线、用户处等范围。</p>
+<h4 id="SP2-2-管理产品和产品组件的内部和外部接口的定义、设计及变更"><a href="#SP2-2-管理产品和产品组件的内部和外部接口的定义、设计及变更" class="headerlink" title="SP2.2 管理产品和产品组件的内部和外部接口的定义、设计及变更"></a>SP2.2 管理产品和产品组件的内部和外部接口的定义、设计及变更</h4><p>Manage internal and external interface definitions,designs,and changes for products and product components.<br>各组件之间是有关系的，我们需要对这些关系进行管理，保证组件间保持一致。<br>　　接口需求驱动着产品组件所需接口的开发，在开发初期就开始管理产品与产品组件的接口。接口的定义接口不仅影响产品组件和外部系统，也影响着验证、确认的环境。<br>　　接口管理包含：维护接口在整个产品周期的一致性，以及解决冲突、不符合以及变更的问题。<br>　　除产品组件接口外，还应包括在集成产品过程中所涉及到的所有接口，以及用于验证、确认、操作、调试、其它支持环境的接口。并且需要记录、维护接口变更的信息，并使其容易查询到和使用。<br>　　具体步骤：<br>　　1、确保接口在整个产品生命周期内的兼容性<br>　　2、解决冲突、不符合以及变更的问题<br>　　3、维护项目成员可以取得接口资料的的存储库<br>　　共享取用的接口资料存储库，提供确保每个成员都知道最新资料的存放处，以及获取和使用的机制，建议放到配置库中。</p>
+<h4 id="SG3-组合已集成的产品组件，并交付已集成、已验证、已确认的产品"><a href="#SG3-组合已集成的产品组件，并交付已集成、已验证、已确认的产品" class="headerlink" title="SG3 组合已集成的产品组件，并交付已集成、已验证、已确认的产品"></a>SG3 组合已集成的产品组件，并交付已集成、已验证、已确认的产品</h4><p>Verified product components are assembled and the integrated,verified,and validated product is delivered.</p>
+<p>主要讲的是执行集成的过程，并交付产品给客户。</p>
+<p>根据已制定的产品组件集成的顺序，进行产品组件的集成。整合前，每一个产品组件应确定于其接口相符。集成可以分阶段逐步完成，可以将一些产品组件集成为更大、更复杂一些的产品组件，一直到整个产品集成完毕。在集成过程中，如果出现问题应用文字进行记录，并采取纠正措施。</p>
+<h4 id="SP3-1-在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明"><a href="#SP3-1-在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明" class="headerlink" title="SP3.1 在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明"></a>SP3.1 在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明</h4><p>Confirm,prior to assembly,that each product component required to assemble the product has been properly identified,functions according to its description,and that the product-component interfaces comply with the interface descriptions.<br>简单的说就是在集成前，做全面的检查工作，保证各部分符合既定的要求。</p>
+<p>　确保产品要集成的已被适当的标识、确认的组件符合说明文件，并能根据集成顺序进行实际集成。检查产品组件数量、及产品组件与接口说明不一致的问题。<br>　　具体步骤：<br>　　1、当产品组件处于可进行集成的状态时，尽快跟踪所有产品组件的状态。<br>　　2、根据产品集成顺序与自动化集成程序，确保产品组件已完整提交到集成环境中。<br>　　3、确定每个正确标识的产品组件。<br>　　4、确保已标识的产品组件与说明文件一致。<br>　　5、根据预期配置进行检查配置项的状态。<br>　　6、在集成产品组件前，执行所有接口的预先检查。</p>
+<h4 id="SP3-2-根据产品集成顺序和相关过程集成产品组件"><a href="#SP3-2-根据产品集成顺序和相关过程集成产品组件" class="headerlink" title="SP3.2 根据产品集成顺序和相关过程集成产品组件"></a>SP3.2 根据产品集成顺序和相关过程集成产品组件</h4><p>Assemble product components according to the product integration sequence and available procedures.<br>　　具体步骤：<br>　　1、确保产品集成环境已准备就绪。<br>　　2、确保正确地按集成顺序执行。<br>　　记录适当的集成过程中的信息，比如：集成组件在配置库中的状态(是否在基线)、产品组件序号、型式以及集成所需的仪表校正日期。<br>　　3、适当地修订产品集成顺序以及集成执行的程序。</p>
+<h4 id="SP3-3-评估产品组件的接口兼容性"><a href="#SP3-3-评估产品组件的接口兼容性" class="headerlink" title="SP3.3 评估产品组件的接口兼容性"></a>SP3.3 评估产品组件的接口兼容性</h4><p>Evaluate assembled product components for interface compatibility.</p>
+<p>　　这种评估不仅是对已集成的产品或组件进行评审，还应创造使用环境进行运行，以来评估产品的功能完整性、性能、适用性等符合需求。<br>　　评估的顺序可以按集成顺序，按阶段进行。比如一个OA产品有不同的功能模块，我们可以按照集成顺序先检测登陆，再进行邮箱功能评估，最后进行文档的流转、审批功能的评估。每次集成一部分并进行分步评估，确保每次集成的产品都符合架构的要求。<br>　　具体执行步骤：<br>　　1、根据产品集成顺序与执行程序评估已集成的产品组件。<br>　　2、记录评估结果。<br>　　记录内容可以为：<br>　　*要求与集成规程的适应性<br>　　*产品配置的变更(如：备用零件以及新产品)<br>　　*评估得到的问题。</p>
+<h4 id="SP3-4-打包组装已集成的产品或组件，并交付给适当的客户"><a href="#SP3-4-打包组装已集成的产品或组件，并交付给适当的客户" class="headerlink" title="SP3.4 打包组装已集成的产品或组件，并交付给适当的客户"></a>SP3.4 打包组装已集成的产品或组件，并交付给适当的客户</h4><p>Package the assembled product or product component and deliver it to the appropriate customer.<br>　　某些产品的包装已经写在了需求规格或是检验标准中，当客户自己进行仓储和运送产品时这点要非常的关注。比如：<br>　　*包装经济且易于运输的需求(如货柜、集装箱装货的需求)<br>　　*可说明性(如：使用可压缩型的薄膜或泡沫等)<br>　　*易拆封且安全(如：锐利边缘、订装的可靠度、对儿童的保护、环保、重量等)<br>　　如果需要开发、制造者进行仓储、运输的话，则要注意一些隐形的包装需求。比如：跨国海运对木箱是否要进行熏蒸除虫;根据仓储地考虑室内防潮、防锈的处理等等，实际这些需求不仅会影响产品的包装，也可能会影响到产品本身的需求。对于这些包装的需求应首先参考国家或国际标准，进行设计、实施。<br>　　对于产品包装，我们应尽可能做一些可靠性的实验，已验证包装的可靠性，比如：跌落试验、盐雾试验、防水等级实验等等。<br>　　在工厂中为配合产品组件所做的调整，可能是在真是安装现场所做的不同，这时应对这些调整和原因进行记录。<br>　　具体执行步骤：<br>　　1、 审查需求、设计、产品、验证结果及文件，以确保影响产品包装与交付问题已被界定与解决。<br>　　2、 利用有效方法包装与交付已集成的产品。<br>　　3、 满足包装与交付产品的需求与标准。如：<br>　　*存储与交付媒体的类型<br>　　*软体原始及备份版本的保管信息<br>　　*必要的文件(使用说明书、维护手册等)<br>　　*版权(一般应在合同或说明书中明确)<br>　　*提供的授权(该产品授权的范围，比如：不可以直接将该产品销售，但可以进行扩展开发其他功能后进行销售)<br>　　*软件安全性<br>　　4、 为产品安装准备场地<br>　　这个准备安装场所，也可能是客户或最终用户的责任。<br>　　5、 交付产品与其相关文件，并确定收到收据。<br>　　6、 在安装场所进行安装，并确保正确操作。<br>　　安装产品可能是客户或是最终用户的责任，比如现在的手机APP。但是也有些软件是在安装现场进行安装，用户只是使用。</p>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">bq</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://guobq.github.io/bq/ee0012d1.html">https://guobq.github.io/bq/ee0012d1.html</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://guobq.github.io">bq's notes</a>！</span></div></div><div class="post-copyright valine" id="comments-container"><script src="//unpkg.com/valine@1.4.14/dist/Valine.min.js"></script><script>let arr = location.href.split('/#more')[0].split('/');
+let title = arr[arr.length - 1];
+if (title === '') {
+    title = arr[arr.length - 2];
+}
+var flag = false;
+var gitFun = function () {
+    try {
+        var valineObj = window.GLOBAL_CONFIG.valine;
+        new Valine({
+            el: "#comments-container",
+            ...valineObj
+        });
+        flag = true;
+    } catch (e) {
+        flag = false;
+    }
+}
+var setIn = setInterval(() => {
+    if (!flag) {
+        gitFun();
+    } else {
+        clearInterval(setIn);
+    }
+}, 200);</script></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/d22f4620.html"><i class="fas fa-angle-left">&nbsp;</i><span>cmmi效能</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/3c134efc.html"><span>cmmi度量指标</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2020 ～ 2021 By bq</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>

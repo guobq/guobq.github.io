@@ -1,0 +1,1825 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content=""><meta name="keywords"><meta name="author" content="bq,undefined"><meta name="copyright" content="bq"><title>【bq's notes】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"8ICB0LL54F","apiKey":"b6e01221a0e1bdb34d69e088b9bd39d8","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {"appId":"8xUuEcUoXahLwm69LVK1eumF-gzGzoHsz","appKey":"NDF5dcJsxuEHHBOLlda7Y07b"},
+}</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="bq's notes" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="author-info"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">bq</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/guobq" target="_blank">GitHub<i class="icon-dot bg-color9"></i></a><a class="links-button button-hover" href="mailto:2278220079@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color3"></i></a><a class="links-button button-hover" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2278220079&amp;site=qq&amp;menu=yes" target="_blank">QQ<i class="icon-dot bg-color6"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">73</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">73</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">25</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">bq's notes</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><div id="recent-posts"><!-- each post in page.posts.sort('date', -1).limit(10).toArray()--><!-- config中配置按照什么排序--><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/5b6c7637.html">windows设置</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-06-03</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E9%80%9A%E7%94%A8/">通用</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E9%80%9A%E7%94%A8/%E5%B7%A5%E5%85%B7%E4%B8%8E%E9%85%8D%E7%BD%AE/">工具与配置</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/windows%E8%AE%BE%E7%BD%AE/">windows设置</a></div></div><div class="post-content"><div class="main-content content"><h3 id="无拓展名文件设置默认打开方式"><a href="#无拓展名文件设置默认打开方式" class="headerlink" title="无拓展名文件设置默认打开方式"></a>无拓展名文件设置默认打开方式</h3><p>cmd中，assoc用来关联后缀与文件类型，ftype用来关联文件类型和打开其的应用程序。</p>
+<p>设置关联文件类型</p>
+<p>管理员状态下运行cmd，查看无拓展的关联类型：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">assoc</span>  .</span><br></pre></td></tr></table></figure>
+
+<p>自定义无后缀文件对应的文件类型（此处为<code>No Extension</code>,可以自定义,注意在等号后面是没有空格的！）,设置关联：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">assoc</span> .=No Extension</span><br></pre></td></tr></table></figure>
+
+<p>设置关联（此处我使用vscode，可以把路径替换为其他程序），输入：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ftype</span> &quot;No Extension&quot;=&quot;D:\software\Microsoft VS Code\Code.exe&quot; &quot;%<span class="number">1</span>&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="批处理文件-bat-后台运行"><a href="#批处理文件-bat-后台运行" class="headerlink" title="批处理文件 bat 后台运行"></a>批处理文件 bat 后台运行</h3><p>方案一:批处理文件,开头加上以下三行代码</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> &quot;%<span class="number">1</span>&quot;==&quot;hide&quot; <span class="keyword">goto</span> CmdBegin</span><br><span class="line"><span class="built_in">start</span> mshta vbscript:createobject(&quot;wscript.shell&quot;).run(&quot;&quot;&quot;%~<span class="number">0</span>&quot;&quot; hide&quot;,<span class="number">0</span>)(window.close)&amp;&amp;<span class="keyword">exit</span></span><br><span class="line">:CmdBegin</span><br></pre></td></tr></table></figure>
+
+<p>方案二:再创建一个backrun.vbs文件,写入以下代码</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">createobject(&quot;wscript.shell&quot;).run &quot;test.bat&quot;,<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>双击该该vbs文件,批处理文件,就进入后台运行模式了;打开资源管理器, 会发现有一个cmd的进程,就是批处理文件的进程</p>
+</div></div><a class="button-hover more" href="/bq/5b6c7637.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/efdd0a04.html">gitlab安装</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-05-13</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E5%B7%A5%E5%85%B7/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/">代码管理</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/gitlab/">gitlab</a></div></div><div class="post-content"><div class="main-content content"><h3 id="yum安装"><a href="#yum安装" class="headerlink" title="yum安装"></a>yum安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 配置yum源</span></span><br><span class="line">vi /etc/yum.repos.d/tsinghua.repo</span><br><span class="line"></span><br><span class="line">[gitlab-ce]</span><br><span class="line">name=Gitlab CE Repository</span><br><span class="line">baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el$releasever/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 缓存相关包</span></span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装相关依赖</span></span><br><span class="line">yum install curl policycoreutils-python openssh-server </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装gitlab-ce</span></span><br><span class="line">yum install gitlab-ce</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改gitlab配置文件指定服务器ip和自定义端口：</span></span><br><span class="line">vim  /etc/gitlab/gitlab.rb</span><br><span class="line">external_url=&#x27;http://122.51.139.130&#x27;</span><br><span class="line">unicorn[&#x27;port&#x27;] = 8888</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 重置并启动GitLab</span></span><br><span class="line">gitlab-ctl reconfigure</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改<span class="built_in">clone</span> host地址</span></span><br><span class="line">vi /var/opt/gitlab/gitlab-rails/etc/gitlab.yml</span><br><span class="line">122.51.139.130</span><br><span class="line">cat /opt/gitlab/embedded/service/gitlab-rails/config/gitlab.yml</span><br><span class="line">gitlab-ctl restart</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试sshkey</span></span><br><span class="line">ssh -vT git@ip</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 用yum安装完gitLab，设置ssh key，在进行项目的<span class="built_in">clone</span></span></span><br><span class="line">git clone git@xxx/xxx.git #提示需要输入密码,这个密码并不是gitlab账户的密码，而是服务器git用户的密码。</span><br></pre></td></tr></table></figure>
+
+<h4 id="question"><a href="#question" class="headerlink" title="question"></a>question</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">最终决定登陆到gitlab服务器发现git用户为锁定状态，由于git账户是在安装gitlab时自动创建的，初始密码没有设置，用户锁定导致ssh连接不可用</span><br><span class="line"></span><br><span class="line">解决：</span><br><span class="line">1.首先切换到root用户： sudo su root</span><br><span class="line">2.输入有root权限的当前账户的密码（如果你已经在root账户下 1 2两步忽略）</span><br><span class="line">3.给git用户设置密码：passwd git </span><br><span class="line">4.按提示输入两遍新密码即可</span><br></pre></td></tr></table></figure>
+
+<h3 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h3><h4 id="镜像拉取与启动"><a href="#镜像拉取与启动" class="headerlink" title="镜像拉取与启动"></a>镜像拉取与启动</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">docker pull gitlab/gitlab-ce</span><br><span class="line"><span class="meta">#</span><span class="bash">-i  以交互模式运行容器，通常与 -t 同时使用命令解释：</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-t  为容器重新分配一个伪输入终端，通常与 -i 同时使用</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-d  后台运行容器，并返回容器ID</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-p 9980:80  将容器内80端口映射至宿主机9980端口，这是访问gitlab的端口</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-p 9922:22  将容器内22端口映射至宿主机9922端口，这是访问ssh的端口</span></span><br><span class="line"><span class="meta">#</span><span class="bash">-v /home/bq/docker/gitlab/etc:/etc/gitlab  将容器/etc/gitlab目录挂载到宿主机/home/bq/docker/gitlab/etc目录下，若宿主机内此目录不存在将会自动创建，其他两个挂载同这个一样</span></span><br><span class="line"><span class="meta">#</span><span class="bash">--restart always  容器自启动</span></span><br><span class="line"><span class="meta">#</span><span class="bash">--privileged=<span class="literal">true</span>  让容器获取宿主机root权限</span></span><br><span class="line"><span class="meta">#</span><span class="bash">--name gitlab  设置容器名称为gitlab</span></span><br><span class="line"><span class="meta">#</span><span class="bash">gitlab/gitlab-ce  镜像的名称，这里也可以写镜像ID</span></span><br><span class="line">docker run \</span><br><span class="line"> -itd  \</span><br><span class="line"> -p 9980:80 \</span><br><span class="line"> -p 9922:22 \</span><br><span class="line"> -v /home/bq/docker/gitlab/etc:/etc/gitlab  \</span><br><span class="line"> -v /home/bq/docker/gitlab/log:/var/log/gitlab \</span><br><span class="line"> -v /home/bq/docker/gitlab/opt:/var/opt/gitlab \</span><br><span class="line"> --name gitlab \</span><br><span class="line"> gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">进入容器</span></span><br><span class="line">docker exec -it gitlab /bin/bash</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改配置</span></span><br><span class="line">vi /etc/gitlab/gitlab.rb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置生效</span></span><br><span class="line">gitlab-ctl reconfigure</span><br><span class="line"><span class="meta">#</span><span class="bash"> 重启gitlab </span></span><br><span class="line">gitlab-ctl restart</span><br><span class="line"><span class="meta">#</span><span class="bash"> 退出容器 </span></span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<h4 id="关闭用户注册"><a href="#关闭用户注册" class="headerlink" title="关闭用户注册"></a>关闭用户注册</h4><p>1、使用root用户登录gitlab<br>2、点击【Admin Area】<br>3、点击【Settings】<br>4、点击Sign-in restrictions这一栏的【Expand】<br>5、取消勾选【Sign-up enabled】<br>6、保存修改</p>
+<h4 id="优化精简git仓库"><a href="#优化精简git仓库" class="headerlink" title="优化精简git仓库"></a>优化精简git仓库</h4><p>清除垃圾文件(大量无用的mp3文件)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git filter-branch --force --index-filter &#x27;git rm --cached --ignore-unmatch *.mp3&#x27; --prune-empty --tag-name-filter cat -- --all</span><br></pre></td></tr></table></figure>
+
+<p>提交到远程仓库(如GitHub, 我再次从git clone GitHub代码库会变小为1.3M)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --force --all</span><br></pre></td></tr></table></figure>
+
+<p>必须回收垃圾,本地仓库才变小</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git for-each-ref --format=&#x27;delete %(refname)&#x27; refs/original | git update-ref --stdin   </span><br><span class="line">git reflog expire --expire=now --all</span><br><span class="line">git gc --prune=now</span><br><span class="line">rm -rf .git/refs/original</span><br><span class="line">git reflog expire --expire=now --all</span><br><span class="line">git gc --prune=now</span><br><span class="line">git gc --aggressive --prune=now</span><br></pre></td></tr></table></figure>
+
+<p>example:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">1.统计仓库精简前容量信息,造成最大的文件pack记录</span></span><br><span class="line"><span class="meta">#</span><span class="bash">查看仓库容量信息:</span></span><br><span class="line">du -h --max-depth=1</span><br><span class="line"><span class="meta">#</span><span class="bash">找出最大的3个文件的pack记录:</span></span><br><span class="line">git verify-pack -v .git/objects/pack/pack-*.idx |sort -k 3 n | tail -3</span><br><span class="line"><span class="meta">#</span><span class="bash">2.通过blob id查询大文件的文件名</span></span><br><span class="line">git rev-list --objects --all | grep blobid </span><br><span class="line"><span class="meta">#</span><span class="bash">3.查看该文件的所有提交记录</span></span><br><span class="line">git log --branches -- zz/xx.zip 或</span><br><span class="line">git log --pretty=oneline --branches -- zz/xx.zip</span><br><span class="line"><span class="meta">#</span><span class="bash">4.将该文件从历史记录的所有tree中移除,并用filter-branch命令重写所有commit才能将该文件从git历史中完全移除</span></span><br><span class="line">git filter-branch --force --index-filter &#x27;git rm --cached --ignore-unmatch zz/xx.zip&#x27; --prune-empty --tag-name-filter cat -- --all</span><br><span class="line"><span class="meta">#</span><span class="bash">5.依次执行以下命令,清理和回收空间</span></span><br><span class="line">rm -rf .git/refs/original/</span><br><span class="line">rm -rf .git/logs/</span><br><span class="line">git gc</span><br><span class="line">gir prune</span><br><span class="line">git push origin --force --all</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置ssh-key"><a href="#配置ssh-key" class="headerlink" title="配置ssh key"></a>配置ssh key</h3><p>打开本地git bash,使用如下命令生成ssh公钥和私钥对</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`ssh-keygen -t rsa -C &#x27;xxx@xxx.com&#x27;` # 然后一路回车(-C 参数是你的邮箱地址)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打开~/.ssh/id_rsa.pub文件(~表示用户目录)，复制其中的内容</span><br><span class="line">打开gitlab,找到Profile Settings--&gt;SSH Keys---&gt;Add SSH Key,并把上一步中复制的内容粘贴到Key所对应的文本框，在Title对应的文本框中给这个sshkey设置一个名字，点击Add key按钮</span><br><span class="line">到此就完成了gitlab配置ssh key的所有步骤，可以使用ssh协议不需要输入密码进行代码的拉取以及提交等操作了</span><br></pre></td></tr></table></figure>
+
+<h4 id="本地配置多个ssh-key"><a href="#本地配置多个ssh-key" class="headerlink" title="本地配置多个ssh key"></a>本地配置多个ssh key</h4><p>大多数时候，我们的机器上会有很多的git host,比如公司gitlab、github、oschina等，那我们就需要在本地配置多个ssh key，使得不同的host能使用不同的ssh key ,做法如下（以公司gitlab和github为例）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 为公司生成一对秘钥ssh key</span></span><br><span class="line">ssh-keygen -t rsa -C &#x27;yourEmail@xx.com&#x27; -f ~/.ssh/gitlab-rsa</span><br><span class="line"><span class="meta">#</span><span class="bash"> 为github生成一对秘钥ssh key</span></span><br><span class="line">ssh-keygen -t rsa -C &#x27;yourEmail2@xx.com&#x27; -f ~/.ssh/github-rsa</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在~/.ssh目录下新建名称为config的文件（无后缀名）。用于配置多个不同的host使用不同的ssh key，内容如下：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> gitlab</span></span><br><span class="line">Host gitlab.com</span><br><span class="line">    HostName gitlab.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/gitlab_id-rsa</span><br><span class="line"><span class="meta">#</span><span class="bash"> github</span></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/github_id-rsa</span><br><span class="line">  </span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置文件参数</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Host : Host可以看作是一个你要识别的模式，对识别的模式，进行配置对应的的主机名和ssh文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> HostName : 要登录主机的主机名</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> User : 登录名</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> IdentityFile : 指明上面User对应的identityFile路径</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 按照上面的步骤分别往gitlab和github上添加生成的公钥gitlab_id-rsa.pub和github_id-rsa.pub</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> OK，大功告成，再次执行git命令验证是不是已经不需要再次验证权限了。</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 再次查看~/..ssh目录下的文件,会有gitlab_id-rsa、gitlab_id-rsa.pub和github_id-rsa、github_id-rsa.pub四个文件</span></span><br></pre></td></tr></table></figure></div></div><a class="button-hover more" href="/bq/efdd0a04.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/ab9e1965.html">git基本操作</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-06-04</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E5%B7%A5%E5%85%B7/%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86/">代码管理</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/git/">git</a></div></div><div class="post-content"><div class="main-content content"><h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 本地操作</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看当前配置：</span></span><br><span class="line">git config -l</span><br><span class="line"><span class="meta">#</span><span class="bash"> 以当前目录为基础创建本地仓库：</span></span><br><span class="line">git init</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加暂存区：.所有修改新增文件 -u所有修改删除 -A所有</span></span><br><span class="line">git add xxx文件 </span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看暂存区倌息：</span></span><br><span class="line">git status</span><br><span class="line"><span class="meta">#</span><span class="bash"> 暂存区提交历史区：</span></span><br><span class="line">git commit -m‘说明’</span><br><span class="line"><span class="meta">#</span><span class="bash"> 一并提交暂存区历史区（只适合已提交过文件）：</span></span><br><span class="line">git commit -a -m‘说明’</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看分支：</span></span><br><span class="line">git branch</span><br><span class="line">.gitignore文件，提交忽略项如.idea和node_modules等</span><br><span class="line"><span class="meta">#</span><span class="bash"> 历史记录：</span></span><br><span class="line">git log /reflog</span><br><span class="line"><span class="meta">#</span><span class="bash"> 把暂存区所有内容撤回工作区所有记录，少用：</span></span><br><span class="line">git rm -cached . r</span><br><span class="line"><span class="meta">#</span><span class="bash"> 暂存区撤回工作区,覆盖工作区不可恢复：</span></span><br><span class="line">git checkout .</span><br><span class="line"><span class="meta">#</span><span class="bash"> 暂存区回滚到上一次:</span></span><br><span class="line">git reset HEAD .</span><br><span class="line"><span class="meta">#</span><span class="bash"> 工作区VS暂存区：</span></span><br><span class="line">git diff</span><br><span class="line"><span class="meta">#</span><span class="bash"> 工作区VS历史区：</span></span><br><span class="line">git diff master</span><br><span class="line"><span class="meta">#</span><span class="bash"> 暂存区VS历史区：</span></span><br><span class="line">git diff -cached</span><br><span class="line"><span class="meta">#</span><span class="bash"> 回滚历史版本暂存区工作区都被替代：</span></span><br><span class="line">git reset --hard 版本号</span><br><span class="line">history》history.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 关联远程仓库：</span></span><br><span class="line">git remote add 名字(oringin) 远程仓库地址</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除：</span></span><br><span class="line">git remote rm</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看：</span></span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始化：</span></span><br><span class="line">git clone 仓库地址</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 历史区同步</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 推送到远程仓库：</span></span><br><span class="line">git push oringin master </span><br><span class="line"><span class="meta">#</span><span class="bash"> 从远程仓库拉取：</span></span><br><span class="line">git pull oringin master </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 单独分支管理：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 操作分支</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看分支</span></span><br><span class="line">git branch</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建分支</span></span><br><span class="line">git branch xxx </span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换分支</span></span><br><span class="line">git checkout xxx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建分支并切换</span></span><br><span class="line">git checkout -b xxx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除分支</span></span><br><span class="line">git branch -D xxx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 合并分支</span></span><br><span class="line">git merge xxx</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看分支提交和合并内容</span></span><br><span class="line">git log --graph / --oneline</span><br><span class="line"><span class="meta">#</span><span class="bash"> 获取当前分支名</span></span><br><span class="line">git symbolic-ref --short -q HEAD</span><br><span class="line"><span class="meta">#</span><span class="bash"> 基于历史commit创建分支</span></span><br><span class="line">git checkout -b branchname 92483401abdc41bc64bbdde1a63ed7bbee403e19</span><br><span class="line"><span class="meta">#</span><span class="bash"> 本地分支push到远程服务器，远程分支与本地分支同名(当然可以随意起名)</span></span><br><span class="line">git push origin branchname:branchname</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除远程分支</span></span><br><span class="line">git push origin --delete branchname</span><br><span class="line"><span class="meta">#</span><span class="bash"> 推送一个空分支到远程分支，其实就相当于删除远程分支</span></span><br><span class="line">git push origin :branchname</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 从仓库同步</span></span><br><span class="line">git pull</span><br><span class="line"><span class="meta">#</span><span class="bash"> 历史坂本：</span></span><br><span class="line">git reset版本号</span><br><span class="line">git checkout文件名 </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 强制覆盖本地</span></span><br><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置关联远程</span></span><br><span class="line">git config remote.origin.url git@github.com:your_username/your_project.git</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> https方式每次都要输入密码，按照如下设置即可输入一次就不用再手输入密码的困扰而且又享受https带来的极速</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置记住密码（默认15分钟）：</span></span><br><span class="line">git config --global credential.helper cache</span><br><span class="line"><span class="meta">#</span><span class="bash"> 自定义设置时间：（设置一个小时之后失效）</span></span><br><span class="line">git config credential.helper &#x27;cache --timeout=3600&#x27;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 长期存储密码</span></span><br><span class="line">git config --global credential.helper store</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加远程地址的时候带上密码也是可以的。(推荐)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用客户端也可以存储密码。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换ssh-&gt;https</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换到项目目录下 ：</span></span><br><span class="line">cd projectfile/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 移除远程ssh方式的仓库地址</span></span><br><span class="line">git remote rm origin</span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加https远程仓库地址</span></span><br><span class="line">git remote add origin http://yourname:password@git.oschina.net/name/project.git</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> git config 查看配置信息</span></span><br><span class="line"><span class="meta">#</span><span class="bash">config 配置有system级别 global（用户级别） 和<span class="built_in">local</span>（当前仓库）三个 设置先从system-》global-》<span class="built_in">local</span>  底层配置会覆盖顶层配置 分别使用--system/global/<span class="built_in">local</span> 可以定位到配置文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash">查看系统config</span></span><br><span class="line">git config --system --list</span><br><span class="line"><span class="meta">#</span><span class="bash">查看当前用户（global）配置</span></span><br><span class="line">git config --global  --list</span><br><span class="line"><span class="meta">#</span><span class="bash">查看当前仓库配置信息</span></span><br><span class="line"><span class="meta">#</span><span class="bash">git config -- <span class="built_in">local</span>    --list</span></span><br><span class="line"></span><br><span class="line">git branch #查看本地所有分支</span><br><span class="line">git status #查看当前状态 </span><br><span class="line">git commit #提交 </span><br><span class="line">git branch -a #查看所有的分支</span><br><span class="line">git branch -r #查看远程所有分支</span><br><span class="line">git commit -am &quot;init&quot; #提交并且加注释 </span><br><span class="line">git remote add origin git@192.168.1.119:ndshow</span><br><span class="line">git push origin master 将文件给推到服务器上 </span><br><span class="line">git remote show origin 显示远程库origin里的资源 </span><br><span class="line">git push origin master:develop</span><br><span class="line">git push origin master:hb-dev #将本地库与服务器上的库进行关联 </span><br><span class="line">git checkout --track origin/dev #切换到远程dev分支</span><br><span class="line">git branch -D master develop #删除本地库develop</span><br><span class="line">git checkout -b dev #建立一个新的本地分支dev</span><br><span class="line">git merge origin/dev #将分支dev与当前分支进行合并</span><br><span class="line">git checkout dev #切换到本地dev分支</span><br><span class="line">git remote show #查看远程库</span><br><span class="line">git add .</span><br><span class="line">git rm 文件名(包括路径) #从git中删除指定文件</span><br><span class="line">git clone git://github.com/schacon/grit.git #从服务器上将代码给拉下来</span><br><span class="line">git config --list #看所有用户</span><br><span class="line">git ls-files #看已经被提交的</span><br><span class="line">git rm [file name] #删除一个文件</span><br><span class="line">git commit -a #提交当前repos的所有的改变</span><br><span class="line">git add [file name] #添加一个文件到git index</span><br><span class="line">git commit -v #当你用－v参数的时候可以看commit的差异</span><br><span class="line">git commit -m &quot;This is the message describing the commit&quot; #添加commit信息</span><br><span class="line">git commit -a -a #是代表add，把所有的change加到git index里然后再commit</span><br><span class="line">git commit -a -v #一般提交命令</span><br><span class="line">git log #看你commit的日志</span><br><span class="line">git diff #查看尚未暂存的更新</span><br><span class="line">git rm a.a #移除文件(从暂存区和工作区中删除)</span><br><span class="line">git rm --cached a.a #移除文件(只从暂存区中删除)</span><br><span class="line">git commit -m &quot;remove&quot; #移除文件(从Git中删除)</span><br><span class="line">git rm -f a.a #强行移除修改后文件(从暂存区和工作区中删除)</span><br><span class="line">git diff --cached 或 $ git diff --staged #查看尚未提交的更新</span><br><span class="line">git stash push #将文件给push到一个临时空间中</span><br><span class="line">git stash pop #将文件从临时空间pop下来</span><br><span class="line">\---------------------------------------------------------</span><br><span class="line">git remote add origin git@github.com:username/Hello-World.git</span><br><span class="line">git push origin master #将本地项目给提交到服务器中</span><br><span class="line">\-----------------------------------------------------------</span><br><span class="line">git pull #本地与服务器端同步</span><br><span class="line">\-----------------------------------------------------------------</span><br><span class="line">git push (远程仓库名) (分支名) #将本地分支推送到服务器上去。</span><br><span class="line">git push origin serverfix:awesomebranch</span><br><span class="line">\------------------------------------------------------------------</span><br><span class="line">git fetch #相当于是从远程获取最新版本到本地，不会自动merge</span><br><span class="line">git commit -a -m &quot;log_message&quot; #(-a是提交所有改动，-m是加入log信息) 本地修改同步至服务器端 ：</span><br><span class="line">git branch branch_0.1 master #从主分支master创建branch_0.1分支</span><br><span class="line">git branch -m branch_0.1 branch_1.0 #将branch_0.1重命名为branch_1.0</span><br><span class="line">git checkout branch_1.0/master #切换到branch_1.0/master分支</span><br><span class="line">git branch </span><br><span class="line">git push origin :branch_remote_name</span><br><span class="line">git branch -r -d branch_remote_name #删除远程branch</span><br><span class="line">\-----------------------------------------------------------</span><br><span class="line"><span class="meta">#</span><span class="bash">初始化版本库，并提交到远程服务器端</span></span><br><span class="line">mkdir WebApp</span><br><span class="line">cd WebApp</span><br><span class="line">git init #本地初始化</span><br><span class="line">touch README</span><br><span class="line">git add README #添加文件</span><br><span class="line">git commit -m &#x27;first commit&#x27;</span><br><span class="line">git remote add origin git@github.com:username/Hello-World.git #增加一个远程服务器端</span><br><span class="line"><span class="meta">#</span><span class="bash">上面的命令会增加URL地址为<span class="string">&#x27;git@github.com:username/Hello-World.git&#x27;</span>，名称为origin的远程服务器库，以后提交代码的时候只需要使用 origin别名即可</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="命令速查表"><a href="#命令速查表" class="headerlink" title="命令速查表"></a>命令速查表</h3><h4 id="1、常用的Git命令"><a href="#1、常用的Git命令" class="headerlink" title="1、常用的Git命令"></a>1、常用的Git命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git add</td>
+<td>添加至暂存区</td>
+</tr>
+<tr>
+<td>git add–interactive</td>
+<td>交互式添加</td>
+</tr>
+<tr>
+<td>git apply</td>
+<td>应用补丁</td>
+</tr>
+<tr>
+<td>git am</td>
+<td>应用邮件格式补丁</td>
+</tr>
+<tr>
+<td>git annotate</td>
+<td>同义词，等同于 git blame</td>
+</tr>
+<tr>
+<td>git archive</td>
+<td>文件归档打包</td>
+</tr>
+<tr>
+<td>git bisect</td>
+<td>二分查找</td>
+</tr>
+<tr>
+<td>git blame</td>
+<td>文件逐行追溯</td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>分支管理</td>
+</tr>
+<tr>
+<td>git cat-file</td>
+<td>版本库对象研究工具</td>
+</tr>
+<tr>
+<td>git checkout</td>
+<td>检出到工作区、切换或创建分支</td>
+</tr>
+<tr>
+<td>git cherry-pick</td>
+<td>提交拣选</td>
+</tr>
+<tr>
+<td>git citool</td>
+<td>图形化提交，相当于 git gui 命令</td>
+</tr>
+<tr>
+<td>git clean</td>
+<td>清除工作区未跟踪文件</td>
+</tr>
+<tr>
+<td>git clone</td>
+<td>克隆版本库</td>
+</tr>
+<tr>
+<td>git commit</td>
+<td>提交</td>
+</tr>
+<tr>
+<td>git config</td>
+<td>查询和修改配置</td>
+</tr>
+<tr>
+<td>git describe</td>
+<td>通过里程碑直观地显示提交ID</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>差异比较</td>
+</tr>
+<tr>
+<td>git difftool</td>
+<td>调用图形化差异比较工具</td>
+</tr>
+<tr>
+<td>git fetch</td>
+<td>获取远程版本库的提交</td>
+</tr>
+<tr>
+<td>git format-patch</td>
+<td>创建邮件格式的补丁文件。参见 git am 命令</td>
+</tr>
+<tr>
+<td>git grep</td>
+<td>文件内容搜索定位工具</td>
+</tr>
+<tr>
+<td>git gui</td>
+<td>基于Tcl/Tk的图形化工具，侧重提交等操作</td>
+</tr>
+<tr>
+<td>git help</td>
+<td>帮助</td>
+</tr>
+<tr>
+<td>git init</td>
+<td>版本库初始化</td>
+</tr>
+<tr>
+<td>git init-db*</td>
+<td>同义词，等同于 git init</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>显示提交日志</td>
+</tr>
+<tr>
+<td>git merge</td>
+<td>分支合并</td>
+</tr>
+<tr>
+<td>git mergetool</td>
+<td>图形化冲突解决</td>
+</tr>
+<tr>
+<td>git mv</td>
+<td>重命名</td>
+</tr>
+<tr>
+<td>git pull</td>
+<td>拉回远程版本库的提交</td>
+</tr>
+<tr>
+<td>git push</td>
+<td>推送至远程版本库</td>
+</tr>
+<tr>
+<td>git rebase</td>
+<td>分支变基</td>
+</tr>
+<tr>
+<td>git rebase–interactive</td>
+<td>交互式分支变基</td>
+</tr>
+<tr>
+<td>git reflog</td>
+<td>分支等引用变更记录管理</td>
+</tr>
+<tr>
+<td>git remote</td>
+<td>远程版本库管理</td>
+</tr>
+<tr>
+<td>git repo-config*</td>
+<td>同义词，等同于 git config</td>
+</tr>
+<tr>
+<td>git reset</td>
+<td>重置改变分支“游标”指向</td>
+</tr>
+<tr>
+<td>git rev-parse</td>
+<td>将各种引用表示法转换为哈希值等</td>
+</tr>
+<tr>
+<td>git revert</td>
+<td>反转提交</td>
+</tr>
+<tr>
+<td>git rm</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>git show</td>
+<td>显示各种类型的对象</td>
+</tr>
+<tr>
+<td>git stage*</td>
+<td>同义词，等同于 git add</td>
+</tr>
+<tr>
+<td>git stash</td>
+<td>保存和恢复进度</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>显示工作区文件状态</td>
+</tr>
+<tr>
+<td>git tag</td>
+<td>里程碑管理</td>
+</tr>
+</tbody></table>
+<h4 id="2、对象库操作相关命令"><a href="#2、对象库操作相关命令" class="headerlink" title="2、对象库操作相关命令"></a>2、对象库操作相关命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git commit-tree</td>
+<td>从树对象创建提交</td>
+</tr>
+<tr>
+<td>git hash-object</td>
+<td>从标准输入或文件计算哈希值或创建对象</td>
+</tr>
+<tr>
+<td>git ls-files</td>
+<td>显示工作区和暂存区文件</td>
+</tr>
+<tr>
+<td>git ls-tree</td>
+<td>显示树对象包含的文件</td>
+</tr>
+<tr>
+<td>git mktag</td>
+<td>读取标准输入创建一个里程碑对象</td>
+</tr>
+<tr>
+<td>git mktree</td>
+<td>读取标准输入创建一个树对象</td>
+</tr>
+<tr>
+<td>git read-tree</td>
+<td>读取树对象到暂存区</td>
+</tr>
+<tr>
+<td>git update-index</td>
+<td>工作区内容注册到暂存区及暂存区管理</td>
+</tr>
+<tr>
+<td>git unpack-file</td>
+<td>创建临时文件包含指定 blob 的内容</td>
+</tr>
+<tr>
+<td>git write-tree</td>
+<td>从暂存区创建一个树对象</td>
+</tr>
+</tbody></table>
+<h4 id="3、引用操作相关命令"><a href="#3、引用操作相关命令" class="headerlink" title="3、引用操作相关命令"></a>3、引用操作相关命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git check-ref-format</td>
+<td>检查引用名称是否符合规范</td>
+</tr>
+<tr>
+<td>git for-each-ref</td>
+<td>引用迭代器，用于shell编程</td>
+</tr>
+<tr>
+<td>git ls-remote</td>
+<td>显示远程版本库的引用</td>
+</tr>
+<tr>
+<td>git name-rev</td>
+<td>将提交ID显示为友好名称</td>
+</tr>
+<tr>
+<td>git peek-remote*</td>
+<td>过时命令，请使用 git ls-remote</td>
+</tr>
+<tr>
+<td>git rev-list</td>
+<td>显示版本范围</td>
+</tr>
+<tr>
+<td>git show-branch</td>
+<td>显示分支列表及拓扑关系</td>
+</tr>
+<tr>
+<td>git show-ref</td>
+<td>显示本地引用</td>
+</tr>
+<tr>
+<td>git symbolic-ref</td>
+<td>显示或者设置符号引用</td>
+</tr>
+<tr>
+<td>git update-ref</td>
+<td>更新引用的指向</td>
+</tr>
+<tr>
+<td>git verify-tag</td>
+<td>校验 GPG 签名的Tag</td>
+</tr>
+</tbody></table>
+<h4 id="4、版本库管理相关命令"><a href="#4、版本库管理相关命令" class="headerlink" title="4、版本库管理相关命令"></a>4、版本库管理相关命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git count-objects</td>
+<td>显示松散对象的数量和磁盘占用</td>
+</tr>
+<tr>
+<td>git filter-branch</td>
+<td>版本库重构</td>
+</tr>
+<tr>
+<td>git fsck</td>
+<td>对象库完整性检查</td>
+</tr>
+<tr>
+<td>git fsck-objects*</td>
+<td>同义词，等同于 git fsck</td>
+</tr>
+<tr>
+<td>git gc</td>
+<td>版本库存储优化</td>
+</tr>
+<tr>
+<td>git index-pack</td>
+<td>从打包文件创建对应的索引文件</td>
+</tr>
+<tr>
+<td>git lost-found*</td>
+<td>过时，请使用 git fsck –lost-found 命令</td>
+</tr>
+<tr>
+<td>git pack-objects</td>
+<td>从标准输入读入对象ID，打包到文件</td>
+</tr>
+<tr>
+<td>git pack-redundant</td>
+<td>查找多余的 pack 文件</td>
+</tr>
+<tr>
+<td>git pack-refs</td>
+<td>将引用打包到 .git/packed-refs 文件中</td>
+</tr>
+<tr>
+<td>git prune</td>
+<td>从对象库删除过期对象</td>
+</tr>
+<tr>
+<td>git prune-packed</td>
+<td>将已经打包的松散对象删除</td>
+</tr>
+<tr>
+<td>git relink</td>
+<td>为本地版本库中相同的对象建立硬连接</td>
+</tr>
+<tr>
+<td>git repack</td>
+<td>将版本库未打包的松散对象打包</td>
+</tr>
+<tr>
+<td>git show-index</td>
+<td>读取包的索引文件，显示打包文件中的内容</td>
+</tr>
+<tr>
+<td>git unpack-objects</td>
+<td>从打包文件释放文件</td>
+</tr>
+<tr>
+<td>git verify-pack</td>
+<td>校验对象库打包文件</td>
+</tr>
+</tbody></table>
+<h4 id="5、数据传输相关命令"><a href="#5、数据传输相关命令" class="headerlink" title="5、数据传输相关命令"></a>5、数据传输相关命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git fetch-pack</td>
+<td>执行 git fetch 或 git pull 命令时在本地执行此命令，用于从其他版本库获取缺失的对象</td>
+</tr>
+<tr>
+<td>git receive-pack</td>
+<td>执行 git push 命令时在远程执行的命令，用于接受推送的数据</td>
+</tr>
+<tr>
+<td>git send-pack</td>
+<td>执行 git push 命令时在本地执行的命令，用于向其他版本库推送数据</td>
+</tr>
+<tr>
+<td>git upload-archive</td>
+<td>执行 git archive –remote 命令基于远程版本库创建归档时，远程版本库执行此命令传送归档</td>
+</tr>
+<tr>
+<td>git upload-pack</td>
+<td>执行 git fetch 或 git pull 命令时在远程执行此命令，将对象打包、上传</td>
+</tr>
+</tbody></table>
+<h4 id="6、邮件相关命令"><a href="#6、邮件相关命令" class="headerlink" title="6、邮件相关命令"></a>6、邮件相关命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git imap-send</td>
+<td>将补丁通过 IMAP 发送</td>
+</tr>
+<tr>
+<td>git mailinfo</td>
+<td>从邮件导出提交说明和补丁</td>
+</tr>
+<tr>
+<td>git mailsplit</td>
+<td>将 mbox 或 Maildir 格式邮箱中邮件逐一提取为文件</td>
+</tr>
+<tr>
+<td>git request-pull</td>
+<td>创建包含提交间差异和执行PULL操作地址的信息</td>
+</tr>
+<tr>
+<td>git send-email</td>
+<td>发送邮件</td>
+</tr>
+</tbody></table>
+<h4 id="7、协议相关命令"><a href="#7、协议相关命令" class="headerlink" title="7、协议相关命令"></a>7、协议相关命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git daemon</td>
+<td>实现Git协议</td>
+</tr>
+<tr>
+<td>git http-backend</td>
+<td>实现HTTP协议的CGI程序，支持智能HTTP协议</td>
+</tr>
+<tr>
+<td>git instaweb</td>
+<td>即时启动浏览器通过 gitweb 浏览当前版本库</td>
+</tr>
+<tr>
+<td>git shell</td>
+<td>受限制的shell，提供仅执行Git命令的SSH访问</td>
+</tr>
+<tr>
+<td>git update-server-info</td>
+<td>更新哑协议需要的辅助文件</td>
+</tr>
+<tr>
+<td>git http-fetch</td>
+<td>通过HTTP协议获取版本库</td>
+</tr>
+<tr>
+<td>git http-push</td>
+<td>通过HTTP/DAV协议推送</td>
+</tr>
+<tr>
+<td>git remote-ext</td>
+<td>由Git命令调用，通过外部命令提供扩展协议支持</td>
+</tr>
+<tr>
+<td>git remote-fd</td>
+<td>由Git命令调用，使用文件描述符作为协议接口</td>
+</tr>
+<tr>
+<td>git remote-ftp</td>
+<td>由Git命令调用，提供对FTP协议的支持</td>
+</tr>
+<tr>
+<td>git remote-ftps</td>
+<td>由Git命令调用，提供对FTPS协议的支持</td>
+</tr>
+<tr>
+<td>git remote-http</td>
+<td>由Git命令调用，提供对HTTP协议的支持</td>
+</tr>
+<tr>
+<td>git remote-https</td>
+<td>由Git命令调用，提供对HTTPS协议的支持</td>
+</tr>
+<tr>
+<td>git remote-testgit</td>
+<td>协议扩展示例脚本</td>
+</tr>
+</tbody></table>
+<h4 id="8、版本库转换和交互相关命令"><a href="#8、版本库转换和交互相关命令" class="headerlink" title="8、版本库转换和交互相关命令"></a>8、版本库转换和交互相关命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git archimport</td>
+<td>导入Arch版本库到Git</td>
+</tr>
+<tr>
+<td>git bundle</td>
+<td>提交打包和解包，以便在不同版本库间传递</td>
+</tr>
+<tr>
+<td>git cvsexportcommit</td>
+<td>将Git的一个提交作为一个CVS检出</td>
+</tr>
+<tr>
+<td>git cvsimport</td>
+<td>导入CVS版本库到Git。或者使用 cvs2git</td>
+</tr>
+<tr>
+<td>git cvsserver</td>
+<td>Git的CVS协议模拟器，可供CVS命令访问Git版本库</td>
+</tr>
+<tr>
+<td>git fast-export</td>
+<td>将提交导出为 git-fast-import 格式</td>
+</tr>
+<tr>
+<td>git fast-import</td>
+<td>其他版本库迁移至Git的通用工具</td>
+</tr>
+<tr>
+<td>git svn</td>
+<td>Git 作为前端操作 Subversion</td>
+</tr>
+</tbody></table>
+<h4 id="9、合并相关的辅助命令"><a href="#9、合并相关的辅助命令" class="headerlink" title="9、合并相关的辅助命令"></a>9、合并相关的辅助命令</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git merge-base</td>
+<td>供其他脚本调用，找到两个或多个提交最近的共同祖先</td>
+</tr>
+<tr>
+<td>git merge-file</td>
+<td>针对文件的两个不同版本执行三向文件合并</td>
+</tr>
+<tr>
+<td>git merge-index</td>
+<td>对index中的冲突文件调用指定的冲突解决工具</td>
+</tr>
+<tr>
+<td>git merge-octopus</td>
+<td>合并两个以上分支。参见 git merge 的octopus合并策略</td>
+</tr>
+<tr>
+<td>git merge-one-file</td>
+<td>由 git merge-index 调用的标准辅助程序</td>
+</tr>
+<tr>
+<td>git merge-ours</td>
+<td>合并使用本地版本，抛弃他人版本。参见 git merge 的ours合并策略</td>
+</tr>
+<tr>
+<td>git merge-recursive</td>
+<td>针对两个分支的三向合并。参见 git merge 的recursive合并策略</td>
+</tr>
+<tr>
+<td>git merge-resolve</td>
+<td>针对两个分支的三向合并。参见 git merge 的resolve合并策略</td>
+</tr>
+<tr>
+<td>git merge-subtree</td>
+<td>子树合并。参见 git merge 的 subtree 合并策略</td>
+</tr>
+<tr>
+<td>git merge-tree</td>
+<td>显式三向合并结果，不改变暂存区</td>
+</tr>
+<tr>
+<td>git fmt-merge-msg</td>
+<td>供执行合并操作的脚本调用，用于创建一个合并提交说明</td>
+</tr>
+<tr>
+<td>git rerere</td>
+<td>重用所记录的冲突解决方案</td>
+</tr>
+</tbody></table>
+<h4 id="10、-杂项"><a href="#10、-杂项" class="headerlink" title="10、 杂项"></a>10、 杂项</h4><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简要说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git bisect–helper</td>
+<td>由 git bisect 命令调用，确认二分查找进度</td>
+</tr>
+<tr>
+<td>git check-attr</td>
+<td>显示某个文件是否设置了某个属性</td>
+</tr>
+<tr>
+<td>git checkout-index</td>
+<td>从暂存区拷贝文件至工作区</td>
+</tr>
+<tr>
+<td>git cherry</td>
+<td>查找没有合并到上游的提交</td>
+</tr>
+<tr>
+<td>git diff-files</td>
+<td>比较暂存区和工作区，相当于 git diff –raw</td>
+</tr>
+<tr>
+<td>git diff-index</td>
+<td>比较暂存区和版本库，相当于 git diff –cached –raw</td>
+</tr>
+<tr>
+<td>git diff-tree</td>
+<td>比较两个树对象，相当于 git diff –raw A B</td>
+</tr>
+<tr>
+<td>git difftool–helper</td>
+<td>由 git difftool 命令调用，默认要使用的差异比较工具</td>
+</tr>
+<tr>
+<td>git get-tar-commit-id</td>
+<td>从 git archive 创建的 tar 包中提取提交ID</td>
+</tr>
+<tr>
+<td>git gui–askpass</td>
+<td>命令 git gui 的获取用户口令输入界面</td>
+</tr>
+<tr>
+<td>git notes</td>
+<td>提交评论管理</td>
+</tr>
+<tr>
+<td>git patch-id</td>
+<td>补丁过滤行号和空白字符后生成补丁唯一ID</td>
+</tr>
+<tr>
+<td>git quiltimport</td>
+<td>将Quilt补丁列表应用到当前分支</td>
+</tr>
+<tr>
+<td>git replace</td>
+<td>提交替换</td>
+</tr>
+<tr>
+<td>git shortlog</td>
+<td>对 git log 的汇总输出，适合于产品发布说明</td>
+</tr>
+<tr>
+<td>git stripspace</td>
+<td>删除空行，供其他脚本调用</td>
+</tr>
+<tr>
+<td>git submodule</td>
+<td>子模组管理</td>
+</tr>
+<tr>
+<td>git tar-tree</td>
+<td>过时命令，请使用 git archive</td>
+</tr>
+<tr>
+<td>git var</td>
+<td>显示 Git 环境变量</td>
+</tr>
+<tr>
+<td>git web–browse</td>
+<td>启动浏览器以查看目录或文件</td>
+</tr>
+<tr>
+<td>git whatchanged</td>
+<td>显示提交历史及每次提交的改动</td>
+</tr>
+<tr>
+<td>git-mergetool–lib</td>
+<td>包含于其他脚本中，提供合并/差异比较工具的选择和执行</td>
+</tr>
+<tr>
+<td>git-parse-remote</td>
+<td>包含于其他脚本中，提供操作远程版本库的函数</td>
+</tr>
+<tr>
+<td>git-sh-setup</td>
+<td>包含于其他脚本中，提供 shell 编程的函数库</td>
+</tr>
+</tbody></table>
+<h3 id="设置代理访问git"><a href="#设置代理访问git" class="headerlink" title="设置代理访问git"></a>设置代理访问git</h3><p>Git允许使用三种协议来连接远程仓库：ssh、http、git。所以，如果你要设置代理，必须首先明确本地git使用何种协议连接远程仓库，然后根据不同协议设置代理。<br><strong>前提</strong>：socks5代理服务器，默认端口1080</p>
+<h4 id="设置SSH协议的代理"><a href="#设置SSH协议的代理" class="headerlink" title="设置SSH协议的代理"></a>设置SSH协议的代理</h4><p>如果远程仓库拥有如下的格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git@github.com:guobq/guobq.github.io.git</span><br><span class="line">ssh://git@github.com:guobq/guobq.github.io.git</span><br></pre></td></tr></table></figure>
+<p>说明是使用SSH协议连接的远程仓库。git依赖ssh去连接，需要配置ssh的socks5代理实现git的代理。在ssh的配置文件~/.ssh/config（没有则新建）使用ProxyCommand配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">Linux</span></span><br><span class="line">Host bitbucket.org</span><br><span class="line">  User git</span><br><span class="line">  Port 22</span><br><span class="line">  Hostname bitbucket.org</span><br><span class="line">  ProxyCommand nc -x 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">windows</span></span><br><span class="line">Host bitbucket.org</span><br><span class="line">  User git</span><br><span class="line">  Port 22</span><br><span class="line">  Hostname bitbucket.org</span><br><span class="line">  ProxyCommand connect -S 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
+<p>如果使用github，只需要把bitbucket.org换成github.com。<br>具体配置的含义请参考:<a target="_blank" rel="noopener" href="http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/ssh_config.5?query=ssh_config&amp;sec=5&amp;arch=amd64%E3%80%82">http://www.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man5/ssh_config.5?query=ssh_config&amp;sec=5&amp;arch=amd64。</a></p>
+<h4 id="设置http-https协议代理"><a href="#设置http-https协议代理" class="headerlink" title="设置http/https协议代理"></a>设置http/https协议代理</h4><p>如果远程仓库链接拥有如下格式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://github.com/guobq/guobq.github.io.git</span><br><span class="line">https://github.com/guobq/guobq.github.io.git</span><br></pre></td></tr></table></figure>
+<p>说明使用的是http/https协议，可以使用git配套的CMSSW支持的代理协议：SOCKS4、SOCKS5和HTTPS/HTTPS。可通过配置http.proxy实现：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">全局设置</span></span><br><span class="line">git config --global http.proxy socks5://localhost:1080</span><br><span class="line"><span class="meta">#</span><span class="bash">本次设置</span></span><br><span class="line">git clone https://github.com/guobq/guobq.github.io.git --config &quot;http.proxy=127.0.0.1:1080&quot;</span><br></pre></td></tr></table></figure>
+<p>这里演示的是socks5的配置，需要其他配置的可参考git-config配置中的http.proxy。</p>
+<h4 id="设置Git协议的代理"><a href="#设置Git协议的代理" class="headerlink" title="设置Git协议的代理"></a>设置Git协议的代理</h4><p>Git协议是Git提供的一个守护进程，它监听专门的端口（9418），然后提供类似于ssh协议一样的服务，只是它不需要验证。所以，然后用户通过网络都可以使用git协议连接提供git连接的仓库。<br>如果远程仓库的链接是如下形式：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git://github.com/archerie/learngit.git</span><br></pre></td></tr></table></figure>
+<p>该仓库使用git协议连接。需要使用CMSSW提供的简单脚本去通过socks5代理访问：git-proxy。配置如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.gitproxy &quot;git-proxy&quot;</span><br><span class="line">git config --global socks.proxy &quot;localhost:1080&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="questions"><a href="#questions" class="headerlink" title="questions"></a>questions</h3><p>Git Pull Failed:You have not concluded your merge.Exiting because of unfinished merge</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">在拉取远程代码时，出现这样的情况，Git Pull Failed:You have not concluded your merge.Exiting because of unfinished merge。出现这种情况的原因如系统提示，可能在pull代码之前merge合并失败。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">在解决这个问题之前，先看看需要了解的知识。</span></span><br><span class="line">git fetch</span><br><span class="line"><span class="meta">#</span><span class="bash">用于从另一个存储库下载对象和引用。远程跟踪已更新分支（git术语叫commit），需要将这些更新取回本地，这时就要用到git fetch命令。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">语法：git fetch &lt;远程主机名&gt;。例如：git fetch orgin master，表示取回origin主机的master分支。更新所有分支，命令可以简写为git fetch。</span></span><br><span class="line">git pull</span><br><span class="line"><span class="meta">#</span><span class="bash">用于取回远程主机某个分支的更新，再与本地的指定分支合并。这时你可能已经真正明白为什么会出现拉取失败的原因了，原因就在于拉取之后的代码合并失败造成的。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">语法：git pull &lt;远程主机名&gt;&lt;远程分支名&gt;:&lt;本地分支名&gt;。例如：git pull origin next:master，表示取回origin主机的next分支，与本地的master分支合并。如果远程分支（next）要与当前分支合并，则冒号后面的部分可以省略。</span></span><br><span class="line">git reset</span><br><span class="line"><span class="meta">#</span><span class="bash">语法：git reset [- -hard|soft|mixed|merge|keep][或HEAD]，将当前的分支重新设置到指定的commit id或者HEAD，其中HEAD是默认路径。其中hard、soft、mixed、merge、keep是设置的模式。通常使用- -hard，表示自commit id以来，工作目录中的任何改变都被丢弃，并把HEAD指向commit id。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">解决方法</span></span><br><span class="line"><span class="meta">#</span><span class="bash">方法一：舍弃本地代码，远程版本覆盖本地版本</span></span><br><span class="line"><span class="meta">#</span><span class="bash">使用这种方法之前，可以先将本地修改的代码备份一下，避免重敲代码。具体命令如下：</span></span><br><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">方法二：保留本地代码，中止合并–&gt;重新合并–&gt;重新拉取</span></span><br><span class="line">git merge --abort</span><br><span class="line">git reset --merge</span><br><span class="line">git pull</span><br><span class="line"><span class="meta">#</span><span class="bash">这种做法需要处理代码冲突，因此以上两种做法，根据你的需要，选择合适的解决办法。</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+</div></div><a class="button-hover more" href="/bq/ab9e1965.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/5a003532.html">需求管理成熟度</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/">过程质量</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/%E9%9C%80%E6%B1%82%E7%AE%A1%E7%90%86/">需求管理</a></div></div><div class="post-content"><div class="main-content content"><h3 id="需求管理成熟度"><a href="#需求管理成熟度" class="headerlink" title="需求管理成熟度"></a>需求管理成熟度</h3><h5 id="级别一：被记录的需求（Written-Requirements）"><a href="#级别一：被记录的需求（Written-Requirements）" class="headerlink" title="级别一：被记录的需求（Written Requirements）"></a>级别一：被记录的需求（Written Requirements）</h5><p>简单的写出需求。好处：</p>
+<p>与客户有一个基本的约定。如果写的好，需求能够清晰地描述你对客户需要的理解，他们可以通过阅读需求来检查是否与他们想的一致</p>
+<p>开发团队的每个成员通过需求可以很好的支持他们的工作。架构师和设计师可以开始考虑如何架构系统来支持客户期望，也可以支持测试人员及早开始测试案例的编写，当然更能支持开发人员理解软件要求来编写代码</p>
+<p>需求可以让新来的成员更快速的了解系统是什么</p>
+<p>成本：</p>
+<p>需要有人花时间来写需求</p>
+<p>为了保证需求的及时性，需要不断地维护需求</p>
+<h5 id="级别二：被组织的需求（Organized）"><a href="#级别二：被组织的需求（Organized）" class="headerlink" title="级别二：被组织的需求（Organized）"></a>级别二：被组织的需求（Organized）</h5><p>需求的目的是为了清晰地与用户、客户和其他涉众（例如开发团队）等人就问题的解决方案进行沟通。级别二关注需求质量、格式化、安全和存储，以及版本管理。</p>
+<p>质量：好的需求容易让大家明白，架构师、开发人员和测试人员也都能很好的使用它，不好的需求会导致大家比较模糊、认识存在差异等问题。</p>
+<p>格式化：需求必须以统一的方式来描述，例如序号、标题、字体、表格等，可以使得文档更容易阅读、理解和使用，文档模板可以帮助我们以统一格式来编制</p>
+<p>访问性、安全性和版本管理：当存在很多需求时，我们会经常遇到不知道在哪里可以找到需要的需求，这时我们就需要有一个统一管理需求地方</p>
+<h5 id="级别三：结构化需求（Structured）"><a href="#级别三：结构化需求（Structured）" class="headerlink" title="级别三：结构化需求（Structured）"></a>级别三：结构化需求（Structured）</h5><p>对需求进行归类，它们是功能性需求还是非功能性需求？是业务需求还是系统需求？是特性还是软件需求？客户、市场和用户需求是什么？区分这些可以帮助我们更好的理解和管理需求。之前级别都是用一些文字类语言来描述，而级别三是一种结构化需求，例如给需求添加一些属性。</p>
+<h5 id="级别四：可跟踪性需求（Traced）"><a href="#级别四：可跟踪性需求（Traced）" class="headerlink" title="级别四：可跟踪性需求（Traced）"></a>级别四：可跟踪性需求（Traced）</h5><p>需求本身就是层级的，由业务需求到用户需求再到系统需求；而需求又与开发和测试有所关联，通过可跟踪性管理，我们可以知道在更改一个需求时，会影响到哪些子需求以及相关的同级需求，还能够分析出影响哪些开发和测试内容。</p>
+<h5 id="级别五：集成化需求（Integrated）"><a href="#级别五：集成化需求（Integrated）" class="headerlink" title="级别五：集成化需求（Integrated）"></a>级别五：集成化需求（Integrated）</h5><p>通常我们做了很多需求，但是并没有一种集成化的方法把需求直接引入开发中，可能导致实现出来的是另一回事。集成化需求管理流程可以直接由需求导入软件设计、变更管理、测试和项目管理。团队将需求作为主要输入，如果将需求模型化，我们则可以通过模型化需求来开发应用程序，目标就是要做成能够让业务工程师来开发应用程序。</p>
+</div></div><a class="button-hover more" href="/bq/5a003532.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/d22f4620.html">cmmi效能</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E6%95%88%E8%83%BD/">效能</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/cmmi/">cmmi</a></div></div><div class="post-content"><div class="main-content content"><h2 id="效能与质量"><a href="#效能与质量" class="headerlink" title="效能与质量"></a>效能与质量</h2><h3 id="研发阶段和效率价值金字塔"><a href="#研发阶段和效率价值金字塔" class="headerlink" title="研发阶段和效率价值金字塔"></a>研发阶段和效率价值金字塔</h3><blockquote>
+<p>需求调研和评审&gt;技术方案设计和评审&gt;研发&gt;测试</p>
+</blockquote>
+<h2 id="度量"><a href="#度量" class="headerlink" title="度量"></a>度量</h2><h4 id="CMMI级别中和BUG率相关的信息"><a href="#CMMI级别中和BUG率相关的信息" class="headerlink" title="CMMI级别中和BUG率相关的信息"></a>CMMI级别中和BUG率相关的信息</h4><table>
+<thead>
+<tr>
+<th>CMMI级别</th>
+<th>BUG率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CMM1级</td>
+<td>11.95‰</td>
+</tr>
+<tr>
+<td>CMM2级</td>
+<td>5.52‰</td>
+</tr>
+<tr>
+<td>CMM3级</td>
+<td>2.39‰</td>
+</tr>
+<tr>
+<td>CMM4级</td>
+<td>0.92‰</td>
+</tr>
+<tr>
+<td>CMM5级</td>
+<td>0.32‰</td>
+</tr>
+</tbody></table>
+<h4 id="考核千行代码Bug率的问题"><a href="#考核千行代码Bug率的问题" class="headerlink" title="考核千行代码Bug率的问题"></a>考核千行代码Bug率的问题</h4><blockquote>
+<p>代码行数&lt;&gt;价值</p>
+</blockquote>
+<p>考核标准：Bug率数值越小就说明越好-&gt;尽量增大代码行数</p>
+<p>考核阶段：Bug率的数据主要产出在研发阶段的后期，及提交测试后产出bug数-&gt;从项目的研发阶段和效率价值金字塔来看，其对项目的整体质量方面更多的聚焦在微观层面问题，整体的质量的影响范围会较小。</p>
+<h4 id="更合理的度量质量"><a href="#更合理的度量质量" class="headerlink" title="更合理的度量质量"></a>更合理的度量质量</h4><ol>
+<li><p>需求的评审</p>
+</li>
+<li><p>架构设计方案评审</p>
+</li>
+<li><p>代码模块设计，包的依赖的规划，接口的设计的review</p>
+</li>
+<li><p>代码的review的机制</p>
+</li>
+<li><p>测试用例评审</p>
+</li>
+<li><p>使用代码检测工具，自动发现问题</p>
+</li>
+</ol>
+<blockquote>
+<p>过程评审是最有效也是成本最低的质量和效率保证和提升的手段。另外，过程评审还是迅速提高新人能力及其成果物的规范性的一个有效手段。</p>
+</blockquote>
+<h5 id="系统质量是要靠上游工程做出来的"><a href="#系统质量是要靠上游工程做出来的" class="headerlink" title="系统质量是要靠上游工程做出来的"></a>系统质量是要靠上游工程做出来的</h5><p>上游的工作质量会更为重要，上游的问题的影响范围将更广，对效率和价值的影响更大，应该是我们重点关注的地方。仅仅依赖下游工程(种种测试)来把质量关，是十分低效，而且代价是非常昂贵的。</p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><h3 id="需求管理"><a href="#需求管理" class="headerlink" title="需求管理"></a>需求管理</h3><blockquote>
+<p>1.需求要被管理，被管理的意思又有两层：一是需求要被确认，二是要控制需求变更</p>
+<p>2.需求要用来指导下游的工作产品，如：计划、设计、测试等</p>
+</blockquote>
+<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><blockquote>
+<p>1.因为项目进度赶等原因，在很多需求还没有明确情况下，便开始开发的工作。<br>2.开始客户只能提出模糊的需求，客户喜欢先让你做个东西给他看，然后他才可能逐渐提出真正的需求，而需求调研人员，对此没有什么好的处理办法。<br>3.客户以种种原因不签需求，项目组在不签需求的情况下，便开始开发工作。<br>4.客户不承认之前提出来的需求，项目组又不能得失客户，项目成员苦不堪言。<br>5.需求经常变化，无法控制。<br>6.设计、代码与需求不对应，特别是需求变更时，不知道应该修改哪部分，也不知道会有哪些影响</p>
+</blockquote>
+<h4 id="优秀的需求管理要素："><a href="#优秀的需求管理要素：" class="headerlink" title="优秀的需求管理要素："></a>优秀的需求管理要素：</h4><blockquote>
+<p>开发者应该理解需求</p>
+<p>通过客户确认（记录）</p>
+<p>需求变更管理（记录确认，影响清单确认）</p>
+<p>需求双向跟踪维护（纵向：上下游工作产品之间的跟踪关系。横向：需求与需求之间的关系、设计与设计之前的关系、代码与代码之间的关系等）</p>
+<p>需求与下游工作产品差异识别（需求变更时：双向跟踪表影响内容同步修改；编写写或者修改计划、设计、代码、测试计划、测试用例等需求下游工作产品时：要与需求保持一致）</p>
+</blockquote>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p><strong>工具赋能：</strong>需求管理平台&lt;-&gt;aido</p>
+<h3 id="需求开发"><a href="#需求开发" class="headerlink" title="需求开发"></a>需求开发</h3><blockquote>
+<p>用系统的方法获取真正的全面的能实现的需求</p>
+</blockquote>
+<h4 id="常见问题-1"><a href="#常见问题-1" class="headerlink" title="常见问题"></a>常见问题</h4><blockquote>
+<p>没有把握好客户需求，直接进入软件的细节，去讨论要做什么功能，界面要怎样设计去了，而忘记了软件的根本目的是为了解决什么问题。</p>
+</blockquote>
+<p>明确客户需求后，就应该把客户需求转变成产品需求和产品组件需求，客户需求一般都是比较高层次的，而且描述也会比较简单，不能作为日后验收的标准，我们需要对软件的规格进行说明。一般来说，我们写的软件规格说明书都会包含产品需求和产品组件需求的。我们导出产品需求和产品组件需求的时候，要注意产品需求和产品组件需求，必须和客户需求对应起来，通常是多对多的关系。为什么要对应起来？我们要保证，软件的每一个界面，每一个功能都是有用的，都是“源自”客户需求的，这样才能保证我们做的事情都是正确的事情，防止被不相干的事情干扰。</p>
+<p>客户需求</p>
+<blockquote>
+<p>可以理解成客户为什么要做本系统，要解决什么问题，客户对系统有怎样的期望，希望能具备一些怎样的特点，简单的说，就是客户的需要是什么。</p>
+</blockquote>
+<p>产品需求</p>
+<blockquote>
+<p>是能满足客户需求，并对软件产品规格进行了详细描述的需求，软件设计师可以根据产品需求进行设计、编码等工作。</p>
+</blockquote>
+<p>产品组件需求</p>
+<blockquote>
+<p>是对产品需求的进一步细化，产品可能会分割成几个子系统、几个部分，每个子系统每部分要具备怎样的功能、要具备怎样的性能、接口要求等，这些可以认为是产品组件需求。</p>
+</blockquote>
+<p>另外一个角度，需求可以分为功能性需求和非功能性需求两类，功能性需求就是系统具备怎样的功能，能做什么事情，而非功能性需求就是指系统要具备怎样的性能、安全级别等方面的要求。客户需求、产品需求和产品组件需求，都会包含功能需求和非功能需求。</p>
+<h4 id="优秀的需求开发要素："><a href="#优秀的需求开发要素：" class="headerlink" title="优秀的需求开发要素："></a>优秀的需求开发要素：</h4><p>干系人的需要、期望、约束和接口要求被收集并转化为客户需求</p>
+<blockquote>
+<p>让客户能完整无遗漏准确地表达出他的想法：（原型、图示、类比、问卷）系统的目标、范围、解决什么问题、希望系统具备怎样的一些特性，满足一些什么接口要求和约束条件等</p>
+<p>把客户原始的需求信息整理成正式的客户需求：通常会包括对系统目标、范围、解决问题、软件特性、接口要求等有详细的描述。</p>
+</blockquote>
+<p>客户需求是精确和详细的，以用来开发产品需求和产品组件需求</p>
+<blockquote>
+<p>产品和产品组件需求：对软件规格的描述，详细描述软件与用户是怎样交互的，用户需要输入什么，系统输出等都会比较详细描述出来。可做验收标准<br>分配需求给每一个产品组件：所有的需求应该与设计的产品组件对应，保证需求驱动后续的设计工作，同时也保证设计都是为需求服务</p>
+<p>定义接口需求：包括系统与第三方的系统的接口要求，也包括系统本身各组件、各子系统、各部分之间的接口要求</p>
+</blockquote>
+<p>需求被分析和确认，并定义出具体的功能性需求</p>
+<blockquote>
+<p>操作场景与功能定义：描述出具体需求的操作场景、上下文，具体的操作步骤，对功能的详细描述等。通常我们可以通过序列图等来表达这些内容</p>
+<p>分析需求：准确性、全面性、可实现性，平衡约束条件，确保需求符合最终的使用场景要求。通常是通过需求评审</p>
+</blockquote>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><h3 id="技术方案"><a href="#技术方案" class="headerlink" title="技术方案"></a>技术方案</h3><h4 id="常见问题-2"><a href="#常见问题-2" class="headerlink" title="常见问题"></a>常见问题</h4><blockquote>
+<p>1)无设计文档<br>2)有设计文档，但形同虚设<br>3)设计时没有考虑可以重用以前项目或者第三方的代码或组件<br>4)没有用需求来驱动设计<br>5)设计没有考虑多过一个的方案<br>6)没有考虑清楚设计的原则和标准<br>7)设计的弹性不够、架构落后？<br>8)代码与设计脱节？<br>9)到处都是面条式代码</p>
+</blockquote>
+<h4 id="优秀的技术方案要素："><a href="#优秀的技术方案要素：" class="headerlink" title="优秀的技术方案要素："></a>优秀的技术方案要素：</h4><p>从候选方案中选择产品或者产品组件的解决方案</p>
+<blockquote>
+<p>先考虑好我们设计方案的选择标准，并找出可能的候选方案</p>
+<p>对产品的规格进行详细的表述，操作概念、场景、环境、操作模式和操作状态等</p>
+<p>根据选择标准选出最佳方案</p>
+</blockquote>
+<p>开发产品或者产品组件设计</p>
+<blockquote>
+<p>概要设计：建立产品功能和框架，包含产品组成区块、产品组件界定、系统状态与模式、主要的内外部接口和界面设计（功能模块设计、数据库设计包括逻辑设计和物理设计及安全性能设计、模块接口和界面设计）</p>
+<p>详细设计：完整定义产品组件的结构和功能，详细描述实现方法、算法</p>
+<p>建立和维护技术数据包：（需求、设计资料等）为开发者提供开发产品或组件的综合性描述，以及产品架构描述、分配需求、产品组件的描述、产品相关生命周期过程描述、关键产品特性、必需的物理特征和约束、接口需求、用于确保实现需求的验证准则等。</p>
+<p>设计合适的产品组件接口：考虑外部接口和内部接口；与原来系统的关系；</p>
+<p>产品组件开发、购买或者重用评估：技术状况</p>
+</blockquote>
+<p>实施产品组件的设计</p>
+<blockquote>
+<p>编码：适当的标准与准则，走查，单元测试</p>
+<p>用户文档：用户手册、安装手册、管理员手册、在线帮助等</p>
+</blockquote>
+<h3 id="产品集成"><a href="#产品集成" class="headerlink" title="产品集成"></a>产品集成</h3><h4 id="常见问题-3"><a href="#常见问题-3" class="headerlink" title="常见问题"></a>常见问题</h4><blockquote>
+<p>时序</p>
+</blockquote>
+<h4 id="优秀的产品集成要素："><a href="#优秀的产品集成要素：" class="headerlink" title="优秀的产品集成要素："></a>优秀的产品集成要素：</h4><p>完成产品集成的准备工作</p>
+<blockquote>
+<p>建立并维护产品组件的产品集成流程<br>建立并维护产品组件集成与评估标准<br>建立并维护产品组件的确认与交付标准</p>
+</blockquote>
+<p>确保产品内部与外部的接口是兼容的</p>
+<blockquote>
+<p>检查接口描述，保证覆盖性和完整性：通常通过评审接口说明。包括产品组件接口，产品集成所有环境的接口（定期）</p>
+<p>管理产品和产品组件的内部和外部接口的定义、设计及变更：管理各组件之间的关系，保证组件间保持一致（配置库）</p>
+</blockquote>
+<p>组合已集成的产品组件，并交付已集成、已验证、已确认的产品</p>
+<blockquote>
+<p>在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明</p>
+<p>根据产品集成顺序和相关过程集成产品组件</p>
+<p>评估产品组件的接口兼容性</p>
+<p>打包组装已集成的产品或组件，并交付给适当的客户</p>
+</blockquote>
+<h4 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h4><p><strong>工具赋能</strong>：统一环境管理，持续集成，持续交付</p>
+</div></div><a class="button-hover more" href="/bq/d22f4620.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/ee0012d1.html">cmmi开发相关</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/">过程质量</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/cmmi/">cmmi</a></div></div><div class="post-content"><div class="main-content content"><h3 id="开发阶段"><a href="#开发阶段" class="headerlink" title="开发阶段"></a>开发阶段</h3><h3 id="技术方案（-Technical-Solution-）"><a href="#技术方案（-Technical-Solution-）" class="headerlink" title="技术方案（ Technical Solution ）"></a>技术方案（ Technical Solution ）</h3><p>​      SG1 选择产品构建解决方案</p>
+<p>​        SP1.1 开发详细候选解决方案和选择准则  SP1.2 开发操作概念和场景  SP1.3 选择产品构件解决方案</p>
+<p>​      SG2 设计</p>
+<p>​        SP2.1 运用有效的设计方法  SP2.2 建立完备的技术数据包  SP2.3 设计综合性接口  SP2.4 进行制作、购买或复用分析</p>
+<p>​      SG3 实现产品设计</p>
+<p>​        SP3.1 实现设计  SP3.2 编制产品支持文档</p>
+<p>为设计、开发及实现需求的解决方案。解决方案、设计结果及实现成品包括产品、产品组件，以及与产品相关生命周期的单一过程或适当组合的过程。</p>
+<p>提示：产品架构、系统、子系统、性能、组件的解决方案，容易出现没有记录和文档问题；</p>
+<p>对于瀑布模型开发来说，系统或产品分解后，架构不能经常变；对于迭代模型开发来说，前一两个迭代，系统或产品的架构要确定；至于设计，对新的产品或系统，考虑如何设计，对于旧的产品，考虑如何优化设计；</p>
+<p>概要设计和详细设计的设计准则和标准要描述和规范（基于提高复用性，可扩展性；提高效率，质量，考虑复用提高生产率。）设计准则和标准选择理由加以记录；选择的评估会议可以是非正式如周例会；</p>
+<p>设计过程：分解到组件后，是自己做还是采购，考虑增加复用和可扩展性；提高效率和质量，考虑复用提高生产率。</p>
+<p>项目工期紧，常常成为很多事情的理由。因为赶时间，拿到需求后，不考虑哪种设计方案更合适，想到什么办法就用什么办法来做，甚至是没有设计可言，直接编码，写设计文档变成了浪费时间的一个事情。不少人进行设计的时候，眼光都放得不够开，不知道可以从很多途径找到可重用的代码，直接自己编码实现数据操作、日志处理、权限认证等事情，结果浪费了时间，而且还不能保证自己的代码是没有问题的。不少可重用的代码都是经过严格测试的，设计架构良好的，可直接使用或者稍加修改则可以为自己所用。</p>
+<p>设计方面常见问题：<br>1)无设计文档<br>2)有设计文档，但形同虚设<br>3)设计时没有考虑可以重用以前项目或者第三方的代码或组件<br>4)没有用需求来驱动设计<br>5)设计没有考虑多过一个的方案<br>6)没有考虑清楚设计的原则和标准<br>7)设计的弹性不够、架构落后？<br>8)代码与设计脱节？<br>9)到处都是面条式代码</p>
+<p>技术解决方案主要讲述的是设计、开发、实施方面的问题。</p>
+<h4 id="SG1-从候选方案中选择产品或者产品组件的解决方案"><a href="#SG1-从候选方案中选择产品或者产品组件的解决方案" class="headerlink" title="SG1: 从候选方案中选择产品或者产品组件的解决方案"></a>SG1: 从候选方案中选择产品或者产品组件的解决方案</h4><p>Product or product-component solutions are selected from alternative solutions.<br>制定选择的标准，设计候选方案，针对产规格依据选择标准，从候选方案中选出合适的方案。</p>
+<p>这个目标的主要内容就是制定选择的标准（一般涉及成本、进度、效益、风险、技术性能等），设计候选方案，针对产品规格，依据选择标准从候选方案中选出合适的产品或产品组件解决方案。解决方案(有时称为“设计方案”、“设计概念”或“初步设计”)；初步设计或设计方案可能与产品需求和产品组件需求开发同步进行并互动（在开发或获取客户需求之后）。</p>
+<p>很多开发人员，做编码之前都不太喜欢认真思考设计方案，迫于时间压力，不仔细考虑设计方案是否合适，就直接开展工作，这样做的风险是非常大的。</p>
+<p>提示：产品架构、系统、子系统、性能、组件的解决方案，容易出现没有记录和文档问题；</p>
+<h4 id="SP1-1-开发详细的候选方案及选择的标准"><a href="#SP1-1-开发详细的候选方案及选择的标准" class="headerlink" title="SP1.1 开发详细的候选方案及选择的标准"></a>SP1.1 开发详细的候选方案及选择的标准</h4><p>Develop detailed alternative solutions and selection criteria.</p>
+<p>先考虑好我们设计方案的选择标准，并找出可能的候选方案</p>
+<p>典型的工作产品</p>
+<p>   1.备选解决方案筛选准则</p>
+<ol start="2">
+<li><p>新技术的评估报告</p>
+</li>
+<li><p>备选解决方案</p>
+</li>
+<li><p>最终选择的评选准则</p>
+</li>
+<li><p>对市场现有成品的评估报告</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li>界定筛选准则，以作为选择备选解决方案的考虑因素</li>
+</ol>
+<p>​    2.界定现有技术与具竞争优势的新产品技术</p>
+<p>​    3.界定能满足需求的备选现成品:供方</p>
+<ol start="4">
+<li><p>产生备选方案</p>
+</li>
+<li><p>取得每一备选解决方案的完整需求配置。</p>
+</li>
+<li><p>开发选择最佳备选解决方案的准则</p>
+</li>
+</ol>
+<h4 id="SP1-2-针对每个产品组件描述操作概念、场景、环境、操作模式和操作状态等"><a href="#SP1-2-针对每个产品组件描述操作概念、场景、环境、操作模式和操作状态等" class="headerlink" title="SP1.2 针对每个产品组件描述操作概念、场景、环境、操作模式和操作状态等"></a>SP1.2 针对每个产品组件描述操作概念、场景、环境、操作模式和操作状态等</h4><p>Evolve the operational concept,scenarios,and environments to describe the conditions,operating modes,and operating states specific to each product component.</p>
+<p>要求对产品的规格进行详细的表述，因为我们的方案是要满足这些规格的，也只有这样，我们才能更好地找出合适的解决方案</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>产品组件选择决策及理由</p>
+</li>
+<li><p>需求及产品组件间相关性的记录</p>
+</li>
+<li><p>解决方案、评估及选择理由的记录</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>依据操作概念、操作方式及操作状态所建立的评选准则，评估各备选解决方案/解决方案组。针对每一个备选解决方案，开发产品操作及使用者互动的时序场景。</p>
+</li>
+<li><p>依据备选解决方案的评估，评?评选准则之适用性，必要时，更新准则。</p>
+</li>
+<li><p>界定并解决与备选技术方案及需求有关的问题。</p>
+</li>
+<li><p>选择能满足已建立之评选准则的最佳解决方案。</p>
+</li>
+<li><p>建立与所选择之备选方案关联的需求，此即为该产品组件的配置需求。</p>
+</li>
+<li><p>界定将再用（重用）或取得的产品组件解决方案。</p>
+</li>
+<li><p>建立并维护解决方案、评估及选择理由的文件。维护选择理由对后续决策十分重要，可以使后续干系人免于返工，也可在某些适用的应用环境下，提供对技术应用的深入见解。</p>
+</li>
+</ol>
+<h4 id="SP-1-3-选择最符合要求的产品组件设计方案"><a href="#SP-1-3-选择最符合要求的产品组件设计方案" class="headerlink" title="SP 1.3 选择最符合要求的产品组件设计方案"></a>SP 1.3 选择最符合要求的产品组件设计方案</h4><p>Select the product-component solutions that best satisfy the criteria established.</p>
+<p>根据选择标准选出最佳方案</p>
+<p>有人可能有这样的疑问，有些项目很简单，或者设计方案很明确，没有必要搞什么候选方案和选择标准，直接设计就可以了。设计方案除了针对整个项目的大的设计方案，还包括组成产品的各个组件的设计方案，绝大部分情况下，一个项目肯定会有部分地方技术不太明确需要仔细分析的。另外，不管怎样，都应该根据项目的实际情况，定出这个项目的设计标准，就算只有一个方案，也需要用该设计标准来检验该方案。大部分情况下，认为不需要考虑多个设计方案、不考虑设计标准，都是“懒惰”思想作怪，不做这样的考虑，项目的风险是比较大的。</p>
+<h4 id="SG2-开发产品或者产品组件设计"><a href="#SG2-开发产品或者产品组件设计" class="headerlink" title="SG2: 开发产品或者产品组件设计"></a>SG2: 开发产品或者产品组件设计</h4><p>Product or product-components designs are developed.</p>
+<p>最佳候选方案确定后，就可以开展具体的设计工作了。设计不仅是为了实现，也是为了产品生命周期阶段如修正、重新采购、维护、及安装等。设计文件提供给相关的干系人，以方便对设计的相互了解提供参考，并在产品的开发与后续的生命周期阶段设计上的改变。完整的设计描述，记录与技术数据包内。</p>
+<h4 id="SP2-1-开发产品或者产品组件的设计"><a href="#SP2-1-开发产品或者产品组件的设计" class="headerlink" title="SP2.1 开发产品或者产品组件的设计"></a>SP2.1 开发产品或者产品组件的设计</h4><p>Develop a design for the product or product components.</p>
+<p>产品设计一般包含两个阶段，在执行上可能相互重叠：概要设计与详细设计。</p>
+<p>概要设计建立产品功能和框架，包含产品组成区块、产品组件界定、系统状态与模式、主要的内外部接口和界面设计。常见的概要设计说明书问题有（功能模块设计、数据库设计包括逻辑设计和物理设计及安全性能设计、模块接口和界面设计）：软件性能描述不具体；性能的解决方案没有记录和文档；数据库设计包括逻辑设计和物理设计及安全性能设计不具体等；</p>
+<p>详细设计：完整定义产品组件的结构和功能。详细设计说明书是为编码人员所写，要详细描述实现方法、算法；如是面向结构或数据流方法，数据结构和处理流程（输入、转换、输出数据流）；如是面向对象方法，设计类的函数和成员变量，并明确对象之间的相互关系。常见问题是详细设计说明书过于简单，和概要设计一样，接口（内部和外部）设计不具体；</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>产品架构</p>
+</li>
+<li><p>产品组件设计</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>建立并维护准则，以评估设计。</p>
+</li>
+<li><p>界定、开发或取得适合于产品的设计方法。选择适合的方法并在一定的工具支持下对设计提供很大的帮助，一般常用的技术和方法：原型法、面向结构化设计方法、面向对象设计方法、E-R模型、设计复用、设计模式等；</p>
+</li>
+<li><p>确保设计遵循所应用的设计标准与准则。</p>
+</li>
+<li><p>确保设计遵循已配置的需求。</p>
+</li>
+<li><p>记录设计。</p>
+</li>
+</ol>
+<h4 id="SP2-2-建立和维护技术数据包"><a href="#SP2-2-建立和维护技术数据包" class="headerlink" title="SP2.2 建立和维护技术数据包"></a>SP2.2 建立和维护技术数据包</h4><p>Establish and maintain a technical data package.</p>
+<p>这个Practice的字面意思比较难理解，其实意思很简单，就是要建立和维护一套管理所有设计文档、数据的方法或者体制，对设计过程的数据、文档进行有效的管理。技术数据包是给开发人员的做的（主要是需求、设计资料等），设计人员不想做，开发人员非常需要。完备的技术数据包为开发者提供了开发产品或组件的综合性描述，还提供了有关产品类型的以下信息：产品架构描述、分配需求、产品组件的描述、产品相关生命周期过程描述、关键产品特性、必需的物理特征和约束、接口需求、用于确保实现需求的验证准则等。</p>
+<h4 id="SP2-3-根据所建立和维护的标准，设计合适的产品组件接口"><a href="#SP2-3-根据所建立和维护的标准，设计合适的产品组件接口" class="headerlink" title="SP2.3 根据所建立和维护的标准，设计合适的产品组件接口"></a>SP2.3 根据所建立和维护的标准，设计合适的产品组件接口</h4><p>Design comprehensive product-component interfaces in terms of established and maintained criteria.</p>
+<p>考虑外部接口和内部接口；与原来系统的关系；</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>接口设计规格说明</p>
+</li>
+<li><p>接口控制文件</p>
+</li>
+<li><p>接口规格准则</p>
+</li>
+<li><p>所选之接口设计的理由</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>定义接口准则。一般是组织过程资产的一部分</p>
+</li>
+<li><p>界定与其它产品组件相关的接口。</p>
+</li>
+<li><p>界定与外部相关的接口。</p>
+</li>
+<li><p>界定介于产品组件与产品相关生命周期过程的介面。</p>
+</li>
+<li><p>应用准则于接口设计的备选方案。</p>
+</li>
+<li><p>记录已选取的接口设计与理由。</p>
+</li>
+</ol>
+<h4 id="SP2-4-根据制定的标准评估哪些产品组件需要开发、购买或者重用"><a href="#SP2-4-根据制定的标准评估哪些产品组件需要开发、购买或者重用" class="headerlink" title="SP2.4 根据制定的标准评估哪些产品组件需要开发、购买或者重用"></a>SP2.4 根据制定的标准评估哪些产品组件需要开发、购买或者重用</h4><p>Evaluate whether the product components should be developed,purchased,or resued based on established criteria.</p>
+<p>技术状况是对开发或采购产品组件作出选择的重要理由；在开发工作很复杂时，可能以采购现有组件为佳，而拥有先进工具及充足人员情况下则支持自己开发。毕竟有时购买现有的组件，可能不够完备或不能完全满足系统的需要。一旦作出采购现有组件（或外包开发）的决定，就要在供应商协议中进行落实。</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>设计与产品组件再用的准则</p>
+</li>
+<li><p>自制或采购分析</p>
+</li>
+<li><p>选择现有成品组件的指引</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>开发产品组件设计再用的准则。</p>
+</li>
+<li><p>分析设计以决定产品组件要自行开发、再用或采购。</p>
+</li>
+<li><p>当采购或选择非开发的(现成品、政府的成品及再用)时，分析维护所隐藏的代价</p>
+</li>
+</ol>
+<h4 id="SG3-实施产品设计并开发相应的支持文档"><a href="#SG3-实施产品设计并开发相应的支持文档" class="headerlink" title="SG3: 实施产品设计并开发相应的支持文档"></a>SG3: 实施产品设计并开发相应的支持文档</h4><p>Product components,and associated support documentation,are implemented from their designs.</p>
+<h4 id="SP3-1-实施产品组件的设计"><a href="#SP3-1-实施产品组件的设计" class="headerlink" title="SP3.1 实施产品组件的设计"></a>SP3.1 实施产品组件的设计</h4><p>Implement the designs of the product components.</p>
+<p>简单地说就是依据设计进行编码活动了</p>
+<p>典型的工作产品</p>
+<ol>
+<li>已实现的设计</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>使用有效的方法实现产品组件。比如结构化编程、面向对象编程、自动代码生成、软件代码复用、应用合适的设计模式等。</p>
+</li>
+<li><p>遵循适当的标准与准则。比如编码规范、过程及质量标准、编码时遵循模块化、明确、简单、可靠、安全、可维护等准则；编码规范描述内容（如编码模块的复杂度和内聚性等）</p>
+</li>
+<li><p>对选定的产品组件，执行同行审查。可以通过代码走查、测试等多种方式来实现；单元测试是验证是否实现设计；单元测试要提到接口测试；</p>
+</li>
+<li><p>适当时对产品组件执行单元测试。 这里单元测试不局限于软件，涵盖个别硬件、软件单元或先前已整合的相关组合；</p>
+</li>
+<li><p>必要时修订产品组件。在实现阶段发生了未能与设计阶段预见的问题，就是修订产品组件时机的范例之一。</p>
+</li>
+</ol>
+<h4 id="SP3-2-开发和维护最终用户文档"><a href="#SP3-2-开发和维护最终用户文档" class="headerlink" title="SP3.2 开发和维护最终用户文档"></a>SP3.2 开发和维护最终用户文档</h4><p>Develop and maintain the end-use documentation.</p>
+<p>开发和维护用于产品安装、操作及维护的相关文档，如用户手册、安装手册、管理员手册、在线帮助等。</p>
+<p>典型的工作产品</p>
+<ol>
+<li><p>终端使用者培训教材</p>
+</li>
+<li><p>使用者手册</p>
+</li>
+<li><p>操作手册</p>
+</li>
+<li><p>维护手册</p>
+</li>
+<li><p>在线求助</p>
+</li>
+</ol>
+<p>子实践</p>
+<ol>
+<li><p>审查需求、设计、产品及测试结果，以确保影响安装、操作及维护等项文件的相关议题已被界定并解决。</p>
+</li>
+<li><p>使用有效的方法，制作安装、操作及维护的文件。</p>
+</li>
+<li><p>遵循适当的文件制作标准。如《技术文档编制规范》</p>
+</li>
+<li><p>在生命周期的初期阶段就制作安装、操作及维护等文件的初始版本，以供相关的干系人审查。</p>
+</li>
+<li><p>执行安装、操作及维护等文件的同行审查。</p>
+</li>
+<li><p>必要时修订安装、操作及维护文件。一般为需求、产品、设计、产品实现变更时 。</p>
+</li>
+</ol>
+<h3 id="产品集成（-PI-）"><a href="#产品集成（-PI-）" class="headerlink" title="产品集成（ PI ）"></a>产品集成（ PI ）</h3><p>​      SG1 准备产品集成</p>
+<p>​        SP1.1 建立产品集成战略  SP1.2 建立产品集成环境  SP1.3 规定详细的产品集成规程</p>
+<p>​      SG2 确保接口兼容性</p>
+<p>​        SP2.1 审查接口描述的完备性  SP2.2 管理接口</p>
+<p>​      SG3 组装产品构件和交付产品</p>
+<p>​        SP3.1 确认集成用的产品构件已经准备就绪  SP3.2 组装产品构件  SP3.3 核查组装的产品构件  SP3.4 打包和交付产品或产品构件</p>
+<p>把组成产品的所有软件组件组装起来，使之运行在目标环境上，产品集成包括软件组件之间的集成、软件与硬件的集成、软件基础数据的录入、调试等。系统越复杂，集成就显得越发重要。</p>
+<p>基本道理就是随时保证组成最终产品接口一致，能顺畅运行，能随时拿得出可运行的版本。(持续集成)</p>
+<h4 id="SG1-完成产品集成的准备工作"><a href="#SG1-完成产品集成的准备工作" class="headerlink" title="SG1 完成产品集成的准备工作"></a>SG1 完成产品集成的准备工作</h4><p>Preparation for product integration is conducted.</p>
+<p>准备产品、组件集成，包含建立并维护集成的活动和活动顺序、搭建集成环境、执行集成程序。</p>
+<h4 id="SP1-1-确定产品组件的集成顺序"><a href="#SP1-1-确定产品组件的集成顺序" class="headerlink" title="SP1.1 确定产品组件的集成顺序"></a>SP1.1 确定产品组件的集成顺序</h4><p>Determine the product-component integration sequence.</p>
+<p>需要集成的产品组件包括：交付产品的一部分、测试设备、测试程序、以及其他配件等的一个综合体。</p>
+<p>产品的集成顺序与确定技术解决方案是一致的，对于复杂的产品而言，集成应该是渐进式的，并且运用“集成-一评价-一集成”的迭代过程。集成支持产品组件渐进式组装和评价，为进一步纳入其他可用产品组件奠定良好的基础，或者是为高风险产品组件的原型设计奠定良好的基础。</p>
+<p>具体步骤：</p>
+<p>1、确定待集成产品组件。<br>这个需要注意的是，产品组件还要考虑数据库部分的集成。由于数据库设计与其他功能组件的设计不同，所以往往有专门的数据库人员来设计和维护，所以在产品集成时数据库的集成多数将成为忽略点或是难点。数据库的构架建设最好能自动化执行，因为有时数据库持续集成时可能删除原来数据库，重新自动创建数据库也许是最快捷的方法。<br>2、利用产品组件接口间的定义，对待集成组件进行验证和确定。<br>3、确定组件集成的顺序(可以为多种集成顺序方案)。还应包含明确在这些集成的顺序中的一些测试设备、测试软件、支撑产品等<br>4、确定最佳集成顺序。<br>5、定期检查集成顺序，必要时进行修改。因为在随着变更，集成顺序也会变更。另外，在集成时还要评估集成、测试环境和实际运行环境的差距，不断调整集成环境，有时集成顺序会变更。<br>6、记录制订产品集成方案(包括一些被否决的原因)<br>产品集成方案可以包含的(但不局限)内容有：<br>*待集成的组件<br>*产品集成顺序<br>*要做的活动<br>*每项活动的责任和所要求的资源<br>*应予满足的进度<br>*应予遵循的规程<br>*所需要的工具<br>等<br>注：这里所说的待集成的组件可能还包括数据库，数据库集成有时也是产品集成的一部分重要内容。</p>
+<h4 id="SP-1-2-建立和维护用于支持产品组件集成的环境"><a href="#SP-1-2-建立和维护用于支持产品组件集成的环境" class="headerlink" title="SP 1.2 建立和维护用于支持产品组件集成的环境"></a>SP 1.2 建立和维护用于支持产品组件集成的环境</h4><p>Establish and maintain the environment needed to support the integration of the product components.。</p>
+<p>这些环境包括硬件环境、网络环境、数据环境等。</p>
+<p>产品集成环境可以采用外部采购、复用或是自行开发。为了建立集成环境必需开发设备、软件以及其他资源的自主开发或是采购的需求。这些需求应该在前期需求开发阶段就要进行开发。是外购还是自研、重用是在制定技术解决方案阶段就应该确定的。</p>
+<p>产品集成环境可包括：集成设备/程序、测试设备/程序、模拟器(比如一些桩程序)、记录工具等。<br>具体步骤：<br>1、确定产品集成的需求。也包括产品集成都需要什么内容?<br>2、确定产品整合环境的验证标准和程序。这个验证程序可以是自动化的软件程序，也可以是手工的测试流程和用例。<br>3、确定产品集成自研或是采购所需的产品集成环境。<br>4、如果无法采购所需集成环境，则进行集成环境的自研工作。<br>对于无前例、复杂的项目而言，产品集成环境的自研工作将是一项重要的开发工作。它本身就像一个小的项目，也应该包括项目计划、需求开发、技术解决方案、验证、确认以及风险管理等环节。<br>5、在整个项目执行过程中，进行维护产品集成环境。<br>如果产品整合环境不再使用时，应进行处理。比如：根据情况分析是否可以复用，如不可再次复用就要进行资源的释放。</p>
+<h4 id="SP-1-3-建立和维护产品组件集成的过程及标准"><a href="#SP-1-3-建立和维护产品组件集成的过程及标准" class="headerlink" title="SP 1.3 建立和维护产品组件集成的过程及标准"></a>SP 1.3 建立和维护产品组件集成的过程及标准</h4><p>Establish and maintain procedures and criteria for integration of the product components.<br>这里提到了过程，与SP1.1似乎有点重复，SP1.1只强调考虑集成的现有顺序，而SP1.3要需要考虑具体的集成过程，除了集成顺序，还需要考虑每一步的验证办法、成功标准等。</p>
+<p>　　产品集成流程可包括：每次增量迭代进行集成的组件和集成编号、每个集成迭代进行测试和评价的内容和验证标准等。<br>　　产品集成标准：实际上是产品集成阶段的准入、准出的标准。它可以定义如何验证产品组件期望值的功能，并定义如何验证交付最终已集成的产品。<br>　　<strong>产品集成流程和标准的内容，可以有如下内容：</strong><br>　　*已建立组件的测试内容<br>　　<em>接口的验证<br>　　*性能偏差的可接受程度<br>　　*产品组合与外部接口的衍生需求<br>　　*经验证的可替代元件<br>　　*测试环境的参数<br>　　*测试成本的限制问题和风险<br>　　*产品集成时，质量与成本的平衡点<br>　　*正常执行的可接受几率<br>　　*需求交付率的可接受程度<br>　　*订货到交货的时间及供货周期(需重复提供时需要)<br>　　*人员的可用性<br>　　*集成设备、生产线和环境的可用性<br>　　*</em>具体步骤：**<br>　　1、建立并维护产品组件的产品集成流程<br>　　2、建立并维护产品组件集成与评估标准<br>　　3、建立并维护产品组件的确认与交付标准</p>
+<h4 id="SG2-确保产品内部与外部的接口是兼容的"><a href="#SG2-确保产品内部与外部的接口是兼容的" class="headerlink" title="SG2 确保产品内部与外部的接口是兼容的"></a>SG2 确保产品内部与外部的接口是兼容的</h4><p>The product-component interfaces,both internal and external,are compatible.</p>
+<p>SG1的SP的工作产品一般会是集成计划、接口说明、集成标准等文档，SG1的主要任务是完成这些文档，而SG2的主要任务就是检查接口是否一致，并在发生接口变化的时候，管理接口的变化，使之保持一致。</p>
+<p>许多产品集成的问题往往是由于产品内部接口之间或是与其相连接的外部系统的接口不兼容导致的。所以有效管理产品组件内、外部接口的需求、规格设计，可以确保接口的完整性与兼容性。</p>
+<h4 id="SP2-1-检查接口描述，保证覆盖性和完整性"><a href="#SP2-1-检查接口描述，保证覆盖性和完整性" class="headerlink" title="SP2.1 检查接口描述，保证覆盖性和完整性"></a>SP2.1 检查接口描述，保证覆盖性和完整性</h4><p>Review interface description for coverage and completeness.<br>通常我们通过评审接口说明的办法来检查接口的完整性、覆盖性。除审查产品组件接口外，接口应包括产品集成所有环境的接口。<br>　　具体步骤：<br>　　1、审查接口文件的完整性，确保已涵盖所有的接口。<br>　　这个要借助在技术解决方案时编制的接口文档，明确各接口之间的相互关系。对于软件产品而言，接口文件至少应包括如下信息：<br>　　*接口用途<br>　　*接口中的参数类型说明<br>　　*接口参数的来源<br>　　*接口输出参数用途<br>　　*协议与数据特性<br>　　*影响该接口的因素<br>　　等<br>　　2、确保产品组件与接口已标识好标记，确保产品组件可以正确、容易地连接。<br>　　3、定期审查产品接口说明的充分性。<br>　　定期审查现有产品接口说明与正在开发、生产、购买等中的产品没有偏差。有时这种审查要与供应商或生产商共同审查，如有偏差应及时处理有可能涉及到的库存、生产线、用户处等范围。</p>
+<h4 id="SP2-2-管理产品和产品组件的内部和外部接口的定义、设计及变更"><a href="#SP2-2-管理产品和产品组件的内部和外部接口的定义、设计及变更" class="headerlink" title="SP2.2 管理产品和产品组件的内部和外部接口的定义、设计及变更"></a>SP2.2 管理产品和产品组件的内部和外部接口的定义、设计及变更</h4><p>Manage internal and external interface definitions,designs,and changes for products and product components.<br>各组件之间是有关系的，我们需要对这些关系进行管理，保证组件间保持一致。<br>　　接口需求驱动着产品组件所需接口的开发，在开发初期就开始管理产品与产品组件的接口。接口的定义接口不仅影响产品组件和外部系统，也影响着验证、确认的环境。<br>　　接口管理包含：维护接口在整个产品周期的一致性，以及解决冲突、不符合以及变更的问题。<br>　　除产品组件接口外，还应包括在集成产品过程中所涉及到的所有接口，以及用于验证、确认、操作、调试、其它支持环境的接口。并且需要记录、维护接口变更的信息，并使其容易查询到和使用。<br>　　具体步骤：<br>　　1、确保接口在整个产品生命周期内的兼容性<br>　　2、解决冲突、不符合以及变更的问题<br>　　3、维护项目成员可以取得接口资料的的存储库<br>　　共享取用的接口资料存储库，提供确保每个成员都知道最新资料的存放处，以及获取和使用的机制，建议放到配置库中。</p>
+<h4 id="SG3-组合已集成的产品组件，并交付已集成、已验证、已确认的产品"><a href="#SG3-组合已集成的产品组件，并交付已集成、已验证、已确认的产品" class="headerlink" title="SG3 组合已集成的产品组件，并交付已集成、已验证、已确认的产品"></a>SG3 组合已集成的产品组件，并交付已集成、已验证、已确认的产品</h4><p>Verified product components are assembled and the integrated,verified,and validated product is delivered.</p>
+<p>主要讲的是执行集成的过程，并交付产品给客户。</p>
+<p>根据已制定的产品组件集成的顺序，进行产品组件的集成。整合前，每一个产品组件应确定于其接口相符。集成可以分阶段逐步完成，可以将一些产品组件集成为更大、更复杂一些的产品组件，一直到整个产品集成完毕。在集成过程中，如果出现问题应用文字进行记录，并采取纠正措施。</p>
+<h4 id="SP3-1-在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明"><a href="#SP3-1-在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明" class="headerlink" title="SP3.1 在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明"></a>SP3.1 在产品集成前，确定要集成的产品的产品组件已被确认、并依据其说明执行，并且确定产品集成接口符合接口说明</h4><p>Confirm,prior to assembly,that each product component required to assemble the product has been properly identified,functions according to its description,and that the product-component interfaces comply with the interface descriptions.<br>简单的说就是在集成前，做全面的检查工作，保证各部分符合既定的要求。</p>
+<p>　确保产品要集成的已被适当的标识、确认的组件符合说明文件，并能根据集成顺序进行实际集成。检查产品组件数量、及产品组件与接口说明不一致的问题。<br>　　具体步骤：<br>　　1、当产品组件处于可进行集成的状态时，尽快跟踪所有产品组件的状态。<br>　　2、根据产品集成顺序与自动化集成程序，确保产品组件已完整提交到集成环境中。<br>　　3、确定每个正确标识的产品组件。<br>　　4、确保已标识的产品组件与说明文件一致。<br>　　5、根据预期配置进行检查配置项的状态。<br>　　6、在集成产品组件前，执行所有接口的预先检查。</p>
+<h4 id="SP3-2-根据产品集成顺序和相关过程集成产品组件"><a href="#SP3-2-根据产品集成顺序和相关过程集成产品组件" class="headerlink" title="SP3.2 根据产品集成顺序和相关过程集成产品组件"></a>SP3.2 根据产品集成顺序和相关过程集成产品组件</h4><p>Assemble product components according to the product integration sequence and available procedures.<br>　　具体步骤：<br>　　1、确保产品集成环境已准备就绪。<br>　　2、确保正确地按集成顺序执行。<br>　　记录适当的集成过程中的信息，比如：集成组件在配置库中的状态(是否在基线)、产品组件序号、型式以及集成所需的仪表校正日期。<br>　　3、适当地修订产品集成顺序以及集成执行的程序。</p>
+<h4 id="SP3-3-评估产品组件的接口兼容性"><a href="#SP3-3-评估产品组件的接口兼容性" class="headerlink" title="SP3.3 评估产品组件的接口兼容性"></a>SP3.3 评估产品组件的接口兼容性</h4><p>Evaluate assembled product components for interface compatibility.</p>
+<p>　　这种评估不仅是对已集成的产品或组件进行评审，还应创造使用环境进行运行，以来评估产品的功能完整性、性能、适用性等符合需求。<br>　　评估的顺序可以按集成顺序，按阶段进行。比如一个OA产品有不同的功能模块，我们可以按照集成顺序先检测登陆，再进行邮箱功能评估，最后进行文档的流转、审批功能的评估。每次集成一部分并进行分步评估，确保每次集成的产品都符合架构的要求。<br>　　具体执行步骤：<br>　　1、根据产品集成顺序与执行程序评估已集成的产品组件。<br>　　2、记录评估结果。<br>　　记录内容可以为：<br>　　*要求与集成规程的适应性<br>　　*产品配置的变更(如：备用零件以及新产品)<br>　　*评估得到的问题。</p>
+<h4 id="SP3-4-打包组装已集成的产品或组件，并交付给适当的客户"><a href="#SP3-4-打包组装已集成的产品或组件，并交付给适当的客户" class="headerlink" title="SP3.4 打包组装已集成的产品或组件，并交付给适当的客户"></a>SP3.4 打包组装已集成的产品或组件，并交付给适当的客户</h4><p>Package the assembled product or product component and deliver it to the appropriate customer.<br>　　某些产品的包装已经写在了需求规格或是检验标准中，当客户自己进行仓储和运送产品时这点要非常的关注。比如：<br>　　*包装经济且易于运输的需求(如货柜、集装箱装货的需求)<br>　　*可说明性(如：使用可压缩型的薄膜或泡沫等)<br>　　*易拆封且安全(如：锐利边缘、订装的可靠度、对儿童的保护、环保、重量等)<br>　　如果需要开发、制造者进行仓储、运输的话，则要注意一些隐形的包装需求。比如：跨国海运对木箱是否要进行熏蒸除虫;根据仓储地考虑室内防潮、防锈的处理等等，实际这些需求不仅会影响产品的包装，也可能会影响到产品本身的需求。对于这些包装的需求应首先参考国家或国际标准，进行设计、实施。<br>　　对于产品包装，我们应尽可能做一些可靠性的实验，已验证包装的可靠性，比如：跌落试验、盐雾试验、防水等级实验等等。<br>　　在工厂中为配合产品组件所做的调整，可能是在真是安装现场所做的不同，这时应对这些调整和原因进行记录。<br>　　具体执行步骤：<br>　　1、 审查需求、设计、产品、验证结果及文件，以确保影响产品包装与交付问题已被界定与解决。<br>　　2、 利用有效方法包装与交付已集成的产品。<br>　　3、 满足包装与交付产品的需求与标准。如：<br>　　*存储与交付媒体的类型<br>　　*软体原始及备份版本的保管信息<br>　　*必要的文件(使用说明书、维护手册等)<br>　　*版权(一般应在合同或说明书中明确)<br>　　*提供的授权(该产品授权的范围，比如：不可以直接将该产品销售，但可以进行扩展开发其他功能后进行销售)<br>　　*软件安全性<br>　　4、 为产品安装准备场地<br>　　这个准备安装场所，也可能是客户或最终用户的责任。<br>　　5、 交付产品与其相关文件，并确定收到收据。<br>　　6、 在安装场所进行安装，并确保正确操作。<br>　　安装产品可能是客户或是最终用户的责任，比如现在的手机APP。但是也有些软件是在安装现场进行安装，用户只是使用。</p>
+</div></div><a class="button-hover more" href="/bq/ee0012d1.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/3c134efc.html">cmmi度量指标</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/">过程质量</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/cmmi/">cmmi</a></div></div><div class="post-content"><div class="main-content content"><h4 id="1-进度方面"><a href="#1-进度方面" class="headerlink" title="1.进度方面"></a>1.进度方面</h4><p>实际进度的计划进度的偏差情况，Gantt图和Pert图。<br>返工时间占项目总时间的比例情况<br>项目能够容忍的最大的处理变更的时间<br>三级强调了偏差的范围，四级强调严格的上下限控制(控制图)</p>
+<h4 id="2-工作量"><a href="#2-工作量" class="headerlink" title="2.工作量"></a>2.工作量</h4><p>实际工作量和计划工作量的偏差<br>三级增加对好质量成本和坏质量成本相关工作量的度量(COGQ,COPQ)<br>对项目返工，评审，测试和处理变更工作量的分别度量</p>
+<h4 id="3-成本"><a href="#3-成本" class="headerlink" title="3.成本"></a>3.成本</h4><p>计划成本和实际成本的偏差<br>三级强调了成本和进度的性能指示器(挣值分析)<br>三级强调了偏差的范围，四级强调严格的上下限控制(控制图)<br>五级强调了会提供可选择的过程改进和缺陷预防策略供选择，而这个是在对项目的成本和效益做了比较和平衡后得出的。</p>
+<h4 id="4-软件质量保证"><a href="#4-软件质量保证" class="headerlink" title="4.软件质量保证"></a>4.软件质量保证</h4><p>不合格项的信息<br>SQA具体的审核信息</p>
+<h4 id="5-Review的结果"><a href="#5-Review的结果" class="headerlink" title="5.Review的结果"></a>5.Review的结果</h4><p>Review的活动项的状态</p>
+<h4 id="6-问题报告"><a href="#6-问题报告" class="headerlink" title="6.问题报告"></a>6.问题报告</h4><p>问题项的具体状态(打开,处理,关闭)<br>问题的原因的分析，对问题的分类的统计<br>问题的平均处理周期度量</p>
+<h4 id="7-同行评审和缺陷"><a href="#7-同行评审和缺陷" class="headerlink" title="7.同行评审和缺陷"></a>7.同行评审和缺陷</h4><p>同行评审的缺陷的打开和关闭的情况统计<br>缺陷密度<br>缺陷移除率和缺陷泄漏率<br>同行评审的效率，评审速率的度量<br>同行评审的覆盖率<br>四级强调对缺陷分类后的帕累托分析<br>四级强调对同行评审的关键特征项的控制图分析</p>
+<h4 id="8-需求的度量"><a href="#8-需求的度量" class="headerlink" title="8.需求的度量"></a>8.需求的度量</h4><p>需求的规模的情况<br>需求的稳定度或需求的变更率<br>需求变更的不同类型的分布情况<br>需求变更处理的效率和周期度量</p>
+<h4 id="9-培训"><a href="#9-培训" class="headerlink" title="9.培训"></a>9.培训</h4><p>实际安排课程和计划课程的对比<br>实际参与人员和计划参与人员的对比<br>对培训的成本和花费的度量<br>对培训取得的效果的度量</p>
+<h4 id="10-测试过程"><a href="#10-测试过程" class="headerlink" title="10.测试过程"></a>10.测试过程</h4><p>测试的生产率的度量<br>测试规模的度量<br>对测试BUG的分类后的帕累托分析<br>生命周期不同阶段发现缺陷的数量分布，泄漏情况<br>测试BUG的密度</p>
+<p>基础度量：</p>
+<p><em>•</em> 工作产品规模大小的估计及实际度量*(<em>例如：页数</em>)*</p>
+<p><em>•</em> 人力与成本的估计及实际度量*(<em>例如：人时</em>)*</p>
+<p><em>•</em> 质量度量*(<em>例如：缺陷数、依严重程度区分的缺陷数</em>)*</p>
+<p>衍生度量：</p>
+<p><em>•</em>  挣值*(Earned Value)*</p>
+<p><em>•</em>  进度绩效指标*(SPI)*</p>
+<p><em>•</em>   缺陷密度</p>
+<p><em>•</em>   同行评审涵盖度</p>
+<p><em>•</em>   测试或验证涵盖度</p>
+<p><em>•</em>  可靠度度量*(<em>例如</em>:<em>平均失败时间</em>)*</p>
+<p><em>•</em>  质量度量*(<em>例如：依严重程度区分的缺陷数</em>/<em>总缺陷数</em>)</p>
+</div></div><a class="button-hover more" href="/bq/3c134efc.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/46c6a437.html">cmmi度量相关</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/">过程质量</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/cmmi/">cmmi</a></div></div><div class="post-content"><div class="main-content content"><h3 id="度量分析"><a href="#度量分析" class="headerlink" title="度量分析"></a>度量分析</h3><p>问题：<br>1.度量的目的是什么？<br>2.谁来做这个度量？<br>3.什么时候做这个度量？<br>4.如何做这个度量？<br>5.怎样记录度量的数据？记录到哪里？<br>6.谁会使用这些数据？<br>7.如何分析这些数据？<br>8.谁来分析这些数据？<br>9.分析的结果如何使用？</p>
+<p>SG1: Measurement objectives and activities are aligned with identified information needs and objectives. 这个SG主要讲述的是，组织级要明确实际的需要，定出度量的目标，并根据此目标，定义合适的度量方法、过程等。</p>
+<h4 id="SP1-1-建立和维护度量目标，这些度量目标是源自特定的需要的"><a href="#SP1-1-建立和维护度量目标，这些度量目标是源自特定的需要的" class="headerlink" title="SP1.1: 建立和维护度量目标，这些度量目标是源自特定的需要的"></a>SP1.1: 建立和维护度量目标，这些度量目标是源自特定的需要的</h4><p>Establish and maintain measurement objectives that are derived from indentified information needs and objectives.</p>
+<p>如：质量、进度、成本是项目管理的三大要素，为了更好地管理这三个方面，可能需要分别对这些方面采取度量手段。也就是说，采取任何度量手段之前，要考虑清楚为什么要进行这个度量。</p>
+<h4 id="SP1-2-制定度量办法满足度量目标的要求"><a href="#SP1-2-制定度量办法满足度量目标的要求" class="headerlink" title="SP1.2: 制定度量办法满足度量目标的要求"></a>SP1.2: 制定度量办法满足度量目标的要求</h4><p>Specify measures to address the measurement objectives.<br>明确了为什么要进行度量后，要把度量目标转化成可以实际操作的具体的度量办法。如：度量的目的是，要保证软件的质量，为了实现这么目标，定义出对缺陷进行度量、对评审发现的问题进行度量等度量办法。</p>
+<h4 id="SP1-3-制定度量数据的收集及存储办法"><a href="#SP1-3-制定度量数据的收集及存储办法" class="headerlink" title="SP1.3: 制定度量数据的收集及存储办法"></a>SP1.3: 制定度量数据的收集及存储办法</h4><p>Specify how measurement data will be obtained and stored.</p>
+<h4 id="SP1-4-制定度量数据的分析和报告方法"><a href="#SP1-4-制定度量数据的分析和报告方法" class="headerlink" title="SP1.4: 制定度量数据的分析和报告方法"></a>SP1.4: 制定度量数据的分析和报告方法</h4><p>Specify how measurement data will be analyed and reported.</p>
+<p>SG2: Mesurement results the adreess identified information needs and objectives are provided. 这个SG主要讲述的是：根据组织级定义的要求，进行度量工作，收集、分析、存储、报告度量信息等。</p>
+<p>SP2.1: Obtain specified measurement data.<br>收集指定的度量数据。<br>要根据SP1.3指定的收集办法来收集度量数据。</p>
+<p>SP2.2: Analyze and interpret measurement data.<br>分析和说明度量数据。<br>根据SP1.4指定的办法，对度量数据进行分析，并说明这些数据的意义。</p>
+<p>SP2.3: Manage and store measurement data,measurement specifications,and analysis results.<br>管理和存储度量数据、度量规范及度量结果。<br>根据SP1.3指定的存储办法，对度量数据及相关文档进行存储和管理。</p>
+<p>SP2.4: Report results of measurement and analysis activities to all relevant stakeholders.<br>向相关人员报告度量结果及分析度量活动情况。<br>度量的数据、情况，需要让该知道的人知道。</p>
+<p>SG1主要从组织级的角度定义度量的做法，SG2就是按照已定义的做法，在实际工作中开展度量的工作。</p>
+<h4 id="量化管理"><a href="#量化管理" class="headerlink" title="量化管理"></a>量化管理</h4><ol>
+<li><p>初级量化管理-感知级，以数据“感知”项目的状况，相当于CMMI2级。</p>
+</li>
+<li><p>中级量化管理-经验级，通过经验值来管理项目，相当于CMMI3级。</p>
+</li>
+<li><p>高级量化管理-可预测级，用PCB进行项目管理，相当于CMMI4级。</p>
+</li>
+<li><p>超级量化管理-持续优化级，持续优化的量化管理，相当于CMMI5级。</p>
+</li>
+</ol>
+<p>“感知级”通过软件度量，大概了解项目的状况，并作为工作调整的依据。</p>
+<p>“经验级”通过软件度量，对比项目的历史经验数据，把握项目的状况，并进行相应的工作调整。同时，项目的历史经验数据，可供估算等工作进行参考。</p>
+<p>“可预测级”，把“经验级”推向一个更高的高度，对影响问题的因素进行详细的分析，排除和削弱影响项目性能的各种因素，对历史经验数据进行合理分组，统计出性能基线，并用于项目管理。用基线来管理的过程都是稳定的过程，这些过程从统计角度来说都可以准确地预测出将来的结果。</p>
+<p>“持续优化级”是“数据管理过程”的最高级别，达到这个级别意味着企业能根据商业目标持续的优化SPC管理，使企业形成别的企业难以模仿并难以超越的核心竞争力。</p>
+<blockquote>
+<p>如果你无法度量它，就无法管理它</p>
+</blockquote>
+<h4 id="CMMI级别中和BUG率相关的信息"><a href="#CMMI级别中和BUG率相关的信息" class="headerlink" title="CMMI级别中和BUG率相关的信息"></a>CMMI级别中和BUG率相关的信息</h4><table>
+<thead>
+<tr>
+<th>CMMI级别</th>
+<th>BUG率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CMM1级</td>
+<td>11.95‰</td>
+</tr>
+<tr>
+<td>CMM2级</td>
+<td>5.52‰</td>
+</tr>
+<tr>
+<td>CMM3级</td>
+<td>2.39‰</td>
+</tr>
+<tr>
+<td>CMM4级</td>
+<td>0.92‰</td>
+</tr>
+<tr>
+<td>CMM5级</td>
+<td>0.32‰</td>
+</tr>
+</tbody></table>
+<h5 id="考核千行代码Bug率的问题"><a href="#考核千行代码Bug率的问题" class="headerlink" title="考核千行代码Bug率的问题"></a>考核千行代码Bug率的问题</h5><p>从考核标准上来说，Bug率数值越小就说明越好，基于这个结果，会引导团队成员做出一些对长远和整体效率无益的行为，例如：</p>
+<ol>
+<li><p>增大基数，增加无意义代码</p>
+</li>
+<li><p>把定长循环分开写，写成顺序方法</p>
+</li>
+<li><p>把可配置信息写死到代码中</p>
+</li>
+<li><p>大量的复制、粘贴代码</p>
+</li>
+<li><p>重新发明各种轮子</p>
+</li>
+</ol>
+<p>统计“千行代码Bug率”和“每日生产代码行数”一样，都是没经过大脑思考，而直接打算把优秀员工踢出团队的懒人式管理方式。特别是对从事智力型工作工程师来说，是很不合适的考量指标。</p>
+<blockquote>
+<p>优秀的程序员是通过减少代码行数来增加功能的。</p>
+</blockquote>
+<p>千行代码Bug率，虽然没有明确鼓励增加代码行数，但是这个计算结果对于优秀的员工来说是相当的不公平。它隐含的推广了“尽量增大代码行数”这个意思。</p>
+<p>其次，从考核阶段看，Bug率的数据主要产出在研发阶段的后期，及提交测试后产出bug数。从项目的研发阶段和效率价值金字塔来看，其对项目的整体质量方面更多的聚焦在微观层面问题，整体的质量的影响范围会较小。而前面几个阶段的缺陷，会影响整个项目的进度，甚至导致项目失败，管理者和团队更应该将风险控制和度量指标向前移。</p>
+<blockquote>
+<p>研发阶段和效率价值金字塔</p>
+<p>需求调研和评审&gt;技术方案设计和评审&gt;研发&gt;测试</p>
+</blockquote>
+<p><strong>如何更合理的度量质量</strong></p>
+<p>如果考核千行代码Bug率不能很好的解决质量核心问题，那我们还有那些方法和方案来提高项目的整体质量呢？</p>
+<p>个人觉得，我们还是从项目的研发阶段和效率价值金字塔出发，重整体上去把控质量，上下游一体，从源头开始：</p>
+<ol>
+<li><p>需求的评审</p>
+</li>
+<li><p>架构设计方案评审</p>
+</li>
+<li><p>代码模块设计，包的依赖的规划，接口的设计的review</p>
+</li>
+<li><p>代码的review的机制</p>
+</li>
+<li><p>测试用例评审</p>
+</li>
+<li><p>使用代码检测工具，自动发现问题</p>
+</li>
+</ol>
+<p>过程评审是最有效也是成本最低的质量和效率保证和提升的手段。另外，过程评审还是迅速提高新人能力及其成果物的规范性的一个有效手段。</p>
+<p>但是过程评审，也存在一些问题：</p>
+<ol>
+<li><p>前期过度依赖于团队的人员素质</p>
+</li>
+<li><p>规则的定义也比较难，产出不好量化</p>
+</li>
+<li><p>评审耗时多</p>
+</li>
+<li><p>团队的意识不一致</p>
+</li>
+</ol>
+<blockquote>
+<p>过程评审的实施核心在用统一团队意识</p>
+</blockquote>
+<p>团队意识不一致时，效果一定不好。 意识不一致，在资源的投入上就会缩手缩脚；只有把过程评审做到位，才能体会到评审活动的高效，避免那种走马观花式的“评审”，是浪费时间，不是真正的评审。过程中辅以严密的变更管理和风险控制手段，系统质量出大问题可行性会很小或者近乎为零。</p>
+<blockquote>
+<p>系统质量是要靠上游工程做出来的</p>
+</blockquote>
+<p>上游的工作质量会更为重要，上游的问题的影响范围将更广，对效率和价值的影响更大，应该是我们重点关注的地方。仅仅依赖下游工程(种种测试)来把质量关，是十分低效，而且代价是非常昂贵的。</p>
+<p><strong>总结</strong></p>
+<p>有效的管理很难绕开度量问题。在选择度量指标上，大部分管理者总是倾向于关注容易度量的指标，而忽略难以度量的指标。但是容易度量的指标不一定是重要的，难以度量的反而可能是重要的。</p>
+<p>定性、定量的区别比较，定性是用文字说话，定量是用数字说话，两者侧重点不同，但各有各的好处。虽然已经量化了，但数据有时也可以骗人，量化是一种方法和手段，但并不是最终的目的。</p>
+<blockquote>
+<p>代码行数&lt;&gt;价值。</p>
+</blockquote>
+<p>考核不合理导致出现大量的复制，不合理的设计，大量的冗余，不但难以理解和维护，甚至没有实际运行起来。这样就造成大量的时间浪费，同时也造成质量的严重腐化。</p>
+<p>而基于全过程的评审机制和持续改进方法，可以很好的改善质量。但持续改进需要一个过程，需全团队从认知达成一致，并共享问题，统一步调和规范，持续的执行和改进。</p>
+<blockquote>
+<p>千行代码Bug率比较适用工程师自身自我评估和改进</p>
+</blockquote>
+<h4 id="1-进度方面"><a href="#1-进度方面" class="headerlink" title="1.进度方面"></a>1.进度方面</h4><p>实际进度的计划进度的偏差情况，Gantt图和Pert图。<br>返工时间占项目总时间的比例情况<br>项目能够容忍的最大的处理变更的时间<br>三级强调了偏差的范围，四级强调严格的上下限控制(控制图)</p>
+<h4 id="2-工作量"><a href="#2-工作量" class="headerlink" title="2.工作量"></a>2.工作量</h4><p>实际工作量和计划工作量的偏差<br>三级增加对好质量成本和坏质量成本相关工作量的度量(COGQ,COPQ)<br>对项目返工，评审，测试和处理变更工作量的分别度量</p>
+<h4 id="3-成本"><a href="#3-成本" class="headerlink" title="3.成本"></a>3.成本</h4><p>计划成本和实际成本的偏差<br>三级强调了成本和进度的性能指示器(挣值分析)<br>三级强调了偏差的范围，四级强调严格的上下限控制(控制图)<br>五级强调了会提供可选择的过程改进和缺陷预防策略供选择，而这个是在对项目的成本和效益做了比较和平衡后得出的。</p>
+<h4 id="4-软件质量保证"><a href="#4-软件质量保证" class="headerlink" title="4.软件质量保证"></a>4.软件质量保证</h4><p>不合格项的信息<br>SQA具体的审核信息</p>
+<h4 id="5-Review的结果"><a href="#5-Review的结果" class="headerlink" title="5.Review的结果"></a>5.Review的结果</h4><p>Review的活动项的状态</p>
+<h4 id="6-问题报告"><a href="#6-问题报告" class="headerlink" title="6.问题报告"></a>6.问题报告</h4><p>问题项的具体状态(打开,处理,关闭)<br>问题的原因的分析，对问题的分类的统计<br>问题的平均处理周期度量</p>
+<h4 id="7-同行评审和缺陷"><a href="#7-同行评审和缺陷" class="headerlink" title="7.同行评审和缺陷"></a>7.同行评审和缺陷</h4><p>同行评审的缺陷的打开和关闭的情况统计<br>缺陷密度<br>缺陷移除率和缺陷泄漏率<br>同行评审的效率，评审速率的度量<br>同行评审的覆盖率<br>四级强调对缺陷分类后的帕累托分析<br>四级强调对同行评审的关键特征项的控制图分析</p>
+<h4 id="8-需求的度量"><a href="#8-需求的度量" class="headerlink" title="8.需求的度量"></a>8.需求的度量</h4><p>需求的规模的情况<br>需求的稳定度或需求的变更率<br>需求变更的不同类型的分布情况<br>需求变更处理的效率和周期度量</p>
+<h4 id="9-培训"><a href="#9-培训" class="headerlink" title="9.培训"></a>9.培训</h4><p>实际安排课程和计划课程的对比<br>实际参与人员和计划参与人员的对比<br>对培训的成本和花费的度量<br>对培训取得的效果的度量</p>
+<h4 id="10-测试过程"><a href="#10-测试过程" class="headerlink" title="10.测试过程"></a>10.测试过程</h4><p>测试的生产率的度量<br>测试规模的度量<br>对测试BUG的分类后的帕累托分析<br>生命周期不同阶段发现缺陷的数量分布，泄漏情况<br>测试BUG的密度</p>
+<p>基础度量：</p>
+<p><em>•</em> 工作产品规模大小的估计及实际度量*(<em>例如：页数</em>)*</p>
+<p><em>•</em> 人力与成本的估计及实际度量*(<em>例如：人时</em>)*</p>
+<p><em>•</em> 质量度量*(<em>例如：缺陷数、依严重程度区分的缺陷数</em>)*</p>
+<p>衍生度量：</p>
+<p><em>•</em>  挣值*(Earned Value)*</p>
+<p><em>•</em>  进度绩效指标*(SPI)*</p>
+<p><em>•</em>   缺陷密度</p>
+<p><em>•</em>   同行评审涵盖度</p>
+<p><em>•</em>   测试或验证涵盖度</p>
+<p><em>•</em>  可靠度度量*(<em>例如</em>:<em>平均失败时间</em>)*</p>
+<p><em>•</em>  质量度量*(<em>例如：依严重程度区分的缺陷数</em>/<em>总缺陷数</em>)*</p>
+</div></div><a class="button-hover more" href="/bq/46c6a437.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/e645a441.html">cmmi测试相关</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/">过程质量</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/cmmi/">cmmi</a></div></div><div class="post-content"><div class="main-content content"><h3 id="测试阶段"><a href="#测试阶段" class="headerlink" title="测试阶段"></a>测试阶段</h3><blockquote>
+<p>验证意味着每个阶段结束后，对软件产品的技术审查和管理评审，确认则是对每个阶段结束后所产生的代码进行测试</p>
+</blockquote>
+<h4 id="1-软件需求分析阶段"><a href="#1-软件需求分析阶段" class="headerlink" title="1.软件需求分析阶段"></a>1.软件需求分析阶段</h4><p>基于“软件测试介入要及早”的原则，在软件需求分析阶段，软件测试人员就可以加入到软件需求分析和确认的行列中，并在该阶段结束后，参与本阶段软件产品的评审。在该阶段，并没有软件代码产生，所以主要的软件产品就是文档。本阶段产生的跟软件测试关系密切的文档是<strong>软件需求规格说明和软件开发计划</strong>，根据这两份文档，<strong>测试人员可以出具软件配置项测试计划，在计划中明确测试类型，测试方法，测试环境，以及测试人员和进度安排</strong>。</p>
+<h4 id="2-软件设计阶段"><a href="#2-软件设计阶段" class="headerlink" title="2.软件设计阶段"></a>2.软件设计阶段</h4><p>在软件概要设计阶段，软件人员主要参与的测试活动是<strong>评审软件概要设计和软件集成计划文档</strong>，并出具<strong>软件集成测试计划</strong>。同样，在软件详细设计阶段，软件人员<strong>参与评审软件详细设计文档</strong>，并出<strong>具软件单元测试计划</strong>。</p>
+<h4 id="3-软件编码及后续测试阶段"><a href="#3-软件编码及后续测试阶段" class="headerlink" title="3.软件编码及后续测试阶段"></a>3.软件编码及后续测试阶段</h4><p>在这个阶段，软件代码已产生，可以按照单元测试计划，拟制单元测试用例，执行单元测试，出具单元测试报告。在单元测试阶段，建议进行代码走查，这是对软件代码的确认。<strong>自此以后的阶段，软件确认和验证的对象就都是代码</strong>。</p>
+<p>单元测试完成后，对该阶段的软件产品进行确认，相关文档该评审就评审，该入受控库就入受控库，经软件配置确认后，转入集成测试阶段。</p>
+<p>依照集成测试计划，拟制集成测试用例说明，可对软件单元按照某种恰当的集成策略进行组装。在这个阶段，产生集成测试报告。这是该阶段软件验证和确认的成果。同样，集成测试完成后，对该阶段的软件产品也要进行确认并入受控库，经软件配置确认后，转入配置项测试阶段。</p>
+<p>软件配置项测试以需求阶段产生的测试计划为依据，拟制配置项测试说明，执行以黑盒为主的配置项测试，出具配置项测试报告。测试完成后，提交配置管理，确认后等待软件交付。(文档审查，静态分析，内存使用缺陷测试，功能测试，性能测试，人机界面测试，余量测试，接口测试，安全性测试)依据需求规格说明书</p>
+<h3 id="验证（VER）"><a href="#验证（VER）" class="headerlink" title="验证（VER）"></a>验证（VER）</h3><p>是为了确认某一开发阶段的产品是否满足在阶段初期提出的要求而进行评估的过程，验证就是证明是否正确地构造了产品</p>
+<p>​      SG1 准备验证</p>
+<p>​        SP1.1 选择需要验证的工作产品</p>
+<p>​        SP1.2 建立验证环境</p>
+<p>​        SP1.3 建立验证规程与准则</p>
+<p>​      SG2 执行同级评审</p>
+<p>​        SP2.1 准备同级评审</p>
+<p>​        SP2.2 进行同级审评</p>
+<p>​        SP2.3 分析同级评审数据</p>
+<p>​      SG3 验证选定的工作产品</p>
+<p>​        SP3.1 执行验证</p>
+<p>​        SP3.2 分析验证结果</p>
+<p>验证就是按照既定的标准，检查工作产品是否符合要求。工作产品可能是文档也可能是软件本身。而检查的办法一般是同行评审或者是软件测试。</p>
+<p>那什么是同行评审呢？比方说：A君是做软件设计的，B君也是做软件设计的，A君写了一份设计文档，让B君这个同行（因为大家都是做设计的）来给给意见，这样就使同行评审。同行评审的目的就是让有同样工作经验和技能的人来评审自己的工作产品，发现尽量多的问题。</p>
+<p>验证这个PA其目的是希望软件企业在软件开发整个过程中，做好相应的检查工作，把尽量问题发现前面，保证了项目的可控性，降低开发的成本。</p>
+<p>这个PA有3个Specific Goals,SG1讲述的是做好验证的准备，SG2、SG3分别讲述的是执行验证的两种办法，一种是同行评审，一种是执行验证（通常就是测试）。</p>
+<p>如果测试是在用户实际生产环境下进行的，例如：验收测试、客户试用系统等，这时这类工作就属于确认(Validation)</p>
+<h4 id="SG1-准备验证的工作"><a href="#SG1-准备验证的工作" class="headerlink" title="SG1 准备验证的工作"></a>SG1 准备验证的工作</h4><p>Preparation for verification is conducted.</p>
+<h4 id="SP1-1-选择需要验证的工作产品以及每个工作产品的验证办法"><a href="#SP1-1-选择需要验证的工作产品以及每个工作产品的验证办法" class="headerlink" title="SP1.1 选择需要验证的工作产品以及每个工作产品的验证办法"></a>SP1.1 选择需要验证的工作产品以及每个工作产品的验证办法</h4><p>Select the work products to be verified and the verifaction methords that will be used for each.<br>组织会定义要进行同行评审的工作产品，如：计划文档、需求文档、设计文档、代码等，并且规定了每种文档的同行评审办法。组织也会<br>定义需要进行测试的软件产品，比方说要进行单元测试、集成测试、系统测试等。</p>
+<h4 id="SP1-2-建立和维护支持验证所需的环境"><a href="#SP1-2-建立和维护支持验证所需的环境" class="headerlink" title="SP1.2 建立和维护支持验证所需的环境"></a>SP1.2 建立和维护支持验证所需的环境</h4><p>Establish and maintain the environment needed to support verification.<br>对于同行评审来说，支持环境可能就是会议室、投影、电脑、事先准备好的文档等。<br>对于测试来说，支持环境可能就是测试的软件环境、数据环境、硬件环境等。</p>
+<h4 id="SP1-3-建立和维护工作产品的验证过程及准则"><a href="#SP1-3-建立和维护工作产品的验证过程及准则" class="headerlink" title="SP1.3 建立和维护工作产品的验证过程及准则"></a>SP1.3 建立和维护工作产品的验证过程及准则</h4><p>Establish and maintain verification procedures and criteria for the selected work products.</p>
+<p>对于同行评审来说，验证过程就是同行评审开展的过程相关规定，如要事先发资料、通知大家到会、会议的组织、会议记录等等，准则可能就是每个工作产品的评审标准。<br>对于测试来说，验证过程就是测试过程的相关规定，准则就是需求规格说明书，或者说是测试通过的标准。</p>
+<h4 id="SG2-对指定的工作产品进行同行评审"><a href="#SG2-对指定的工作产品进行同行评审" class="headerlink" title="SG2 对指定的工作产品进行同行评审"></a>SG2 对指定的工作产品进行同行评审</h4><p>Peer reviews are performed on selected work work products.</p>
+<h4 id="SP2-1-做好同行评审的准备"><a href="#SP2-1-做好同行评审的准备" class="headerlink" title="SP2.1 做好同行评审的准备"></a>SP2.1 做好同行评审的准备</h4><p>Prepare for peer reviews of selected work products.<br>如：把要评审的文档实现发给大家，准备好会议议程，准备好会议室、投影仪等。</p>
+<h4 id="SP2-2-执行同行评审并识别同行评审中发现的问题"><a href="#SP2-2-执行同行评审并识别同行评审中发现的问题" class="headerlink" title="SP2.2 执行同行评审并识别同行评审中发现的问题"></a>SP2.2 执行同行评审并识别同行评审中发现的问题</h4><p>Conduct peer reviews on selected work products and identify issues resulting from the peer review.</p>
+<h4 id="SP2-3-分析在同行评审准备、执行、结果方面的数据"><a href="#SP2-3-分析在同行评审准备、执行、结果方面的数据" class="headerlink" title="SP2.3 分析在同行评审准备、执行、结果方面的数据"></a>SP2.3 分析在同行评审准备、执行、结果方面的数据</h4><p>Analyze data about preparation,conduct,and results of the peer reviews.<br>例如：记录评审的准备、进行时间，发现的问题数量，对每个问题进行分析等。</p>
+<h5 id="SG3-根据指定的要求验证工作产品"><a href="#SG3-根据指定的要求验证工作产品" class="headerlink" title="SG3 根据指定的要求验证工作产品"></a>SG3 根据指定的要求验证工作产品</h5><p>Selected work products are verified against their specified requirements.<br>这里的验证既包括同行评审也包括测试，但因为SG2专门是针对同行评审的，这个SG可以理解成主要针对除了同行评审外的其它验证活动。</p>
+<h4 id="SP3-1-对指定的工作产品进行验证"><a href="#SP3-1-对指定的工作产品进行验证" class="headerlink" title="SP3.1 对指定的工作产品进行验证"></a>SP3.1 对指定的工作产品进行验证</h4><p>Perform verification on the selected work products.<br>如：执行单元测试、集成测试、系统测试等。</p>
+<h4 id="SP3-2-分析验证的结果，并制定修正计划"><a href="#SP3-2-分析验证的结果，并制定修正计划" class="headerlink" title="SP3.2 分析验证的结果，并制定修正计划"></a>SP3.2 分析验证的结果，并制定修正计划</h4><p>Analyze the results of all verification activities and identify corrective action.<br>这里强调的是：除了要分析发现的问题外，还需要采取行动修正这些问题。</p>
+<h3 id="确认（-VAL-）"><a href="#确认（-VAL-）" class="headerlink" title="确认（ VAL ）"></a>确认（ VAL ）</h3><p>是在开发过程中或结束时，对软件产品进行评估以确定其是否满足软件需求规格的要求，确认则是证明构造的产品是否正确</p>
+<p>​      SG1 准备确认</p>
+<p>​        SP1.1 选择需要确认的产品</p>
+<p>​        SP1.2 建立确认环境</p>
+<p>​        SP1.3 建立确认规程与准则</p>
+<p>​      SG2 确认产品或产品组件</p>
+<p>​        SP2.1 执行确认</p>
+<p>​        SP2.2 分析确认结果</p>
+<p>验证强调的是在开发过程中对工作产品进行检查，尽早发现问题。而确认强调的是，在真实的使用环境中，确保软件能达到预期的效果。开发环境与真实环境是不可避免存在差异的，为了有效地避免在开发环境中没有问题，但一到真实环境就出现问题的情况，确认的工作是非常重要的。</p>
+<p>确认不一定在项目后期才进行，这个PA没有对确认的时间有任何的规定。作为一般的常识，我们应该尽快安排软件的确认工作，如：尽快发出一个小版本，在实际环境中运行起来，尽快发现确认中的问题。<br>一般来说，调试、试用、验收测试等都是确认的工作。</p>
+<h4 id="SG1-准备确认工作"><a href="#SG1-准备确认工作" class="headerlink" title="SG1 准备确认工作"></a>SG1 准备确认工作</h4><p>Preparation for validation is conducted.</p>
+<h4 id="SP1-1-选择需要确认的产品、产品组件以及确认的方法"><a href="#SP1-1-选择需要确认的产品、产品组件以及确认的方法" class="headerlink" title="SP1.1 选择需要确认的产品、产品组件以及确认的方法"></a>SP1.1 选择需要确认的产品、产品组件以及确认的方法</h4><p>Select products and product components to be validated and the validation methods that will be used for each.</p>
+<h4 id="SP1-2-建立和维护支持确认的环境"><a href="#SP1-2-建立和维护支持确认的环境" class="headerlink" title="SP1.2 建立和维护支持确认的环境"></a>SP1.2 建立和维护支持确认的环境</h4><p>Establish and maintain the environment needed to support validation.<br>如试用环境、验收环境的准备等。</p>
+<h4 id="SP1-3-建立和维护确认的过程及确认准则"><a href="#SP1-3-建立和维护确认的过程及确认准则" class="headerlink" title="SP1.3 建立和维护确认的过程及确认准则"></a>SP1.3 建立和维护确认的过程及确认准则</h4><p>Establish and maintain procedures and criteria for valication.</p>
+<h4 id="SG2-执行确认，确保产品或者产品组建在目标操作环境下满足使用的要求"><a href="#SG2-执行确认，确保产品或者产品组建在目标操作环境下满足使用的要求" class="headerlink" title="SG2 执行确认，确保产品或者产品组建在目标操作环境下满足使用的要求"></a>SG2 执行确认，确保产品或者产品组建在目标操作环境下满足使用的要求</h4><p>The product or product components are validated to ensure that they suitable for use in their intended operating environment.</p>
+<h4 id="SP2-1-执行产品及产品组建的确认工作"><a href="#SP2-1-执行产品及产品组建的确认工作" class="headerlink" title="SP2.1 执行产品及产品组建的确认工作"></a>SP2.1 执行产品及产品组建的确认工作</h4><p>Perform validation on the selected products and product components.</p>
+<h4 id="验证-Verification-与确认-Validation-的区别"><a href="#验证-Verification-与确认-Validation-的区别" class="headerlink" title="验证(Verification)与确认(Validation)的区别"></a>验证(Verification)与确认(Validation)的区别</h4><p>验证：验证检查某样东西是否符合之前已定好的标准，如：文档评审，要检查的东西是文档，检查标准就是文档的评审标准，又如：测试软件，要检查的东西就是软件，检查的标准就是软件的规格说明，包括功能说明，性能要求等。</p>
+<p>确认：检查软件在最终的运行环境上是否达到预期的目标。一般来说，就是调试、验收测试等，这些工作都是在真正的软件需要运行的环境上进行的，在最终环境上运行软件，确保软件符合使用要求。</p>
+</div></div><a class="button-hover more" href="/bq/e645a441.html#more">阅读全文</a></div><div class="recent-post-item"><i class="article-top"></i><a class="post-title" href="/bq/62fbab7e.html">cmmi过程域概述</a><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 更新于 2021-04-11</time><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/">过程质量</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/cmmi/">cmmi</a></div></div><div class="post-content"><div class="main-content content"><h3 id="各级别整体能力"><a href="#各级别整体能力" class="headerlink" title="各级别整体能力"></a>各级别整体能力</h3><p>CMMI5：进行根本原因分析，消除编差发生的普遍原因，改善过程能力基线，制度化过程改进活动。</p>
+<p>CMMI4：建立过程控制方法，建立过程能力基线，消除编差发生的特殊原因。</p>
+<p>CMMI3：验证数据，分析度量结果；对组织层面指定的度量确定目标值；制度化度量活动。</p>
+<p>CMMI2：基于度量目标，建立一个覆盖过程、产品、和项目的度量框架，并实施度量。</p>
+<h3 id="等级与对应过程域"><a href="#等级与对应过程域" class="headerlink" title="等级与对应过程域"></a>等级与对应过程域</h3><p>CMMI（Capability Maturity Model Integration）：能力成熟度模型整合</p>
+<p>CMMI将能力成熟度分为5个级别：初始级，已管理级，已定义级，量化管理级，优化级。</p>
+<p>除了成熟度等级，CMMI还有一个重要的概念是过程域（Process Area）。过程域指出了达到某个成熟度等级必须要解决的一族问题。除了初始级以外，每个成熟度等级都有若干个过程域，如下表所示。由于成熟度等级是循序渐进的，如果想达到某个成熟度等级，例如CMMI 3级，除了满足CMMI 3级本身11个过程域之外，还要满足CMMI 2级的7个过程域，依此类推。</p>
+<table>
+<thead>
+<tr>
+<th align="left">CMMI等级</th>
+<th>过程域中文名称</th>
+<th>过程域英文名称</th>
+<th>过程类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">第2级已管理级 7个过程域</td>
+<td>需求管理</td>
+<td>Requirements Management</td>
+<td>工程</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>项目规划</td>
+<td>Project Planning</td>
+<td>项目管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>项目监控</td>
+<td>Project Monitoring and Control</td>
+<td>项目管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>供应商协议管理</td>
+<td>Supplier Agreement Management</td>
+<td>项目管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>度量分析</td>
+<td>Measurement and Analysis</td>
+<td>支持</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>过程和产品质量保证</td>
+<td>Process and Product Quality Assurance</td>
+<td>支持</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>配置管理</td>
+<td>Configuration Management</td>
+<td>支持</td>
+</tr>
+<tr>
+<td align="left">第3级 已定义级 11个过程域</td>
+<td>需求开发</td>
+<td>Requirements Development</td>
+<td>工程</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>技术方案</td>
+<td>Technical Solution</td>
+<td>工程</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>产品集成</td>
+<td>Product Integration</td>
+<td>工程</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>验证</td>
+<td>Verification</td>
+<td>工程</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>确认</td>
+<td>Validation</td>
+<td>工程</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>组织过程焦点</td>
+<td>Organizational Process Focus</td>
+<td>过程管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>组织过程定义</td>
+<td>Organizational Process Definition</td>
+<td>过程管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>组织培训</td>
+<td>Organizational Training</td>
+<td>过程管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>集成化项目管理</td>
+<td>Integrated Project Management</td>
+<td>项目管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>风险管理</td>
+<td>Risk Management</td>
+<td>项目管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>决策分析与解决方案</td>
+<td>Decision Analysis and Resolution</td>
+<td>支持</td>
+</tr>
+<tr>
+<td align="left">第4级量化管理级 2个过程域</td>
+<td>组织过程性能</td>
+<td>Organizational Process Performance</td>
+<td>过程管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>量化项目管理</td>
+<td>Quantitative Project Management</td>
+<td>项目管理</td>
+</tr>
+<tr>
+<td align="left">第5级优化级 2个过程域</td>
+<td>组织革新与推广</td>
+<td>Organizational Innovation and Deployment</td>
+<td>过程管理</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td>原因分析与解决方案</td>
+<td>Causal Analysis and Resolution</td>
+<td>支持</td>
+</tr>
+</tbody></table>
+<p>PA （Process Area）：过程域；<br>EPG （Engineering Process Group）：工程过程小组；<br>PM （Project Manager）：项目经理；<br>PP （Project Plan）：项目规划；<br>PMC （Project Monitoring and Control）：项目监控；<br>RM （Requirements Management）：需求管理；<br>MA （Measurement and Analysis）：度量；<br>CM （Configuration Management）：配置管理（文档与代码管理）；<br>QA （quality assurance）：质量保证；<br>PPQA （Process and Product Quality Assurance）：流程与产品质量保证；<br>RD （Requirements Development）：需求开发；<br>REQM （Requirements ManagementTS ）：需求管理；<br>TS （Technical Solution）：技术解决方案（设计和实现）；<br>PI （Product Integration）：产品整合；<br>VER （Verification）：验证（评审和测试）；<br>VAL （Validation）： 确认（验收）；<br>IPM （Integrated Project Management）： 集成项目管理；<br>RSKM （Risk Management）：风险管理；<br>OPF （Organizational Process Focus）：组织过程焦点；<br>OPD （Organizational Process Definition）： 组织过程定义；<br>OT （Organizational Training）：组织培训；<br>DAR （Decision Analysis and Resolution）：决策分析与制定；</p>
+<h3 id="CMMI-DEV-V2-0的PA-与V-1-3的映射关系"><a href="#CMMI-DEV-V2-0的PA-与V-1-3的映射关系" class="headerlink" title="CMMI DEV V2.0的PA 与V 1.3的映射关系"></a>CMMI DEV V2.0的PA 与V 1.3的映射关系</h3><table>
+<thead>
+<tr>
+<th>CMMI 2.0实践域</th>
+<th>CMMI 1.3 过程域</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CAR</td>
+<td>CAR</td>
+<td>-</td>
+</tr>
+<tr>
+<td>CM</td>
+<td>CM</td>
+<td>-</td>
+</tr>
+<tr>
+<td>DAR</td>
+<td>DAR</td>
+<td>-</td>
+</tr>
+<tr>
+<td>EST</td>
+<td>-</td>
+<td>新增PA，从PP中剥离出来</td>
+</tr>
+<tr>
+<td>GOV</td>
+<td>-</td>
+<td>1.定义了公司高层经理的活动2.来自于V1.3的共性实践</td>
+</tr>
+<tr>
+<td>II</td>
+<td>-</td>
+<td>来自于V1.3的共性实践</td>
+</tr>
+<tr>
+<td>MPM</td>
+<td>MA</td>
+<td>所有定量管理的实践都合并到MPM中</td>
+</tr>
+<tr>
+<td></td>
+<td>QPM</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>OPP</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>OPM</td>
+<td></td>
+</tr>
+<tr>
+<td>MC</td>
+<td>PMC</td>
+<td>1.风险跟踪的实践剥离到RSK中2.IPM中有关跟踪的实践汇总到本PA，如管理关键依赖、环境等3.里程碑评审不再出现在实践名字中</td>
+</tr>
+<tr>
+<td>OT</td>
+<td>OT</td>
+<td>-</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>-</td>
+<td>新增PA,从VER中剥离出来</td>
+</tr>
+<tr>
+<td>PLAN</td>
+<td>PP</td>
+<td>1.名称修改2.估算的实践剥离成为一个单独的PA3.数据管理的实践剥离到CM中4.风险管理的实践剥离到RSK中5.IPM中与策划有关的实践汇总到本PA6.增加对移交活动的计划</td>
+</tr>
+<tr>
+<td>PAD</td>
+<td>OPD</td>
+<td>1.名称修改2.删除了建立团队运作规则指南的实践</td>
+</tr>
+<tr>
+<td>PCM</td>
+<td>OPF</td>
+<td>有些实践来自于OPM，改了名字</td>
+</tr>
+<tr>
+<td>PQA</td>
+<td>PPQA</td>
+<td>名称修改</td>
+</tr>
+<tr>
+<td>PI</td>
+<td>PI</td>
+<td>-</td>
+</tr>
+<tr>
+<td>RDM</td>
+<td>RD</td>
+<td>所有的需求工程实践都合并到RDM中</td>
+</tr>
+<tr>
+<td></td>
+<td>REQM</td>
+<td></td>
+</tr>
+<tr>
+<td>RSK</td>
+<td>RSKM</td>
+<td>RSK 是风险和机会管理，增加了机会管理</td>
+</tr>
+<tr>
+<td>SAM</td>
+<td>SAM</td>
+<td>-</td>
+</tr>
+<tr>
+<td>TS</td>
+<td>TS</td>
+<td>-</td>
+</tr>
+<tr>
+<td>VV</td>
+<td>VER</td>
+<td>合并为VV，同行评审独立成为一个PA</td>
+</tr>
+<tr>
+<td></td>
+<td>VAL</td>
+<td></td>
+</tr>
+<tr>
+<td>-</td>
+<td>IPM</td>
+<td>IPM拆分到PLAN和MC中</td>
+</tr>
+</tbody></table>
+<h3 id="过程域对应活动"><a href="#过程域对应活动" class="headerlink" title="过程域对应活动"></a>过程域对应活动</h3><h4 id="一、项目管理类："><a href="#一、项目管理类：" class="headerlink" title="一、项目管理类："></a>一、项目管理类：</h4><h5 id="1-、项目策划（-PP-）："><a href="#1-、项目策划（-PP-）：" class="headerlink" title="1 、项目策划（ PP ）："></a>1 、项目策划（ PP ）：</h5><p>   SG1 完成参数估计</p>
+<p>​     SP1.1 估计项目的范围 SP1.2 估计项目属性 SP1.3 确定项目生存周期 SP1.4 确定工作量和成本的估计值</p>
+<p>   SG2 拟订项目计划</p>
+<p>​     SP2.1 编制预算和进度  SP2.2 识别项目风险  SP2.3 策划数据管理  SP2.4 策划项目资源  SP2.5 策划必要的知识和技能  SP2.6 策划共利益者的介入  SP2.7 拟订项目计划</p>
+<p>   SG3 获得对计划的承诺</p>
+<p>​     SP3.1 审查从属计划   SP3.2 使工作与资源配备协调  SP3.3 获得计划承诺</p>
+<h5 id="2-、项目监督和控制（-PMC-）："><a href="#2-、项目监督和控制（-PMC-）：" class="headerlink" title="2 、项目监督和控制（ PMC ）："></a>2 、项目监督和控制（ PMC ）：</h5><p>   SG1 对照计划监督项目</p>
+<p>​     SP1.1 监督项目策划参数  SP1.2 监督承诺  SP1.3 监督项目风险  SP1.4 监督资料管理  SP1.5 监督共利益者介入情况  SP1.6 进行进展审查   SP1.7 里程碑审查</p>
+<p>   SG2 管理纠正措施，直到结束</p>
+<p>​     SP2.1 分析问题：收集并分析问题，确定处理这些问题所需的纠正措施</p>
+<p>​     SP2.2 采取纠正措施：对所识别的问题采取纠正措施</p>
+<h5 id="3-、集成项目管理（-IPM-）-IPPD"><a href="#3-、集成项目管理（-IPM-）-IPPD" class="headerlink" title="3 、集成项目管理（ IPM ） +IPPD"></a>3 、集成项目管理（ IPM ） +IPPD</h5><p>   SG1 运用项目已定义过程</p>
+<p>​      SP1.1 建立项目已定义过程   SP1.1 运用组织过程财务策划项目活动  SP1.1 建立项目工作环境  综合计划  SP1.1 运用综合计划管理项目  SP1.1 充实组织过程财富</p>
+<p>   SG2 与相关的共利益者协调和合作</p>
+<p>​       SP2.1 管理共利益者介入   SP2.2 管理依存关系   SP2.3 解决协调问题  </p>
+<p>   SG3IPPD 应用（应用 IPPD 原则）</p>
+<p>​      SP3.1 建立项目的共同愿景   SP3.2 建立集成团队架构  SP3.3 分配需求至集成团队  SP3.4 建立集成团队  SP3.5 确保跨团队间的合作</p>
+<h5 id="4-、供方协定管理（-SAM-）"><a href="#4-、供方协定管理（-SAM-）" class="headerlink" title="4 、供方协定管理（ SAM ）"></a>4 、供方协定管理（ SAM ）</h5><p>   SG1 建立供方协定</p>
+<p>​      SP1.1 分析由项目所决定的需求  SP1.2 选择供方  SP1.3 建立供方协定  </p>
+<p>   SG2  满足供方协定</p>
+<p>​      SP2.1 执行供方协定  SP2.2 监督选定的供方过程  SP2.3 评估选定的供方工作产品   SP2.4 接受取得的产品   SP2.5 移交产品</p>
+<h5 id="5-、风险管理（-RSKM-）"><a href="#5-、风险管理（-RSKM-）" class="headerlink" title="5 、风险管理（ RSKM ）"></a>5 、风险管理（ RSKM ）</h5><p>​      SG1 准备风险管理</p>
+<p>​        SP1.1 确定风险来源和类别  SP1.2 定义风险参数  SP1.3 建立风险管理战略</p>
+<p>​      SG2 识别和分析风险</p>
+<p>​        SP2.1 识别风险   SP2.2 对风险进行评价、分类和排列优先顺序</p>
+<p>​      SG3  缓解风险</p>
+<p>​        SP3.1 拟订风险缓解方案  SP3.2 实施风险缓解</p>
+<h5 id="6-、定量项目管理-QPM"><a href="#6-、定量项目管理-QPM" class="headerlink" title="6 、定量项目管理 (QPM)"></a>6 、定量项目管理 (QPM)</h5><p>​      SG1 定量管理项目</p>
+<p>​        SP1.1 建立项目目标  SP1.2 组成已定义过程  SP1.3 选择将予以管理的子过程  SP1.4 管理项目性能</p>
+<p>​      SG2 对子过程进行统计管理</p>
+<p>​        SP2.1 选择度量值和分析技术  SP2.2 运用统计方法，以掌握变化情况  SP2.3 监督所选择的子过程的性能  SP2.4 记录统计管理数据</p>
+<h4 id="二、工程类"><a href="#二、工程类" class="headerlink" title="二、工程类"></a>二、工程类</h4><h5 id="1-、需求管理（-RM-）"><a href="#1-、需求管理（-RM-）" class="headerlink" title="1 、需求管理（ RM ）"></a>1 、需求管理（ RM ）</h5><p>​      SG1 管理需求</p>
+<p>​        SP1.1 理解需求：与需求的提供者对需求的含义达成一致</p>
+<p>​        SP1.2 获得对需求的承诺：获得项目组成员对需求的承诺</p>
+<p>​        SP1.3 管理需求的变更：在项目进行中，管理需求的变更</p>
+<p>​        SP1.4 维护需求的双向可跟踪性：维护需求和工作产品之c间的双向可跟踪性</p>
+<p>​        SP1.5 确定项目工作和需求间的差异：识别项目计划、工作产品和需求之间的不一致</p>
+<h5 id="2-、需求开发（-RD-）"><a href="#2-、需求开发（-RD-）" class="headerlink" title="2 、需求开发（ RD ）"></a>2 、需求开发（ RD ）</h5><p>​      SG1 开发客户需求：收集共同利益者的需求、期望、限制条件和接口，并且把它们转换成客户需求。</p>
+<p>​        SP1.1 获得客户需求：导出产品生存周期所有阶段共利同益者的需求、期望、限制条件和接口。</p>
+<p>​        SP1.2 生成客户需求：把共同利益者的需求、期望、限制条件和接口转换成客户需求。</p>
+<p>​      SG2 开发产品需求：对客户需求加以精炼和细化，以便开发产品生存周期中的产品和产品构件需求。</p>
+<p>​        SP2.1 建立产品需求和构件需求：根据客户需求，为保证产品和产品构件的有效性和可提供性，确定产品和产品构件需求。</p>
+<p>​        SP2.2 分配产品构件需求：为每个产品构件分配需求。</p>
+<p>​        SP2.3 确定接口需求：确定功能之间或对象之间的接口。</p>
+<p>​      SG3 分析和确认需求：对各项需求进行分析和确认，并且开发所要求的功能度的定义。</p>
+<p>​        SP3.1 建立操作概念和场景：建立并维护操作概念和场景。</p>
+<p>​        SP3.2 定义功能需求：建立并维护所要求的功能度的定义。</p>
+<p>​        SP3.3 分析需求：分析派生的需求，确保它们是必要的和充分的。</p>
+<p>​        SP3.4 平衡需求：分析需求，平衡共同利益者的需求和约束。</p>
+<p>​        SP3.5 确认需求：在适当时候，采用多种技术确认需求，以确保将要产生的产品能在预计的用户环境中恰当运行。</p>
+<h5 id="3-、技术解决（-TS-）"><a href="#3-、技术解决（-TS-）" class="headerlink" title="3 、技术解决（ TS ）"></a>3 、技术解决（ TS ）</h5><p>​      SG1 选择产品构建解决方案</p>
+<p>​        SP1.1 开发详细候选解决方案和选择准则  SP1.2 开发操作概念和场景  SP1.3 选择产品构件解决方案</p>
+<p>​      SG2 设计</p>
+<p>​        SP2.1 运用有效的设计方法  SP2.2 建立完备的技术数据包  SP2.3 设计综合性接口  SP2.4 进行制作、购买或复用分析</p>
+<p>​      SG3 实现产品设计</p>
+<p>​        SP3.1 实现设计  SP3.2 编制产品支持文档</p>
+<h5 id="4-、产品集成（-PI-）"><a href="#4-、产品集成（-PI-）" class="headerlink" title="4 、产品集成（ PI ）"></a>4 、产品集成（ PI ）</h5><p>​      SG1 准备产品集成</p>
+<p>​        SP1.1 建立产品集成战略  SP1.2 建立产品集成环境  SP1.3 规定详细的产品集成规程</p>
+<p>​      SG2 确保接口兼容性</p>
+<p>​        SP2.1 审查接口描述的完备性  SP2.2 管理接口</p>
+<p>​      SG3 组装产品构件和交付产品</p>
+<p>​        SP3.1 确认集成用的产品构件已经准备就绪  SP3.2 组装产品构件  SP3.3 核查组装的产品构件  SP3.4 打包和交付产品或产品构件</p>
+<h5 id="5-、验证（-VER-）"><a href="#5-、验证（-VER-）" class="headerlink" title="5 、验证（ VER ）"></a>5 、验证（ VER ）</h5><p>​      SG1 准备验证</p>
+<p>​        SP1.1 选择需要验证的工作产品</p>
+<p>​        SP1.2 建立验证环境</p>
+<p>​        SP1.3 建立验证规程与准则</p>
+<p>​      SG2 执行同级评审</p>
+<p>​        SP2.1 准备同级评审</p>
+<p>​        SP2.2 进行同级审评</p>
+<p>​        SP2.3 分析同级评审数据</p>
+<p>​      SG3 验证选定的工作产品</p>
+<p>​        SP3.1 执行验证</p>
+<p>​        SP3.2 分析验证结果</p>
+<h5 id="6-、确认（-VAL-）"><a href="#6-、确认（-VAL-）" class="headerlink" title="6 、确认（ VAL ）"></a>6 、确认（ VAL ）</h5><p>​      SG1 准备确认</p>
+<p>​        SP1.1 选择需要确认的产品</p>
+<p>​        SP1.2 建立确认环境</p>
+<p>​        SP1.3 建立确认规程与准则</p>
+<p>​      SG2 确认产品或产品组件</p>
+<p>​        SP2.1 执行确认</p>
+<p>​        SP2.2 分析确认结果</p>
+<h4 id="三、组织过程类："><a href="#三、组织过程类：" class="headerlink" title="三、组织过程类："></a>三、组织过程类：</h4><h5 id="1-、组织过程定义（-OPD-）"><a href="#1-、组织过程定义（-OPD-）" class="headerlink" title="1 、组织过程定义（ OPD ）"></a>1 、组织过程定义（ OPD ）</h5><p>​    SG1 建立组织过程资产</p>
+<p>​        SP1.1 建立标准过程  SP1.2 建立生命周期模型描述  SP1.3 建立裁剪准则及指南  SP1.4 建立组织度量库  SP1.5 建立组织过程资产库  SP1.6 建立工作环境标准</p>
+<p>​    SG2 促成 IPPD 管理</p>
+<p>​        SP2.1 建立授权机制   SP2.2 建立集成团队规则与指南  SP2.3 平衡团队与原隶属组织的责任</p>
+<h5 id="2-、组织过程聚焦（-OPF-）"><a href="#2-、组织过程聚焦（-OPF-）" class="headerlink" title="2 、组织过程聚焦（ OPF ）"></a>2 、组织过程聚焦（ OPF ）</h5><p>​    SG1 确定过程改进机会</p>
+<p>​         SP1.1 确定组织的过程需求  SP1.2 评估组织的过程  SP1.3 识别组织的过程改进项目</p>
+<p>​    SG2 策划和实施过程改进活动</p>
+<p>​         SP2.1 制定过程行动计划  SP2.2 实施过程行动计划  SP2.3 部署过程和相关的过程财富  SP2.4 把过程相关的经验纳入本组织的过程财富</p>
+<h5 id="3-、组织培训（-OT-）"><a href="#3-、组织培训（-OT-）" class="headerlink" title="3 、组织培训（ OT ）"></a>3 、组织培训（ OT ）</h5><p>​    SG1 确定培训需求并且使培训现成可用</p>
+<p>​       SP1.1 确定战略培训需求  SP1.2 确定有哪些培训需求由组织负责满足 SP1.3 建立组织培训战术计划  SP1.4 建立培训能力  </p>
+<p>​    SG2 提供必要的培训</p>
+<p>​        SP2.1 交付培训  SP2.2 建立培训记录  SP2.3 评价培训效果</p>
+<h5 id="4-、组织过程性能（-OPP-）"><a href="#4-、组织过程性能（-OPP-）" class="headerlink" title="4 、组织过程性能（ OPP ）"></a>4 、组织过程性能（ OPP ）</h5><p>​    SG1 建立性能基线和模型</p>
+<p>​       SP1.1 选择过程  SP1.2 建立过程性能度量值  SP1.3 建立质量和过程性能目标  SP1.4 建立过程性能基线  SP1.5 建立过程性能模型</p>
+<h5 id="5-、组织革新与部署（-OID-）"><a href="#5-、组织革新与部署（-OID-）" class="headerlink" title="5 、组织革新与部署（ OID ）"></a>5 、组织革新与部署（ OID ）</h5><p>​    SG1 选择改进项目</p>
+<p>​       SP1.1 收集和分析改进建议  SP1.2  识别革新  SP1.3 试行改进 SP1.4 选择改进建议，用于部署</p>
+<p>​    SG2 部署改进</p>
+<p>​       SP2.1 策划部署  SP2.2 管理部署  SP2.3 度量改进效果</p>
+<h4 id="四、支持类"><a href="#四、支持类" class="headerlink" title="四、支持类"></a>四、支持类</h4><h5 id="1-、过程和产品质量保证（-PPQA-）"><a href="#1-、过程和产品质量保证（-PPQA-）" class="headerlink" title="1 、过程和产品质量保证（ PPQA ）"></a>1 、过程和产品质量保证（ PPQA ）</h5><p>​    SG1 客观评价过程和工作产品</p>
+<p>​      SP1.1 客观评价过程  SP1.2 客观评价工作产品和服务</p>
+<p>​    SG2 客观提供情况</p>
+<p>​      SP2.1 通报不符合问题，并且确保解决它们  SP2.2 建立记录</p>
+<h5 id="2-、配置管理（-CM-）"><a href="#2-、配置管理（-CM-）" class="headerlink" title="2 、配置管理（ CM ）"></a>2 、配置管理（ CM ）</h5><p>​    SG1 建立基线</p>
+<p>​      SP1.1 识别配置项  SP1.2 建立配置管理系统  SP1.3 建立或放行基线</p>
+<p>​    SG2 跟踪并控制变更</p>
+<p>​      SP2.1 跟踪变更  SP2.2 控制变更</p>
+<p>​    SG3 建立完整性</p>
+<p>​      SP3.1 建立配置管理记录  SP3.2 进行配置审计</p>
+<h5 id="3-、测量和分析（-MA-）"><a href="#3-、测量和分析（-MA-）" class="headerlink" title="3 、测量和分析（ MA ）"></a>3 、测量和分析（ MA ）</h5><p>​    SG1 协调测量和分析活动</p>
+<p>​      SP1.1 建立测量目标  SP1.2 详细说明度量值  SP1.3 说明数据收集和存储规程  SP1.4 规定分析规程</p>
+<p>​    SG2 提供度量结果</p>
+<p>​      SP2.1 收集度量数据  SP2.2 分析度量数据  SP2.3 存储数据和结果  SP2.4 通报分析结果</p>
+<h5 id="4-、决策分析和决定（-DAR-）"><a href="#4-、决策分析和决定（-DAR-）" class="headerlink" title="4 、决策分析和决定（ DAR ）"></a>4 、决策分析和决定（ DAR ）</h5><p>​     SG1 评价候选方案</p>
+<p>​       SP1.1 拟订并运用决策分析的指导原则  SP1.2 选择评价技术  SP1.3 拟订评价准则  SP1.4 确定推荐的侯选方案  SP1.5 评价候选方案  SP1.6 选择解决方案  </p>
+<h5 id="5-、原因分析和决定（-CAR-）"><a href="#5-、原因分析和决定（-CAR-）" class="headerlink" title="5 、原因分析和决定（ CAR ）"></a>5 、原因分析和决定（ CAR ）</h5><p>​     SG1 确定缺陷的原因</p>
+<p>​       SP1.1 选择缺陷数据，用于分析、选择缺陷和其他问题，以供分析使用  SP1.2 分析原因</p>
+<p>​    SG2  处理缺陷原因</p>
+<p>​       SP2.1 实施措施建议  SP2.2 评价变更的效果  SP2.3 记录数据</p>
+</div></div><a class="button-hover more" href="/bq/62fbab7e.html#more">阅读全文</a></div></div><div id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/">&lt;i class&#x3D;&quot;fas fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/6/">&lt;i class&#x3D;&quot;fas fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a></div></div></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_site_uv"><i class="fas fa-user"></i></span><span id="busuanzi_value_site_uv"></span><span></span><span class="footer-separator">|</span><span id="busuanzi_container_site_pv"><i class="fas fa-eye"></i></span><span id="busuanzi_value_site_pv"></span><span></span></div><div class="copyright">&copy;2020 ～ 2021 By bq</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>

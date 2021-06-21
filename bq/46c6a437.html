@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="cmmi度量相关"><meta name="keywords" content="cmmi"><meta name="author" content="bq,undefined"><meta name="copyright" content="bq"><title>cmmi度量相关【bq's notes】</title><link rel="stylesheet" href="/css/fan.css"><link rel="stylesheet" href="/css/thirdparty/jquery.mCustomScrollbar.min.css"><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch-theme-algolia.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script><!-- link(rel="dns-prefetch" href="https://cdn.jsdelivr.net")--><!-- link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css")--><!-- script(src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer)--><!-- script(src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")--><script src="/js/mathjax/mathjax.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+});
+</script><script>var isPassword = '' || false;
+if (isPassword) {
+    if (prompt('请输入文章密码') !== '') {
+        alert('密码错误！');
+        history.back();
+    }
+}</script><script>window.GLOBAL_CONFIG = {
+  root: '/',
+  algolia: {"appId":"8ICB0LL54F","apiKey":"b6e01221a0e1bdb34d69e088b9bd39d8","indexName":"blog","hits":{"per_page":10},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  gitment: {},
+  valine: {"appId":"8xUuEcUoXahLwm69LVK1eumF-gzGzoHsz","appKey":"NDF5dcJsxuEHHBOLlda7Y07b"},
+}</script><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="bq's notes" type="application/atom+xml">
+</head><body><canvas id="universe"></canvas><!--#body--><div id="sidebar"><div class="toggle-sidebar-info button-hover"><span data-toggle="文章目录">站点概览</span></div><div class="sidebar-toc"><div class="sidebar-toc-title">目录</div><div class="sidebar-toc-progress"><span class="progress-notice">您已阅读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc-progress-bar"></div></div><div class="sidebar-toc-content" id="sidebar-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%A6%E9%87%8F%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">度量分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SP1-1-%E5%BB%BA%E7%AB%8B%E5%92%8C%E7%BB%B4%E6%8A%A4%E5%BA%A6%E9%87%8F%E7%9B%AE%E6%A0%87%EF%BC%8C%E8%BF%99%E4%BA%9B%E5%BA%A6%E9%87%8F%E7%9B%AE%E6%A0%87%E6%98%AF%E6%BA%90%E8%87%AA%E7%89%B9%E5%AE%9A%E7%9A%84%E9%9C%80%E8%A6%81%E7%9A%84"><span class="toc-number">1.1.</span> <span class="toc-text">SP1.1: 建立和维护度量目标，这些度量目标是源自特定的需要的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP1-2-%E5%88%B6%E5%AE%9A%E5%BA%A6%E9%87%8F%E5%8A%9E%E6%B3%95%E6%BB%A1%E8%B6%B3%E5%BA%A6%E9%87%8F%E7%9B%AE%E6%A0%87%E7%9A%84%E8%A6%81%E6%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">SP1.2: 制定度量办法满足度量目标的要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP1-3-%E5%88%B6%E5%AE%9A%E5%BA%A6%E9%87%8F%E6%95%B0%E6%8D%AE%E7%9A%84%E6%94%B6%E9%9B%86%E5%8F%8A%E5%AD%98%E5%82%A8%E5%8A%9E%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">SP1.3: 制定度量数据的收集及存储办法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SP1-4-%E5%88%B6%E5%AE%9A%E5%BA%A6%E9%87%8F%E6%95%B0%E6%8D%AE%E7%9A%84%E5%88%86%E6%9E%90%E5%92%8C%E6%8A%A5%E5%91%8A%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.</span> <span class="toc-text">SP1.4: 制定度量数据的分析和报告方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8F%E5%8C%96%E7%AE%A1%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text">量化管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CMMI%E7%BA%A7%E5%88%AB%E4%B8%AD%E5%92%8CBUG%E7%8E%87%E7%9B%B8%E5%85%B3%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">1.6.</span> <span class="toc-text">CMMI级别中和BUG率相关的信息</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%80%83%E6%A0%B8%E5%8D%83%E8%A1%8C%E4%BB%A3%E7%A0%81Bug%E7%8E%87%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.1.</span> <span class="toc-text">考核千行代码Bug率的问题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E8%BF%9B%E5%BA%A6%E6%96%B9%E9%9D%A2"><span class="toc-number">1.7.</span> <span class="toc-text">1.进度方面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%B7%A5%E4%BD%9C%E9%87%8F"><span class="toc-number">1.8.</span> <span class="toc-text">2.工作量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%88%90%E6%9C%AC"><span class="toc-number">1.9.</span> <span class="toc-text">3.成本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E8%AF%81"><span class="toc-number">1.10.</span> <span class="toc-text">4.软件质量保证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Review%E7%9A%84%E7%BB%93%E6%9E%9C"><span class="toc-number">1.11.</span> <span class="toc-text">5.Review的结果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E9%97%AE%E9%A2%98%E6%8A%A5%E5%91%8A"><span class="toc-number">1.12.</span> <span class="toc-text">6.问题报告</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%90%8C%E8%A1%8C%E8%AF%84%E5%AE%A1%E5%92%8C%E7%BC%BA%E9%99%B7"><span class="toc-number">1.13.</span> <span class="toc-text">7.同行评审和缺陷</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E9%9C%80%E6%B1%82%E7%9A%84%E5%BA%A6%E9%87%8F"><span class="toc-number">1.14.</span> <span class="toc-text">8.需求的度量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E5%9F%B9%E8%AE%AD"><span class="toc-number">1.15.</span> <span class="toc-text">9.培训</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B"><span class="toc-number">1.16.</span> <span class="toc-text">10.测试过程</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info-avatar"><img class="author-info-avatar-img" src="/avatar.png"></div><div class="author-info-name">bq</div><div class="author-info-description"></div><div class="links-buttons"><a class="links-button button-hover" href="https://github.com/guobq" target="_blank">GitHub<i class="icon-dot bg-color2"></i></a><a class="links-button button-hover" href="mailto:2278220079@qq.com" target="_blank">E-Mail<i class="icon-dot bg-color6"></i></a><a class="links-button button-hover" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2278220079&amp;site=qq&amp;menu=yes" target="_blank">QQ<i class="icon-dot bg-color9"></i></a></div><div class="author-info-articles"><a class="author-info-articles-archives article-meta" href="/archives"><span class="pull-top">日志</span><span class="pull-bottom">73</span></a><a class="author-info-articles-tags article-meta" href="/tags"><span class="pull-top">标签</span><span class="pull-bottom">73</span></a><a class="author-info-articles-categories article-meta" href="/categories"><span class="pull-top">分类</span><span class="pull-bottom">25</span></a></div></div></div><div id="main-container"><header><div id="menu-outer"><i class="menu-list-icon fas fa-bars"></i><nav id="menu-inner"><a class="menu-item" href="/">首页</a><a class="menu-item" href="/tags">标签</a><a class="menu-item" href="/categories">分类</a><a class="menu-item" href="/archives">归档</a><a class="menu-item" href="/about">关于</a></nav><div class="right-info"><a class="search social-icon"><i class="fas fa-search"></i><span> 搜索</span></a><a class="title-name" href="/">bq's notes</a><span id="now-time"></span></div></div></header><div id="content-outer"><div id="content-inner"><article id="post"><div class="post-header"><div class="title">cmmi度量相关</div><div class="container"><time class="button-hover post-date"><i class="fas fa-calendar-alt article-icon" aria-hidden="true"></i> 发表于 2019-03-18 | 更新于 2021-04-11</time><!--time.button-hover.post-date #[i.fas.fa-calendar-alt.article-icon(aria-hidden="true")] #[=__('post.modified')] #[=date(page['updated'], config.date_format)]--><div class="button-hover categories"><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/">体系</a><i class="fa fa-angle-right" style="margin: 0 8px;"></i><i class="fa fa-inbox article-icon" aria-hidden="true"></i><a class="link-a" href="/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/">过程质量</a></div><div class="button-hover tags"><i class="fa fa-tag article-icon" aria-hidden="true"></i><a class="link-a" href="/tags/cmmi/">cmmi</a></div></div></div><div class="main-content"><h3 id="度量分析"><a href="#度量分析" class="headerlink" title="度量分析"></a>度量分析</h3><p>问题：<br>1.度量的目的是什么？<br>2.谁来做这个度量？<br>3.什么时候做这个度量？<br>4.如何做这个度量？<br>5.怎样记录度量的数据？记录到哪里？<br>6.谁会使用这些数据？<br>7.如何分析这些数据？<br>8.谁来分析这些数据？<br>9.分析的结果如何使用？</p>
+<p>SG1: Measurement objectives and activities are aligned with identified information needs and objectives. 这个SG主要讲述的是，组织级要明确实际的需要，定出度量的目标，并根据此目标，定义合适的度量方法、过程等。</p>
+<h4 id="SP1-1-建立和维护度量目标，这些度量目标是源自特定的需要的"><a href="#SP1-1-建立和维护度量目标，这些度量目标是源自特定的需要的" class="headerlink" title="SP1.1: 建立和维护度量目标，这些度量目标是源自特定的需要的"></a>SP1.1: 建立和维护度量目标，这些度量目标是源自特定的需要的</h4><p>Establish and maintain measurement objectives that are derived from indentified information needs and objectives.</p>
+<p>如：质量、进度、成本是项目管理的三大要素，为了更好地管理这三个方面，可能需要分别对这些方面采取度量手段。也就是说，采取任何度量手段之前，要考虑清楚为什么要进行这个度量。</p>
+<h4 id="SP1-2-制定度量办法满足度量目标的要求"><a href="#SP1-2-制定度量办法满足度量目标的要求" class="headerlink" title="SP1.2: 制定度量办法满足度量目标的要求"></a>SP1.2: 制定度量办法满足度量目标的要求</h4><p>Specify measures to address the measurement objectives.<br>明确了为什么要进行度量后，要把度量目标转化成可以实际操作的具体的度量办法。如：度量的目的是，要保证软件的质量，为了实现这么目标，定义出对缺陷进行度量、对评审发现的问题进行度量等度量办法。</p>
+<h4 id="SP1-3-制定度量数据的收集及存储办法"><a href="#SP1-3-制定度量数据的收集及存储办法" class="headerlink" title="SP1.3: 制定度量数据的收集及存储办法"></a>SP1.3: 制定度量数据的收集及存储办法</h4><p>Specify how measurement data will be obtained and stored.</p>
+<h4 id="SP1-4-制定度量数据的分析和报告方法"><a href="#SP1-4-制定度量数据的分析和报告方法" class="headerlink" title="SP1.4: 制定度量数据的分析和报告方法"></a>SP1.4: 制定度量数据的分析和报告方法</h4><p>Specify how measurement data will be analyed and reported.</p>
+<p>SG2: Mesurement results the adreess identified information needs and objectives are provided. 这个SG主要讲述的是：根据组织级定义的要求，进行度量工作，收集、分析、存储、报告度量信息等。</p>
+<p>SP2.1: Obtain specified measurement data.<br>收集指定的度量数据。<br>要根据SP1.3指定的收集办法来收集度量数据。</p>
+<p>SP2.2: Analyze and interpret measurement data.<br>分析和说明度量数据。<br>根据SP1.4指定的办法，对度量数据进行分析，并说明这些数据的意义。</p>
+<p>SP2.3: Manage and store measurement data,measurement specifications,and analysis results.<br>管理和存储度量数据、度量规范及度量结果。<br>根据SP1.3指定的存储办法，对度量数据及相关文档进行存储和管理。</p>
+<p>SP2.4: Report results of measurement and analysis activities to all relevant stakeholders.<br>向相关人员报告度量结果及分析度量活动情况。<br>度量的数据、情况，需要让该知道的人知道。</p>
+<p>SG1主要从组织级的角度定义度量的做法，SG2就是按照已定义的做法，在实际工作中开展度量的工作。</p>
+<h4 id="量化管理"><a href="#量化管理" class="headerlink" title="量化管理"></a>量化管理</h4><ol>
+<li><p>初级量化管理-感知级，以数据“感知”项目的状况，相当于CMMI2级。</p>
+</li>
+<li><p>中级量化管理-经验级，通过经验值来管理项目，相当于CMMI3级。</p>
+</li>
+<li><p>高级量化管理-可预测级，用PCB进行项目管理，相当于CMMI4级。</p>
+</li>
+<li><p>超级量化管理-持续优化级，持续优化的量化管理，相当于CMMI5级。</p>
+</li>
+</ol>
+<p>“感知级”通过软件度量，大概了解项目的状况，并作为工作调整的依据。</p>
+<p>“经验级”通过软件度量，对比项目的历史经验数据，把握项目的状况，并进行相应的工作调整。同时，项目的历史经验数据，可供估算等工作进行参考。</p>
+<p>“可预测级”，把“经验级”推向一个更高的高度，对影响问题的因素进行详细的分析，排除和削弱影响项目性能的各种因素，对历史经验数据进行合理分组，统计出性能基线，并用于项目管理。用基线来管理的过程都是稳定的过程，这些过程从统计角度来说都可以准确地预测出将来的结果。</p>
+<p>“持续优化级”是“数据管理过程”的最高级别，达到这个级别意味着企业能根据商业目标持续的优化SPC管理，使企业形成别的企业难以模仿并难以超越的核心竞争力。</p>
+<blockquote>
+<p>如果你无法度量它，就无法管理它</p>
+</blockquote>
+<h4 id="CMMI级别中和BUG率相关的信息"><a href="#CMMI级别中和BUG率相关的信息" class="headerlink" title="CMMI级别中和BUG率相关的信息"></a>CMMI级别中和BUG率相关的信息</h4><table>
+<thead>
+<tr>
+<th>CMMI级别</th>
+<th>BUG率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CMM1级</td>
+<td>11.95‰</td>
+</tr>
+<tr>
+<td>CMM2级</td>
+<td>5.52‰</td>
+</tr>
+<tr>
+<td>CMM3级</td>
+<td>2.39‰</td>
+</tr>
+<tr>
+<td>CMM4级</td>
+<td>0.92‰</td>
+</tr>
+<tr>
+<td>CMM5级</td>
+<td>0.32‰</td>
+</tr>
+</tbody></table>
+<h5 id="考核千行代码Bug率的问题"><a href="#考核千行代码Bug率的问题" class="headerlink" title="考核千行代码Bug率的问题"></a>考核千行代码Bug率的问题</h5><p>从考核标准上来说，Bug率数值越小就说明越好，基于这个结果，会引导团队成员做出一些对长远和整体效率无益的行为，例如：</p>
+<ol>
+<li><p>增大基数，增加无意义代码</p>
+</li>
+<li><p>把定长循环分开写，写成顺序方法</p>
+</li>
+<li><p>把可配置信息写死到代码中</p>
+</li>
+<li><p>大量的复制、粘贴代码</p>
+</li>
+<li><p>重新发明各种轮子</p>
+</li>
+</ol>
+<p>统计“千行代码Bug率”和“每日生产代码行数”一样，都是没经过大脑思考，而直接打算把优秀员工踢出团队的懒人式管理方式。特别是对从事智力型工作工程师来说，是很不合适的考量指标。</p>
+<blockquote>
+<p>优秀的程序员是通过减少代码行数来增加功能的。</p>
+</blockquote>
+<p>千行代码Bug率，虽然没有明确鼓励增加代码行数，但是这个计算结果对于优秀的员工来说是相当的不公平。它隐含的推广了“尽量增大代码行数”这个意思。</p>
+<p>其次，从考核阶段看，Bug率的数据主要产出在研发阶段的后期，及提交测试后产出bug数。从项目的研发阶段和效率价值金字塔来看，其对项目的整体质量方面更多的聚焦在微观层面问题，整体的质量的影响范围会较小。而前面几个阶段的缺陷，会影响整个项目的进度，甚至导致项目失败，管理者和团队更应该将风险控制和度量指标向前移。</p>
+<blockquote>
+<p>研发阶段和效率价值金字塔</p>
+<p>需求调研和评审&gt;技术方案设计和评审&gt;研发&gt;测试</p>
+</blockquote>
+<p><strong>如何更合理的度量质量</strong></p>
+<p>如果考核千行代码Bug率不能很好的解决质量核心问题，那我们还有那些方法和方案来提高项目的整体质量呢？</p>
+<p>个人觉得，我们还是从项目的研发阶段和效率价值金字塔出发，重整体上去把控质量，上下游一体，从源头开始：</p>
+<ol>
+<li><p>需求的评审</p>
+</li>
+<li><p>架构设计方案评审</p>
+</li>
+<li><p>代码模块设计，包的依赖的规划，接口的设计的review</p>
+</li>
+<li><p>代码的review的机制</p>
+</li>
+<li><p>测试用例评审</p>
+</li>
+<li><p>使用代码检测工具，自动发现问题</p>
+</li>
+</ol>
+<p>过程评审是最有效也是成本最低的质量和效率保证和提升的手段。另外，过程评审还是迅速提高新人能力及其成果物的规范性的一个有效手段。</p>
+<p>但是过程评审，也存在一些问题：</p>
+<ol>
+<li><p>前期过度依赖于团队的人员素质</p>
+</li>
+<li><p>规则的定义也比较难，产出不好量化</p>
+</li>
+<li><p>评审耗时多</p>
+</li>
+<li><p>团队的意识不一致</p>
+</li>
+</ol>
+<blockquote>
+<p>过程评审的实施核心在用统一团队意识</p>
+</blockquote>
+<p>团队意识不一致时，效果一定不好。 意识不一致，在资源的投入上就会缩手缩脚；只有把过程评审做到位，才能体会到评审活动的高效，避免那种走马观花式的“评审”，是浪费时间，不是真正的评审。过程中辅以严密的变更管理和风险控制手段，系统质量出大问题可行性会很小或者近乎为零。</p>
+<blockquote>
+<p>系统质量是要靠上游工程做出来的</p>
+</blockquote>
+<p>上游的工作质量会更为重要，上游的问题的影响范围将更广，对效率和价值的影响更大，应该是我们重点关注的地方。仅仅依赖下游工程(种种测试)来把质量关，是十分低效，而且代价是非常昂贵的。</p>
+<p><strong>总结</strong></p>
+<p>有效的管理很难绕开度量问题。在选择度量指标上，大部分管理者总是倾向于关注容易度量的指标，而忽略难以度量的指标。但是容易度量的指标不一定是重要的，难以度量的反而可能是重要的。</p>
+<p>定性、定量的区别比较，定性是用文字说话，定量是用数字说话，两者侧重点不同，但各有各的好处。虽然已经量化了，但数据有时也可以骗人，量化是一种方法和手段，但并不是最终的目的。</p>
+<blockquote>
+<p>代码行数&lt;&gt;价值。</p>
+</blockquote>
+<p>考核不合理导致出现大量的复制，不合理的设计，大量的冗余，不但难以理解和维护，甚至没有实际运行起来。这样就造成大量的时间浪费，同时也造成质量的严重腐化。</p>
+<p>而基于全过程的评审机制和持续改进方法，可以很好的改善质量。但持续改进需要一个过程，需全团队从认知达成一致，并共享问题，统一步调和规范，持续的执行和改进。</p>
+<blockquote>
+<p>千行代码Bug率比较适用工程师自身自我评估和改进</p>
+</blockquote>
+<h4 id="1-进度方面"><a href="#1-进度方面" class="headerlink" title="1.进度方面"></a>1.进度方面</h4><p>实际进度的计划进度的偏差情况，Gantt图和Pert图。<br>返工时间占项目总时间的比例情况<br>项目能够容忍的最大的处理变更的时间<br>三级强调了偏差的范围，四级强调严格的上下限控制(控制图)</p>
+<h4 id="2-工作量"><a href="#2-工作量" class="headerlink" title="2.工作量"></a>2.工作量</h4><p>实际工作量和计划工作量的偏差<br>三级增加对好质量成本和坏质量成本相关工作量的度量(COGQ,COPQ)<br>对项目返工，评审，测试和处理变更工作量的分别度量</p>
+<h4 id="3-成本"><a href="#3-成本" class="headerlink" title="3.成本"></a>3.成本</h4><p>计划成本和实际成本的偏差<br>三级强调了成本和进度的性能指示器(挣值分析)<br>三级强调了偏差的范围，四级强调严格的上下限控制(控制图)<br>五级强调了会提供可选择的过程改进和缺陷预防策略供选择，而这个是在对项目的成本和效益做了比较和平衡后得出的。</p>
+<h4 id="4-软件质量保证"><a href="#4-软件质量保证" class="headerlink" title="4.软件质量保证"></a>4.软件质量保证</h4><p>不合格项的信息<br>SQA具体的审核信息</p>
+<h4 id="5-Review的结果"><a href="#5-Review的结果" class="headerlink" title="5.Review的结果"></a>5.Review的结果</h4><p>Review的活动项的状态</p>
+<h4 id="6-问题报告"><a href="#6-问题报告" class="headerlink" title="6.问题报告"></a>6.问题报告</h4><p>问题项的具体状态(打开,处理,关闭)<br>问题的原因的分析，对问题的分类的统计<br>问题的平均处理周期度量</p>
+<h4 id="7-同行评审和缺陷"><a href="#7-同行评审和缺陷" class="headerlink" title="7.同行评审和缺陷"></a>7.同行评审和缺陷</h4><p>同行评审的缺陷的打开和关闭的情况统计<br>缺陷密度<br>缺陷移除率和缺陷泄漏率<br>同行评审的效率，评审速率的度量<br>同行评审的覆盖率<br>四级强调对缺陷分类后的帕累托分析<br>四级强调对同行评审的关键特征项的控制图分析</p>
+<h4 id="8-需求的度量"><a href="#8-需求的度量" class="headerlink" title="8.需求的度量"></a>8.需求的度量</h4><p>需求的规模的情况<br>需求的稳定度或需求的变更率<br>需求变更的不同类型的分布情况<br>需求变更处理的效率和周期度量</p>
+<h4 id="9-培训"><a href="#9-培训" class="headerlink" title="9.培训"></a>9.培训</h4><p>实际安排课程和计划课程的对比<br>实际参与人员和计划参与人员的对比<br>对培训的成本和花费的度量<br>对培训取得的效果的度量</p>
+<h4 id="10-测试过程"><a href="#10-测试过程" class="headerlink" title="10.测试过程"></a>10.测试过程</h4><p>测试的生产率的度量<br>测试规模的度量<br>对测试BUG的分类后的帕累托分析<br>生命周期不同阶段发现缺陷的数量分布，泄漏情况<br>测试BUG的密度</p>
+<p>基础度量：</p>
+<p><em>•</em> 工作产品规模大小的估计及实际度量*(<em>例如：页数</em>)*</p>
+<p><em>•</em> 人力与成本的估计及实际度量*(<em>例如：人时</em>)*</p>
+<p><em>•</em> 质量度量*(<em>例如：缺陷数、依严重程度区分的缺陷数</em>)*</p>
+<p>衍生度量：</p>
+<p><em>•</em>  挣值*(Earned Value)*</p>
+<p><em>•</em>  进度绩效指标*(SPI)*</p>
+<p><em>•</em>   缺陷密度</p>
+<p><em>•</em>   同行评审涵盖度</p>
+<p><em>•</em>   测试或验证涵盖度</p>
+<p><em>•</em>  可靠度度量*(<em>例如</em>:<em>平均失败时间</em>)*</p>
+<p><em>•</em>  质量度量*(<em>例如：依严重程度区分的缺陷数</em>/<em>总缺陷数</em>)*</p>
+</div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-meta">本文作者: </span><span class="post-copyright-info"><a href="mailto:undefined">bq</a></span></div><div class="post-copyright-type"><span class="post-copyright-meta">本文链接: </span><span class="post-copyright-info"><a href="https://guobq.github.io/bq/46c6a437.html">https://guobq.github.io/bq/46c6a437.html</a></span></div><div class="post-copyright-notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://guobq.github.io">bq's notes</a>！</span></div></div><div class="post-copyright valine" id="comments-container"><script src="//unpkg.com/valine@1.4.14/dist/Valine.min.js"></script><script>let arr = location.href.split('/#more')[0].split('/');
+let title = arr[arr.length - 1];
+if (title === '') {
+    title = arr[arr.length - 2];
+}
+var flag = false;
+var gitFun = function () {
+    try {
+        var valineObj = window.GLOBAL_CONFIG.valine;
+        new Valine({
+            el: "#comments-container",
+            ...valineObj
+        });
+        flag = true;
+    } catch (e) {
+        flag = false;
+    }
+}
+var setIn = setInterval(() => {
+    if (!flag) {
+        gitFun();
+    } else {
+        clearInterval(setIn);
+    }
+}, 200);</script></div></article><div id="pagination"><div class="prev-post pull-left"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/3c134efc.html"><i class="fas fa-angle-left">&nbsp;</i><span>cmmi度量指标</span></a></div><div class="next-post pull-right"><span class="line line-top"></span><span class="line line-right"></span><span class="line line-bottom"></span><span class="line line-left"></span><a href="/bq/e645a441.html"><span>cmmi测试相关</span><span>&nbsp;</span><i class="fas fa-angle-right"></i></a></div></div><!--div!= paginator()--></div></div><div class="button-hover" id="return-top"><i class="fas fa-arrow-up" aria-hidden="true"></i></div><footer><div id="footer"><div class="button-hover" id="side-button"><i class="fas fa-arrow-right"></i></div><div class="right-content"><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fas fa-file-o"></i></span><span id="busuanzi_value_page_pv"></span><span></span></div><div class="copyright">&copy;2020 ～ 2021 By bq</div></div></div></footer></div><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery-3.3.1.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/velocity.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/thirdparty/jquery.mCustomScrollbar.concat.min.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/fan.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/canvas_bg.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/utils.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/scroll.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/sidebar.js"></script><!--script(src=url)--><!--js(src=url_for(url) + '?version=' + version())--><script src="/js/copy.js"></script><!--script(src=url)--><div class="search-dialog"><div id="algolia-search-title">Algolia</div><div class="search-close-button"><i class="fa fa-times"></i></div><!--div#current-refined-values--><!--div#clear-all--><div id="search-box"></div><!--div#refinement-list--><hr><div id="hits"></div><div id="algolia-pagination"></div></div><div class="search-mask"></div><script src="/js/search/algolia.js"></script></body></html>
