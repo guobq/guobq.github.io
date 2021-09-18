@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://guobq.github.io/bq/cfdea56c.html</loc>
+    
+    <lastmod>2021-09-18</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://guobq.github.io/bq/5b6c7637.html</loc>
     
     <lastmod>2021-09-18</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://guobq.github.io/bq/f34d8231.html</loc>
     
     <lastmod>2021-08-10</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://guobq.github.io/bq/cfdea56c.html</loc>
-    
-    <lastmod>2021-08-06</lastmod>
     
   </url>
   
@@ -648,13 +648,6 @@
   </url>
   
   <url>
-    <loc>https://guobq.github.io/tags/Spring-Boot/</loc>
-    <lastmod>2021-09-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://guobq.github.io/tags/python/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
@@ -663,6 +656,13 @@
   
   <url>
     <loc>https://guobq.github.io/tags/Unittest/</loc>
+    <lastmod>2021-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://guobq.github.io/tags/Spring-Boot/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -697,6 +697,13 @@
   </url>
   
   <url>
+    <loc>https://guobq.github.io/tags/cmmi/</loc>
+    <lastmod>2021-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://guobq.github.io/tags/webdriver/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
@@ -711,28 +718,7 @@
   </url>
   
   <url>
-    <loc>https://guobq.github.io/tags/cmmi/</loc>
-    <lastmod>2021-09-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://guobq.github.io/tags/corn/</loc>
-    <lastmod>2021-09-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://guobq.github.io/tags/%E5%8F%82%E6%95%B0%E5%8C%96/</loc>
-    <lastmod>2021-09-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://guobq.github.io/tags/NFS/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -753,7 +739,14 @@
   </url>
   
   <url>
-    <loc>https://guobq.github.io/tags/jmeter/</loc>
+    <loc>https://guobq.github.io/tags/NFS/</loc>
+    <lastmod>2021-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://guobq.github.io/tags/%E5%8F%82%E6%95%B0%E5%8C%96/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -768,6 +761,13 @@
   
   <url>
     <loc>https://guobq.github.io/tags/Grafana/</loc>
+    <lastmod>2021-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://guobq.github.io/tags/jmeter/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -816,13 +816,6 @@
   </url>
   
   <url>
-    <loc>https://guobq.github.io/tags/postman/</loc>
-    <lastmod>2021-09-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://guobq.github.io/tags/nginx/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
@@ -837,7 +830,7 @@
   </url>
   
   <url>
-    <loc>https://guobq.github.io/tags/airtest/</loc>
+    <loc>https://guobq.github.io/tags/postman/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -851,7 +844,21 @@
   </url>
   
   <url>
+    <loc>https://guobq.github.io/tags/airtest/</loc>
+    <lastmod>2021-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://guobq.github.io/tags/selenium/</loc>
+    <lastmod>2021-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://guobq.github.io/tags/redis/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -866,13 +873,6 @@
   
   <url>
     <loc>https://guobq.github.io/tags/requests/</loc>
-    <lastmod>2021-09-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://guobq.github.io/tags/redis/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -935,13 +935,6 @@
   </url>
   
   <url>
-    <loc>https://guobq.github.io/tags/tar/</loc>
-    <lastmod>2021-09-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://guobq.github.io/tags/xpath/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
@@ -956,7 +949,7 @@
   </url>
   
   <url>
-    <loc>https://guobq.github.io/tags/tool/</loc>
+    <loc>https://guobq.github.io/tags/tar/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -964,6 +957,13 @@
   
   <url>
     <loc>https://guobq.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2021-09-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://guobq.github.io/tags/tool/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1019,14 +1019,14 @@
   </url>
   
   <url>
-    <loc>https://guobq.github.io/tags/httprunner/</loc>
+    <loc>https://guobq.github.io/tags/git/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://guobq.github.io/tags/git/</loc>
+    <loc>https://guobq.github.io/tags/httprunner/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1182,14 +1182,14 @@
   </url>
   
   <url>
-    <loc>https://guobq.github.io/categories/%E9%80%9A%E7%94%A8/%E8%B5%84%E6%BA%90/</loc>
+    <loc>https://guobq.github.io/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://guobq.github.io/categories/%E4%BD%93%E7%B3%BB/%E8%BF%87%E7%A8%8B%E8%B4%A8%E9%87%8F/</loc>
+    <loc>https://guobq.github.io/categories/%E9%80%9A%E7%94%A8/%E8%B5%84%E6%BA%90/</loc>
     <lastmod>2021-09-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
