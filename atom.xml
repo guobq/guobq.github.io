@@ -474,6 +474,32 @@
   </entry>
   
   <entry>
+    <title>idea设置</title>
+    <link href="https://guobq.github.io/bq/7e386764.html"/>
+    <id>https://guobq.github.io/bq/7e386764.html</id>
+    <published>2020-09-07T16:00:00.000Z</published>
+    <updated>2021-09-18T16:55:01.337Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="注释中文乱码"><a href="#注释中文乱码" class="headerlink" title="注释中文乱码"></a>注释中文乱码</h3><p>已设置全局编码格式UTF-8，项目编码格式UTF-8，中文不能正常显示<br>如config.properties，里面中文注释显示为utf8字符编码数字<br>解决方法：file-&gt;settings-&gt;editor-&gt;file encodings<br>勾选（Transparent native-to-ascii converstion）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;注释中文乱码&quot;&gt;&lt;a href=&quot;#注释中文乱码&quot; class=&quot;headerlink&quot; title=&quot;注释中文乱码&quot;&gt;&lt;/a&gt;注释中文乱码&lt;/h3&gt;&lt;p&gt;已设置全局编码格式UTF-8，项目编码格式UTF-8，中文不能正常显示&lt;br&gt;如config.propert</summary>
+      
+    
+    
+    
+    <category term="通用" scheme="https://guobq.github.io/categories/%E9%80%9A%E7%94%A8/"/>
+    
+    <category term="工具与配置" scheme="https://guobq.github.io/categories/%E9%80%9A%E7%94%A8/%E5%B7%A5%E5%85%B7%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="idea设置" scheme="https://guobq.github.io/tags/idea%E8%AE%BE%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Battery Historian--Android耗电分析</title>
     <link href="https://guobq.github.io/bq/5a092796.html"/>
     <id>https://guobq.github.io/bq/5a092796.html</id>
@@ -522,33 +548,6 @@
     
     
     <category term="Yapi" scheme="https://guobq.github.io/tags/Yapi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>专项测试</title>
-    <link href="https://guobq.github.io/bq/96648031.html"/>
-    <id>https://guobq.github.io/bq/96648031.html</id>
-    <published>2020-08-17T16:00:00.000Z</published>
-    <updated>2021-04-11T15:05:09.950Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="压力崩溃"><a href="#压力崩溃" class="headerlink" title="压力崩溃"></a>压力崩溃</h3><p>monkey （adb命令）</p><h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><h4 id="Maxim"><a href="#Maxim" class="headerlink" title="Maxim"></a>Maxim</h4><p><a href="https://github.com/zhangzhao4444/Maxim">https://github.com/zhangzhao4444/Maxim</a></p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell CLASSPATH=/data/local/tmp/monkey.jar:/data/local/tmp/framework.jar exec app_process /system/bin tv.panda.test.monkey.Monkey -p com.panda.videoliveplatform --uiautomatormix --running-minutes 6 -v -v --throttle 400 --output-directory /data/local/tmp/</span><br><span class="line"><span class="meta">#</span><span class="bash"> gitbash下</span></span><br><span class="line">adb shell CLASSPATH=//data/local/tmp/monkey.jar://data/local/tmp/framework.jar exec app_process //system/bin tv.panda.test.monkey.Monkey -p com.panda.videoliveplatform --uiautomatormix --running-minutes 6 -v -v --throttle 400 --output-directory //data/local/tmp/</span><br></pre></td></tr></table></figure><h4 id="NoSmoke"><a href="#NoSmoke" class="headerlink" title="NoSmoke"></a>NoSmoke</h4><p><a href="https://github.com/macacajs/NoSmoke">https://github.com/macacajs/NoSmoke</a></p><h3 id="性能分析工具"><a href="#性能分析工具" class="headerlink" title="性能分析工具"></a>性能分析工具</h3><p>sdk tools下性能分析工具monitor mothod</p><p>执行android-sdk-windows\tools\monitor.bat即可运行，可以分析app运行的性能。</p><p>studio mothod工具<br>mothod cpu mem</p><p>堆文件hprof diff<br>hprof-conv   xx.hprof    xx.jvm.hprof</p><p>jvm内存分析工具（可分析上面的堆文件）<br>jvisualvm</p><h3 id="卡顿检测"><a href="#卡顿检测" class="headerlink" title="卡顿检测"></a>卡顿检测</h3><p>systrace工具</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">py -2 /d/software/Android/android-sdk/platform-tools/systrace</span><br></pre></td></tr></table></figure><h3 id="关键硬件资源的占⽤率"><a href="#关键硬件资源的占⽤率" class="headerlink" title="关键硬件资源的占⽤率"></a>关键硬件资源的占⽤率</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys procstats --hours 3</span><br><span class="line">adb shell dumpsys meminfo package_name|pid [-d]</span><br><span class="line">adb shell dumpsys batterystats --charged packagename</span><br><span class="line">adb shell dumpsys netstats detail</span><br><span class="line">adb shell dumpsys gfxinfo package-name</span><br></pre></td></tr></table></figure><h3 id="录屏截图分析"><a href="#录屏截图分析" class="headerlink" title="录屏截图分析"></a>录屏截图分析</h3><h4 id="录屏"><a href="#录屏" class="headerlink" title="录屏"></a>录屏</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell screenrecord --bugreport  --time-limit 30  //xx/xx.mp4</span><br></pre></td></tr></table></figure><h4 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screencap /xx/xx.png</span><br></pre></td></tr></table></figure><h4 id="拆帧工具ffmpeg"><a href="#拆帧工具ffmpeg" class="headerlink" title="拆帧工具ffmpeg"></a>拆帧工具ffmpeg</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i xxxx.mp4 -r 20 img-%03d.png</span><br><span class="line">ffmpeg -i xxxx.mp -ss 00:00:08.88 -to 00:00:11.11 xx.gif</span><br></pre></td></tr></table></figure><h3 id="网页资源加载分析"><a href="#网页资源加载分析" class="headerlink" title="网页资源加载分析"></a>网页资源加载分析</h3><p>webview<br>w3c performance api</p><h3 id="example"><a href="#example" class="headerlink" title="example"></a>example</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">查看activity的创建时间</span><br><span class="line">package=com.xueqiu.android</span><br><span class="line">清理缓存数据: adb shell pm clear $package</span><br><span class="line">停止进程: adb shell am force-stop $package</span><br><span class="line">启动app: adb shell an start -S -W $package/.view.WelcomeActivityAlias</span><br><span class="line">获取数据:</span><br><span class="line">adb logcat | grep &quot;Displayed &quot;</span><br><span class="line"></span><br><span class="line">对接influxdb&amp;Grafana可视化监控平台</span><br><span class="line">pids=$(adb shell ps -ef | grep xxx | head -1 |grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs | sed &#x27;s# #,#g&#x27;)</span><br><span class="line">adb shell top -d 1 -n 1 -p $pids</span><br><span class="line">adb shell top -d 1 -p $pids -o %CPU,%MEM,NAME -n 1 -b | grep xxx</span><br><span class="line"></span><br><span class="line">pids=$(adb shell ps -ef | grep xxx | grep -v grep | awk &#x27;&#123;print $2&#125;&#x27; | xargs | sed &#x27;s# #,#g&#x27;)</span><br><span class="line">for(i=0;&lt;20:;++); do</span><br><span class="line">content=$(adb shell top -d 1 p $pids -0 %CPU,%MEM,NAME n 1 -b | grep bili)</span><br><span class="line">echo $content</span><br><span class="line">cpu=$(echo &quot;Sconten&quot; | awk print $1)</span><br><span class="line">mem=$(echo &quot;Scontent&quot; | awk &#123;print $2&#125;)</span><br><span class="line">echo curl -i -XPOST &#x27;http://192.168.13.1:8086/write?db=testdb&quot; --data-binary &quot;cpu.user-$USER.app=bill value=$cpu&quot;</span><br><span class="line">echo curl -i -XPOST &#x27;http://192.168.13.1:8086/write?db=testdb&#x27; --data-binary &quot;mem.user-$USER.app=bill value=$mem&quot;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;压力崩溃&quot;&gt;&lt;a href=&quot;#压力崩溃&quot; class=&quot;headerlink&quot; title=&quot;压力崩溃&quot;&gt;&lt;/a&gt;压力崩溃&lt;/h3&gt;&lt;p&gt;monkey （adb命令）&lt;/p&gt;
-&lt;h3 id=&quot;遍历&quot;&gt;&lt;a href=&quot;#遍历&quot; class=&quot;headerlink</summary>
-      
-    
-    
-    
-    <category term="Test" scheme="https://guobq.github.io/categories/Test/"/>
-    
-    <category term="专项测试" scheme="https://guobq.github.io/categories/Test/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/"/>
-    
-    
-    <category term="专项测试" scheme="https://guobq.github.io/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
