@@ -478,7 +478,7 @@
     <link href="https://guobq.github.io/bq/7e386764.html"/>
     <id>https://guobq.github.io/bq/7e386764.html</id>
     <published>2020-09-07T16:00:00.000Z</published>
-    <updated>2021-09-18T16:55:01.337Z</updated>
+    <updated>2021-09-18T16:55:24.712Z</updated>
     
     <content type="html"><![CDATA[<h3 id="注释中文乱码"><a href="#注释中文乱码" class="headerlink" title="注释中文乱码"></a>注释中文乱码</h3><p>已设置全局编码格式UTF-8，项目编码格式UTF-8，中文不能正常显示<br>如config.properties，里面中文注释显示为utf8字符编码数字<br>解决方法：file-&gt;settings-&gt;editor-&gt;file encodings<br>勾选（Transparent native-to-ascii converstion）</p>]]></content>
     
