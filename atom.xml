@@ -6,7 +6,7 @@
   <link href="https://guobq.github.io/atom.xml" rel="self"/>
   
   <link href="https://guobq.github.io/"/>
-  <updated>2021-11-17T14:28:01.549Z</updated>
+  <updated>2021-11-17T14:28:23.826Z</updated>
   <id>https://guobq.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://guobq.github.io/bq/10e1c3ea.html"/>
     <id>https://guobq.github.io/bq/10e1c3ea.html</id>
     <published>2021-10-13T16:00:00.000Z</published>
-    <updated>2021-11-17T14:28:01.549Z</updated>
+    <updated>2021-11-17T14:28:23.826Z</updated>
     
     <content type="html"><![CDATA[<h2 id="MYSQL的数据迁移到SQLite"><a href="#MYSQL的数据迁移到SQLite" class="headerlink" title="MYSQL的数据迁移到SQLite"></a>MYSQL的数据迁移到SQLite</h2><h3 id="1-连接上MYSQL"><a href="#1-连接上MYSQL" class="headerlink" title="1. 连接上MYSQL"></a>1. 连接上MYSQL</h3><h3 id="2-sql-file导入MYSQL"><a href="#2-sql-file导入MYSQL" class="headerlink" title="2. sql file导入MYSQL"></a>2. <code>sql</code> file导入MYSQL</h3><h3 id="3-建立空SQLite数据库"><a href="#3-建立空SQLite数据库" class="headerlink" title="3. 建立空SQLite数据库"></a>3. 建立空SQLite数据库</h3><p>使用命令行工具创建空数据库</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> sqlite3 SQLITEDB.db</span></span><br></pre></td></tr></table></figure><h3 id="4-打开SQLite数据库"><a href="#4-打开SQLite数据库" class="headerlink" title="4. 打开SQLite数据库"></a>4. 打开SQLite数据库</h3><p><img src="https://raw.githubusercontent.com/guobq/mysource/master/PictureBed/Navicat%E6%89%93%E5%BC%80SQLite%E6%95%B0%E6%8D%AE%E5%BA%93.png"></p><h3 id="5-导出MYSQL到SQLite-database"><a href="#5-导出MYSQL到SQLite-database" class="headerlink" title="5. 导出MYSQL到SQLite database"></a>5. 导出MYSQL到SQLite database</h3><p><img src="https://raw.githubusercontent.com/guobq/mysource/master/PictureBed/Navicat%E5%AF%BC%E5%87%BAMYSQL%E5%88%B0SQLite%20database.png"></p><p><img src="https://raw.githubusercontent.com/guobq/mysource/master/PictureBed/Navicat%E5%AF%BC%E5%87%BAMYSQL%E5%88%B0SQLite.png"></p><p>执行数据传输后，查看文件size，此时已有内容。</p><h3 id="6-验证内容"><a href="#6-验证内容" class="headerlink" title="6. 验证内容"></a>6. 验证内容</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> sqlite3 SQLITEDB.db</span></span><br><span class="line"><span class="meta">sqilte3&gt;</span><span class="bash"> .tables</span></span><br></pre></td></tr></table></figure><p>或用DataGrip打开<code>SQLITEDB.db</code>查看</p><h2 id="SQLite数据迁移到MYSQL"><a href="#SQLite数据迁移到MYSQL" class="headerlink" title="SQLite数据迁移到MYSQL"></a>SQLite数据迁移到MYSQL</h2><p>SQLite的数据迁移到MYSQL的方法基本一致，最大的区别是在<code>第5步数据传输</code>时，对应的<code>源</code>和<code>目标</code>做一个对调，源为SQLite，目的为MYSQL的数据库。数据传输完成后，即可以看到数据导入到了MYSQL database中。</p>]]></content>
     
