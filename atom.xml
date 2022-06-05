@@ -6,7 +6,7 @@
   <link href="https://guobq.github.io/atom.xml" rel="self"/>
   
   <link href="https://guobq.github.io/"/>
-  <updated>2021-11-17T14:28:23.826Z</updated>
+  <updated>2022-06-05T15:22:56.503Z</updated>
   <id>https://guobq.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python及jenkins入门推荐</title>
+    <link href="https://guobq.github.io/bq/e4cfea37.html"/>
+    <id>https://guobq.github.io/bq/e4cfea37.html</id>
+    <published>2022-06-05T14:53:52.910Z</published>
+    <updated>2022-06-05T15:22:56.503Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><h3 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h3><p><a href="https://blog.csdn.net/sinat_38682860/article/details/85840247">https://blog.csdn.net/sinat_38682860/article/details/85840247</a></p><h3 id="学习视频"><a href="#学习视频" class="headerlink" title="学习视频"></a>学习视频</h3><p><a href="https://www.bilibili.com/read/cv6218127">https://www.bilibili.com/read/cv6218127</a></p><h3 id="学习要点"><a href="#学习要点" class="headerlink" title="学习要点"></a>学习要点</h3><p><a href="https://blog.51cto.com/mingongge/3130574">https://blog.51cto.com/mingongge/3130574</a></p><h3 id="pytest常见思路及用法"><a href="#pytest常见思路及用法" class="headerlink" title="pytest常见思路及用法"></a>pytest常见思路及用法</h3><p><a href="https://www.its304.com/article/weixin_42530697/96841071">https://www.its304.com/article/weixin_42530697/96841071</a></p><h3 id="自动化测试常用库"><a href="#自动化测试常用库" class="headerlink" title="自动化测试常用库"></a>自动化测试常用库</h3><p><a href="https://blog.csdn.net/weixin_39962285/article/details/110557822">https://blog.csdn.net/weixin_39962285/article/details/110557822</a></p><h3 id="pytest常用插件"><a href="#pytest常用插件" class="headerlink" title="pytest常用插件"></a>pytest常用插件</h3><p><a href="https://www.bytebaike.com/pytest/pytest%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6.html">https://www.bytebaike.com/pytest/pytest%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6.html</a><br><a href="https://xie.infoq.cn/article/f40b3cfd96a4c0dbdd9102da1">https://xie.infoq.cn/article/f40b3cfd96a4c0dbdd9102da1</a></p><h2 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h2><h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><p><a href="https://www.jenkins.io/zh/doc/tutorials/">https://www.jenkins.io/zh/doc/tutorials/</a></p><h3 id="中文文档"><a href="#中文文档" class="headerlink" title="中文文档"></a>中文文档</h3><p><a href="https://www.w3cschool.cn/jenkins/">https://www.w3cschool.cn/jenkins/</a></p><h3 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h3><p><a href="https://www.jianshu.com/p/d6e9e63716a4">https://www.jianshu.com/p/d6e9e63716a4</a></p><h2 id="视频资料"><a href="#视频资料" class="headerlink" title="视频资料"></a>视频资料</h2><h3 id="python-1"><a href="#python-1" class="headerlink" title="python"></a>python</h3><p>链接：<a href="https://pan.baidu.com/s/1TIO2ylKSh22KS-xAYPKDHQ">https://pan.baidu.com/s/1TIO2ylKSh22KS-xAYPKDHQ</a><br>提取码：xfnb</p><h3 id="jenkins-1"><a href="#jenkins-1" class="headerlink" title="jenkins"></a>jenkins</h3><p>链接：<a href="https://pan.baidu.com/s/1nGj6nLu5pXfjAIETFrXNDg">https://pan.baidu.com/s/1nGj6nLu5pXfjAIETFrXNDg</a><br>提取码：xfnb</p><h3 id="测开及性能"><a href="#测开及性能" class="headerlink" title="测开及性能"></a>测开及性能</h3><p>链接：<a href="https://pan.baidu.com/s/1MRkKsF6D-hLtRcdh5a5qZw">https://pan.baidu.com/s/1MRkKsF6D-hLtRcdh5a5qZw</a><br>提取码：xfnb</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;python&quot;&gt;&lt;a href=&quot;#python&quot; class=&quot;headerlink&quot; title=&quot;python&quot;&gt;&lt;/a&gt;python&lt;/h2&gt;&lt;h3 id=&quot;推荐书籍&quot;&gt;&lt;a href=&quot;#推荐书籍&quot; class=&quot;headerlink&quot; title=&quot;推</summary>
+      
+    
+    
+    
+    <category term="Test" scheme="https://guobq.github.io/categories/Test/"/>
+    
+    <category term="tool" scheme="https://guobq.github.io/categories/Test/tool/"/>
+    
+    
+    <category term="python" scheme="https://guobq.github.io/tags/python/"/>
+    
+    <category term="jenkins" scheme="https://guobq.github.io/tags/jenkins/"/>
+    
+  </entry>
   
   <entry>
     <title>通过Navicat做MYSQL和SQLite的数据迁移</title>
@@ -526,32 +554,6 @@
     
     
     <category term="idea设置" scheme="https://guobq.github.io/tags/idea%E8%AE%BE%E7%BD%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Battery Historian--Android耗电分析</title>
-    <link href="https://guobq.github.io/bq/5a092796.html"/>
-    <id>https://guobq.github.io/bq/5a092796.html</id>
-    <published>2020-08-18T16:00:00.000Z</published>
-    <updated>2021-04-11T14:31:32.202Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Battery-Historian服务部署"><a href="#Battery-Historian服务部署" class="headerlink" title="Battery Historian服务部署"></a>Battery Historian服务部署</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker search battery  </span><br><span class="line">docker run --name=battery -d -p 9999:9999 bhaavan/battery-historian</span><br><span class="line"><span class="meta">#</span><span class="bash"> 如有代理</span></span><br><span class="line">docker run -p port_number：9999 gcr.io/android-battery-historian/stable:3.0 --port 9999</span><br></pre></td></tr></table></figure><p>浏览器打开：<a href="http://host:9999/">http://host:9999/</a></p><p>耗电统计是系统组件，伴随系统运行的整个过程，也就是说系统运行他就一直在统计。这个统计是基于软件层面实现的，不同的硬件模块配置了不同的<a href="https://links.jianshu.com/go?to=http://androidxref.com/8.0.0_r4/xref/frameworks/base/core/res/res/xml/power_profile.xml">参数</a>，然后使用算法进行估算，power_profile文件的参数值OEM厂商必须测量并提供前实际值，所以不同的厂商是不一样的。另外获取统计报告的时候需要将统计重置，并断开usb连接（连接时充电影响统计有效性）</p><h3 id="设备耗电报告获取分析"><a href="#设备耗电报告获取分析" class="headerlink" title="设备耗电报告获取分析"></a>设备耗电报告获取分析</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 默认情况下，统计信息是在运行基础上维护的，Android也不记录特定于应用程序的用户空间wakelock转换的时间戳。如果您希望Historian在时间线上显示关于每个单独唤醒锁的详细信息，则应在开始实验之前使用以下命令启用完整唤醒锁报告（启用完全唤醒锁定报告，电池历史记录将在几个小时内溢出。使用此选项进行短时间测试（3-4小时））</span></span><br><span class="line">adb shell dumpsys batterystats --enable full-wake-history</span><br><span class="line"><span class="meta">#</span><span class="bash"> 采集报告前将battery统计状态重置，重置命令结束后断开usb，操作app进行相应活动，测试结束后用获取报告命令导出统计文件包</span></span><br><span class="line">adb shell dumpsys batterystats --reset</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安卓7.0及以上</span></span><br><span class="line">adb bugreport &gt; bugreport.zip</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安卓6.0及以下</span></span><br><span class="line">adb bugreport &gt; bugreport.txt</span><br></pre></td></tr></table></figure><p>报告上传上述服务，可查看分析结果</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;Battery-Historian服务部署&quot;&gt;&lt;a href=&quot;#Battery-Historian服务部署&quot; class=&quot;headerlink&quot; title=&quot;Battery Historian服务部署&quot;&gt;&lt;/a&gt;Battery Historian服务部署&lt;/</summary>
-      
-    
-    
-    
-    <category term="Test" scheme="https://guobq.github.io/categories/Test/"/>
-    
-    <category term="专项测试" scheme="https://guobq.github.io/categories/Test/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/"/>
-    
-    
-    <category term="专项测试" scheme="https://guobq.github.io/tags/%E4%B8%93%E9%A1%B9%E6%B5%8B%E8%AF%95/"/>
     
   </entry>
   
