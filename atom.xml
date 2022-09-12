@@ -6,7 +6,7 @@
   <link href="https://guobq.github.io/atom.xml" rel="self"/>
   
   <link href="https://guobq.github.io/"/>
-  <updated>2022-06-05T15:22:56.503Z</updated>
+  <updated>2022-09-12T15:45:09.455Z</updated>
   <id>https://guobq.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>性能&amp;稳定性测试资料</title>
+    <link href="https://guobq.github.io/bq/df62e891.html"/>
+    <id>https://guobq.github.io/bq/df62e891.html</id>
+    <published>2022-09-11T16:00:00.000Z</published>
+    <updated>2022-09-12T15:45:09.455Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h2><p><strong><em>让数据证明结论，而不是下结论</em></strong></p><p>性能测试是一种非功能软件测试技术，能够确定应用程序在给定工作负载下的稳定性、速度、可伸缩性和响应能力。 性能测试是确保软件质量的关键步骤，但遗憾的是，它经常被视为单独的事后步骤，并且在功能测试完成之后才进行，在大多数情况下，甚至要在代码准备发布之后才进行。<br>性能测试的目的包括评估应用程序输出、处理速度、数据传输速度、网络带宽使用、最大并发用户、内存利用率、工作负载效率和命令响应时间。</p><h4 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h4><p><a href="https://help.aliyun.com/document_detail/74223.html">https://help.aliyun.com/document_detail/74223.html</a></p><h4 id="基础理论"><a href="#基础理论" class="headerlink" title="基础理论"></a>基础理论</h4><p><a href="https://www.cnblogs.com/puresoul/p/5456855.html">https://www.cnblogs.com/puresoul/p/5456855.html</a></p><h4 id="并发虚拟用户、RPS、TPS"><a href="#并发虚拟用户、RPS、TPS" class="headerlink" title="并发虚拟用户、RPS、TPS"></a>并发虚拟用户、RPS、TPS</h4><p><a href="https://help.aliyun.com/document_detail/29343.html">https://help.aliyun.com/document_detail/29343.html</a></p><h4 id="性能测试过程关键技术规范"><a href="#性能测试过程关键技术规范" class="headerlink" title="性能测试过程关键技术规范"></a>性能测试过程关键技术规范</h4><p><a href="https://help.aliyun.com/document_detail/29337.html">https://help.aliyun.com/document_detail/29337.html</a></p><h4 id="测试指标"><a href="#测试指标" class="headerlink" title="测试指标"></a>测试指标</h4><p><a href="https://help.aliyun.com/document_detail/29338.html">https://help.aliyun.com/document_detail/29338.html</a></p><h4 id="测试流程"><a href="#测试流程" class="headerlink" title="测试流程"></a>测试流程</h4><p><a href="https://www.cnblogs.com/puresoul/p/5463477.html">https://www.cnblogs.com/puresoul/p/5463477.html</a></p><h4 id="分析及调优流程和方法"><a href="#分析及调优流程和方法" class="headerlink" title="分析及调优流程和方法"></a>分析及调优流程和方法</h4><p><a href="https://help.aliyun.com/document_detail/29342.html">https://help.aliyun.com/document_detail/29342.html</a></p><h4 id="线上压测要素"><a href="#线上压测要素" class="headerlink" title="线上压测要素"></a>线上压测要素</h4><p><a href="https://help.aliyun.com/document_detail/91580.html">https://help.aliyun.com/document_detail/91580.html</a></p><h4 id="工具选型"><a href="#工具选型" class="headerlink" title="工具选型"></a>工具选型</h4><p><a href="https://www.cnblogs.com/puresoul/p/5503134.html">https://www.cnblogs.com/puresoul/p/5503134.html</a></p><h4 id="性能压测工具对比"><a href="#性能压测工具对比" class="headerlink" title="性能压测工具对比"></a>性能压测工具对比</h4><p><a href="https://help.aliyun.com/document_detail/434264.html">https://help.aliyun.com/document_detail/434264.html</a></p><h3 id="稳定性测试-可靠性"><a href="#稳定性测试-可靠性" class="headerlink" title="稳定性测试(可靠性)"></a>稳定性测试(可靠性)</h3><p>稳定性测试是在保证功能完整正确的前提下，必不可少的一项测试内容，通过对软件稳定性的测试可以观察在一个运行周期内、一定的压力条件下，软件的出错机率、性能劣化趋势等。进而大大减少软件上线后的崩溃卡死等现象，为软件的逐步优化提供方向及验证。<br>无论是服务器端还是客户端，对稳定性的测试无非是就是测试系统的长期稳定运行能力。在系统运行过程中，对系统施压，观察系统的各种性能指标，以及服务器的指标。不同于服务器端的稳定性测试的是，客户端软件是运行在单机环境下，所以不存在并发用户数的概念，取而代之的是一些多进程长时间的操作，以及各种复杂的并发场景的组合。一款客户端软件，它的稳定性测试需求基本包括：</p><ul><li>1、长时间运行及各种操作下，软件的稳定性以及各种性能指标的劣化趋势。</li><li>2、多进程或多线程运行时的稳定性。</li><li>3、不同操作系统，在不同宿主软件下运行的稳定性。</li></ul><h4 id="基础理论-1"><a href="#基础理论-1" class="headerlink" title="基础理论"></a>基础理论</h4><p><a href="https://www.cnblogs.com/AlwinXu/p/5456900.html">https://www.cnblogs.com/AlwinXu/p/5456900.html</a></p><h4 id="测试流程-1"><a href="#测试流程-1" class="headerlink" title="测试流程"></a>测试流程</h4><p><a href="https://jiagoushi.pro/importance-stability-and-reliability-testing-software-development">https://jiagoushi.pro/importance-stability-and-reliability-testing-software-development</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;性能测试&quot;&gt;&lt;a href=&quot;#性能测试&quot; class=&quot;headerlink&quot; title=&quot;性能测试&quot;&gt;&lt;/a&gt;性能测试&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;让数据证明结论，而不是下结论&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;性能测试是一种非功能软件测试</summary>
+      
+    
+    
+    
+    <category term="Test" scheme="https://guobq.github.io/categories/Test/"/>
+    
+    
+    <category term="performance" scheme="https://guobq.github.io/tags/performance/"/>
+    
+    <category term="stability" scheme="https://guobq.github.io/tags/stability/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python及jenkins入门推荐</title>
     <link href="https://guobq.github.io/bq/e4cfea37.html"/>
     <id>https://guobq.github.io/bq/e4cfea37.html</id>
     <published>2022-06-05T14:53:52.910Z</published>
-    <updated>2022-06-05T15:22:56.503Z</updated>
+    <updated>2022-06-05T15:23:22.079Z</updated>
     
     <content type="html"><![CDATA[<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><h3 id="推荐书籍"><a href="#推荐书籍" class="headerlink" title="推荐书籍"></a>推荐书籍</h3><p><a href="https://blog.csdn.net/sinat_38682860/article/details/85840247">https://blog.csdn.net/sinat_38682860/article/details/85840247</a></p><h3 id="学习视频"><a href="#学习视频" class="headerlink" title="学习视频"></a>学习视频</h3><p><a href="https://www.bilibili.com/read/cv6218127">https://www.bilibili.com/read/cv6218127</a></p><h3 id="学习要点"><a href="#学习要点" class="headerlink" title="学习要点"></a>学习要点</h3><p><a href="https://blog.51cto.com/mingongge/3130574">https://blog.51cto.com/mingongge/3130574</a></p><h3 id="pytest常见思路及用法"><a href="#pytest常见思路及用法" class="headerlink" title="pytest常见思路及用法"></a>pytest常见思路及用法</h3><p><a href="https://www.its304.com/article/weixin_42530697/96841071">https://www.its304.com/article/weixin_42530697/96841071</a></p><h3 id="自动化测试常用库"><a href="#自动化测试常用库" class="headerlink" title="自动化测试常用库"></a>自动化测试常用库</h3><p><a href="https://blog.csdn.net/weixin_39962285/article/details/110557822">https://blog.csdn.net/weixin_39962285/article/details/110557822</a></p><h3 id="pytest常用插件"><a href="#pytest常用插件" class="headerlink" title="pytest常用插件"></a>pytest常用插件</h3><p><a href="https://www.bytebaike.com/pytest/pytest%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6.html">https://www.bytebaike.com/pytest/pytest%E5%B8%B8%E7%94%A8%E6%8F%92%E4%BB%B6.html</a><br><a href="https://xie.infoq.cn/article/f40b3cfd96a4c0dbdd9102da1">https://xie.infoq.cn/article/f40b3cfd96a4c0dbdd9102da1</a></p><h2 id="jenkins"><a href="#jenkins" class="headerlink" title="jenkins"></a>jenkins</h2><h3 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h3><p><a href="https://www.jenkins.io/zh/doc/tutorials/">https://www.jenkins.io/zh/doc/tutorials/</a></p><h3 id="中文文档"><a href="#中文文档" class="headerlink" title="中文文档"></a>中文文档</h3><p><a href="https://www.w3cschool.cn/jenkins/">https://www.w3cschool.cn/jenkins/</a></p><h3 id="常用插件"><a href="#常用插件" class="headerlink" title="常用插件"></a>常用插件</h3><p><a href="https://www.jianshu.com/p/d6e9e63716a4">https://www.jianshu.com/p/d6e9e63716a4</a></p><h2 id="视频资料"><a href="#视频资料" class="headerlink" title="视频资料"></a>视频资料</h2><h3 id="python-1"><a href="#python-1" class="headerlink" title="python"></a>python</h3><p>链接：<a href="https://pan.baidu.com/s/1TIO2ylKSh22KS-xAYPKDHQ">https://pan.baidu.com/s/1TIO2ylKSh22KS-xAYPKDHQ</a><br>提取码：xfnb</p><h3 id="jenkins-1"><a href="#jenkins-1" class="headerlink" title="jenkins"></a>jenkins</h3><p>链接：<a href="https://pan.baidu.com/s/1nGj6nLu5pXfjAIETFrXNDg">https://pan.baidu.com/s/1nGj6nLu5pXfjAIETFrXNDg</a><br>提取码：xfnb</p><h3 id="测开及性能"><a href="#测开及性能" class="headerlink" title="测开及性能"></a>测开及性能</h3><p>链接：<a href="https://pan.baidu.com/s/1MRkKsF6D-hLtRcdh5a5qZw">https://pan.baidu.com/s/1MRkKsF6D-hLtRcdh5a5qZw</a><br>提取码：xfnb</p>]]></content>
     
@@ -528,32 +555,6 @@
     <category term="influxdb" scheme="https://guobq.github.io/tags/influxdb/"/>
     
     <category term="Grafana" scheme="https://guobq.github.io/tags/Grafana/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>idea设置</title>
-    <link href="https://guobq.github.io/bq/7e386764.html"/>
-    <id>https://guobq.github.io/bq/7e386764.html</id>
-    <published>2020-09-07T16:00:00.000Z</published>
-    <updated>2021-09-18T16:55:24.712Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="注释中文乱码"><a href="#注释中文乱码" class="headerlink" title="注释中文乱码"></a>注释中文乱码</h3><p>已设置全局编码格式UTF-8，项目编码格式UTF-8，中文不能正常显示<br>如config.properties，里面中文注释显示为utf8字符编码数字<br>解决方法：file-&gt;settings-&gt;editor-&gt;file encodings<br>勾选（Transparent native-to-ascii converstion）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;注释中文乱码&quot;&gt;&lt;a href=&quot;#注释中文乱码&quot; class=&quot;headerlink&quot; title=&quot;注释中文乱码&quot;&gt;&lt;/a&gt;注释中文乱码&lt;/h3&gt;&lt;p&gt;已设置全局编码格式UTF-8，项目编码格式UTF-8，中文不能正常显示&lt;br&gt;如config.propert</summary>
-      
-    
-    
-    
-    <category term="通用" scheme="https://guobq.github.io/categories/%E9%80%9A%E7%94%A8/"/>
-    
-    <category term="工具与配置" scheme="https://guobq.github.io/categories/%E9%80%9A%E7%94%A8/%E5%B7%A5%E5%85%B7%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="idea设置" scheme="https://guobq.github.io/tags/idea%E8%AE%BE%E7%BD%AE/"/>
     
   </entry>
   
